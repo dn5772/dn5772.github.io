@@ -44,7 +44,7 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
-    favicon: static/pokeball_icon.png
+    favicon: /pokeball_icon.png
 
     footer:
         since: 2020
