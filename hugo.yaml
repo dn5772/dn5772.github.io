@@ -60,7 +60,7 @@ params:
         avatar:
             enabled: true
             local: true
-            src: img/ditto_2.jpeg
+            src: img/ditto_2.jpg
 
     article:
         math: false
@@ -153,6 +153,7 @@ params:
         cusdis:
             host:
             id:
+
     widgets:
         homepage:
             - type: search
