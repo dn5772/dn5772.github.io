@@ -60,7 +60,7 @@ params:
         avatar:
             enabled: true
             local: true
-            src: img/avatar.png
+            src: img/ditto.jpeg
 
     article:
         math: false
