@@ -2,40 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.org/ko/categories/</loc>
+    <loc>https://dn5772.github.io/ko/categories/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="en-us"
-                href="https://example.org/categories/"
+                hreflang="ko"
+                href="https://dn5772.github.io/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ko"
-                href="https://example.org/ko/categories/"
+                href="https://dn5772.github.io/ko/categories/"
                 />
   </url><url>
-    <loc>https://example.org/ko/tags/</loc>
+    <loc>https://dn5772.github.io/ko/tags/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="en-us"
-                href="https://example.org/tags/"
+                hreflang="ko"
+                href="https://dn5772.github.io/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ko"
-                href="https://example.org/ko/tags/"
+                href="https://dn5772.github.io/ko/tags/"
                 />
   </url><url>
-    <loc>https://example.org/ko/</loc>
+    <loc>https://dn5772.github.io/ko/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="en-us"
-                href="https://example.org/"
+                hreflang="ko"
+                href="https://dn5772.github.io/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="ko"
-                href="https://example.org/ko/"
+                href="https://dn5772.github.io/ko/"
                 />
   </url>
 </urlset>
