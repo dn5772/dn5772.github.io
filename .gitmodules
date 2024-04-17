@@ -1,0 +1,4 @@
+[submodule "public"]
+	path = public
+	url = https://github.com/dn5772/dn5772.github.io.git
+	branch = gh-pages
