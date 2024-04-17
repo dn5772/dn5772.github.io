@@ -17,15 +17,15 @@ languages:
     ko:
         languageName: 한국어
         title: 대니짱
-        weight: 2
+        weight: 1
         params:
-            description: 예시
+            description: DannyZZang Blog
     en:
         languageName: English
         title: DannyZZang
-        weight: 1
+        weight: 2
         params:
-            description: Example description
+            description: DannyZZang Blog
 
 services:
     # Change it to your Disqus shortname before using
@@ -60,7 +60,7 @@ params:
         avatar:
             enabled: true
             local: true
-            src: img/ditto.jpeg
+            src: img/ditto_2.jpeg
 
     article:
         math: false
