@@ -2,3 +2,6 @@
 	path = public
 	url = https://github.com/dn5772/dn5772.github.io.git
 	branch = gh-pages
+[submodule "themes/stack"]
+	path = themes/stack
+	url = https://github.com/CaiJimmy/hugo-theme-stack/
