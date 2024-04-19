@@ -28,11 +28,11 @@ categories:
 너무 귀여운 케이크를 준비해줬다 흑흑\
 조그만 손으로 조물조물 만든걸 생각하니까 눈물이 앞을 가린다
 
-</img><img src="3.jpeg" width="50%" height="50%" title="3"></img>
+<img src="3.jpeg" width="50%" height="50%" title="3"></img>
 
 오랜만에 같이 마라탕 먹어주고 출근 전까지 알라딘에서 책구경했음
 
-<img src="4.jpg" width="50%" height="50%" title="4"></img><img src="5.jpg" width="50%" height="50%" title="5"></img>
+<img src="4.jpg" width="50%" height="50%" title="4"> </img><img src="5.jpg" width="50%" height="50%" title="5"></img>
 
 메타몽님피아 = 김뚜리 = 수바오\
 수현이 사진이 개똑같은데 못올려서 너무 아쉽당,,
