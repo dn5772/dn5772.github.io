@@ -3,12 +3,12 @@ title: 만 23세
 description: 23번째 생일
 slug: 만-23세
 date: 2024-04-18
-image: cover.jpg
+image:
 tags:
-    - daily
-	- birthday
+  - daily
+  - birthday
 categories:
-    - daily
+  - daily
 ---
 # 만 "23세"
 
