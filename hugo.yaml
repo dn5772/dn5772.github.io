@@ -204,7 +204,7 @@ menu:
         - identifier: categories
           name: Categories
           url: /categories
-          weight: -100
+          weight: 2
           params:
             icon: categories
             newTab: false
