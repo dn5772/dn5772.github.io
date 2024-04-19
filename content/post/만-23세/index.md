@@ -32,7 +32,7 @@ categories:
 
 오랜만에 같이 마라탕 먹어주고 출근 전까지 알라딘에서 책구경했음
 
-<img src="4.jpg" width="50%" height="50%" title="4"/><img src="5.jpg" width="50%" height="50%" title="5"></img>
+![메타몽님피아](4.jpg)![김뚜리](5.jpg)
 
 메타몽님피아 = 김뚜리 = 수바오\
 수현이 사진이 개똑같은데 못올려서 너무 아쉽당,,
@@ -47,9 +47,9 @@ categories:
 <img src="6.jpeg" width="50%" height="50%" title="6"/><img src="7.jpeg" width="50%" height="50%" title="7"></img>
 
 대창 시켜먹엇는데 진짜 레전드로 맛있었다!\
-일본 분위기 나서 진짜 일본 가고싶었다.
+일본 분위기 나서 진짜 일본 가고싶었음
 
-![8](8.jpeg)
+<img src="8.jpeg" width="100%" height="100%" title="8"></img>
 
 다 먹고 해먹는 야키우동도 진짜 너무 맛있었음\
 다음엔 와서 고기 구워먹어야지
