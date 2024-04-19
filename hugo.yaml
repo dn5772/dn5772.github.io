@@ -2,8 +2,8 @@ baseurl: https://dn5772.github.io
 languageCode: ko
 theme: hugo-theme-stack
 paginate: 3
-title: Example Site
-copyright: Example Person
+title: 대니짱
+copyright:
 
 # Theme i18n support
 # Available values: ar, bn, ca, de, el, en, es, fr, hu, id, it, ja, ko, nl, pt-br, th, uk, zh-cn, zh-hk, zh-tw
@@ -200,7 +200,28 @@ params:
 ### See https://stack.jimmycai.com/config/menu
 ### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
 menu:
-    main: []
+    main:
+        - identifier: home
+          name: Home
+          url: /
+          weight: -100
+          params:
+            icon: home
+            newTab: false
+        - identifier: archivese
+          name: Archivese
+          url: /archivese
+          weight: -100
+          params:
+            icon: archivese
+            newTab: false
+        - identifier: home
+          name: Home
+          url: /
+          weight: -100
+          params:
+            icon: home
+            newTab: true
 
     social:
         - identifier: github
