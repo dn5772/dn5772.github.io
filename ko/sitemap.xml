@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dn5772.github.io/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -15,11 +15,11 @@
                 href="https://dn5772.github.io/"
                 />
   </url><url>
-    <loc>https://dn5772.github.io/tags/birthday/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <loc>https://dn5772.github.io/p/mac/neonim-%EC%84%A4%EC%B9%98/</loc>
+    <lastmod>2024-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dn5772.github.io/categories/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -31,17 +31,23 @@
                 href="https://dn5772.github.io/categories/"
                 />
   </url><url>
-    <loc>https://dn5772.github.io/tags/daily/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <loc>https://dn5772.github.io/tags/install/</loc>
+    <lastmod>2024-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://dn5772.github.io/categories/daily/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <loc>https://dn5772.github.io/tags/neovim/</loc>
+    <lastmod>2024-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/categories/neovim/</loc>
+    <lastmod>2024-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dn5772.github.io/post/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/setting/</loc>
+    <lastmod>2024-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dn5772.github.io/tags/</loc>
-    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+    <lastmod>2024-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -52,6 +58,18 @@
                 hreflang="ko"
                 href="https://dn5772.github.io/tags/"
                 />
+  </url><url>
+    <loc>https://dn5772.github.io/tags/vim/</loc>
+    <lastmod>2024-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/birthday/</loc>
+    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/daily/</loc>
+    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/categories/daily/</loc>
+    <lastmod>2024-04-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dn5772.github.io/p/%EB%A7%8C-23%EC%84%B8/</loc>
     <lastmod>2024-04-18T00:00:00+00:00</lastmod>
