@@ -20,10 +20,12 @@
     네오빔
 &lt;/h3&gt;&lt;p&gt;자기전에 유튜브 보다가 neovim이라는 IDE를 알게됐다.&lt;br&gt;
 내가 주로사용하는 IDE는 VScode와 Pychram인데 neovim이 너무 맘에 들어서 갈아타려고 마음 먹었다.&lt;/p&gt;
-&lt;p&gt;1학년 입학하자마자 C언어 보다 먼저 배운게 vi 사용법 이었기 때문에 vi 사용법도 어느정도 알고 무엇보다 간지가 나서 써보고 싶었다.
+&lt;p&gt;1학년 입학하자마자 C언어 보다 먼저 배운게 vi 사용법 이었기 때문에 vi 사용법도 어느정도 알고있고, 무엇보다 간지가 나서 써보고 싶었다.&lt;br&gt;
 간지가 가장 큰 이유이지만, 다른 이유들도 적어보자면&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;간지가 난다&lt;/li&gt;
+&lt;li&gt;다양한 플러그인&lt;/li&gt;
+&lt;li&gt;키보드만 써서 코딩&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;neovim-설치&#34;&gt;
     &lt;a href=&#34;#neovim-%ec%84%a4%ec%b9%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
@@ -45,7 +47,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nvim
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;로 실행시켜볼 수 있다&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;nvim&lt;/code&gt; 명령어로 실행시켜볼 수 있다&lt;/p&gt;
 &lt;h3 id=&#34;vim-plug-설치&#34;&gt;
     &lt;a href=&#34;#vim-plug-%ec%84%a4%ec%b9%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     vim-plug 설치
@@ -59,7 +61,25 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description>
+&lt;/div&gt;&lt;h4 id=&#34;nerdtree&#34;&gt;
+    &lt;a href=&#34;#nerdtree&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    NERDTree
+&lt;/h4&gt;&lt;p&gt;&lt;code&gt;:NERDTreeToggle&lt;/code&gt;로 키고 끌수있음&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;아이콘 깨질 때&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew tap homebrew/cask-fonts
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;brew install font-hack-nerd-font
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;로 폰트 설치후 터미널 폰트 &lt;code&gt;Hack Nerd Font Mono&lt;/code&gt;로 변경&lt;/p&gt;
+</description>
         </item>
         <item>
         <title>만 23세</title>

@@ -310,7 +310,11 @@
       <ol>
         <li><a href="#네오빔">네오빔</a></li>
         <li><a href="#neovim-설치">Neovim 설치</a></li>
-        <li><a href="#vim-plug-설치">vim-plug 설치</a></li>
+        <li><a href="#vim-plug-설치">vim-plug 설치</a>
+          <ol>
+            <li><a href="#nerdtree">NERDTree</a></li>
+          </ol>
+        </li>
       </ol>
     </li>
   </ol>
@@ -404,10 +408,12 @@
     네오빔
 </h3><p>자기전에 유튜브 보다가 neovim이라는 IDE를 알게됐다.<br>
 내가 주로사용하는 IDE는 VScode와 Pychram인데 neovim이 너무 맘에 들어서 갈아타려고 마음 먹었다.</p>
-<p>1학년 입학하자마자 C언어 보다 먼저 배운게 vi 사용법 이었기 때문에 vi 사용법도 어느정도 알고 무엇보다 간지가 나서 써보고 싶었다.
+<p>1학년 입학하자마자 C언어 보다 먼저 배운게 vi 사용법 이었기 때문에 vi 사용법도 어느정도 알고있고, 무엇보다 간지가 나서 써보고 싶었다.<br>
 간지가 가장 큰 이유이지만, 다른 이유들도 적어보자면</p>
 <ol>
 <li>간지가 난다</li>
+<li>다양한 플러그인</li>
+<li>키보드만 써서 코딩</li>
 </ol>
 <h3 id="neovim-설치">
     <a href="#neovim-%ec%84%a4%ec%b9%98" class="header-anchor">#</a>
@@ -429,7 +435,7 @@
 <pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">nvim
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>로 실행시켜볼 수 있다</p>
+</div><p><code>nvim</code> 명령어로 실행시켜볼 수 있다</p>
 <h3 id="vim-plug-설치">
     <a href="#vim-plug-%ec%84%a4%ec%b9%98" class="header-anchor">#</a>
     vim-plug 설치
@@ -443,7 +449,25 @@
 </span></span></span><span class="line"><span class="cl"><span class="s1">      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h4 id="nerdtree">
+    <a href="#nerdtree" class="header-anchor">#</a>
+    NERDTree
+</h4><p><code>:NERDTreeToggle</code>로 키고 끌수있음</p>
+<ul>
+<li>아이콘 깨질 때</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">brew tap homebrew/cask-fonts
+</span></span><span class="line"><span class="cl">brew install font-hack-nerd-font
+</span></span></code></pre></td></tr></table>
 </div>
+</div><p>로 폰트 설치후 터미널 폰트 <code>Hack Nerd Font Mono</code>로 변경</p>
+
 </section>
 
 
