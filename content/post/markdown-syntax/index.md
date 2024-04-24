@@ -8,7 +8,6 @@ tags:
     - html
     - themes
 categories:
-    - themes
     - syntax
 ---
 
