@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Lifespan on 대니짱</title>
+        <link>https://dn5772.github.io/tags/lifespan/</link>
+        <description>Recent content in Lifespan on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Mon, 29 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://dn5772.github.io/tags/lifespan/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>/[LifeSpan/] 0. 기획</title>
+        <link>https://dn5772.github.io/p/lifespan/-0.-%EA%B8%B0%ED%9A%8D/</link>
+        <pubDate>Mon, 29 Apr 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://dn5772.github.io/p/lifespan/-0.-%EA%B8%B0%ED%9A%8D/</guid>
+        <description>&lt;h1 id=&#34;lifespan-0-기획&#34;&gt;
+    &lt;a href=&#34;#lifespan-0-%ea%b8%b0%ed%9a%8d&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    [LifeSpan] 0. 기획
+&lt;/h1&gt;&lt;h2 id=&#34;개요&#34;&gt;
+    &lt;a href=&#34;#%ea%b0%9c%ec%9a%94&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    개요
+&lt;/h2&gt;&lt;p&gt;공부도 해볼겸 간단한 쇼핑몰을 만드는 프로젝트를 진행하려 한다.&lt;br&gt;
+좋은 기회가 생겨서 실제 서비스를 배포하는 단계까지 해 볼 수 있게 되었다,&lt;/p&gt;
+&lt;h3 id=&#34;목표&#34;&gt;
+    &lt;a href=&#34;#%eb%aa%a9%ed%91%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    목표
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;git, github 익히기&lt;/li&gt;
+&lt;li&gt;docker 익히기&lt;/li&gt;
+&lt;li&gt;실제 서비스 배포&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;stack&#34;&gt;
+    &lt;a href=&#34;#stack&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    Stack
+&lt;/h2&gt;&lt;h3 id=&#34;client&#34;&gt;
+    &lt;a href=&#34;#client&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    client
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;veu&lt;/li&gt;
+&lt;li&gt;bootstrap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;server&#34;&gt;
+    &lt;a href=&#34;#server&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    server
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;nginx&lt;/li&gt;
+&lt;li&gt;django&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;디자인&#34;&gt;
+    &lt;a href=&#34;#%eb%94%94%ec%9e%90%ec%9d%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    #디자인
+&lt;/h3&gt;&lt;p&gt;bootstrap5을 사용한 템플릿을 사용하기로 했다.&lt;/p&gt;
+&lt;p&gt;[https://htmlcodex.com/vegetable-website-template/]
+Fruitables - Vegetable Website Template&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/lifespankr/lifespan&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/lifespankr/lifespan&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
