@@ -1,5 +1,5 @@
 ---
-title: /[LifeSpan/] 0. 기획
+title: '[LifeSpan] 0. 기획'
 date: 2024-04-29
 description: LifeSpan
 tags: 

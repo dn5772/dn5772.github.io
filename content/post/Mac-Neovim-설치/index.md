@@ -1,5 +1,5 @@
 ---
-title: Neonim 설치
+title: '[Mac] Neonim 설치'
 description: Neovim
 date: 2024-04-22
 tags: 

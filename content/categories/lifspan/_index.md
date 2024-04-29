@@ -1,5 +1,5 @@
 ---
-title: LifeSpan
+title: 'LifeSpan'
 description: Project LifeSpan
 image:
 
