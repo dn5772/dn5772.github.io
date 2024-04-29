@@ -1,5 +1,5 @@
 ---
-title: [Mac]Neonim-설치
+title: \[Mac\]Neonim-설치
 date: 2024-04-22
 description: Neovim
 tags: 
