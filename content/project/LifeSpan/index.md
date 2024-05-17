@@ -31,7 +31,7 @@ categories:
 ### #디자인
 bootstrap5을 사용한 템플릿을 사용하기로 했다.
 
-[https://htmlcodex.com/vegetable-website-template/]
+https://htmlcodex.com/vegetable-website-template/
 Fruitables - Vegetable Website Template
 
 
