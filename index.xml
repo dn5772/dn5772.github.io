@@ -6,12 +6,147 @@
         <description>Recent content on 대니짱</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko</language>
-        <lastBuildDate>Mon, 29 Apr 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://dn5772.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://dn5772.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>5-assembly</title>
+        <link>https://dn5772.github.io/p/5-assembly/</link>
+        <pubDate>Fri, 17 May 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://dn5772.github.io/p/5-assembly/</guid>
+        <description>&lt;h2 id=&#34;5-어셈블리-구조&#34;&gt;
+    &lt;a href=&#34;#5-%ec%96%b4%ec%85%88%eb%b8%94%eb%a6%ac-%ea%b5%ac%ec%a1%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    5-어셈블리 구조
+&lt;/h2&gt;</description>
+        </item>
+        <item>
+        <title>5-rev</title>
+        <link>https://dn5772.github.io/p/5-rev/</link>
+        <pubDate>Fri, 17 May 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://dn5772.github.io/p/5-rev/</guid>
+        <description>&lt;h2 id=&#34;6-리버싱-기초&#34;&gt;
+    &lt;a href=&#34;#6-%eb%a6%ac%eb%b2%84%ec%8b%b1-%ea%b8%b0%ec%b4%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    6-리버싱 기초
+&lt;/h2&gt;&lt;h3 id=&#34;61-스택-구조-분석&#34;&gt;
+    &lt;a href=&#34;#61-%ec%8a%a4%ed%83%9d-%ea%b5%ac%ec%a1%b0-%eb%b6%84%ec%84%9d&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    6.1 스택 구조 분석
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;call 0x80483b3 &amp;lt;add&amp;gt;&lt;/code&gt;
+push eip + jump 0x80483b3와 같음&lt;br&gt;
+add 함수를 실행 시킬때&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;push %ebp&lt;/li&gt;
+&lt;li&gt;mov %esp, %ebp&lt;/li&gt;
+&lt;li&gt;sub $0xc, %esp&lt;/li&gt;
+&lt;li&gt;movl $0x2, 0x4(%esp)&lt;/li&gt;
+&lt;li&gt;movl $0x1,(%esp)&lt;/li&gt;
+&lt;li&gt;call 0x80483b3
+&lt;ol&gt;
+&lt;li&gt;d&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;push %ebp&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;함수가 호출 될 때&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;push %ebp
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov %esp, %ebp
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;leave (mov %esp, %ebp	pop %ebp)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ret
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;은 한쌍임&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;함수 호출 직후 시점의 esp에 함수의 리턴 장소 저장&lt;/li&gt;
+&lt;li&gt;함수 호출 후에도 ebp를 통해 리턴 함수 스택 영역에 접근 가능&lt;/li&gt;
+&lt;li&gt;ebp+4의 위치(바로 아래)에 항상 현재 함수 리턴 장소가 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;함수는 항상 호출한 쪽이 파라미터 쌓고 호출, 파라미터 정리함&lt;/p&gt;
+&lt;h3 id=&#34;시스템-콜&#34;&gt;
+    &lt;a href=&#34;#%ec%8b%9c%ec%8a%a4%ed%85%9c-%ec%bd%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    시스템 콜
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;함수 파라미터를 사용자 stack에 넣음&lt;/li&gt;
+&lt;li&gt;libc.so
+&lt;ul&gt;
+&lt;li&gt;함수 파라미터를 ebx, ecx, edx에 차례로 복사&lt;/li&gt;
+&lt;li&gt;시스템콜 번호를 eax에 저장&lt;/li&gt;
+&lt;li&gt;인터렙트 또는 sysenter 발생&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;system_call()
+&lt;ul&gt;
+&lt;li&gt;커널 모드 진입&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;virtuual-system-call&#34;&gt;
+    &lt;a href=&#34;#virtuual-system-call&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    virtuual system call
+&lt;/h4&gt;&lt;p&gt;INT 80, sysenter를 호출 하는데 cpu지원 여부에 따라 커널이 선택하도록 함&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;커널이 0xFFFFE000에 VDSO를 맵핑&lt;/li&gt;
+&lt;li&gt;커널이 sysenter를 지원하는지 확인&lt;/li&gt;
+&lt;li&gt;지원하면 sysenter.S를 복사, 아니면 int80.S복사&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
+        <title>7-shell-code</title>
+        <link>https://dn5772.github.io/p/7-shell-code/</link>
+        <pubDate>Fri, 17 May 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://dn5772.github.io/p/7-shell-code/</guid>
+        <description>&lt;h2 id=&#34;7-쉘-코드&#34;&gt;
+    &lt;a href=&#34;#7-%ec%89%98-%ec%bd%94%eb%93%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    7-쉘 코드
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;“/bin/sh” 문자열을 임의의 메모리에 위치시킨다.&lt;/li&gt;
+&lt;li&gt;NULL문자(=0) 1 바이트를 “/bin/sh”뒤에 붙여준다. 즉, “/bin/sh\0”이 되도록 한다.&lt;/li&gt;
+&lt;li&gt;/bin/sh 문자열 주소값을 불러와서 name[0]에 할당한다. 즉, name[]={“sh”,0} 와 name[]={“/bin/sh”,0}는 동일하기 때문에 sh 문자열을 별도로 추가할 필요는 없다.&lt;/li&gt;
+&lt;li&gt;0 (=null)값을 name[1]에 해당하는 주소에 할당한다.&lt;/li&gt;
+&lt;li&gt;0xb(11)를 EAX 레지스터에 저장한다.&lt;/li&gt;
+&lt;li&gt;/bin/sh 문자열의 주소를 EBX 레지스터에 저장한다.&lt;/li&gt;
+&lt;li&gt;name 배열의 주소를 ECX 레지스터에 저장한다.&lt;/li&gt;
+&lt;li&gt;0x0을 EDX 레지스터에 저장한다.&lt;/li&gt;
+&lt;li&gt;int $0x80 명령을 실행한다.&lt;/li&gt;
+&lt;li&gt;0x1 (exit 시스템콜 번호)을 EAX 레지스터에 저장한다.&lt;/li&gt;
+&lt;li&gt;0x0을 EBX 레지스터에 복사한다.&lt;/li&gt;
+&lt;li&gt;int $0x80 명령을 실행한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이런식으로 쉘이 실행 됨&lt;/p&gt;
+&lt;h3 id=&#34;스택-데이터영역-사용-안하고-codetext영역만-사용해서-쉘-실행&#34;&gt;
+    &lt;a href=&#34;#%ec%8a%a4%ed%83%9d-%eb%8d%b0%ec%9d%b4%ed%84%b0%ec%98%81%ec%97%ad-%ec%82%ac%ec%9a%a9-%ec%95%88%ed%95%98%ea%b3%a0-codetext%ec%98%81%ec%97%ad%eb%a7%8c-%ec%82%ac%ec%9a%a9%ed%95%b4%ec%84%9c-%ec%89%98-%ec%8b%a4%ed%96%89&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    스택, 데이터영역 사용 안하고 code(text)영역만 사용해서 쉘 실행
+&lt;/h3&gt;&lt;p&gt;1-12번 까지의 과정에서 &amp;ldquo;/bin/sh&amp;rdquo; 문자열의 시작 주소만 알면 text만으로 실행하도록 text를 추출할 수 있음&lt;/p&gt;
+&lt;h2 id=&#34;1번-방법&#34;&gt;
+    &lt;a href=&#34;#1%eb%b2%88-%eb%b0%a9%eb%b2%95&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    1번 방법
+&lt;/h2&gt;&lt;p&gt;레이블(.LC0)을 설정해서 문자열의 시작주소를 추출&lt;/p&gt;
+&lt;p&gt;=&amp;gt; 이 방법으로 추출한 shell code는 .LC0의 주소값이 하드코딩 되어버림&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;실제 &amp;ldquo;/bin/sh&amp;rdquo; 문자열 주소와는 다른 주소로 접근해서 실패&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;2번-방법&#34;&gt;
+    &lt;a href=&#34;#2%eb%b2%88-%eb%b0%a9%eb%b2%95&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2번 방법
+&lt;/h2&gt;&lt;p&gt;트렘펄링 방법으로 실행시에 &amp;ldquo;/bin/sh&amp;rdquo; 시작주소를 확보&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>[LifeSpan] 0. 기획</title>
-        <link>https://dn5772.github.io/p/lifespan-0.-%EA%B8%B0%ED%9A%8D/</link>
+        <link>https://dn5772.github.io/project/lifespan/</link>
         <pubDate>Mon, 29 Apr 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://dn5772.github.io/p/lifespan-0.-%EA%B8%B0%ED%9A%8D/</guid>
+        <guid>https://dn5772.github.io/project/lifespan/</guid>
         <description>&lt;h1 id=&#34;lifespan-0-기획&#34;&gt;
     &lt;a href=&#34;#lifespan-0-%ea%b8%b0%ed%9a%8d&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     [LifeSpan] 0. 기획
@@ -49,7 +184,8 @@
     &lt;a href=&#34;#%eb%94%94%ec%9e%90%ec%9d%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     #디자인
 &lt;/h3&gt;&lt;p&gt;bootstrap5을 사용한 템플릿을 사용하기로 했다.&lt;/p&gt;
-&lt;p&gt;[https://htmlcodex.com/vegetable-website-template/]
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://htmlcodex.com/vegetable-website-template/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://htmlcodex.com/vegetable-website-template/&lt;/a&gt;
 Fruitables - Vegetable Website Template&lt;/p&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/lifespankr/lifespan&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://github.com/lifespankr/lifespan&lt;/a&gt;&lt;/p&gt;

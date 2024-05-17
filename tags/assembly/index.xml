@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Assembly on 대니짱</title>
+        <link>https://dn5772.github.io/tags/assembly/</link>
+        <description>Recent content in Assembly on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Fri, 17 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://dn5772.github.io/tags/assembly/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>5-assembly</title>
+        <link>https://dn5772.github.io/p/5-assembly/</link>
+        <pubDate>Fri, 17 May 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://dn5772.github.io/p/5-assembly/</guid>
+        <description>&lt;h2 id=&#34;5-어셈블리-구조&#34;&gt;
+    &lt;a href=&#34;#5-%ec%96%b4%ec%85%88%eb%b8%94%eb%a6%ac-%ea%b5%ac%ec%a1%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    5-어셈블리 구조
+&lt;/h2&gt;</description>
+        </item>
+        <item>
+        <title>5-rev</title>
+        <link>https://dn5772.github.io/p/5-rev/</link>
+        <pubDate>Fri, 17 May 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://dn5772.github.io/p/5-rev/</guid>
+        <description>&lt;h2 id=&#34;6-리버싱-기초&#34;&gt;
+    &lt;a href=&#34;#6-%eb%a6%ac%eb%b2%84%ec%8b%b1-%ea%b8%b0%ec%b4%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    6-리버싱 기초
+&lt;/h2&gt;&lt;h3 id=&#34;61-스택-구조-분석&#34;&gt;
+    &lt;a href=&#34;#61-%ec%8a%a4%ed%83%9d-%ea%b5%ac%ec%a1%b0-%eb%b6%84%ec%84%9d&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    6.1 스택 구조 분석
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;call 0x80483b3 &amp;lt;add&amp;gt;&lt;/code&gt;
+push eip + jump 0x80483b3와 같음&lt;br&gt;
+add 함수를 실행 시킬때&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;push %ebp&lt;/li&gt;
+&lt;li&gt;mov %esp, %ebp&lt;/li&gt;
+&lt;li&gt;sub $0xc, %esp&lt;/li&gt;
+&lt;li&gt;movl $0x2, 0x4(%esp)&lt;/li&gt;
+&lt;li&gt;movl $0x1,(%esp)&lt;/li&gt;
+&lt;li&gt;call 0x80483b3
+&lt;ol&gt;
+&lt;li&gt;d&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;push %ebp&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;함수가 호출 될 때&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;push %ebp
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mov %esp, %ebp
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;leave (mov %esp, %ebp	pop %ebp)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ret
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;은 한쌍임&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;함수 호출 직후 시점의 esp에 함수의 리턴 장소 저장&lt;/li&gt;
+&lt;li&gt;함수 호출 후에도 ebp를 통해 리턴 함수 스택 영역에 접근 가능&lt;/li&gt;
+&lt;li&gt;ebp+4의 위치(바로 아래)에 항상 현재 함수 리턴 장소가 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;함수는 항상 호출한 쪽이 파라미터 쌓고 호출, 파라미터 정리함&lt;/p&gt;
+&lt;h3 id=&#34;시스템-콜&#34;&gt;
+    &lt;a href=&#34;#%ec%8b%9c%ec%8a%a4%ed%85%9c-%ec%bd%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    시스템 콜
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;함수 파라미터를 사용자 stack에 넣음&lt;/li&gt;
+&lt;li&gt;libc.so
+&lt;ul&gt;
+&lt;li&gt;함수 파라미터를 ebx, ecx, edx에 차례로 복사&lt;/li&gt;
+&lt;li&gt;시스템콜 번호를 eax에 저장&lt;/li&gt;
+&lt;li&gt;인터렙트 또는 sysenter 발생&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;system_call()
+&lt;ul&gt;
+&lt;li&gt;커널 모드 진입&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;virtuual-system-call&#34;&gt;
+    &lt;a href=&#34;#virtuual-system-call&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    virtuual system call
+&lt;/h4&gt;&lt;p&gt;INT 80, sysenter를 호출 하는데 cpu지원 여부에 따라 커널이 선택하도록 함&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;커널이 0xFFFFE000에 VDSO를 맵핑&lt;/li&gt;
+&lt;li&gt;커널이 sysenter를 지원하는지 확인&lt;/li&gt;
+&lt;li&gt;지원하면 sysenter.S를 복사, 아니면 int80.S복사&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
