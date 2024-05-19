@@ -6,7 +6,7 @@ tags:
     - assembly
     - summry
 categories:
-    - neovim
+    - summary/cesc
 ---
 
 ## 5-어셈블리 구조

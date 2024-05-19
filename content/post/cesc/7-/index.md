@@ -4,9 +4,9 @@ description: assembly
 date: 2024-05-17
 tags: 
     - shell
-    - summry
+    - summay
 categories:
-    - neovim
+    - summary/cesc
 ---
 
 ## 7-쉘 코드

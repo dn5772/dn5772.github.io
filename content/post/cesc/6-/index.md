@@ -4,9 +4,9 @@ description: assembly
 date: 2024-05-17
 tags: 
     - assembly
-    - summry
+    - summray
 categories:
-    - neovim
+    - summary/cesc
 ---
 
 ## 6-리버싱 기초
