@@ -40,13 +40,19 @@
                 href="https://dn5772.github.io/categories/"
                 />
   </url><url>
-    <loc>https://dn5772.github.io/categories/neovim/</loc>
-    <lastmod>2024-05-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://dn5772.github.io/post/</loc>
     <lastmod>2024-05-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dn5772.github.io/tags/shell/</loc>
+    <lastmod>2024-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/categories/summary/cesc/</loc>
+    <lastmod>2024-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/summay/</loc>
+    <lastmod>2024-05-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/summray/</loc>
     <lastmod>2024-05-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dn5772.github.io/tags/summry/</loc>
@@ -87,6 +93,9 @@
     <lastmod>2024-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dn5772.github.io/tags/neovim/</loc>
+    <lastmod>2024-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/categories/neovim/</loc>
     <lastmod>2024-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dn5772.github.io/tags/setting/</loc>
@@ -145,5 +154,7 @@
     <loc>https://dn5772.github.io/links/</loc>
   </url><url>
     <loc>https://dn5772.github.io/search/</loc>
+  </url><url>
+    <loc>https://dn5772.github.io/categories/summray/cesc/</loc>
   </url>
 </urlset>
