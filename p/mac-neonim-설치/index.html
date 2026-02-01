@@ -310,11 +310,15 @@
       <ol>
         <li><a href="#네오빔">네오빔</a></li>
         <li><a href="#neovim-설치">Neovim 설치</a></li>
-        <li><a href="#vim-plug-설치">vim-plug 설치</a>
-          <ol>
-            <li><a href="#nerdtree">NERDTree</a></li>
-          </ol>
-        </li>
+        <li><a href="#기본-설정-파일-생성">기본 설정 파일 생성</a></li>
+        <li><a href="#vim-plug-설치">vim-plug 설치</a></li>
+        <li><a href="#추천-플러그인-설정">추천 플러그인 설정</a></li>
+        <li><a href="#기본-설정-추가">기본 설정 추가</a></li>
+        <li><a href="#nerdtree">NERDTree</a></li>
+        <li><a href="#coc-conquer-of-completion-설정">CoC (Conquer of Completion) 설정</a></li>
+        <li><a href="#lua-설정으로-마이그레이션-선택사항">Lua 설정으로 마이그레이션 (선택사항)</a></li>
+        <li><a href="#추가-팁">추가 팁</a></li>
+        <li><a href="#자주-사용하는-명령어">자주 사용하는 명령어</a></li>
       </ol>
     </li>
   </ol>
@@ -385,7 +389,7 @@
 
 
                 <time class="article-time--reading">
-                    1 분 정도
+                    3 분 정도
                 </time>
             </div>
         
@@ -414,6 +418,8 @@
 <li>간지가 난다</li>
 <li>다양한 플러그인</li>
 <li>키보드만 써서 코딩</li>
+<li>가볍고 빠름</li>
+<li>커스터마이징 자유도 높음</li>
 </ol>
 <h3 id="neovim-설치">
     <a href="#neovim-%ec%84%a4%ec%b9%98" class="header-anchor">#</a>
@@ -436,10 +442,33 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>nvim</code> 명령어로 실행시켜볼 수 있다</p>
-<h3 id="vim-plug-설치">
+<h3 id="기본-설정-파일-생성">
+    <a href="#%ea%b8%b0%eb%b3%b8-%ec%84%a4%ec%a0%95-%ed%8c%8c%ec%9d%bc-%ec%83%9d%ec%84%b1" class="header-anchor">#</a>
+    기본 설정 파일 생성
+</h3><p>Neovim 설정은 <code>~/.config/nvim/init.vim</code> 또는 <code>init.lua</code>에 저장합니다. (Neovim 0.5+부터 Lua 지원)</p>
+<p>먼저 디렉토리 생성:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">mkdir -p ~/.config/nvim
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>기본 <code>init.vim</code> 파일 생성:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl">touch ~/.config/nvim/init.vim
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="vim-plug-설치">
     <a href="#vim-plug-%ec%84%a4%ec%b9%98" class="header-anchor">#</a>
     vim-plug 설치
-</h3><div class="highlight"><div class="chroma">
+</h3><p>플러그인 매니저로 vim-plug를 사용합니다.</p>
+<div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
@@ -449,10 +478,151 @@
 </span></span></span><span class="line"><span class="cl"><span class="s1">      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h4 id="nerdtree">
+</div><h3 id="추천-플러그인-설정">
+    <a href="#%ec%b6%94%ec%b2%9c-%ed%94%8c%eb%9f%ac%ea%b7%b8%ec%9d%b8-%ec%84%a4%ec%a0%95" class="header-anchor">#</a>
+    추천 플러그인 설정
+</h3><p><code>init.vim</code>에 플러그인들을 추가합니다:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="nx">call</span> <span class="nx">plug</span>#<span class="nx">begin</span><span class="p">(</span><span class="s1">&#39;~/.vim/plugged&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; 파일 탐색기</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;preservim/nerdtree&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;Xuyuanp/nerdtree-git-plugin&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; 테마</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;morhetz/gruvbox&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;dracula/vim&#39;</span><span class="p">,</span> { <span class="s1">&#39;as&#39;</span>: <span class="s1">&#39;dracula&#39;</span> }
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; 상태바</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;vim-airline/vim-airline&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;vim-airline/vim-airline-themes&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; 코드 하이라이트</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;sheerun/vim-polyglot&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; 자동완성</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;neoclide/coc.nvim&#39;</span><span class="p">,</span> {<span class="s1">&#39;branch&#39;</span>: <span class="s1">&#39;release&#39;</span>}
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; Git 통합</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;tpope/vim-fugitive&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; 주석 토글</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;tpope/vim-commentary&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; 괄호 자동완성</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;jiangmiao/auto-pairs&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; 파일 검색</span>
+</span></span><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;junegunn/fzf&#39;</span><span class="p">,</span> { <span class="s1">&#39;do&#39;</span>: { <span class="p">-&gt;</span> <span class="nx">fzf</span>#<span class="nx">install</span><span class="p">()</span> } }
+</span></span><span class="line"><span class="cl"><span class="nx">Plug</span> <span class="s1">&#39;junegunn/fzf.vim&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">call</span> <span class="nx">plug</span>#<span class="nx">end</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>플러그인 설치: Neovim에서 <code>:PlugInstall</code> 실행</p>
+<h3 id="기본-설정-추가">
+    <a href="#%ea%b8%b0%eb%b3%b8-%ec%84%a4%ec%a0%95-%ec%b6%94%ea%b0%80" class="header-anchor">#</a>
+    기본 설정 추가
+</h3><p><code>init.vim</code>에 기본 설정들 추가:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="c">&#34; 기본 설정</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nx">number</span>              <span class="c">&#34; 라인 넘버 표시</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nx">relativenumber</span>      <span class="c">&#34; 상대적 라인 넘버</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nx">tabstop</span><span class="p">=</span><span class="m">4</span>           <span class="c">&#34; 탭 크기</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nx">shiftwidth</span><span class="p">=</span><span class="m">4</span>        <span class="c">&#34; 들여쓰기 크기</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nx">expandtab</span>           <span class="c">&#34; 탭을 스페이스로 변환</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nx">smartindent</span>         <span class="c">&#34; 스마트 들여쓰기</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nx">mouse</span><span class="p">=</span><span class="nx">a</span>             <span class="c">&#34; 마우스 지원</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nx">clipboard</span><span class="p">=</span><span class="nx">unnamedplus</span> <span class="c">&#34; 시스템 클립보드 사용</span>
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; 검색 설정</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nx">ignorecase</span>          <span class="c">&#34; 대소문자 무시</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nx">smartcase</span>           <span class="c">&#34; 대문자 포함 시 대소문자 구분</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nx">incsearch</span>           <span class="c">&#34; 점진적 검색</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nx">hlsearch</span>            <span class="c">&#34; 검색 결과 하이라이트</span>
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; 테마 설정</span>
+</span></span><span class="line"><span class="cl"><span class="k">colorscheme</span> <span class="nx">gruvbox</span>
+</span></span><span class="line"><span class="cl"><span class="k">set</span> <span class="nx">background</span><span class="p">=</span><span class="nb">dark</span>
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; 키 매핑</span>
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="nx">mapleader</span> <span class="p">=</span> <span class="s2">&#34; &#34;</span>     <span class="c">&#34; 리더 키를 스페이스로 설정</span>
+</span></span><span class="line"><span class="cl"><span class="nx">nmap</span> <span class="p">&lt;</span><span class="nx">leader</span><span class="p">&gt;</span><span class="nx">nt</span> :<span class="nx">NERDTreeToggle</span><span class="p">&lt;</span><span class="nx">CR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">nmap</span> <span class="p">&lt;</span><span class="nx">leader</span><span class="p">&gt;</span><span class="nx">ff</span> :<span class="nx">Files</span><span class="p">&lt;</span><span class="nx">CR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">nmap</span> <span class="p">&lt;</span><span class="nx">leader</span><span class="p">&gt;</span><span class="nx">fg</span> :<span class="nx">GFiles</span><span class="p">&lt;</span><span class="nx">CR</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">nmap</span> <span class="p">&lt;</span><span class="nx">leader</span><span class="p">&gt;</span><span class="nx">fb</span> :<span class="nx">Buffers</span><span class="p">&lt;</span><span class="nx">CR</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="nerdtree">
     <a href="#nerdtree" class="header-anchor">#</a>
     NERDTree
-</h4><p><code>:NERDTreeToggle</code>로 키고 끌수있음</p>
+</h3><p><code>:NERDTreeToggle</code>로 키고 끌수있음</p>
 <ul>
 <li>아이콘 깨질 때</li>
 </ul>
@@ -467,6 +637,108 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>로 폰트 설치후 터미널 폰트 <code>Hack Nerd Font Mono</code>로 변경</p>
+<h3 id="coc-conquer-of-completion-설정">
+    <a href="#coc-conquer-of-completion-%ec%84%a4%ec%a0%95" class="header-anchor">#</a>
+    CoC (Conquer of Completion) 설정
+</h3><p>자동완성 플러그인 CoC를 위한 추가 설정:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-vim" data-lang="vim"><span class="line"><span class="cl"><span class="c">&#34; CoC 설정</span>
+</span></span><span class="line"><span class="cl"><span class="k">let</span> <span class="nx">g</span>:<span class="nx">coc_global_extensions</span> <span class="p">=</span> [
+</span></span><span class="line"><span class="cl">  \ <span class="s1">&#39;coc-tsserver&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  \ <span class="s1">&#39;coc-python&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  \ <span class="s1">&#39;coc-json&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  \ <span class="s1">&#39;coc-html&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  \ <span class="s1">&#39;coc-css&#39;</span>
+</span></span><span class="line"><span class="cl">  \ ]
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; CoC 키 매핑</span>
+</span></span><span class="line"><span class="cl"><span class="nx">inoremap</span> <span class="p">&lt;</span><span class="nx">silent</span><span class="p">&gt;&lt;</span><span class="nx">expr</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nx">TAB</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">      \ <span class="nx">pumvisible</span><span class="p">()</span> ? <span class="s2">&#34;\&lt;C-n&gt;&#34;</span> :
+</span></span><span class="line"><span class="cl">      \ <span class="p">&lt;</span><span class="nx">SID</span><span class="p">&gt;</span><span class="nx">check_back_space</span><span class="p">()</span> ? <span class="s2">&#34;\&lt;TAB&gt;&#34;</span> :
+</span></span><span class="line"><span class="cl">      \ <span class="nx">coc</span>#<span class="nx">refresh</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nx">inoremap</span> <span class="p">&lt;</span><span class="nx">expr</span><span class="p">&gt;&lt;</span><span class="nx">S</span><span class="p">-</span><span class="nx">TAB</span><span class="p">&gt;</span> <span class="nx">pumvisible</span><span class="p">()</span> ? <span class="s2">&#34;\&lt;C-p&gt;&#34;</span> : <span class="s2">&#34;\&lt;C-h&gt;&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">function</span><span class="p">!</span> <span class="nx">s</span>:<span class="nx">check_back_space</span><span class="p">()</span> <span class="nx">abort</span>
+</span></span><span class="line"><span class="cl">  <span class="k">let</span> <span class="nx">col</span> <span class="p">=</span> <span class="nx">col</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="p">-</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">return</span> <span class="p">!</span><span class="nx">col</span> <span class="p">||</span> <span class="nx">getline</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>[<span class="nx">col</span> <span class="p">-</span> <span class="m">1</span>]  <span class="p">=~</span># <span class="s1">&#39;\s&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="k">endfunction</span>
+</span></span><span class="line"><span class="cl"><span class="c">
+</span></span></span><span class="line"><span class="cl"><span class="c">&#34; GoTo code navigation</span>
+</span></span><span class="line"><span class="cl"><span class="nx">nmap</span> <span class="p">&lt;</span><span class="nx">silent</span><span class="p">&gt;</span> <span class="nx">gd</span> <span class="p">&lt;</span><span class="nx">Plug</span><span class="p">&gt;(</span><span class="nx">coc</span><span class="p">-</span><span class="nx">definition</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">nmap</span> <span class="p">&lt;</span><span class="nx">silent</span><span class="p">&gt;</span> <span class="nx">gy</span> <span class="p">&lt;</span><span class="nx">Plug</span><span class="p">&gt;(</span><span class="nx">coc</span><span class="p">-</span><span class="nx">type</span><span class="p">-</span><span class="nx">definition</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">nmap</span> <span class="p">&lt;</span><span class="nx">silent</span><span class="p">&gt;</span> <span class="nx">gi</span> <span class="p">&lt;</span><span class="nx">Plug</span><span class="p">&gt;(</span><span class="nx">coc</span><span class="p">-</span><span class="nx">implementation</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">nmap</span> <span class="p">&lt;</span><span class="nx">silent</span><span class="p">&gt;</span> <span class="nx">gr</span> <span class="p">&lt;</span><span class="nx">Plug</span><span class="p">&gt;(</span><span class="nx">coc</span><span class="p">-</span><span class="nx">references</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="lua-설정으로-마이그레이션-선택사항">
+    <a href="#lua-%ec%84%a4%ec%a0%95%ec%9c%bc%eb%a1%9c-%eb%a7%88%ec%9d%b4%ea%b7%b8%eb%a0%88%ec%9d%b4%ec%85%98-%ec%84%a0%ed%83%9d%ec%82%ac%ed%95%ad" class="header-anchor">#</a>
+    Lua 설정으로 마이그레이션 (선택사항)
+</h3><p>Neovim 0.5+부터 Lua 설정을 사용할 수 있습니다. <code>init.lua</code>로 변환:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-lua" data-lang="lua"><span class="line"><span class="cl"><span class="c1">-- init.lua</span>
+</span></span><span class="line"><span class="cl"><span class="n">require</span><span class="p">(</span><span class="s1">&#39;plugins&#39;</span><span class="p">)</span>  <span class="c1">-- 플러그인 설정 분리</span>
+</span></span><span class="line"><span class="cl"><span class="n">require</span><span class="p">(</span><span class="s1">&#39;settings&#39;</span><span class="p">)</span> <span class="c1">-- 기본 설정</span>
+</span></span><span class="line"><span class="cl"><span class="n">require</span><span class="p">(</span><span class="s1">&#39;keymaps&#39;</span><span class="p">)</span>  <span class="c1">-- 키 매핑</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="추가-팁">
+    <a href="#%ec%b6%94%ea%b0%80-%ed%8c%81" class="header-anchor">#</a>
+    추가 팁
+</h3><ol>
+<li><strong>터미널 통합</strong>: Neovim 내에서 터미널 사용 - <code>:term</code></li>
+<li><strong>세션 관리</strong>: 작업 세션 저장 - <code>:mksession</code></li>
+<li><strong>매크로</strong>: 반복 작업 자동화 - <code>q</code>로 녹화 시작</li>
+<li><strong>레지스터</strong>: 복사/붙여넣기 고급 사용 - <code>:reg</code>로 확인</li>
+<li><strong>vimrc 리로드</strong>: 설정 변경 후 <code>:source ~/.config/nvim/init.vim</code></li>
+</ol>
+<h3 id="자주-사용하는-명령어">
+    <a href="#%ec%9e%90%ec%a3%bc-%ec%82%ac%ec%9a%a9%ed%95%98%eb%8a%94-%eb%aa%85%eb%a0%b9%ec%96%b4" class="header-anchor">#</a>
+    자주 사용하는 명령어
+</h3><ul>
+<li><code>:w</code> - 저장</li>
+<li><code>:q</code> - 종료</li>
+<li><code>:wq</code> - 저장 후 종료</li>
+<li><code>:e 파일명</code> - 파일 열기</li>
+<li><code>/검색어</code> - 검색</li>
+<li><code>:%s/old/new/g</code> - 전체 치환</li>
+</ul>
+<p>Neovim은 처음에 어렵지만, 익숙해지면 생산성이 엄청나게 올라갑니다. 꾸준히 사용해보세요!</p>
 
 </section>
 
