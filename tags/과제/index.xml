@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>과제 on 대니짱</title>
+        <link>https://dn5772.github.io/tags/%EA%B3%BC%EC%A0%9C/</link>
+        <description>Recent content in 과제 on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Sat, 15 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://dn5772.github.io/tags/%EA%B3%BC%EC%A0%9C/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>외판원 문제(TSP) 해결 - 유전자 알고리즘 구현</title>
+        <link>https://dn5772.github.io/p/%EC%99%B8%ED%8C%90%EC%9B%90-%EB%AC%B8%EC%A0%9Ctsp-%ED%95%B4%EA%B2%B0-%EC%9C%A0%EC%A0%84%EC%9E%90-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B5%AC%ED%98%84/</link>
+        <pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate>
+        
+        <guid>https://dn5772.github.io/p/%EC%99%B8%ED%8C%90%EC%9B%90-%EB%AC%B8%EC%A0%9Ctsp-%ED%95%B4%EA%B2%B0-%EC%9C%A0%EC%A0%84%EC%9E%90-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B5%AC%ED%98%84/</guid>
+        <description>&lt;h1 id=&#34;유전자-알고리즘ga을-이용한-tsp-최적화-구현-및-분석&#34;&gt;
+    &lt;a href=&#34;#%ec%9c%a0%ec%a0%84%ec%9e%90-%ec%95%8c%ea%b3%a0%eb%a6%ac%ec%a6%98ga%ec%9d%84-%ec%9d%b4%ec%9a%a9%ed%95%9c-tsp-%ec%b5%9c%ec%a0%81%ed%99%94-%ea%b5%ac%ed%98%84-%eb%b0%8f-%eb%b6%84%ec%84%9d&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    유전자 알고리즘(GA)을 이용한 TSP 최적화 구현 및 분석
+&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;작성자&lt;/strong&gt;: 20202058 신대니&lt;/p&gt;
+&lt;h2 id=&#34;개요&#34;&gt;
+    &lt;a href=&#34;#%ea%b0%9c%ec%9a%94&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    개요
+&lt;/h2&gt;&lt;p&gt;C++을 사용하여 Traveling Salesman Problem(TSP)을 유전자 알고리즘(GA)으로 해결하고, 실험 과정을 통해 성능을 최적화해나가는 과정을 기록한 보고서입니다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;1-구현-환경-및-데이터-구조&#34;&gt;
+    &lt;a href=&#34;#1-%ea%b5%ac%ed%98%84-%ed%99%98%ea%b2%bd-%eb%b0%8f-%eb%8d%b0%ec%9d%b4%ed%84%b0-%ea%b5%ac%ec%a1%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    1. 구현 환경 및 데이터 구조
+&lt;/h2&gt;&lt;h3 id=&#34;11-개발-언어-및-기본-설정&#34;&gt;
+    &lt;a href=&#34;#11-%ea%b0%9c%eb%b0%9c-%ec%96%b8%ec%96%b4-%eb%b0%8f-%ea%b8%b0%eb%b3%b8-%ec%84%a4%ec%a0%95&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    1.1 개발 언어 및 기본 설정
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;언어&lt;/strong&gt;: C++&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;거리 계산 최적화&lt;/strong&gt;: 도시 좌표는 2차원 벡터에 저장하되, 거리 계산 오버헤드를 줄이기 위해 &lt;code&gt;W[1000][1000]&lt;/code&gt; 인접 행렬에 미리 모든 거리를 계산하여 저장해서 사용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;12-path-염색체-클래스-구조&#34;&gt;
+    &lt;a href=&#34;#12-path-%ec%97%bc%ec%83%89%ec%b2%b4-%ed%81%b4%eb%9e%98%ec%8a%a4-%ea%b5%ac%ec%a1%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    1.2 Path (염색체) 클래스 구조
+&lt;/h3&gt;&lt;p&gt;각 경로 후보는 Path 객체로 정의하여 관리했습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;주요 멤버 변수&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;vector&amp;lt;int&amp;gt; x&lt;/code&gt;: 경로 정보 (x[i] = j는 &amp;lsquo;도시 i에서 도시 j로 이동&amp;rsquo;을 의미)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;double tot_cost&lt;/code&gt;: 총 비용&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;int firstIndex, lastIndex&lt;/code&gt;: 유망한 부분의 시작/끝 인덱스&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;double best_cost&lt;/code&gt;: 유망한 부분의 비용&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;double avg&lt;/code&gt;: 각 엣지의 평균 비용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;비용 계산 (cal_cost)&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;경로의 총 비용뿐만 아니라&lt;/li&gt;
+&lt;li&gt;크기가 &lt;code&gt;s&lt;/code&gt;로 고정된 구간 중 **비용이 가장 작은 &amp;lsquo;유망한 부분&amp;rsquo;**도 계산&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;13-개체군population-관리&#34;&gt;
+    &lt;a href=&#34;#13-%ea%b0%9c%ec%b2%b4%ea%b5%b0population-%ea%b4%80%eb%a6%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    1.3 개체군(Population) 관리
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;염색체들은 정렬이 빈번하게 일어나므로 &lt;code&gt;list&lt;/code&gt; 자료구조 사용&lt;/li&gt;
+&lt;li&gt;총 &lt;strong&gt;N개의 염색체&lt;/strong&gt;를 한 세대로 유지 (실험에서 N = 20)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-알고리즘-상세-로직&#34;&gt;
+    &lt;a href=&#34;#2-%ec%95%8c%ea%b3%a0%eb%a6%ac%ec%a6%98-%ec%83%81%ec%84%b8-%eb%a1%9c%ec%a7%81&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2. 알고리즘 상세 로직
+&lt;/h2&gt;&lt;h3 id=&#34;21-초기화-initialization&#34;&gt;
+    &lt;a href=&#34;#21-%ec%b4%88%ea%b8%b0%ed%99%94-initialization&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2.1 초기화 (Initialization)
+&lt;/h3&gt;&lt;p&gt;초기 염색체를 완전 랜덤으로 생성하지 않고, &lt;strong&gt;Greedy 알고리즘을 변형&lt;/strong&gt;하여 최적화된 상태로 시작:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. 랜덤한 도시를 시작점으로 설정
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. 현재 도시에서 가장 가까운 미방문 도시 선택
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. 이 과정을 반복하여 경로 구성
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;4. N개의 초기 염색체 생성
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;22-선택-selection&#34;&gt;
+    &lt;a href=&#34;#22-%ec%84%a0%ed%83%9d-selection&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2.2 선택 (Selection)
+&lt;/h3&gt;&lt;p&gt;초기: 정렬된 N개 중 상위부터 순서대로 짝 지음 (1-2, 3-4, &amp;hellip;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;문제점 발생&lt;/strong&gt; → &lt;strong&gt;개선&lt;/strong&gt;: 조기 수렴 현상을 해결하기 위해 N개 중 &lt;strong&gt;랜덤으로 2개를 선택&lt;/strong&gt;하여 교차 진행&lt;/p&gt;
+&lt;h3 id=&#34;23-교차-crossover&#34;&gt;
+    &lt;a href=&#34;#23-%ea%b5%90%ec%b0%a8-crossover&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2.3 교차 (Crossover)
+&lt;/h3&gt;&lt;p&gt;부모 Path a, b로부터 자식을 생성:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. 유망한 부분 상속: 비용이 적은 쪽의 유망 구간을 자식에게 전달
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. 나머지 연결:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   - 앞으로의 경로를 간단히 비교 (3개의 엣지 확인)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   - 더 유망한 쪽을 선택
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   - a, b 모두 연결된 노드 가리키면 Greedy로 가장 가까운 노드 선택
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. 비용 기준으로 평가
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;24-변이-mutation&#34;&gt;
+    &lt;a href=&#34;#24-%eb%b3%80%ec%9d%b4-mutation&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2.4 변이 (Mutation)
+&lt;/h3&gt;&lt;p&gt;초기에는 미포함 → 성능 개선을 위해 &lt;strong&gt;추가&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. 랜덤한 인덱스를 기준으로 뒤쪽 6개 인덱스를 섞음
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. 섞은 후 비용 &amp;lt; 원래 비용이면 업데이트
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. 100회 시도 반복
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;25-대치-replacement&#34;&gt;
+    &lt;a href=&#34;#25-%eb%8c%80%ec%b9%98-replacement&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2.5 대치 (Replacement)
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;교차와 변이 후 약 1.5 * N개의 염색체 존재&lt;/li&gt;
+&lt;li&gt;중복된 염색체 제거&lt;/li&gt;
+&lt;li&gt;비용 기준으로 정렬 후 상위 N개 선택&lt;/li&gt;
+&lt;li&gt;가장 비용이 적은 Path를 정답으로 채택&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3-실험-과정-및-문제-해결&#34;&gt;
+    &lt;a href=&#34;#3-%ec%8b%a4%ed%97%98-%ea%b3%bc%ec%a0%95-%eb%b0%8f-%eb%ac%b8%ec%a0%9c-%ed%95%b4%ea%b2%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3. 실험 과정 및 문제 해결
+&lt;/h2&gt;&lt;h3 id=&#34;31-초기-버전-greedy--단순-교차&#34;&gt;
+    &lt;a href=&#34;#31-%ec%b4%88%ea%b8%b0-%eb%b2%84%ec%a0%84-greedy--%eb%8b%a8%ec%88%9c-%ea%b5%90%ec%b0%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3.1 초기 버전 (Greedy + 단순 교차)
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;설정&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;유망 부분 길이: s = 250&lt;/li&gt;
+&lt;li&gt;변이: 없음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;문제점&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;초기 설정 후 값의 변화 거의 없음&lt;/li&gt;
+&lt;li&gt;자식 세대가 부모보다 비용이 큼&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;조기 수렴(Premature Convergence)&lt;/strong&gt; 발생&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;32-1차-개선-변이mutation-추가&#34;&gt;
+    &lt;a href=&#34;#32-1%ec%b0%a8-%ea%b0%9c%ec%84%a0-%eb%b3%80%ec%9d%b4mutation-%ec%b6%94%ea%b0%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3.2 1차 개선: 변이(Mutation) 추가
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;조치&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;s값 축소 (250 → 100)&lt;/li&gt;
+&lt;li&gt;6개 인덱스를 섞는 변이 연산 추가&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;결과&lt;/strong&gt;: 개선이 미미함. 변이만으로는 교차의 한계 극복 어려움&lt;/p&gt;
+&lt;h3 id=&#34;33-2차-개선-교차crossover-로직-수정&#34;&gt;
+    &lt;a href=&#34;#33-2%ec%b0%a8-%ea%b0%9c%ec%84%a0-%ea%b5%90%ec%b0%a8crossover-%eb%a1%9c%ec%a7%81-%ec%88%98%ec%a0%95&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3.3 2차 개선: 교차(Crossover) 로직 수정
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;분석&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;s를 대폭 축소 (100 → 10)&lt;/li&gt;
+&lt;li&gt;교차 자체 개선 필요&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;수정 사항&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;유망한 부분 우선 (변경 없음)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;길게 연결된 엣지(Long Edge) 우선 처리&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;비용이 평균의 2배 이상이면 다른 경로 탐색&lt;/li&gt;
+&lt;li&gt;둘 다 막히면 Greedy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;결과&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Cost: 약 2800 → 2660 달성 ✓&lt;/li&gt;
+&lt;li&gt;일정 수준 이후 정체됨&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;34-3차-개선-선택selection-방식-변경&#34;&gt;
+    &lt;a href=&#34;#34-3%ec%b0%a8-%ea%b0%9c%ec%84%a0-%ec%84%a0%ed%83%9dselection-%eb%b0%a9%ec%8b%9d-%eb%b3%80%ea%b2%bd&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3.4 3차 개선: 선택(Selection) 방식 변경
+&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;원인 분석&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;교차에서 부모보다 나은 자식이 부족&lt;/li&gt;
+&lt;li&gt;순위 기반 선택으로 인한 &lt;strong&gt;다양성 부족&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;조치&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;순위 기반 선택 → &lt;strong&gt;랜덤 선택&lt;/strong&gt;으로 변경&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;결과&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;최종 결과에 큰 변화 없음&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;수렴 속도 대폭 개선&lt;/strong&gt; ✓&lt;/li&gt;
+&lt;li&gt;초반 교차로 빠른 최적화, 후반 변이로 미미한 개선&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;4-한계점-long-edge-문제&#34;&gt;
+    &lt;a href=&#34;#4-%ed%95%9c%ea%b3%84%ec%a0%90-long-edge-%eb%ac%b8%ec%a0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    4. 한계점: Long Edge 문제
+&lt;/h2&gt;&lt;h3 id=&#34;현상&#34;&gt;
+    &lt;a href=&#34;#%ed%98%84%ec%83%81&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    현상
+&lt;/h3&gt;&lt;p&gt;최종 결과에서 **특정 구간의 길게 연결된 선(Long Edge)**들이 관찰됨:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;원인: 초기화 또는 교차 과정에서 Greedy 사용 시,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;마지막에 남은 도시들을 연결할 때 발생
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;→ 주변 노드들이 이미 방문 처리됨
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;시도했던-해결책&#34;&gt;
+    &lt;a href=&#34;#%ec%8b%9c%eb%8f%84%ed%96%88%eb%8d%98-%ed%95%b4%ea%b2%b0%ec%b1%85&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    시도했던 해결책
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;남은 도시가 약 100개 될 때 시작점 근처로 돌아오도록 시도 → 실패&lt;/li&gt;
+&lt;li&gt;Greedy를 최후의 수단으로 미루는 로직 강화 → 결국 마지막 단계에서 롱 엣지 발생 불가피&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;5-결론&#34;&gt;
+    &lt;a href=&#34;#5-%ea%b2%b0%eb%a1%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    5. 결론
+&lt;/h2&gt;&lt;h3 id=&#34;달성-사항&#34;&gt;
+    &lt;a href=&#34;#%eb%8b%ac%ec%84%b1-%ec%82%ac%ed%95%ad&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    달성 사항
+&lt;/h3&gt;&lt;p&gt;✓ 유전자 알고리즘의 핵심 단계 모두 구현 및 실험&lt;br&gt;
+✓ Greedy 초기화가 완전 무작위보다 유리함을 확인&lt;br&gt;
+✓ 선택 방식 변경으로 조기 수렴 해결&lt;br&gt;
+✓ 변이를 통한 국소 최적해 탈출 시도&lt;/p&gt;
+&lt;h3 id=&#34;향후-개선-방안&#34;&gt;
+    &lt;a href=&#34;#%ed%96%a5%ed%9b%84-%ea%b0%9c%ec%84%a0-%eb%b0%a9%ec%95%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    향후 개선 방안
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;양방향 탐색&lt;/strong&gt;: 시작점을 기준으로 한 방향만 아닌, 양쪽(Start/End)에서 동시에 연결&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;중간 지점 설정&lt;/strong&gt;: 양방향 탐색으로 마지막 장거리 연결 문제 완화&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;p&gt;#TSP #유전자알고리즘 #외판원문제 #C++ #알고리즘&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="# 유전자 알고리즘(GA)을 이용한 TSP 최적화 구현 및 분석 작성자: 20202058 신대니 # 개요 C++을 사용하여 Traveling Salesman Problem(TSP)을 유전자 알고리즘(GA)">
+<title>외판원 문제(TSP) 해결 - 유전자 알고리즘 구현</title>
+
+<link rel='canonical' href='https://dn5772.github.io/p/%EC%99%B8%ED%8C%90%EC%9B%90-%EB%AC%B8%EC%A0%9Ctsp-%ED%95%B4%EA%B2%B0-%EC%9C%A0%EC%A0%84%EC%9E%90-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B5%AC%ED%98%84/'>
+
+<link rel="stylesheet" href="/scss/style.min.760e3dabc1e140d2e6abd27a8ca0aabb60e568829b29f67d2df12024136eff37.css"><meta property='og:title' content="외판원 문제(TSP) 해결 - 유전자 알고리즘 구현">
+<meta property='og:description' content="# 유전자 알고리즘(GA)을 이용한 TSP 최적화 구현 및 분석 작성자: 20202058 신대니 # 개요 C++을 사용하여 Traveling Salesman Problem(TSP)을 유전자 알고리즘(GA)">
+<meta property='og:url' content='https://dn5772.github.io/p/%EC%99%B8%ED%8C%90%EC%9B%90-%EB%AC%B8%EC%A0%9Ctsp-%ED%95%B4%EA%B2%B0-%EC%9C%A0%EC%A0%84%EC%9E%90-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B5%AC%ED%98%84/'>
+<meta property='og:site_name' content='대니짱'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='TSP' /><meta property='article:tag' content='외판원 문제' /><meta property='article:tag' content='유전자 알고리즘' /><meta property='article:tag' content='C&#43;&#43;' /><meta property='article:tag' content='알고리즘' /><meta property='article:tag' content='과제' /><meta property='article:published_time' content='2023-04-15T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2023-04-15T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="외판원 문제(TSP) 해결 - 유전자 알고리즘 구현">
+<meta name="twitter:description" content="# 유전자 알고리즘(GA)을 이용한 TSP 최적화 구현 및 분석 작성자: 20202058 신대니 # 개요 C++을 사용하여 Traveling Salesman Problem(TSP)을 유전자 알고리즘(GA)">
+    <link rel="shortcut icon" href="/pokeball_icon.png" />
+
+  
+
+<meta name="google-adsense-account" content="ca-pub-2130075151823864">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130075151823864"
+     crossorigin="anonymous"></script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/ditto_2_hud2704b3b9534528c44bbff8ffb4fb3e3_5178_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏷️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">대니짱</a></h1>
+            <h2 class="site-description">Danny ZZang의 블로그</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/dn5772'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.instagram.com/sum._.melon/'
+                        target="_blank"
+                        title="Instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://dn5772.github.io/" selected>한국어</option>
+                                
+                                    <option value="https://dn5772.github.io/en/" >English</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>다크 모드</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#개요">개요</a></li>
+    <li><a href="#1-구현-환경-및-데이터-구조">1. 구현 환경 및 데이터 구조</a>
+      <ol>
+        <li><a href="#11-개발-언어-및-기본-설정">1.1 개발 언어 및 기본 설정</a></li>
+        <li><a href="#12-path-염색체-클래스-구조">1.2 Path (염색체) 클래스 구조</a></li>
+        <li><a href="#13-개체군population-관리">1.3 개체군(Population) 관리</a></li>
+      </ol>
+    </li>
+    <li><a href="#2-알고리즘-상세-로직">2. 알고리즘 상세 로직</a>
+      <ol>
+        <li><a href="#21-초기화-initialization">2.1 초기화 (Initialization)</a></li>
+        <li><a href="#22-선택-selection">2.2 선택 (Selection)</a></li>
+        <li><a href="#23-교차-crossover">2.3 교차 (Crossover)</a></li>
+        <li><a href="#24-변이-mutation">2.4 변이 (Mutation)</a></li>
+        <li><a href="#25-대치-replacement">2.5 대치 (Replacement)</a></li>
+      </ol>
+    </li>
+    <li><a href="#3-실험-과정-및-문제-해결">3. 실험 과정 및 문제 해결</a>
+      <ol>
+        <li><a href="#31-초기-버전-greedy--단순-교차">3.1 초기 버전 (Greedy + 단순 교차)</a></li>
+        <li><a href="#32-1차-개선-변이mutation-추가">3.2 1차 개선: 변이(Mutation) 추가</a></li>
+        <li><a href="#33-2차-개선-교차crossover-로직-수정">3.3 2차 개선: 교차(Crossover) 로직 수정</a></li>
+        <li><a href="#34-3차-개선-선택selection-방식-변경">3.4 3차 개선: 선택(Selection) 방식 변경</a></li>
+      </ol>
+    </li>
+    <li><a href="#4-한계점-long-edge-문제">4. 한계점: Long Edge 문제</a>
+      <ol>
+        <li><a href="#현상">현상</a></li>
+        <li><a href="#시도했던-해결책">시도했던 해결책</a></li>
+      </ol>
+    </li>
+    <li><a href="#5-결론">5. 결론</a>
+      <ol>
+        <li><a href="#달성-사항">달성 사항</a></li>
+        <li><a href="#향후-개선-방안">향후 개선 방안</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/summary/cesc/" style="background-color: #546E7A; color: #fff;">
+                Summary
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%EC%99%B8%ED%8C%90%EC%9B%90-%EB%AC%B8%EC%A0%9Ctsp-%ED%95%B4%EA%B2%B0-%EC%9C%A0%EC%A0%84%EC%9E%90-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B5%AC%ED%98%84/">외판원 문제(TSP) 해결 - 유전자 알고리즘 구현</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 15, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="유전자-알고리즘ga을-이용한-tsp-최적화-구현-및-분석">
+    <a href="#%ec%9c%a0%ec%a0%84%ec%9e%90-%ec%95%8c%ea%b3%a0%eb%a6%ac%ec%a6%98ga%ec%9d%84-%ec%9d%b4%ec%9a%a9%ed%95%9c-tsp-%ec%b5%9c%ec%a0%81%ed%99%94-%ea%b5%ac%ed%98%84-%eb%b0%8f-%eb%b6%84%ec%84%9d" class="header-anchor">#</a>
+    유전자 알고리즘(GA)을 이용한 TSP 최적화 구현 및 분석
+</h1><p><strong>작성자</strong>: 20202058 신대니</p>
+<h2 id="개요">
+    <a href="#%ea%b0%9c%ec%9a%94" class="header-anchor">#</a>
+    개요
+</h2><p>C++을 사용하여 Traveling Salesman Problem(TSP)을 유전자 알고리즘(GA)으로 해결하고, 실험 과정을 통해 성능을 최적화해나가는 과정을 기록한 보고서입니다.</p>
+<hr>
+<h2 id="1-구현-환경-및-데이터-구조">
+    <a href="#1-%ea%b5%ac%ed%98%84-%ed%99%98%ea%b2%bd-%eb%b0%8f-%eb%8d%b0%ec%9d%b4%ed%84%b0-%ea%b5%ac%ec%a1%b0" class="header-anchor">#</a>
+    1. 구현 환경 및 데이터 구조
+</h2><h3 id="11-개발-언어-및-기본-설정">
+    <a href="#11-%ea%b0%9c%eb%b0%9c-%ec%96%b8%ec%96%b4-%eb%b0%8f-%ea%b8%b0%eb%b3%b8-%ec%84%a4%ec%a0%95" class="header-anchor">#</a>
+    1.1 개발 언어 및 기본 설정
+</h3><ul>
+<li><strong>언어</strong>: C++</li>
+<li><strong>거리 계산 최적화</strong>: 도시 좌표는 2차원 벡터에 저장하되, 거리 계산 오버헤드를 줄이기 위해 <code>W[1000][1000]</code> 인접 행렬에 미리 모든 거리를 계산하여 저장해서 사용</li>
+</ul>
+<h3 id="12-path-염색체-클래스-구조">
+    <a href="#12-path-%ec%97%bc%ec%83%89%ec%b2%b4-%ed%81%b4%eb%9e%98%ec%8a%a4-%ea%b5%ac%ec%a1%b0" class="header-anchor">#</a>
+    1.2 Path (염색체) 클래스 구조
+</h3><p>각 경로 후보는 Path 객체로 정의하여 관리했습니다.</p>
+<p><strong>주요 멤버 변수</strong>:</p>
+<ul>
+<li><code>vector&lt;int&gt; x</code>: 경로 정보 (x[i] = j는 &lsquo;도시 i에서 도시 j로 이동&rsquo;을 의미)</li>
+<li><code>double tot_cost</code>: 총 비용</li>
+<li><code>int firstIndex, lastIndex</code>: 유망한 부분의 시작/끝 인덱스</li>
+<li><code>double best_cost</code>: 유망한 부분의 비용</li>
+<li><code>double avg</code>: 각 엣지의 평균 비용</li>
+</ul>
+<p><strong>비용 계산 (cal_cost)</strong>:</p>
+<ul>
+<li>경로의 총 비용뿐만 아니라</li>
+<li>크기가 <code>s</code>로 고정된 구간 중 **비용이 가장 작은 &lsquo;유망한 부분&rsquo;**도 계산</li>
+</ul>
+<h3 id="13-개체군population-관리">
+    <a href="#13-%ea%b0%9c%ec%b2%b4%ea%b5%b0population-%ea%b4%80%eb%a6%ac" class="header-anchor">#</a>
+    1.3 개체군(Population) 관리
+</h3><ul>
+<li>염색체들은 정렬이 빈번하게 일어나므로 <code>list</code> 자료구조 사용</li>
+<li>총 <strong>N개의 염색체</strong>를 한 세대로 유지 (실험에서 N = 20)</li>
+</ul>
+<hr>
+<h2 id="2-알고리즘-상세-로직">
+    <a href="#2-%ec%95%8c%ea%b3%a0%eb%a6%ac%ec%a6%98-%ec%83%81%ec%84%b8-%eb%a1%9c%ec%a7%81" class="header-anchor">#</a>
+    2. 알고리즘 상세 로직
+</h2><h3 id="21-초기화-initialization">
+    <a href="#21-%ec%b4%88%ea%b8%b0%ed%99%94-initialization" class="header-anchor">#</a>
+    2.1 초기화 (Initialization)
+</h3><p>초기 염색체를 완전 랜덤으로 생성하지 않고, <strong>Greedy 알고리즘을 변형</strong>하여 최적화된 상태로 시작:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. 랜덤한 도시를 시작점으로 설정
+</span></span><span class="line"><span class="cl">2. 현재 도시에서 가장 가까운 미방문 도시 선택
+</span></span><span class="line"><span class="cl">3. 이 과정을 반복하여 경로 구성
+</span></span><span class="line"><span class="cl">4. N개의 초기 염색체 생성
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="22-선택-selection">
+    <a href="#22-%ec%84%a0%ed%83%9d-selection" class="header-anchor">#</a>
+    2.2 선택 (Selection)
+</h3><p>초기: 정렬된 N개 중 상위부터 순서대로 짝 지음 (1-2, 3-4, &hellip;)</p>
+<p><strong>문제점 발생</strong> → <strong>개선</strong>: 조기 수렴 현상을 해결하기 위해 N개 중 <strong>랜덤으로 2개를 선택</strong>하여 교차 진행</p>
+<h3 id="23-교차-crossover">
+    <a href="#23-%ea%b5%90%ec%b0%a8-crossover" class="header-anchor">#</a>
+    2.3 교차 (Crossover)
+</h3><p>부모 Path a, b로부터 자식을 생성:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. 유망한 부분 상속: 비용이 적은 쪽의 유망 구간을 자식에게 전달
+</span></span><span class="line"><span class="cl">2. 나머지 연결:
+</span></span><span class="line"><span class="cl">   - 앞으로의 경로를 간단히 비교 (3개의 엣지 확인)
+</span></span><span class="line"><span class="cl">   - 더 유망한 쪽을 선택
+</span></span><span class="line"><span class="cl">   - a, b 모두 연결된 노드 가리키면 Greedy로 가장 가까운 노드 선택
+</span></span><span class="line"><span class="cl">3. 비용 기준으로 평가
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="24-변이-mutation">
+    <a href="#24-%eb%b3%80%ec%9d%b4-mutation" class="header-anchor">#</a>
+    2.4 변이 (Mutation)
+</h3><p>초기에는 미포함 → 성능 개선을 위해 <strong>추가</strong>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. 랜덤한 인덱스를 기준으로 뒤쪽 6개 인덱스를 섞음
+</span></span><span class="line"><span class="cl">2. 섞은 후 비용 &lt; 원래 비용이면 업데이트
+</span></span><span class="line"><span class="cl">3. 100회 시도 반복
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="25-대치-replacement">
+    <a href="#25-%eb%8c%80%ec%b9%98-replacement" class="header-anchor">#</a>
+    2.5 대치 (Replacement)
+</h3><ul>
+<li>교차와 변이 후 약 1.5 * N개의 염색체 존재</li>
+<li>중복된 염색체 제거</li>
+<li>비용 기준으로 정렬 후 상위 N개 선택</li>
+<li>가장 비용이 적은 Path를 정답으로 채택</li>
+</ul>
+<hr>
+<h2 id="3-실험-과정-및-문제-해결">
+    <a href="#3-%ec%8b%a4%ed%97%98-%ea%b3%bc%ec%a0%95-%eb%b0%8f-%eb%ac%b8%ec%a0%9c-%ed%95%b4%ea%b2%b0" class="header-anchor">#</a>
+    3. 실험 과정 및 문제 해결
+</h2><h3 id="31-초기-버전-greedy--단순-교차">
+    <a href="#31-%ec%b4%88%ea%b8%b0-%eb%b2%84%ec%a0%84-greedy--%eb%8b%a8%ec%88%9c-%ea%b5%90%ec%b0%a8" class="header-anchor">#</a>
+    3.1 초기 버전 (Greedy + 단순 교차)
+</h3><p><strong>설정</strong>:</p>
+<ul>
+<li>유망 부분 길이: s = 250</li>
+<li>변이: 없음</li>
+</ul>
+<p><strong>문제점</strong>:</p>
+<ul>
+<li>초기 설정 후 값의 변화 거의 없음</li>
+<li>자식 세대가 부모보다 비용이 큼</li>
+<li><strong>조기 수렴(Premature Convergence)</strong> 발생</li>
+</ul>
+<h3 id="32-1차-개선-변이mutation-추가">
+    <a href="#32-1%ec%b0%a8-%ea%b0%9c%ec%84%a0-%eb%b3%80%ec%9d%b4mutation-%ec%b6%94%ea%b0%80" class="header-anchor">#</a>
+    3.2 1차 개선: 변이(Mutation) 추가
+</h3><p><strong>조치</strong>:</p>
+<ul>
+<li>s값 축소 (250 → 100)</li>
+<li>6개 인덱스를 섞는 변이 연산 추가</li>
+</ul>
+<p><strong>결과</strong>: 개선이 미미함. 변이만으로는 교차의 한계 극복 어려움</p>
+<h3 id="33-2차-개선-교차crossover-로직-수정">
+    <a href="#33-2%ec%b0%a8-%ea%b0%9c%ec%84%a0-%ea%b5%90%ec%b0%a8crossover-%eb%a1%9c%ec%a7%81-%ec%88%98%ec%a0%95" class="header-anchor">#</a>
+    3.3 2차 개선: 교차(Crossover) 로직 수정
+</h3><p><strong>분석</strong>:</p>
+<ul>
+<li>s를 대폭 축소 (100 → 10)</li>
+<li>교차 자체 개선 필요</li>
+</ul>
+<p><strong>수정 사항</strong>:</p>
+<ul>
+<li>유망한 부분 우선 (변경 없음)</li>
+<li><strong>길게 연결된 엣지(Long Edge) 우선 처리</strong></li>
+<li>비용이 평균의 2배 이상이면 다른 경로 탐색</li>
+<li>둘 다 막히면 Greedy</li>
+</ul>
+<p><strong>결과</strong>:</p>
+<ul>
+<li>Cost: 약 2800 → 2660 달성 ✓</li>
+<li>일정 수준 이후 정체됨</li>
+</ul>
+<h3 id="34-3차-개선-선택selection-방식-변경">
+    <a href="#34-3%ec%b0%a8-%ea%b0%9c%ec%84%a0-%ec%84%a0%ed%83%9dselection-%eb%b0%a9%ec%8b%9d-%eb%b3%80%ea%b2%bd" class="header-anchor">#</a>
+    3.4 3차 개선: 선택(Selection) 방식 변경
+</h3><p><strong>원인 분석</strong>:</p>
+<ol>
+<li>교차에서 부모보다 나은 자식이 부족</li>
+<li>순위 기반 선택으로 인한 <strong>다양성 부족</strong></li>
+</ol>
+<p><strong>조치</strong>:</p>
+<ul>
+<li>순위 기반 선택 → <strong>랜덤 선택</strong>으로 변경</li>
+</ul>
+<p><strong>결과</strong>:</p>
+<ul>
+<li>최종 결과에 큰 변화 없음</li>
+<li><strong>수렴 속도 대폭 개선</strong> ✓</li>
+<li>초반 교차로 빠른 최적화, 후반 변이로 미미한 개선</li>
+</ul>
+<hr>
+<h2 id="4-한계점-long-edge-문제">
+    <a href="#4-%ed%95%9c%ea%b3%84%ec%a0%90-long-edge-%eb%ac%b8%ec%a0%9c" class="header-anchor">#</a>
+    4. 한계점: Long Edge 문제
+</h2><h3 id="현상">
+    <a href="#%ed%98%84%ec%83%81" class="header-anchor">#</a>
+    현상
+</h3><p>최종 결과에서 **특정 구간의 길게 연결된 선(Long Edge)**들이 관찰됨:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">원인: 초기화 또는 교차 과정에서 Greedy 사용 시,
+</span></span><span class="line"><span class="cl">마지막에 남은 도시들을 연결할 때 발생
+</span></span><span class="line"><span class="cl">→ 주변 노드들이 이미 방문 처리됨
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="시도했던-해결책">
+    <a href="#%ec%8b%9c%eb%8f%84%ed%96%88%eb%8d%98-%ed%95%b4%ea%b2%b0%ec%b1%85" class="header-anchor">#</a>
+    시도했던 해결책
+</h3><ul>
+<li>남은 도시가 약 100개 될 때 시작점 근처로 돌아오도록 시도 → 실패</li>
+<li>Greedy를 최후의 수단으로 미루는 로직 강화 → 결국 마지막 단계에서 롱 엣지 발생 불가피</li>
+</ul>
+<hr>
+<h2 id="5-결론">
+    <a href="#5-%ea%b2%b0%eb%a1%a0" class="header-anchor">#</a>
+    5. 결론
+</h2><h3 id="달성-사항">
+    <a href="#%eb%8b%ac%ec%84%b1-%ec%82%ac%ed%95%ad" class="header-anchor">#</a>
+    달성 사항
+</h3><p>✓ 유전자 알고리즘의 핵심 단계 모두 구현 및 실험<br>
+✓ Greedy 초기화가 완전 무작위보다 유리함을 확인<br>
+✓ 선택 방식 변경으로 조기 수렴 해결<br>
+✓ 변이를 통한 국소 최적해 탈출 시도</p>
+<h3 id="향후-개선-방안">
+    <a href="#%ed%96%a5%ed%9b%84-%ea%b0%9c%ec%84%a0-%eb%b0%a9%ec%95%88" class="header-anchor">#</a>
+    향후 개선 방안
+</h3><ol>
+<li><strong>양방향 탐색</strong>: 시작점을 기준으로 한 방향만 아닌, 양쪽(Start/End)에서 동시에 연결</li>
+<li><strong>중간 지점 설정</strong>: 양방향 탐색으로 마지막 장거리 연결 문제 완화</li>
+</ol>
+<hr>
+<p>#TSP #유전자알고리즘 #외판원문제 #C++ #알고리즘</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/tsp/">TSP</a>
+        
+            <a href="/tags/%EC%99%B8%ED%8C%90%EC%9B%90-%EB%AC%B8%EC%A0%9C/">외판원 문제</a>
+        
+            <a href="/tags/%EC%9C%A0%EC%A0%84%EC%9E%90-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">유전자 알고리즘</a>
+        
+            <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+        
+            <a href="/tags/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/">알고리즘</a>
+        
+            <a href="/tags/%EA%B3%BC%EC%A0%9C/">과제</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/5-assembly/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5-assembly</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/5-rev/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">5-rev</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/7-shell-code/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">7-shell-code</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2026 대니짱
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
