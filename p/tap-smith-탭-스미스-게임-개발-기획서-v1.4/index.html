@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="# Tap Smith (탭 스미스) — 게임 개발 기획서 (v1.4) # 1. 개요 장르: 하드코어 강화 시뮬레이션 / 방치형(Idle) RPG 매니지먼트 핵심 목표: 실패 시 하락 없는 &lsquo">
+<title>Tap Smith (탭 스미스) — 게임 개발 기획서 (v1.4)</title>
+
+<link rel='canonical' href='https://dn5772.github.io/p/tap-smith-%ED%83%AD-%EC%8A%A4%EB%AF%B8%EC%8A%A4-%EA%B2%8C%EC%9E%84-%EA%B0%9C%EB%B0%9C-%EA%B8%B0%ED%9A%8D%EC%84%9C-v1.4/'>
+
+<link rel="stylesheet" href="/scss/style.min.760e3dabc1e140d2e6abd27a8ca0aabb60e568829b29f67d2df12024136eff37.css"><meta property='og:title' content="Tap Smith (탭 스미스) — 게임 개발 기획서 (v1.4)">
+<meta property='og:description' content="# Tap Smith (탭 스미스) — 게임 개발 기획서 (v1.4) # 1. 개요 장르: 하드코어 강화 시뮬레이션 / 방치형(Idle) RPG 매니지먼트 핵심 목표: 실패 시 하락 없는 &lsquo">
+<meta property='og:url' content='https://dn5772.github.io/p/tap-smith-%ED%83%AD-%EC%8A%A4%EB%AF%B8%EC%8A%A4-%EA%B2%8C%EC%9E%84-%EA%B0%9C%EB%B0%9C-%EA%B8%B0%ED%9A%8D%EC%84%9C-v1.4/'>
+<meta property='og:site_name' content='대니짱'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='게임개발' /><meta property='article:tag' content='강화시스템' /><meta property='article:tag' content='시뮬레이션' /><meta property='article:tag' content='RPG' /><meta property='article:tag' content='밸런싱' /><meta property='article:tag' content='Tap Smith' /><meta property='article:published_time' content='2026-02-01T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-02-01T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Tap Smith (탭 스미스) — 게임 개발 기획서 (v1.4)">
+<meta name="twitter:description" content="# Tap Smith (탭 스미스) — 게임 개발 기획서 (v1.4) # 1. 개요 장르: 하드코어 강화 시뮬레이션 / 방치형(Idle) RPG 매니지먼트 핵심 목표: 실패 시 하락 없는 &lsquo">
+    <link rel="shortcut icon" href="/pokeball_icon.png" />
+
+  
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130075151823864"
+     crossorigin="anonymous"></script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/ditto_2_huca9c25257c858ac03b593d2aaf75a5a0_139602_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏷️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">대니짱</a></h1>
+            <h2 class="site-description">Danny ZZang의 블로그</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/dn5772'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.instagram.com/sum._.melon/'
+                        target="_blank"
+                        title="Instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+	<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+	<path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+	<path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke-width="1.5"/>
+	<path d="M17.5 6.51L17.51 6.49889" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
+
+<!-- 
+<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-instagram" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+	<path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+	<path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+	<path d="M3 16V8C3 5.23858 5.23858 3 8 3H16C18.7614 3 21 5.23858 21 8V16C21 18.7614 18.7614 21 16 21H8C5.23858 21 3 18.7614 3 16Z" stroke="#000000" stroke-width="1.5"/>
+	<path d="M17.5 6.51L17.51 6.49889" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+</svg> -->
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://dn5772.github.io/" selected>한국어</option>
+                                
+                                    <option value="https://dn5772.github.io/en/" >English</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>다크 모드</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-개요">1. 개요</a></li>
+    <li><a href="#2-핵심-메커니즘-직진형-강화-enchantment-logic">2. 핵심 메커니즘: 직진형 강화 (Enchantment Logic)</a></li>
+    <li><a href="#3-게임-루프-core-loop">3. 게임 루프 (Core Loop)</a></li>
+    <li><a href="#4-밸런스-및-경제-시스템-상세">4. 밸런스 및 경제 시스템 (상세)</a>
+      <ol>
+        <li><a href="#41-기댓값expected-value-산출-공식">4.1. 기댓값(Expected Value) 산출 공식</a></li>
+        <li><a href="#42-구간별-상세-테이블">4.2. 구간별 상세 테이블</a>
+          <ol>
+            <li><a href="#phase-1-안전-성장기-0--9"><strong>Phase 1: 안전 성장기 (+0 ~ +9)</strong></a></li>
+            <li><a href="#phase-2-리스크-도입기-10--19"><strong>Phase 2: 리스크 도입기 (+10 ~ +19)</strong></a></li>
+            <li><a href="#phase-3-하드코어-20--29"><strong>Phase 3: 하드코어 (+20 ~ +29)</strong></a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#5-수식언-및-연출-시스템-prefix">5. 수식언 및 연출 시스템 (Prefix)</a></li>
+    <li><a href="#6-개발-및-구현-스펙-technical">6. 개발 및 구현 스펙 (Technical)</a>
+      <ol>
+        <li><a href="#61-데이터베이스-schema-summary">6.1. 데이터베이스 (Schema Summary)</a>
+          <ol>
+            <li><a href="#users-유저-정보"><strong>Users (유저 정보)</strong></a></li>
+            <li><a href="#weapons-무기-정보"><strong>Weapons (무기 정보)</strong></a></li>
+            <li><a href="#enchant_logs-강화-기록"><strong>Enchant_Logs (강화 기록)</strong></a></li>
+            <li><a href="#enchant_config-강화-확률-설정"><strong>Enchant_Config (강화 확률 설정)</strong></a></li>
+            <li><a href="#transactions-재화-거래-내역"><strong>Transactions (재화 거래 내역)</strong></a></li>
+            <li><a href="#prefixes-수식언-풀"><strong>Prefixes (수식언 풀)</strong></a></li>
+          </ol>
+        </li>
+        <li><a href="#62-핵심-api-endpoints">6.2. 핵심 API (Endpoints)</a>
+          <ol>
+            <li><a href="#인증-authentication"><strong>인증 (Authentication)</strong></a></li>
+            <li><a href="#무기-관리-weapons"><strong>무기 관리 (Weapons)</strong></a></li>
+            <li><a href="#경제-economy"><strong>경제 (Economy)</strong></a></li>
+            <li><a href="#랭킹-leaderboard"><strong>랭킹 (Leaderboard)</strong></a></li>
+          </ol>
+        </li>
+        <li><a href="#63-보안-고려사항">6.3. 보안 고려사항</a></li>
+      </ol>
+    </li>
+    <li><a href="#7-업데이트-로드맵-post-mvp">7. 업데이트 로드맵 (Post-MVP)</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/tap-smith-%ED%83%AD-%EC%8A%A4%EB%AF%B8%EC%8A%A4-%EA%B2%8C%EC%9E%84-%EA%B0%9C%EB%B0%9C-%EA%B8%B0%ED%9A%8D%EC%84%9C-v1.4/">Tap Smith (탭 스미스) — 게임 개발 기획서 (v1.4)</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 01, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    7 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="tap-smith-탭-스미스--게임-개발-기획서-v14">
+    <a href="#tap-smith-%ed%83%ad-%ec%8a%a4%eb%af%b8%ec%8a%a4--%ea%b2%8c%ec%9e%84-%ea%b0%9c%eb%b0%9c-%ea%b8%b0%ed%9a%8d%ec%84%9c-v14" class="header-anchor">#</a>
+    Tap Smith (탭 스미스) — 게임 개발 기획서 (v1.4)
+</h1><h2 id="1-개요">
+    <a href="#1-%ea%b0%9c%ec%9a%94" class="header-anchor">#</a>
+    1. 개요
+</h2><ul>
+<li><strong>장르</strong>: 하드코어 강화 시뮬레이션 / 방치형(Idle) RPG 매니지먼트</li>
+<li><strong>핵심 목표</strong>: 실패 시 하락 없는 &lsquo;직진형(No Back)&rsquo; 강화 시스템에서, 파괴의 공포를 이겨내고 최고의 무기를 만들어 비싸게 파는 것.</li>
+<li><strong>개발 단계</strong>: MVP (핵심 루프 구현 및 밸런싱)</li>
+</ul>
+<hr>
+<h2 id="2-핵심-메커니즘-직진형-강화-enchantment-logic">
+    <a href="#2-%ed%95%b5%ec%8b%ac-%eb%a9%94%ec%bb%a4%eb%8b%88%ec%a6%98-%ec%a7%81%ec%a7%84%ed%98%95-%ea%b0%95%ed%99%94-enchantment-logic" class="header-anchor">#</a>
+    2. 핵심 메커니즘: 직진형 강화 (Enchantment Logic)
+</h2><p><strong>&ldquo;뒤로 가는 건 없다. 성공하거나, 제자리거나, 혹은 사라지거나.&rdquo;</strong></p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>결과</th>
+<th>현상</th>
+<th>상태 변화</th>
+<th>비고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>성공 (Success)</strong></td>
+<td>강화 성공</td>
+<td>Level +1</td>
+<td>가치 상승, 수식언 변경</td>
+</tr>
+<tr>
+<td><strong>실패 (Fail)</strong></td>
+<td>강화 실패</td>
+<td>Level 유지</td>
+<td>골드만 소모</td>
+</tr>
+<tr>
+<td><strong>파괴 (Break)</strong></td>
+<td>무기 소멸</td>
+<td>Weapon 삭제</td>
+<td>&lsquo;영혼의 가루&rsquo; 획득 (구제책)</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="3-게임-루프-core-loop">
+    <a href="#3-%ea%b2%8c%ec%9e%84-%eb%a3%a8%ed%94%84-core-loop" class="header-anchor">#</a>
+    3. 게임 루프 (Core Loop)
+</h2><p>MVP 버전에서는 전투 콘텐츠를 제외하고 <strong>경제 순환</strong>에 집중합니다.</p>
+<ol>
+<li><strong>제작/구매</strong>: 기본 무기를 상자에서 확률로 뽑기</li>
+<li><strong>강화 (Gamble)</strong>: 골드를 소모하여 강화 시도.</li>
+<li><strong>의사 결정 (The Choice)</strong>:
+<ul>
+<li><strong>Stop (판매)</strong>: 현재 단계에서 만족하고 판매하여 확정 골드 획득. (다음 강화를 위한 시드머니 확보)</li>
+<li><strong>Go (도전)</strong>: 상위 등급을 노리고 강화 버튼 클릭. (성공 시 가치 폭등, 파괴 시 원금 손실)</li>
+</ul>
+</li>
+<li><strong>재투자</strong>: 판매한 골드로 더 많은 무기를 사거나, 가루를 모아 확률 보조제 구매.</li>
+</ol>
+<hr>
+<h2 id="4-밸런스-및-경제-시스템-상세">
+    <a href="#4-%eb%b0%b8%eb%9f%b0%ec%8a%a4-%eb%b0%8f-%ea%b2%bd%ec%a0%9c-%ec%8b%9c%ec%8a%a4%ed%85%9c-%ec%83%81%ec%84%b8" class="header-anchor">#</a>
+    4. 밸런스 및 경제 시스템 (상세)
+</h2><h3 id="41-기댓값expected-value-산출-공식">
+    <a href="#41-%ea%b8%b0%eb%8c%93%ea%b0%92expected-value-%ec%82%b0%ec%b6%9c-%ea%b3%b5%ec%8b%9d" class="header-anchor">#</a>
+    4.1. 기댓값(Expected Value) 산출 공식
+</h3><p>각 강화 단계의 가치는 **&ldquo;파괴 시 0강부터 다시 복구해야 하는 리스크 비용&rdquo;**을 포함하여 계산합니다.</p>
+<p>$$EV_{next} = EV_{current} + \frac{Cost + (P_{break} \times EV_{current})}{P_{success}}$$</p>
+<p>이 공식을 기반으로 판매 가격은 <code>EV * (0.6 ~ 0.8)</code> 수준으로 책정하여, 유저가 **&ldquo;직접 띄울까, 그냥 살까&rdquo;**를 고민하게 만듭니다.</p>
+<h3 id="42-구간별-상세-테이블">
+    <a href="#42-%ea%b5%ac%ea%b0%84%eb%b3%84-%ec%83%81%ec%84%b8-%ed%85%8c%ec%9d%b4%eb%b8%94" class="header-anchor">#</a>
+    4.2. 구간별 상세 테이블
+</h3><p><em>(테스트 단계에서는 모든 수치를 조정 가능하도록 Config화 필수)</em></p>
+<h4 id="phase-1-안전-성장기-0--9">
+    <a href="#phase-1-%ec%95%88%ec%a0%84-%ec%84%b1%ec%9e%a5%ea%b8%b0-0--9" class="header-anchor">#</a>
+    <strong>Phase 1: 안전 성장기 (+0 ~ +9)</strong>
+</h4><p><strong>특징</strong>: 파괴 없음. 클릭하는 재미와 빠른 성장 학습.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>레벨</th>
+<th>비용(Gold)</th>
+<th>성공(%)</th>
+<th>유지(%)</th>
+<th>파괴(%)</th>
+<th>판매가(Gold)</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0→1</td>
+<td>100</td>
+<td>100%</td>
+<td>0%</td>
+<td>0%</td>
+<td>200</td>
+<td>[일반]</td>
+</tr>
+<tr>
+<td>1→2</td>
+<td>150</td>
+<td>100%</td>
+<td>0%</td>
+<td>0%</td>
+<td>400</td>
+<td></td>
+</tr>
+<tr>
+<td>2→3</td>
+<td>250</td>
+<td>90%</td>
+<td>10%</td>
+<td>0%</td>
+<td>800</td>
+<td></td>
+</tr>
+<tr>
+<td>3→4</td>
+<td>400</td>
+<td>80%</td>
+<td>20%</td>
+<td>0%</td>
+<td>1,500</td>
+<td></td>
+</tr>
+<tr>
+<td>4→5</td>
+<td>600</td>
+<td>70%</td>
+<td>30%</td>
+<td>0%</td>
+<td>2,500</td>
+<td>[준수] 진입</td>
+</tr>
+<tr>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td>&hellip;</td>
+<td></td>
+</tr>
+<tr>
+<td>9→10</td>
+<td>4,500</td>
+<td>40%</td>
+<td>60%</td>
+<td>0%</td>
+<td>25,000</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="phase-2-리스크-도입기-10--19">
+    <a href="#phase-2-%eb%a6%ac%ec%8a%a4%ed%81%ac-%eb%8f%84%ec%9e%85%ea%b8%b0-10--19" class="header-anchor">#</a>
+    <strong>Phase 2: 리스크 도입기 (+10 ~ +19)</strong>
+</h4><p><strong>특징</strong>: 파괴 확률 등장. &ldquo;여기서 팔까?&rdquo; 하는 유혹 시작.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>레벨</th>
+<th>비용(Gold)</th>
+<th>성공(%)</th>
+<th>유지(%)</th>
+<th>파괴(%)</th>
+<th>판매가(Gold)</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10→11</td>
+<td>7,000</td>
+<td>35%</td>
+<td>60%</td>
+<td>5%</td>
+<td>40,000</td>
+<td>[희귀]</td>
+</tr>
+<tr>
+<td>11→12</td>
+<td>10,000</td>
+<td>30%</td>
+<td>60%</td>
+<td>10%</td>
+<td>65,000</td>
+<td></td>
+</tr>
+<tr>
+<td>14→15</td>
+<td>30,000</td>
+<td>20%</td>
+<td>60%</td>
+<td>20%</td>
+<td>250,000</td>
+<td>[장인] 진입</td>
+</tr>
+<tr>
+<td>19→20</td>
+<td>160,000</td>
+<td>10%</td>
+<td>50%</td>
+<td>40%</td>
+<td>3,000,000</td>
+<td>대박 구간</td>
+</tr>
+</tbody>
+</table></div>
+<h4 id="phase-3-하드코어-20--29">
+    <a href="#phase-3-%ed%95%98%eb%93%9c%ec%bd%94%ec%96%b4-20--29" class="header-anchor">#</a>
+    <strong>Phase 3: 하드코어 (+20 ~ +29)</strong>
+</h4><p><strong>특징</strong>: 파괴 확률 &gt; 성공 확률. 무기가 삭제될 확률이 더 높음. 가격이 기하급수적으로 폭등.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>레벨</th>
+<th>비용(Gold)</th>
+<th>성공(%)</th>
+<th>유지(%)</th>
+<th>파괴(%)</th>
+<th>판매가(Gold)</th>
+<th>상태</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20→21</td>
+<td>250,000</td>
+<td>8%</td>
+<td>42%</td>
+<td>50%</td>
+<td>6,000,000</td>
+<td>[영웅]</td>
+</tr>
+<tr>
+<td>21→22</td>
+<td>350,000</td>
+<td>7%</td>
+<td>43%</td>
+<td>50%</td>
+<td>12,000,000</td>
+<td></td>
+</tr>
+<tr>
+<td>24→25</td>
+<td>1,000,000</td>
+<td>5%</td>
+<td>35%</td>
+<td>60%</td>
+<td>1억</td>
+<td>[고대] 진입</td>
+</tr>
+<tr>
+<td>29→30</td>
+<td>10,000,000</td>
+<td>1%</td>
+<td>29%</td>
+<td>70%</td>
+<td>30억</td>
+<td>서버 알림</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="5-수식언-및-연출-시스템-prefix">
+    <a href="#5-%ec%88%98%ec%8b%9d%ec%96%b8-%eb%b0%8f-%ec%97%b0%ec%b6%9c-%ec%8b%9c%ec%8a%a4%ed%85%9c-prefix" class="header-anchor">#</a>
+    5. 수식언 및 연출 시스템 (Prefix)
+</h2><p>강화 단계에 따라 무기의 <strong>이름</strong>과 <strong>프로필 이펙트</strong>가 변경됩니다.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>구간</th>
+<th>등급</th>
+<th>수식언 예시</th>
+<th>시각 효과 (Visual)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+0 ~ +4</td>
+<td>일반</td>
+<td>녹슨, 평범한, 낡은</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>+5 ~ +9</td>
+<td>준수</td>
+<td>날카로운, 튼튼한</td>
+<td>흰색 테두리</td>
+</tr>
+<tr>
+<td>+10 ~ +14</td>
+<td>희귀</td>
+<td>명장의, 빛나는</td>
+<td>푸른색 잔상</td>
+</tr>
+<tr>
+<td>+15 ~ +19</td>
+<td>장인</td>
+<td>불꽃의, 냉기의</td>
+<td>파티클 이펙트 (약)</td>
+</tr>
+<tr>
+<td>+20 ~ +24</td>
+<td>영웅</td>
+<td>파괴의, 영혼의</td>
+<td>보라색 오라 (강)</td>
+</tr>
+<tr>
+<td>+25 ~ +29</td>
+<td>고대</td>
+<td>심연의, 천상의</td>
+<td>검은색 연기/암전</td>
+</tr>
+<tr>
+<td>+30 ~</td>
+<td>전설</td>
+<td>용살자의, 세계를 먹어치운</td>
+<td>화면 전체 진동 및 황금빛</td>
+</tr>
+</tbody>
+</table></div>
+<hr>
+<h2 id="6-개발-및-구현-스펙-technical">
+    <a href="#6-%ea%b0%9c%eb%b0%9c-%eb%b0%8f-%ea%b5%ac%ed%98%84-%ec%8a%a4%ed%8e%99-technical" class="header-anchor">#</a>
+    6. 개발 및 구현 스펙 (Technical)
+</h2><h3 id="61-데이터베이스-schema-summary">
+    <a href="#61-%eb%8d%b0%ec%9d%b4%ed%84%b0%eb%b2%a0%ec%9d%b4%ec%8a%a4-schema-summary" class="header-anchor">#</a>
+    6.1. 데이터베이스 (Schema Summary)
+</h3><h4 id="users-유저-정보">
+    <a href="#users-%ec%9c%a0%ec%a0%80-%ec%a0%95%eb%b3%b4" class="header-anchor">#</a>
+    <strong>Users (유저 정보)</strong>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">telegram_id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;Telegram User ID&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">username</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;Telegram 사용자명&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">gold</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">10000</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;보유 골드 (시작: 10,000)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">soul_dust</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;영혼의 가루 (파괴 시 획득)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">highest_level</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;역대 최고 강화 레벨 (업적/탑 등반용)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">total_enchants</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;총 강화 시도 횟수&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">total_breaks</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;총 파괴 횟수&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">updated_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_telegram_id</span><span class="w"> </span><span class="p">(</span><span class="n">telegram_id</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_highest_level</span><span class="w"> </span><span class="p">(</span><span class="n">highest_level</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="o">=</span><span class="s1">&#39;유저 기본 정보 및 재화 관리&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="weapons-무기-정보">
+    <a href="#weapons-%eb%ac%b4%ea%b8%b0-%ec%a0%95%eb%b3%b4" class="header-anchor">#</a>
+    <strong>Weapons (무기 정보)</strong>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">weapons</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">user_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;소유자&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">weapon_type</span><span class="w"> </span><span class="n">ENUM</span><span class="p">(</span><span class="s1">&#39;SWORD&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;AXE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SPEAR&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BOW&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;SWORD&#39;</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;무기 종류&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">level</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;현재 강화 레벨&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">prefix</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;수식언 (녹슨, 빛나는, 용살자의 등)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">status</span><span class="w"> </span><span class="n">ENUM</span><span class="p">(</span><span class="s1">&#39;ACTIVE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SOLD&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BROKEN&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;ACTIVE&#39;</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;무기 상태&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">base_cost</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;구매 원가 (환불/보상 계산용)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">total_invested</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;총 투자 골드 (구매비 + 강화비)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">updated_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">sold_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;판매 시각&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_user_status</span><span class="w"> </span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span><span class="w"> </span><span class="n">status</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_level</span><span class="w"> </span><span class="p">(</span><span class="k">level</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="o">=</span><span class="s1">&#39;무기 인벤토리 및 상태 관리&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="enchant_logs-강화-기록">
+    <a href="#enchant_logs-%ea%b0%95%ed%99%94-%ea%b8%b0%eb%a1%9d" class="header-anchor">#</a>
+    <strong>Enchant_Logs (강화 기록)</strong>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">enchant_logs</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">user_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;강화 시도자&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">weapon_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;대상 무기&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">level_before</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;강화 전 레벨&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">level_after</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;강화 후 레벨&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">result</span><span class="w"> </span><span class="n">ENUM</span><span class="p">(</span><span class="s1">&#39;SUCCESS&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;FAIL&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BREAK&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;결과&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">cost</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;소모된 골드&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">success_rate</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;성공 확률 (%)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">break_rate</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;파괴 확률 (%)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">random_seed</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;난수 시드 (검증용)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_user_time</span><span class="w"> </span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_weapon</span><span class="w"> </span><span class="p">(</span><span class="n">weapon_id</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_result</span><span class="w"> </span><span class="p">(</span><span class="k">result</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="o">=</span><span class="s1">&#39;강화 시도 이력 (CS 및 통계 분석용)&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="enchant_config-강화-확률-설정">
+    <a href="#enchant_config-%ea%b0%95%ed%99%94-%ed%99%95%eb%a5%a0-%ec%84%a4%ec%a0%95" class="header-anchor">#</a>
+    <strong>Enchant_Config (강화 확률 설정)</strong>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">enchant_config</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">level</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;강화 레벨 (0→1, 1→2, ...)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">cost</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;강화 비용 (Gold)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">success_rate</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;성공 확률 (%)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">fail_rate</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;유지 확률 (%)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">break_rate</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;파괴 확률 (%)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">sell_price</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;판매 가격&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">tier</span><span class="w"> </span><span class="n">ENUM</span><span class="p">(</span><span class="s1">&#39;COMMON&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DECENT&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;RARE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MASTER&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;HERO&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ANCIENT&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;LEGENDARY&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;등급&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">updated_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">UPDATE</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">success_rate</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">fail_rate</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">break_rate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="o">=</span><span class="s1">&#39;레벨별 강화 확률 및 가격표 (운영 조정 가능)&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="transactions-재화-거래-내역">
+    <a href="#transactions-%ec%9e%ac%ed%99%94-%ea%b1%b0%eb%9e%98-%eb%82%b4%ec%97%ad" class="header-anchor">#</a>
+    <strong>Transactions (재화 거래 내역)</strong>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">transactions</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">user_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;유저&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">type</span><span class="w"> </span><span class="n">ENUM</span><span class="p">(</span><span class="s1">&#39;WEAPON_BUY&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;WEAPON_SELL&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ENCHANT&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ITEM_BUY&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;거래 유형&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">gold_change</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;골드 증감 (+ or -)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">gold_after</span><span class="w"> </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;거래 후 골드&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">reference_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;관련 무기/아이템 ID&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">description</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;거래 설명&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">created_at</span><span class="w"> </span><span class="k">TIMESTAMP</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_TIMESTAMP</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">DELETE</span><span class="w"> </span><span class="k">CASCADE</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_user_time</span><span class="w"> </span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span><span class="w"> </span><span class="n">created_at</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">INDEX</span><span class="w"> </span><span class="n">idx_type</span><span class="w"> </span><span class="p">(</span><span class="k">type</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="o">=</span><span class="s1">&#39;골드 거래 내역 (감사 추적용)&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="prefixes-수식언-풀">
+    <a href="#prefixes-%ec%88%98%ec%8b%9d%ec%96%b8-%ed%92%80" class="header-anchor">#</a>
+    <strong>Prefixes (수식언 풀)</strong>
+</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">prefixes</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">tier</span><span class="w"> </span><span class="n">ENUM</span><span class="p">(</span><span class="s1">&#39;COMMON&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;DECENT&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;RARE&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;MASTER&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;HERO&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;ANCIENT&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;LEGENDARY&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">prefix</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;수식언 텍스트&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">weight</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">COMMENT</span><span class="w"> </span><span class="s1">&#39;추첨 가중치 (높을수록 자주 등장)&#39;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">uk_tier_prefix</span><span class="w"> </span><span class="p">(</span><span class="n">tier</span><span class="p">,</span><span class="w"> </span><span class="k">prefix</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">)</span><span class="w"> </span><span class="k">COMMENT</span><span class="o">=</span><span class="s1">&#39;등급별 수식언 데이터&#39;</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="62-핵심-api-endpoints">
+    <a href="#62-%ed%95%b5%ec%8b%ac-api-endpoints" class="header-anchor">#</a>
+    6.2. 핵심 API (Endpoints)
+</h3><h4 id="인증-authentication">
+    <a href="#%ec%9d%b8%ec%a6%9d-authentication" class="header-anchor">#</a>
+    <strong>인증 (Authentication)</strong>
+</h4><ul>
+<li><code>POST /auth/telegram</code> - Telegram OAuth 로그인/회원가입
+<ul>
+<li><strong>Request</strong>: <code>{ init_data: string }</code></li>
+<li><strong>Response</strong>: <code>{ user: { id, username, gold }, token: string }</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="무기-관리-weapons">
+    <a href="#%eb%ac%b4%ea%b8%b0-%ea%b4%80%eb%a6%ac-weapons" class="header-anchor">#</a>
+    <strong>무기 관리 (Weapons)</strong>
+</h4><ul>
+<li>
+<p><code>GET /weapons</code> - 보유 중인 무기 목록 조회 (ACTIVE만)</p>
+<ul>
+<li><strong>Response</strong>: <code>{ weapons: [{ id, type, level, prefix, sell_price }] }</code></li>
+</ul>
+</li>
+<li>
+<p><code>POST /weapons/buy</code> - 새 무기 구매 (0강)</p>
+<ul>
+<li><strong>Request</strong>: <code>{ weapon_type: 'SWORD' | 'AXE' | 'SPEAR' | 'BOW' }</code></li>
+<li><strong>Response</strong>: <code>{ weapon: { id, level: 0, cost }, user: { gold } }</code></li>
+<li><strong>Error</strong>: <code>{ error: 'INSUFFICIENT_GOLD' }</code> (골드 부족 시)</li>
+</ul>
+</li>
+<li>
+<p><code>POST /weapons/:id/enchant</code> - <strong>핵심 로직: 강화 시도</strong></p>
+<ul>
+<li><strong>Request</strong>: <code>{ weapon_id: number }</code></li>
+<li><strong>Response</strong>:
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;result&#34;</span><span class="p">:</span> <span class="s2">&#34;SUCCESS&#34;</span> <span class="err">|</span> <span class="s2">&#34;FAIL&#34;</span> <span class="err">|</span> <span class="s2">&#34;BREAK&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;weapon&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="mi">123</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;level_before&#34;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;level_after&#34;</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;prefix&#34;</span><span class="p">:</span> <span class="s2">&#34;빛나는&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;sell_price&#34;</span><span class="p">:</span> <span class="mi">65000</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;user&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;gold&#34;</span><span class="p">:</span> <span class="mi">950000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;soul_dust&#34;</span><span class="p">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;log&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;success_rate&#34;</span><span class="p">:</span> <span class="mf">30.00</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;break_rate&#34;</span><span class="p">:</span> <span class="mf">10.00</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;cost&#34;</span><span class="p">:</span> <span class="mi">10000</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li><strong>Error Cases</strong>:
+<ul>
+<li><code>{ error: 'WEAPON_NOT_FOUND' }</code></li>
+<li><code>{ error: 'INSUFFICIENT_GOLD' }</code></li>
+<li><code>{ error: 'MAX_LEVEL_REACHED' }</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><code>POST /weapons/:id/sell</code> - 무기 판매</p>
+<ul>
+<li><strong>Response</strong>: <code>{ gold_gained: 65000, user: { gold } }</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="경제-economy">
+    <a href="#%ea%b2%bd%ec%a0%9c-economy" class="header-anchor">#</a>
+    <strong>경제 (Economy)</strong>
+</h4><ul>
+<li>
+<p><code>GET /economy/config</code> - 전체 강화 확률표 조회 (클라이언트 UI용)</p>
+<ul>
+<li><strong>Response</strong>: <code>{ levels: [{ level, cost, success_rate, sell_price, tier }] }</code></li>
+</ul>
+</li>
+<li>
+<p><code>GET /economy/stats</code> - 유저 통계</p>
+<ul>
+<li><strong>Response</strong>:
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;total_enchants&#34;</span><span class="p">:</span> <span class="mi">1523</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;total_breaks&#34;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;highest_level&#34;</span><span class="p">:</span> <span class="mi">18</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;break_rate&#34;</span><span class="p">:</span> <span class="mf">2.76</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;total_invested&#34;</span><span class="p">:</span> <span class="mi">5420000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;total_earned&#34;</span><span class="p">:</span> <span class="mi">8200000</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;net_profit&#34;</span><span class="p">:</span> <span class="mi">2780000</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+<h4 id="랭킹-leaderboard">
+    <a href="#%eb%9e%ad%ed%82%b9-leaderboard" class="header-anchor">#</a>
+    <strong>랭킹 (Leaderboard)</strong>
+</h4><ul>
+<li>
+<p><code>GET /leaderboard/highest</code> - 최고 레벨 달성 랭킹 (Top 100)</p>
+<ul>
+<li><strong>Response</strong>: <code>{ rankings: [{ rank, username, level, created_at }] }</code></li>
+</ul>
+</li>
+<li>
+<p><code>GET /leaderboard/gold</code> - 보유 골드 랭킹</p>
+<ul>
+<li><strong>Response</strong>: <code>{ rankings: [{ rank, username, gold }] }</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="63-보안-고려사항">
+    <a href="#63-%eb%b3%b4%ec%95%88-%ea%b3%a0%eb%a0%a4%ec%82%ac%ed%95%ad" class="header-anchor">#</a>
+    6.3. 보안 고려사항
+</h3><ul>
+<li><strong>Server Authority</strong>: 모든 확률 계산과 재화 처리는 반드시 서버에서 수행.</li>
+<li><strong>Concurrency</strong>: 따닥(Double Tap) 방지를 위한 트랜잭션 처리 필수.</li>
+</ul>
+<hr>
+<h2 id="7-업데이트-로드맵-post-mvp">
+    <a href="#7-%ec%97%85%eb%8d%b0%ec%9d%b4%ed%8a%b8-%eb%a1%9c%eb%93%9c%eb%a7%b5-post-mvp" class="header-anchor">#</a>
+    7. 업데이트 로드맵 (Post-MVP)
+</h2><p>현재 단계에서는 포함하지 않으나, 확장성을 위해 미리 기획된 콘텐츠입니다.</p>
+<ul>
+<li><strong>무한의 탑 (v1.5 예정)</strong>: 보유한 무기의 &lsquo;최고 레벨&rsquo;을 전투력으로 환산하여 등반. 방치형 보상 획득.</li>
+<li><strong>보스 레이드 (v1.6 예정)</strong>: 클릭커 요소 결합. 제한 시간 내 타격(탭)하여 보스 처치.</li>
+<li><strong>무기 파견 (v1.7 예정)</strong>: 사용하지 않는 고강화 무기를 파견 보내 재료 수급.</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%EA%B2%8C%EC%9E%84%EA%B0%9C%EB%B0%9C/">게임개발</a>
+        
+            <a href="/tags/%EA%B0%95%ED%99%94%EC%8B%9C%EC%8A%A4%ED%85%9C/">강화시스템</a>
+        
+            <a href="/tags/%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98/">시뮬레이션</a>
+        
+            <a href="/tags/rpg/">RPG</a>
+        
+            <a href="/tags/%EB%B0%B8%EB%9F%B0%EC%8B%B1/">밸런싱</a>
+        
+            <a href="/tags/tap-smith/">Tap Smith</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2026 대니짱
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
