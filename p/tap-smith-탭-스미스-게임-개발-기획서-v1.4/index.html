@@ -322,7 +322,6 @@
       </ol>
     </li>
     <li><a href="#5-수식언-및-연출-시스템-prefix">5. 수식언 및 연출 시스템 (Prefix)</a></li>
-    <li><a href="#6-결론-및-향후-계획">6. 결론 및 향후 계획</a></li>
     <li><a href="#6-개발-및-구현-스펙-technical">6. 개발 및 구현 스펙 (Technical)</a>
       <ol>
         <li><a href="#61-데이터베이스-schema-summary">6.1. 데이터베이스 (Schema Summary)</a>
@@ -434,7 +433,7 @@
     1. 개요
 </h2><ul>
 <li><strong>장르</strong>: 하드코어 강화 시뮬레이션 / 방치형(Idle) RPG 매니지먼트</li>
-<li><strong>핵심 목표</strong>: 실패 시 하락 없는 &lsquo;직진형(No Back)&rsquo; 강화 시스템에서, 파괴의 공포를 이겨내고 최고의 무기를 만들어 비싸게 파는 것임.</li>
+<li><strong>핵심 목표</strong>: 실패 시 하락 없는 &lsquo;직진형(No Back)&rsquo; 강화 시스템에서, 파괴의 공포를 이겨내고 최고의 무기를 만들어 비싸게 파는 것.</li>
 <li><strong>개발 단계</strong>: MVP (핵심 루프 구현 및 밸런싱)</li>
 </ul>
 <hr>
@@ -476,7 +475,7 @@
 <h2 id="3-게임-루프-core-loop">
     <a href="#3-%ea%b2%8c%ec%9e%84-%eb%a3%a8%ed%94%84-core-loop" class="header-anchor">#</a>
     3. 게임 루프 (Core Loop)
-</h2><p>MVP 버전에서는 전투 콘텐츠를 제외하고 <strong>경제 순환</strong>에 집중할 계획임.</p>
+</h2><p>MVP 버전에서는 전투 콘텐츠를 제외하고 <strong>경제 순환</strong>에 집중합니다.</p>
 <ol>
 <li><strong>제작/구매</strong>: 기본 무기를 상자에서 확률로 뽑기</li>
 <li><strong>강화 (Gamble)</strong>: 골드를 소모하여 강화 시도.</li>
@@ -495,9 +494,9 @@
 </h2><h3 id="41-기댓값expected-value-산출-공식">
     <a href="#41-%ea%b8%b0%eb%8c%93%ea%b0%92expected-value-%ec%82%b0%ec%b6%9c-%ea%b3%b5%ec%8b%9d" class="header-anchor">#</a>
     4.1. 기댓값(Expected Value) 산출 공식
-</h3><p>각 강화 단계의 가치는 **&ldquo;파괴 시 0강부터 다시 복구해야 하는 리스크 비용&rdquo;**을 포함하여 계산할 예정임.</p>
+</h3><p>각 강화 단계의 가치는 **&ldquo;파괴 시 0강부터 다시 복구해야 하는 리스크 비용&rdquo;**을 포함하여 계산합니다.</p>
 <p>$$EV_{next} = EV_{current} + \frac{Cost + (P_{break} \times EV_{current})}{P_{success}}$$</p>
-<p>이 공식을 기반으로 판매 가격은 <code>EV * (0.6 ~ 0.8)</code> 수준으로 책정하여, 유저가 **&ldquo;직접 띄울까, 그냥 살까&rdquo;**를 고민하게 만드는 게 포인트임.</p>
+<p>이 공식을 기반으로 판매 가격은 <code>EV * (0.6 ~ 0.8)</code> 수준으로 책정하여, 유저가 **&ldquo;직접 띄울까, 그냥 살까&rdquo;**를 고민하게 만듭니다.</p>
 <h3 id="42-구간별-상세-테이블">
     <a href="#42-%ea%b5%ac%ea%b0%84%eb%b3%84-%ec%83%81%ec%84%b8-%ed%85%8c%ec%9d%b4%eb%b8%94" class="header-anchor">#</a>
     4.2. 구간별 상세 테이블
@@ -642,7 +641,7 @@
 <h4 id="phase-3-하드코어-20--29">
     <a href="#phase-3-%ed%95%98%eb%93%9c%ec%bd%94%ec%96%b4-20--29" class="header-anchor">#</a>
     <strong>Phase 3: 하드코어 (+20 ~ +29)</strong>
-</h4><p><strong>특징</strong>: 파괴 확률 &gt; 성공 확률. 무기 삭제 확률이 더 높음. 가격이 기하급수적으로 폭등.</p>
+</h4><p><strong>특징</strong>: 파괴 확률 &gt; 성공 확률. 무기가 삭제될 확률이 더 높음. 가격이 기하급수적으로 폭등.</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -698,7 +697,7 @@
 <h2 id="5-수식언-및-연출-시스템-prefix">
     <a href="#5-%ec%88%98%ec%8b%9d%ec%96%b8-%eb%b0%8f-%ec%97%b0%ec%b6%9c-%ec%8b%9c%ec%8a%a4%ed%85%9c-prefix" class="header-anchor">#</a>
     5. 수식언 및 연출 시스템 (Prefix)
-</h2><p>강화 단계에 따라 무기의 <strong>이름</strong>과 <strong>프로필 이펙트</strong>가 변경됨.</p>
+</h2><p>강화 단계에 따라 무기의 <strong>이름</strong>과 <strong>프로필 이펙트</strong>가 변경됩니다.</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -753,13 +752,6 @@
 </tr>
 </tbody>
 </table></div>
-<hr>
-<h2 id="6-결론-및-향후-계획">
-    <a href="#6-%ea%b2%b0%eb%a1%a0-%eb%b0%8f-%ed%96%a5%ed%9b%84-%ea%b3%84%ed%9a%8d" class="header-anchor">#</a>
-    6. 결론 및 향후 계획
-</h2><p>현재 핵심 로직 밸런싱 작업 중임.
-단순한 운빨 게임을 넘어, 유저가 리스크를 관리하는 재미를 느낄 수 있도록 다듬는 게 목표임.
-조만간 실제 테스트 영상도 한 번 올려보겠음! 💪</p>
 <hr>
 <h2 id="6-개발-및-구현-스펙-technical">
     <a href="#6-%ea%b0%9c%eb%b0%9c-%eb%b0%8f-%ea%b5%ac%ed%98%84-%ec%8a%a4%ed%8e%99-technical" class="header-anchor">#</a>
