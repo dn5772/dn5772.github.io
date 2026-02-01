@@ -3,7 +3,7 @@ title = "Tap Smith 개발 일지 #4 - 일일 미션 시스템 설계"
 date = 2026-02-05T00:00:00Z
 draft = false
 tags = ["게임개발", "Tap Smith", "일일미션", "데이터베이스", "기획", "백엔드"]
-categories = ["Tap Smith"]
+categories = ["game-dev/tap-smith"]
 +++
 
 # Tap Smith 개발 일지 #4 - 일일 미션 시스템 설계

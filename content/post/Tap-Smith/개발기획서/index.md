@@ -1,6 +1,6 @@
 +++
 title = "Tap Smith (탭 스미스) — 게임 개발 기획서 (v1.4)"
-categories = "Tap Smith"
+categories = ["game-dev/tap-smith"]
 date = 2026-02-01T00:00:00Z
 draft = false
 tags = ["게임개발", "강화시스템", "시뮬레이션", "RPG", "밸런싱", "Tap Smith"]
