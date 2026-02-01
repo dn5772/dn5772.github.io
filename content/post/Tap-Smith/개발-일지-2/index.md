@@ -1,10 +1,10 @@
-+++
-title = "Tap Smith 개발 일지 #2 - 백엔드 인증 시스템 구현"
-date = 2026-02-03T00:00:00Z
-draft = false
-tags = ["게임개발", "Tap Smith", "인증", "백엔드", "Telegram", "JWT"]
-categories = ["game-dev/tap-smith"]
-+++
+---
+title: "Tap Smith 개발 일지 #2 - 백엔드 인증 시스템 구현"
+date: 2026-02-03T00:00:00Z
+draft: false
+tags: ["게임개발", "Tap Smith", "인증", "백엔드", "Telegram", "JWT"]
+categories: ["game-dev/tap-smith"]
+---
 
 # Tap Smith 개발 일지 #2 - 백엔드 인증 시스템 구현
 

@@ -1,10 +1,10 @@
-+++
-title = "Tap Smith 개발 일지 #3 - 데이터베이스 연동 테스트 완료!"
-date = 2026-02-04T00:00:00Z
-draft = false
-tags = ["게임개발", "Tap Smith", "데이터베이스", "MySQL", "테스트", "백엔드"]
-categories = ["game-dev/tap-smith"]
-+++
+---
+title: "Tap Smith 개발 일지 #3 - 데이터베이스 연동 테스트 완료!"
+date: 2026-02-04T00:00:00Z
+draft: false
+tags: ["게임개발", "Tap Smith", "데이터베이스", "MySQL", "테스트", "백엔드"]
+categories: ["game-dev/tap-smith"]
+---
 
 # Tap Smith 개발 일지 #3 - 데이터베이스 연동 테스트 완료!
 

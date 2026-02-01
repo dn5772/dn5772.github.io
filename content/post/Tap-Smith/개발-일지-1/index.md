@@ -1,10 +1,10 @@
-+++
-title = "Tap Smith 개발 일지 #1 - API 구현과 문서의 차이점 분석"
-date = 2026-02-02T00:00:00Z
-draft = false
-tags = ["게임개발", "Tap Smith", "API", "개발일지", "백엔드"]
-categories = ["game-dev/tap-smith"]
-+++
+---
+title: "Tap Smith 개발 일지 #1 - API 구현과 문서의 차이점 분석"
+date: 2026-02-02T00:00:00Z
+draft: false
+tags: ["게임개발", "Tap Smith", "API", "개발일지", "백엔드"]
+categories: ["game-dev/tap-smith"]
+---
 
 # Tap Smith 개발 일지 #1 - API 구현과 문서의 차이점 분석
 
