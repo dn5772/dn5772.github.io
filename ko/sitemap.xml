@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://dn5772.github.io/</loc>
-    <lastmod>2026-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -16,7 +16,7 @@
                 />
   </url><url>
     <loc>https://dn5772.github.io/categories/</loc>
-    <lastmod>2026-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -28,11 +28,14 @@
                 href="https://dn5772.github.io/categories/"
                 />
   </url><url>
+    <loc>https://dn5772.github.io/categories/paper/</loc>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://dn5772.github.io/post/</loc>
-    <lastmod>2026-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dn5772.github.io/tags/</loc>
-    <lastmod>2026-02-05T00:00:00+00:00</lastmod>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -43,6 +46,51 @@
                 hreflang="ko"
                 href="https://dn5772.github.io/tags/"
                 />
+  </url><url>
+    <loc>https://dn5772.github.io/tags/vla/</loc>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/%EA%B3%B5%EB%B6%80%EA%B8%B0%EB%A1%9D/</loc>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/p/paper-reading-3/</loc>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/%EB%85%BC%EB%AC%B8%EC%9D%BD%EA%B8%B0/</loc>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/%EB%A9%80%ED%8B%B0%ED%97%A4%EB%93%9C/</loc>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/%EC%8B%A4%ED%97%98%EC%84%A4%EA%B3%84/</loc>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/%EC%96%B4%ED%85%90%EC%85%98/</loc>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/%ED%94%84%EB%A3%A8%EB%8B%9D/</loc>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/%ED%94%BC%EC%A7%80%EC%BB%ACai/</loc>
+    <lastmod>2026-09-08T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/p/paper-reading-2/</loc>
+    <lastmod>2026-09-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/%ED%8A%B8%EB%9E%9C%EC%8A%A4%ED%8F%AC%EB%A8%B8/</loc>
+    <lastmod>2026-09-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/rag/</loc>
+    <lastmod>2026-09-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/%EA%B0%95%ED%99%94%ED%95%99%EC%8A%B5/</loc>
+    <lastmod>2026-09-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/p/paper-reading-1/</loc>
+    <lastmod>2026-09-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://dn5772.github.io/tags/%EC%BB%A4%EB%A6%AC%ED%81%98%EB%9F%BC/</loc>
+    <lastmod>2026-09-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://dn5772.github.io/tags/tap-smith/</loc>
     <lastmod>2026-02-05T00:00:00+00:00</lastmod>

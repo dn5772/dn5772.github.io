@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1단계 멀티헤드 어텐션. 예측 네 개를 먼저 적고 논문으로 검증한 기록 (★4)">
+<title>논문 읽기 #2 - Attention Is All You Need, 표에서 제일 오래 붙들렸다</title>
+
+<link rel='canonical' href='https://dn5772.github.io/p/paper-reading-2/'>
+
+<link rel="stylesheet" href="/scss/style.min.760e3dabc1e140d2e6abd27a8ca0aabb60e568829b29f67d2df12024136eff37.css"><meta property='og:title' content="논문 읽기 #2 - Attention Is All You Need, 표에서 제일 오래 붙들렸다">
+<meta property='og:description' content="1단계 멀티헤드 어텐션. 예측 네 개를 먼저 적고 논문으로 검증한 기록 (★4)">
+<meta property='og:url' content='https://dn5772.github.io/p/paper-reading-2/'>
+<meta property='og:site_name' content='대니짱'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='논문읽기' /><meta property='article:tag' content='공부기록' /><meta property='article:tag' content='어텐션' /><meta property='article:tag' content='트랜스포머' /><meta property='article:tag' content='멀티헤드' /><meta property='article:tag' content='실험설계' /><meta property='article:published_time' content='2026-09-03T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-09-03T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="논문 읽기 #2 - Attention Is All You Need, 표에서 제일 오래 붙들렸다">
+<meta name="twitter:description" content="1단계 멀티헤드 어텐션. 예측 네 개를 먼저 적고 논문으로 검증한 기록 (★4)">
+    <link rel="shortcut icon" href="/pokeball_icon.png" />
+
+  
+
+<meta name="google-adsense-account" content="ca-pub-2130075151823864">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130075151823864"
+     crossorigin="anonymous"></script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/ditto_2_hud2704b3b9534528c44bbff8ffb4fb3e3_5178_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏷️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">대니짱</a></h1>
+            <h2 class="site-description">Danny ZZang의 블로그</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/dn5772'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.instagram.com/sum._.melon/'
+                        target="_blank"
+                        title="Instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://dn5772.github.io/" selected>한국어</option>
+                                
+                                    <option value="https://dn5772.github.io/en/" >English</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>다크 모드</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#논문이-한-일">논문이 한 일</a></li>
+    <li><a href="#q1-attention만-남기고-rnn을-걷어내면-무엇을-잃게-될-것-같나">Q1. attention만 남기고 RNN을 걷어내면 무엇을 잃게 될 것 같나?</a></li>
+    <li><a href="#q2-attention-하나로-다-되는데-왜-여러-개로-쪼갤까">Q2. attention 하나로 다 되는데 왜 여러 개로 쪼갤까?</a></li>
+    <li><a href="#q3-h를-8에서-64로-키우면-어디서-대가를-치를까">Q3. h를 8에서 64로 키우면 어디서 대가를 치를까?</a></li>
+    <li><a href="#q4-이-표가-헤드가-너무-많으면-나빠진다를-정말-증명하나">Q4. 이 표가 &lsquo;헤드가 너무 많으면 나빠진다&rsquo;를 정말 증명하나?</a></li>
+    <li><a href="#위치와-한계">위치와 한계</a></li>
+    <li><a href="#남은-질문-3개">남은 질문 3개</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/paper/" style="background-color: #7048e8; color: #fff;">
+                Paper
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/paper-reading-2/">논문 읽기 #2 - Attention Is All You Need, 표에서 제일 오래 붙들렸다</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            1단계 멀티헤드 어텐션. 예측 네 개를 먼저 적고 논문으로 검증한 기록 (★4)
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Sep 03, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    6 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="논문-읽기-2---attention-is-all-you-need">
+    <a href="#%eb%85%bc%eb%ac%b8-%ec%9d%bd%ea%b8%b0-2---attention-is-all-you-need" class="header-anchor">#</a>
+    논문 읽기 #2 - Attention Is All You Need
+</h1><ul>
+<li>논문: <a class="link" href="https://arxiv.org/abs/1706.03762"  target="_blank" rel="noopener"
+    >https://arxiv.org/abs/1706.03762</a> (Vaswani et al., 2017-06-12)</li>
+<li>커리큘럼 1단계 · 별점 ★★★★☆</li>
+</ul>
+<p><a class="link" href="https://dn5772.github.io/p/paper-reading-1/" >지난 글</a>에서 정한 방식대로 읽었다.
+<strong>질문을 받고 내 답을 먼저 적은 다음, 논문으로 검증한다.</strong> 네 개를 받았고
+네 번째에서 제일 오래 붙들렸다. 아래 인용 블록(<code>&gt;</code>)이 논문을 읽고 붙인 보충이고,
+그 위가 논문 열기 전에 내가 쓴 답이다. 틀린 것도 안 고치고 그대로 옮긴다.</p>
+<h2 id="논문이-한-일">
+    <a href="#%eb%85%bc%eb%ac%b8%ec%9d%b4-%ed%95%9c-%ec%9d%bc" class="header-anchor">#</a>
+    논문이 한 일
+</h2><p><strong>문제.</strong> RNN은 <code>h_t = f(h_{t-1}, x_t)</code> 라서 한 샘플 안에서 시간축 병렬화가
+원천적으로 불가능하다. 당시 attention은 이미 널리 쓰였지만 거의 항상 RNN과
+&lsquo;함께&rsquo; 쓰이는 <strong>보조 장치</strong>였다. 이 논문은 보조 장치만 남기고 본체를 버린다.</p>
+<p><strong>핵심.</strong> 인코더-디코더 구조는 두고 그 안의 RNN 자리를 전부 self-attention으로
+갈아끼웠다. 새 부품을 발명한 게 아니라 <strong>있던 부품만으로 전체를 다시 조립할 수
+있음을 보인 것</strong>이 새로움이다. 대가로 순서 정보가 사라지므로 §3.5 positional
+encoding(사인/코사인)으로 따로 메운다.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Attention(Q,K,V) = softmax(QK^T / sqrt(d_k)) V
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>dot-product를 고른 이유가 성능이 아니라 <strong>구현</strong>이라는 게 재밌었다 — 최적화된
+GEMM을 그대로 탄다. <code>sqrt(d_k)</code> 스케일링 근거는 각주 4에 있다. 성분이 독립·평균
+0·분산 1이면 <code>Var(q·k) = d_k</code> 이므로 표준편차가 <code>sqrt(d_k)</code> 로 자라고, 그대로
+softmax에 넣으면 포화돼 기울기가 죽는다. 수학적 필연이 아니라 <strong>학습 초기 기울기
+보존 장치</strong>다.</p>
+<h2 id="q1-attention만-남기고-rnn을-걷어내면-무엇을-잃게-될-것-같나">
+    <a href="#q1-attention%eb%a7%8c-%eb%82%a8%ea%b8%b0%ea%b3%a0-rnn%ec%9d%84-%ea%b1%b7%ec%96%b4%eb%82%b4%eb%a9%b4-%eb%ac%b4%ec%97%87%ec%9d%84-%ec%9e%83%ea%b2%8c-%eb%90%a0-%ea%b2%83-%ea%b0%99%eb%82%98" class="header-anchor">#</a>
+    Q1. attention만 남기고 RNN을 걷어내면 무엇을 잃게 될 것 같나?
+</h2><blockquote>
+<p>흐름이나 문장의 뉘앙스를 놓칠것같은데</p>
+</blockquote>
+<blockquote>
+<p><strong>보충.</strong> &lsquo;흐름&rsquo;은 정확히 맞았다 — self-attention은 집합 연산이라 순서 정보가
+통째로 사라지고, 논문은 §3.5 positional encoding으로 이걸 따로 메운다.
+&lsquo;뉘앙스&rsquo;는 논문의 주장과 <strong>반대</strong>다. 저자들은 오히려 attention이 임의의 두 위치를
+상수 번의 연산으로 잇기 때문에 장거리 의존성을 RNN보다 잘 잡는다고 본다.</p>
+</blockquote>
+<p>절반 맞고 절반 틀렸는데, 틀린 쪽이 더 배울 게 많았다. 나는 막연히 &ldquo;정보를 순차적으로
+흘려보내야 미묘한 게 살아남는다&quot;고 생각하고 있었던 것 같다. 논문의 주장은 정반대다.
+Table 1이 그 근거인데, 순차 연산 수와 최대 경로 길이를 RNN의 <code>O(n)</code> 에서 <strong>둘 다
+<code>O(1)</code></strong> 로 만든 것이 핵심 주장이다. 거리가 멀어도 한 번에 닿으니 오히려 낫다는 것.</p>
+<h2 id="q2-attention-하나로-다-되는데-왜-여러-개로-쪼갤까">
+    <a href="#q2-attention-%ed%95%98%eb%82%98%eb%a1%9c-%eb%8b%a4-%eb%90%98%eb%8a%94%eb%8d%b0-%ec%99%9c-%ec%97%ac%eb%9f%ac-%ea%b0%9c%eb%a1%9c-%ec%aa%bc%ea%b0%a4%ea%b9%8c" class="header-anchor">#</a>
+    Q2. attention 하나로 다 되는데 왜 여러 개로 쪼갤까?
+</h2><blockquote>
+<p>해상도를 높이려고 도입한 방법일텐데, 여기서 말하는 해상도가 뭔지 궁금해</p>
+</blockquote>
+<blockquote>
+<p><strong>보충.</strong> 여기서 해상도 = <strong>&lsquo;섞이기 전의 것들을 구별해내는 능력&rsquo;</strong>. softmax
+attention의 출력은 value 벡터들의 볼록결합(가중평균)이라, 서로 다른 이유로 여러
+위치를 봐야 할 때 그 신호들이 한 벡터로 뭉개진다. 멀티헤드는 헤드마다 다른
+부분공간에서 따로 평균을 낸 뒤 concat 하므로, 각 결과가 별도 좌표 블록에 남아
+구별된다. 핵심 대비: <strong>평균은 정보를 섞고, concat은 정보를 나란히 보존한다.</strong></p>
+</blockquote>
+<p>이 문장 하나가 이번 논문에서 제일 크게 남았다. §2가 스스로 자백하듯 attention은
+가중평균이라 <em>&ldquo;reduced effective resolution&rdquo;</em> 을 낳는다. 멀티헤드는 이걸 두 겹으로
+푼다 — (1) 헤드마다 <code>W^Q</code>, <code>W^K</code> 가 따로 학습돼 <strong>서로 다른 잣대로</strong> 유사도를 재고,
+(2) 합칠 때 평균이 아니라 <strong>concat</strong> 이라 각 결과가 별도 좌표 블록에 보존된다.
+<code>d_k = d_v = d_model/h = 64</code> 로 잡아 총 계산량은 단일 헤드와 거의 같다.</p>
+<p>Figure 4가 이 논거를 그림으로 보여준다. &lsquo;its&rsquo; 한 단어가 헤드 5는 &lsquo;Law&rsquo;(선행사),
+헤드 6은 &lsquo;application&rsquo;(피수식어)로 각각 선명하게 꽂힌다. 다만 저자들의 표현은
+내내 <em>&ldquo;apparently&rdquo;</em>, <em>&ldquo;seems related&rdquo;</em> 로 조심스럽다. 이 조심스러움이 나중에
+<a class="link" href="https://dn5772.github.io/p/paper-reading-3/" >다음 글</a>의 출발점이 된다.</p>
+<h2 id="q3-h를-8에서-64로-키우면-어디서-대가를-치를까">
+    <a href="#q3-h%eb%a5%bc-8%ec%97%90%ec%84%9c-64%eb%a1%9c-%ed%82%a4%ec%9a%b0%eb%a9%b4-%ec%96%b4%eb%94%94%ec%84%9c-%eb%8c%80%ea%b0%80%eb%a5%bc-%ec%b9%98%eb%a5%bc%ea%b9%8c" class="header-anchor">#</a>
+    Q3. h를 8에서 64로 키우면 어디서 대가를 치를까?
+</h2><blockquote>
+<p>해드당 보는 토큰이 너무 작아서 짧은 문장밖에 못볼거같고, 이해력이 떨어질것같은데</p>
+</blockquote>
+<blockquote>
+<p><strong>보충.</strong> 결론은 맞지만 <strong>경로가 다르다.</strong> <code>d_k</code>는 &lsquo;보는 토큰 수&rsquo;가 아니다 —
+<code>QK^T</code> 는 언제나 <code>n×n</code> 이고 <strong>모든 헤드가 모든 토큰을 본다.</strong> 줄어드는 건
+잣대의 정밀도다. <code>score = x_q (W^Q W^K^T) x_k^T</code> 에서 그 이중선형형식의
+<code>rank ≤ d_k</code> 이므로, <code>d_k=8</code> 이면 512차원 공간에 랭크 8짜리 질문만 던질 수 있다.
+<strong>시야가 아니라 질문의 복잡도가 깎인다.</strong></p>
+</blockquote>
+<p>내가 제일 크게 틀린 지점이다. 결론(성능이 떨어진다)은 맞췄는데 이유가 완전히
+틀렸다. <code>d_k</code> 를 &lsquo;헤드가 보는 범위&rsquo;로 이해하고 있었던 건데, 실제로는 <strong>유사도를 재는
+잣대의 랭크</strong>다. 시야는 안 줄어든다. 던질 수 있는 질문의 종류가 줄어든다.</p>
+<p>같은 오해가 또 나올 것 같아서 <code>profile/background.md</code> 의 &lsquo;아는 듯 모르는&rsquo; 항목에
+따로 적어뒀다. 결론만 맞은 답은 다음에 또 틀린다.</p>
+<h2 id="q4-이-표가-헤드가-너무-많으면-나빠진다를-정말-증명하나">
+    <a href="#q4-%ec%9d%b4-%ed%91%9c%ea%b0%80-%ed%97%a4%eb%93%9c%ea%b0%80-%eb%84%88%eb%ac%b4-%eb%a7%8e%ec%9c%bc%eb%a9%b4-%eb%82%98%eb%b9%a0%ec%a7%84%eb%8b%a4%eb%a5%bc-%ec%a0%95%eb%a7%90-%ec%a6%9d%eb%aa%85%ed%95%98%eb%82%98" class="header-anchor">#</a>
+    Q4. 이 표가 &lsquo;헤드가 너무 많으면 나빠진다&rsquo;를 정말 증명하나?
+</h2><p>Table 3 (A)행이 h 실험이다.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>h</th>
+<th>1</th>
+<th>8</th>
+<th>16</th>
+<th>32</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BLEU</td>
+<td>24.9</td>
+<td>25.8</td>
+<td>25.8</td>
+<td>25.4</td>
+</tr>
+</tbody>
+</table></div>
+<p>논문 본문은 이걸 두고 <em>&ldquo;quality drops off with too many heads&rdquo;</em> 라고 쓴다.</p>
+<blockquote>
+<p>d_k가 작으면 나빠지는것도 고려해야될거같은데</p>
+</blockquote>
+<blockquote>
+<p><strong>보충.</strong> 교란변수를 정확히 짚었다. (A)행은 <strong>계산량 고정</strong> 때문에
+<code>d_k = d_model/h</code> 로 묶여 있어 h와 d_k가 분리되지 않는다. 게다가 (B)행이
+<strong><code>d_k=16</code> 자체가 해롭다</strong>는 걸 따로 보여준다. <code>d_k=16</code> 으로 맞춰 비교하면
+(B) h=8 → BLEU 25.1 vs (A) h=32 → 25.4 로 <strong>오히려 헤드가 많은 쪽이 낫다</strong>
+(단 <code>d_v</code>·파라미터 수가 달라 깨끗한 비교는 아님). 논문은 h를 분리하는 실험을
+<strong>아예 하지 않았다.</strong> 추가 결함: 시드 1개, error bar 없음, 전부 dev
+set(newstest2013) 숫자. 이 표가 실제로 증명하는 건 <strong>&lsquo;단일 헤드는 나쁘다&rsquo;
+(24.9 vs 25.8) 하나뿐</strong>이다.</p>
+</blockquote>
+<p>네 시간 중 절반을 이 표에 썼다. 그리고 이날 처음으로 <code>stances.md</code> 에 입장을 하나
+적었다.</p>
+<blockquote>
+<p><strong>논문의 실험표는 저자 주장보다 좁은 것만 증명하는 경우가 많다</strong> (2026-09-03)
+Table 3에서 h와 <code>d_k</code> 가 교란된 걸 보고 든 생각. <em>&ldquo;quality drops off with too
+many heads&rdquo;</em> 는 데이터가 받쳐주는 것보다 한 발 나간 주장이었다. 실제로 증명된 건
+&lsquo;단일 헤드는 나쁘다&rsquo; 하나뿐.</p>
+</blockquote>
+<h2 id="위치와-한계">
+    <a href="#%ec%9c%84%ec%b9%98%ec%99%80-%ed%95%9c%ea%b3%84" class="header-anchor">#</a>
+    위치와 한계
+</h2><p>Table 1이 이 논문의 실제 주장이다 — 순차 연산과 최대 경로 길이를 둘 다 <code>O(1)</code> 로.
+대신 층당 복잡도가 <code>O(n^2·d)</code> 다. 저자들도 알고 있어서 긴 시퀀스용 restricted
+self-attention(이웃 r개)을 future work로 미뤄뒀는데, <strong>이 한 줄이 이후 efficient
+attention 연구의 씨앗</strong>이다.</p>
+<p>그리고 하나 더. 이 논문은 처음부터 끝까지 <strong>기계번역 논문</strong>이다. 언어모델 사전학습
+이야기는 한 줄도 없다. 저자들이 만든 것과 그것이 된 것은 다르다.</p>
+<h2 id="남은-질문-3개">
+    <a href="#%eb%82%a8%ec%9d%80-%ec%a7%88%eb%ac%b8-3%ea%b0%9c" class="header-anchor">#</a>
+    남은 질문 3개
+</h2><p><code>questions.md</code> 에 옮긴 것들.</p>
+<ol>
+<li><strong>h를 진짜로 분리한 실험은 어디에 있나?</strong> 계산량 고정을 풀고 <code>d_k</code>·<code>d_v</code> 를
+붙박아둔 채 h만 바꾸면 어떤 곡선이 나오나 — 이 논문은 답하지 않는다.</li>
+<li><strong>해석 안 되는 헤드들은 정말 아무것도 안 하는 건가, 아니면 우리가 볼 줄 모르는
+건가?</strong> 헤드가 실제로 뭘 학습하는지는 사후 해석에 의존한다. 해석 가능한 헤드는
+일부고 나머지는 이름 붙일 패턴이 없다.</li>
+<li><strong>&lsquo;평균은 섞고 concat은 보존한다&rsquo;가 attention 밖에서도 통하나?</strong> 다른 곳의
+가중평균도 같은 병을 앓고 있나?</li>
+</ol>
+<p>별점은 4점을 줬다. 5점을 안 준 이유는 Q4 하나다.</p>
+<p>1번 질문을 닫으러 다음 논문으로 간다.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%EB%85%BC%EB%AC%B8%EC%9D%BD%EA%B8%B0/">논문읽기</a>
+        
+            <a href="/tags/%EA%B3%B5%EB%B6%80%EA%B8%B0%EB%A1%9D/">공부기록</a>
+        
+            <a href="/tags/%EC%96%B4%ED%85%90%EC%85%98/">어텐션</a>
+        
+            <a href="/tags/%ED%8A%B8%EB%9E%9C%EC%8A%A4%ED%8F%AC%EB%A8%B8/">트랜스포머</a>
+        
+            <a href="/tags/%EB%A9%80%ED%8B%B0%ED%97%A4%EB%93%9C/">멀티헤드</a>
+        
+            <a href="/tags/%EC%8B%A4%ED%97%98%EC%84%A4%EA%B3%84/">실험설계</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/paper-reading-3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">논문 읽기 #3 - 헤드는 학습할 때 필요하고 추론할 때는 아니었다</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/paper-reading-1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">논문 읽기 #1 - 논문보다 커리큘럼을 먼저 짰다</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2026 대니짱
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

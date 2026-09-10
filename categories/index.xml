@@ -6,7 +6,15 @@
         <description>Recent content in Categories on 대니짱</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko</language>
-        <lastBuildDate>Thu, 05 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://dn5772.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 08 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://dn5772.github.io/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Paper</title>
+        <link>https://dn5772.github.io/categories/paper/</link>
+        <pubDate>Tue, 08 Sep 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://dn5772.github.io/categories/paper/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Tap Smith</title>
         <link>https://dn5772.github.io/categories/game-dev/tap-smith/</link>
         <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>

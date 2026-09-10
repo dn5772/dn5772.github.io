@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>트랜스포머 on 대니짱</title>
+        <link>https://dn5772.github.io/tags/%ED%8A%B8%EB%9E%9C%EC%8A%A4%ED%8F%AC%EB%A8%B8/</link>
+        <description>Recent content in 트랜스포머 on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Thu, 03 Sep 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://dn5772.github.io/tags/%ED%8A%B8%EB%9E%9C%EC%8A%A4%ED%8F%AC%EB%A8%B8/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>논문 읽기 #2 - Attention Is All You Need, 표에서 제일 오래 붙들렸다</title>
+        <link>https://dn5772.github.io/p/paper-reading-2/</link>
+        <pubDate>Thu, 03 Sep 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://dn5772.github.io/p/paper-reading-2/</guid>
+        <description>&lt;h1 id=&#34;논문-읽기-2---attention-is-all-you-need&#34;&gt;
+    &lt;a href=&#34;#%eb%85%bc%eb%ac%b8-%ec%9d%bd%ea%b8%b0-2---attention-is-all-you-need&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    논문 읽기 #2 - Attention Is All You Need
+&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;논문: &lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/1706.03762&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://arxiv.org/abs/1706.03762&lt;/a&gt; (Vaswani et al., 2017-06-12)&lt;/li&gt;
+&lt;li&gt;커리큘럼 1단계 · 별점 ★★★★☆&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/paper-reading-1/&#34; &gt;지난 글&lt;/a&gt;에서 정한 방식대로 읽었다.
+&lt;strong&gt;질문을 받고 내 답을 먼저 적은 다음, 논문으로 검증한다.&lt;/strong&gt; 네 개를 받았고
+네 번째에서 제일 오래 붙들렸다. 아래 인용 블록(&lt;code&gt;&amp;gt;&lt;/code&gt;)이 논문을 읽고 붙인 보충이고,
+그 위가 논문 열기 전에 내가 쓴 답이다. 틀린 것도 안 고치고 그대로 옮긴다.&lt;/p&gt;
+&lt;h2 id=&#34;논문이-한-일&#34;&gt;
+    &lt;a href=&#34;#%eb%85%bc%eb%ac%b8%ec%9d%b4-%ed%95%9c-%ec%9d%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    논문이 한 일
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;문제.&lt;/strong&gt; RNN은 &lt;code&gt;h_t = f(h_{t-1}, x_t)&lt;/code&gt; 라서 한 샘플 안에서 시간축 병렬화가
+원천적으로 불가능하다. 당시 attention은 이미 널리 쓰였지만 거의 항상 RNN과
+&amp;lsquo;함께&amp;rsquo; 쓰이는 &lt;strong&gt;보조 장치&lt;/strong&gt;였다. 이 논문은 보조 장치만 남기고 본체를 버린다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;핵심.&lt;/strong&gt; 인코더-디코더 구조는 두고 그 안의 RNN 자리를 전부 self-attention으로
+갈아끼웠다. 새 부품을 발명한 게 아니라 &lt;strong&gt;있던 부품만으로 전체를 다시 조립할 수
+있음을 보인 것&lt;/strong&gt;이 새로움이다. 대가로 순서 정보가 사라지므로 §3.5 positional
+encoding(사인/코사인)으로 따로 메운다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Attention(Q,K,V) = softmax(QK^T / sqrt(d_k)) V
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;dot-product를 고른 이유가 성능이 아니라 &lt;strong&gt;구현&lt;/strong&gt;이라는 게 재밌었다 — 최적화된
+GEMM을 그대로 탄다. &lt;code&gt;sqrt(d_k)&lt;/code&gt; 스케일링 근거는 각주 4에 있다. 성분이 독립·평균
+0·분산 1이면 &lt;code&gt;Var(q·k) = d_k&lt;/code&gt; 이므로 표준편차가 &lt;code&gt;sqrt(d_k)&lt;/code&gt; 로 자라고, 그대로
+softmax에 넣으면 포화돼 기울기가 죽는다. 수학적 필연이 아니라 &lt;strong&gt;학습 초기 기울기
+보존 장치&lt;/strong&gt;다.&lt;/p&gt;
+&lt;h2 id=&#34;q1-attention만-남기고-rnn을-걷어내면-무엇을-잃게-될-것-같나&#34;&gt;
+    &lt;a href=&#34;#q1-attention%eb%a7%8c-%eb%82%a8%ea%b8%b0%ea%b3%a0-rnn%ec%9d%84-%ea%b1%b7%ec%96%b4%eb%82%b4%eb%a9%b4-%eb%ac%b4%ec%97%87%ec%9d%84-%ec%9e%83%ea%b2%8c-%eb%90%a0-%ea%b2%83-%ea%b0%99%eb%82%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    Q1. attention만 남기고 RNN을 걷어내면 무엇을 잃게 될 것 같나?
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;흐름이나 문장의 뉘앙스를 놓칠것같은데&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;보충.&lt;/strong&gt; &amp;lsquo;흐름&amp;rsquo;은 정확히 맞았다 — self-attention은 집합 연산이라 순서 정보가
+통째로 사라지고, 논문은 §3.5 positional encoding으로 이걸 따로 메운다.
+&amp;lsquo;뉘앙스&amp;rsquo;는 논문의 주장과 &lt;strong&gt;반대&lt;/strong&gt;다. 저자들은 오히려 attention이 임의의 두 위치를
+상수 번의 연산으로 잇기 때문에 장거리 의존성을 RNN보다 잘 잡는다고 본다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;절반 맞고 절반 틀렸는데, 틀린 쪽이 더 배울 게 많았다. 나는 막연히 &amp;ldquo;정보를 순차적으로
+흘려보내야 미묘한 게 살아남는다&amp;quot;고 생각하고 있었던 것 같다. 논문의 주장은 정반대다.
+Table 1이 그 근거인데, 순차 연산 수와 최대 경로 길이를 RNN의 &lt;code&gt;O(n)&lt;/code&gt; 에서 &lt;strong&gt;둘 다
+&lt;code&gt;O(1)&lt;/code&gt;&lt;/strong&gt; 로 만든 것이 핵심 주장이다. 거리가 멀어도 한 번에 닿으니 오히려 낫다는 것.&lt;/p&gt;
+&lt;h2 id=&#34;q2-attention-하나로-다-되는데-왜-여러-개로-쪼갤까&#34;&gt;
+    &lt;a href=&#34;#q2-attention-%ed%95%98%eb%82%98%eb%a1%9c-%eb%8b%a4-%eb%90%98%eb%8a%94%eb%8d%b0-%ec%99%9c-%ec%97%ac%eb%9f%ac-%ea%b0%9c%eb%a1%9c-%ec%aa%bc%ea%b0%a4%ea%b9%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    Q2. attention 하나로 다 되는데 왜 여러 개로 쪼갤까?
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;해상도를 높이려고 도입한 방법일텐데, 여기서 말하는 해상도가 뭔지 궁금해&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;보충.&lt;/strong&gt; 여기서 해상도 = &lt;strong&gt;&amp;lsquo;섞이기 전의 것들을 구별해내는 능력&amp;rsquo;&lt;/strong&gt;. softmax
+attention의 출력은 value 벡터들의 볼록결합(가중평균)이라, 서로 다른 이유로 여러
+위치를 봐야 할 때 그 신호들이 한 벡터로 뭉개진다. 멀티헤드는 헤드마다 다른
+부분공간에서 따로 평균을 낸 뒤 concat 하므로, 각 결과가 별도 좌표 블록에 남아
+구별된다. 핵심 대비: &lt;strong&gt;평균은 정보를 섞고, concat은 정보를 나란히 보존한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;이 문장 하나가 이번 논문에서 제일 크게 남았다. §2가 스스로 자백하듯 attention은
+가중평균이라 &lt;em&gt;&amp;ldquo;reduced effective resolution&amp;rdquo;&lt;/em&gt; 을 낳는다. 멀티헤드는 이걸 두 겹으로
+푼다 — (1) 헤드마다 &lt;code&gt;W^Q&lt;/code&gt;, &lt;code&gt;W^K&lt;/code&gt; 가 따로 학습돼 &lt;strong&gt;서로 다른 잣대로&lt;/strong&gt; 유사도를 재고,
+(2) 합칠 때 평균이 아니라 &lt;strong&gt;concat&lt;/strong&gt; 이라 각 결과가 별도 좌표 블록에 보존된다.
+&lt;code&gt;d_k = d_v = d_model/h = 64&lt;/code&gt; 로 잡아 총 계산량은 단일 헤드와 거의 같다.&lt;/p&gt;
+&lt;p&gt;Figure 4가 이 논거를 그림으로 보여준다. &amp;lsquo;its&amp;rsquo; 한 단어가 헤드 5는 &amp;lsquo;Law&amp;rsquo;(선행사),
+헤드 6은 &amp;lsquo;application&amp;rsquo;(피수식어)로 각각 선명하게 꽂힌다. 다만 저자들의 표현은
+내내 &lt;em&gt;&amp;ldquo;apparently&amp;rdquo;&lt;/em&gt;, &lt;em&gt;&amp;ldquo;seems related&amp;rdquo;&lt;/em&gt; 로 조심스럽다. 이 조심스러움이 나중에
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/paper-reading-3/&#34; &gt;다음 글&lt;/a&gt;의 출발점이 된다.&lt;/p&gt;
+&lt;h2 id=&#34;q3-h를-8에서-64로-키우면-어디서-대가를-치를까&#34;&gt;
+    &lt;a href=&#34;#q3-h%eb%a5%bc-8%ec%97%90%ec%84%9c-64%eb%a1%9c-%ed%82%a4%ec%9a%b0%eb%a9%b4-%ec%96%b4%eb%94%94%ec%84%9c-%eb%8c%80%ea%b0%80%eb%a5%bc-%ec%b9%98%eb%a5%bc%ea%b9%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    Q3. h를 8에서 64로 키우면 어디서 대가를 치를까?
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;해드당 보는 토큰이 너무 작아서 짧은 문장밖에 못볼거같고, 이해력이 떨어질것같은데&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;보충.&lt;/strong&gt; 결론은 맞지만 &lt;strong&gt;경로가 다르다.&lt;/strong&gt; &lt;code&gt;d_k&lt;/code&gt;는 &amp;lsquo;보는 토큰 수&amp;rsquo;가 아니다 —
+&lt;code&gt;QK^T&lt;/code&gt; 는 언제나 &lt;code&gt;n×n&lt;/code&gt; 이고 &lt;strong&gt;모든 헤드가 모든 토큰을 본다.&lt;/strong&gt; 줄어드는 건
+잣대의 정밀도다. &lt;code&gt;score = x_q (W^Q W^K^T) x_k^T&lt;/code&gt; 에서 그 이중선형형식의
+&lt;code&gt;rank ≤ d_k&lt;/code&gt; 이므로, &lt;code&gt;d_k=8&lt;/code&gt; 이면 512차원 공간에 랭크 8짜리 질문만 던질 수 있다.
+&lt;strong&gt;시야가 아니라 질문의 복잡도가 깎인다.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;내가 제일 크게 틀린 지점이다. 결론(성능이 떨어진다)은 맞췄는데 이유가 완전히
+틀렸다. &lt;code&gt;d_k&lt;/code&gt; 를 &amp;lsquo;헤드가 보는 범위&amp;rsquo;로 이해하고 있었던 건데, 실제로는 &lt;strong&gt;유사도를 재는
+잣대의 랭크&lt;/strong&gt;다. 시야는 안 줄어든다. 던질 수 있는 질문의 종류가 줄어든다.&lt;/p&gt;
+&lt;p&gt;같은 오해가 또 나올 것 같아서 &lt;code&gt;profile/background.md&lt;/code&gt; 의 &amp;lsquo;아는 듯 모르는&amp;rsquo; 항목에
+따로 적어뒀다. 결론만 맞은 답은 다음에 또 틀린다.&lt;/p&gt;
+&lt;h2 id=&#34;q4-이-표가-헤드가-너무-많으면-나빠진다를-정말-증명하나&#34;&gt;
+    &lt;a href=&#34;#q4-%ec%9d%b4-%ed%91%9c%ea%b0%80-%ed%97%a4%eb%93%9c%ea%b0%80-%eb%84%88%eb%ac%b4-%eb%a7%8e%ec%9c%bc%eb%a9%b4-%eb%82%98%eb%b9%a0%ec%a7%84%eb%8b%a4%eb%a5%bc-%ec%a0%95%eb%a7%90-%ec%a6%9d%eb%aa%85%ed%95%98%eb%82%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    Q4. 이 표가 &amp;lsquo;헤드가 너무 많으면 나빠진다&amp;rsquo;를 정말 증명하나?
+&lt;/h2&gt;&lt;p&gt;Table 3 (A)행이 h 실험이다.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;h&lt;/th&gt;
+&lt;th&gt;1&lt;/th&gt;
+&lt;th&gt;8&lt;/th&gt;
+&lt;th&gt;16&lt;/th&gt;
+&lt;th&gt;32&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;BLEU&lt;/td&gt;
+&lt;td&gt;24.9&lt;/td&gt;
+&lt;td&gt;25.8&lt;/td&gt;
+&lt;td&gt;25.8&lt;/td&gt;
+&lt;td&gt;25.4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;논문 본문은 이걸 두고 &lt;em&gt;&amp;ldquo;quality drops off with too many heads&amp;rdquo;&lt;/em&gt; 라고 쓴다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;d_k가 작으면 나빠지는것도 고려해야될거같은데&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;보충.&lt;/strong&gt; 교란변수를 정확히 짚었다. (A)행은 &lt;strong&gt;계산량 고정&lt;/strong&gt; 때문에
+&lt;code&gt;d_k = d_model/h&lt;/code&gt; 로 묶여 있어 h와 d_k가 분리되지 않는다. 게다가 (B)행이
+&lt;strong&gt;&lt;code&gt;d_k=16&lt;/code&gt; 자체가 해롭다&lt;/strong&gt;는 걸 따로 보여준다. &lt;code&gt;d_k=16&lt;/code&gt; 으로 맞춰 비교하면
+(B) h=8 → BLEU 25.1 vs (A) h=32 → 25.4 로 &lt;strong&gt;오히려 헤드가 많은 쪽이 낫다&lt;/strong&gt;
+(단 &lt;code&gt;d_v&lt;/code&gt;·파라미터 수가 달라 깨끗한 비교는 아님). 논문은 h를 분리하는 실험을
+&lt;strong&gt;아예 하지 않았다.&lt;/strong&gt; 추가 결함: 시드 1개, error bar 없음, 전부 dev
+set(newstest2013) 숫자. 이 표가 실제로 증명하는 건 &lt;strong&gt;&amp;lsquo;단일 헤드는 나쁘다&amp;rsquo;
+(24.9 vs 25.8) 하나뿐&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;네 시간 중 절반을 이 표에 썼다. 그리고 이날 처음으로 &lt;code&gt;stances.md&lt;/code&gt; 에 입장을 하나
+적었다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;논문의 실험표는 저자 주장보다 좁은 것만 증명하는 경우가 많다&lt;/strong&gt; (2026-09-03)
+Table 3에서 h와 &lt;code&gt;d_k&lt;/code&gt; 가 교란된 걸 보고 든 생각. &lt;em&gt;&amp;ldquo;quality drops off with too
+many heads&amp;rdquo;&lt;/em&gt; 는 데이터가 받쳐주는 것보다 한 발 나간 주장이었다. 실제로 증명된 건
+&amp;lsquo;단일 헤드는 나쁘다&amp;rsquo; 하나뿐.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;위치와-한계&#34;&gt;
+    &lt;a href=&#34;#%ec%9c%84%ec%b9%98%ec%99%80-%ed%95%9c%ea%b3%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    위치와 한계
+&lt;/h2&gt;&lt;p&gt;Table 1이 이 논문의 실제 주장이다 — 순차 연산과 최대 경로 길이를 둘 다 &lt;code&gt;O(1)&lt;/code&gt; 로.
+대신 층당 복잡도가 &lt;code&gt;O(n^2·d)&lt;/code&gt; 다. 저자들도 알고 있어서 긴 시퀀스용 restricted
+self-attention(이웃 r개)을 future work로 미뤄뒀는데, &lt;strong&gt;이 한 줄이 이후 efficient
+attention 연구의 씨앗&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;그리고 하나 더. 이 논문은 처음부터 끝까지 &lt;strong&gt;기계번역 논문&lt;/strong&gt;이다. 언어모델 사전학습
+이야기는 한 줄도 없다. 저자들이 만든 것과 그것이 된 것은 다르다.&lt;/p&gt;
+&lt;h2 id=&#34;남은-질문-3개&#34;&gt;
+    &lt;a href=&#34;#%eb%82%a8%ec%9d%80-%ec%a7%88%eb%ac%b8-3%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    남은 질문 3개
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;questions.md&lt;/code&gt; 에 옮긴 것들.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;h를 진짜로 분리한 실험은 어디에 있나?&lt;/strong&gt; 계산량 고정을 풀고 &lt;code&gt;d_k&lt;/code&gt;·&lt;code&gt;d_v&lt;/code&gt; 를
+붙박아둔 채 h만 바꾸면 어떤 곡선이 나오나 — 이 논문은 답하지 않는다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;해석 안 되는 헤드들은 정말 아무것도 안 하는 건가, 아니면 우리가 볼 줄 모르는
+건가?&lt;/strong&gt; 헤드가 실제로 뭘 학습하는지는 사후 해석에 의존한다. 해석 가능한 헤드는
+일부고 나머지는 이름 붙일 패턴이 없다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;lsquo;평균은 섞고 concat은 보존한다&amp;rsquo;가 attention 밖에서도 통하나?&lt;/strong&gt; 다른 곳의
+가중평균도 같은 병을 앓고 있나?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;별점은 4점을 줬다. 5점을 안 준 이유는 Q4 하나다.&lt;/p&gt;
+&lt;p&gt;1번 질문을 닫으러 다음 논문으로 간다.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>논문 읽기 #1 - 논문보다 커리큘럼을 먼저 짰다</title>
+        <link>https://dn5772.github.io/p/paper-reading-1/</link>
+        <pubDate>Wed, 02 Sep 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://dn5772.github.io/p/paper-reading-1/</guid>
+        <description>&lt;h1 id=&#34;논문-읽기-1---논문보다-커리큘럼을-먼저-짰다&#34;&gt;
+    &lt;a href=&#34;#%eb%85%bc%eb%ac%b8-%ec%9d%bd%ea%b8%b0-1---%eb%85%bc%eb%ac%b8%eb%b3%b4%eb%8b%a4-%ec%bb%a4%eb%a6%ac%ed%81%98%eb%9f%bc%ec%9d%84-%eb%a8%bc%ec%a0%80-%ec%a7%b0%eb%8b%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    논문 읽기 #1 - 논문보다 커리큘럼을 먼저 짰다
+&lt;/h1&gt;&lt;p&gt;논문을 읽긴 읽는데 남는 게 없었다. arXiv 링크를 열고, 초록을 읽고, 그림 몇 개를
+보고 닫는다. 일주일 뒤에 누가 &amp;ldquo;그 논문 뭐였지&amp;rdquo; 하고 물으면 제목밖에 기억이 안 난다.
+문제는 이해력이 아니라 &lt;strong&gt;읽고 나서 아무것도 안 남긴다는 것&lt;/strong&gt;이었다.&lt;/p&gt;
+&lt;p&gt;그래서 오늘은 논문을 한 편도 안 읽었다. 대신 아카이브를 만들고 순서를 짰다.&lt;/p&gt;
+&lt;h2 id=&#34;저장소-구조&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%80%ec%9e%a5%ec%86%8c-%ea%b5%ac%ec%a1%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    저장소 구조
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;papers/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── notes/&amp;lt;arxiv-id&amp;gt;.md   # 논문 한 편 = 파일 한 장
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── index.md              # 스크립트가 재생성. 손으로 안 고침
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── reading-list.md       # 읽을 후보 큐
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── profile/              # 나에 대한 누적 기록 4종 (append-only)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└── trends/YYYY-MM.md     # 월 단위 트렌드
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;규칙은 두 개만 정했다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;노트는 논문 한 편에 파일 한 장.&lt;/strong&gt; 프론트매터(제목·저자·읽은 날짜·별점·태그)가
+인덱스의 유일한 진실이고, 인덱스는 스크립트가 다시 만든다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;profile/&lt;/code&gt; 은 append-only.&lt;/strong&gt; 생각이 바뀌어도 이전 문장을 지우지 않고 날짜와
+함께 아래에 덧붙인다. &lt;strong&gt;생각이 바뀐 궤적 자체가 기록의 값&lt;/strong&gt;이라고 봤다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;논문-목록보다-나를-먼저-적었다&#34;&gt;
+    &lt;a href=&#34;#%eb%85%bc%eb%ac%b8-%eb%aa%a9%eb%a1%9d%eb%b3%b4%eb%8b%a4-%eb%82%98%eb%a5%bc-%eb%a8%bc%ec%a0%80-%ec%a0%81%ec%97%88%eb%8b%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    논문 목록보다 나를 먼저 적었다
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;profile/&lt;/code&gt; 이 이 저장소에서 제일 이상한 부분인데, 논문 이야기가 아니라 내 이야기가
+들어간다. 네 장이다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;background.md&lt;/code&gt; — 내 지식 수준.&lt;/strong&gt; 설명의 깊이를 조절하려고 만들었다.
+&amp;lsquo;익숙함&amp;rsquo;에 있는 개념은 다시 설명하지 않고 넘어가고, &amp;lsquo;약함&amp;rsquo;에 있는 개념은 비유와
+예시를 곁들여 푼다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;익숙함: 딥러닝 기초, 논문 수식 (유도 과정을 생략하지 말 것)&lt;/li&gt;
+&lt;li&gt;약함: &lt;strong&gt;강화학습&lt;/strong&gt;. MDP·policy gradient·value function 같은 용어는 아직 버겁다.
+단 수식 자체는 따라갈 수 있으니 수식을 빼지는 말 것.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;interests.md&lt;/code&gt; — 관심사.&lt;/strong&gt; 기본적인 인공지능 공부 / 강화학습 / 피지컬 AI.
+강화학습은 관심사이면서 동시에 학습 목표라는 게 좀 웃긴다. 피지컬 AI는 아직
+방향으로만 적어뒀다 — 읽을 논문이 하나도 없다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;questions.md&lt;/code&gt; — 열린 질문.&lt;/strong&gt; 오늘은 비어 있다. 읽으면서 채우기로 했다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;stances.md&lt;/code&gt; — 내가 실제로 한 주장과 그 근거.&lt;/strong&gt; 이것도 오늘은 비어 있다.&lt;/p&gt;
+&lt;p&gt;빈 파일 두 장을 만들어 두는 게 핵심이다. 논문을 읽는 목적이 &amp;ldquo;요약을 얻는 것&amp;quot;이
+아니라 &lt;strong&gt;&amp;ldquo;질문과 입장을 얻는 것&amp;rdquo;&lt;/strong&gt; 이라는 걸 구조로 못 박아둔 셈이다.&lt;/p&gt;
+&lt;h2 id=&#34;3단계-커리큘럼&#34;&gt;
+    &lt;a href=&#34;#3%eb%8b%a8%ea%b3%84-%ec%bb%a4%eb%a6%ac%ed%81%98%eb%9f%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3단계 커리큘럼
+&lt;/h2&gt;&lt;p&gt;목표는 성능 재현이 아니라 &lt;strong&gt;용어에 익숙해지는 것&lt;/strong&gt;이다. 어텐션 기본은 이미 아는
+상태에서 출발한다.&lt;/p&gt;
+&lt;h3 id=&#34;1단계--멀티헤드-어텐션&#34;&gt;
+    &lt;a href=&#34;#1%eb%8b%a8%ea%b3%84--%eb%a9%80%ed%8b%b0%ed%97%a4%eb%93%9c-%ec%96%b4%ed%85%90%ec%85%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    1단계 · 멀티헤드 어텐션
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/1706.03762&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;1706.03762&lt;/a&gt; Attention Is All You Need (2017-06)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;여기서부터 시작하는 이유는 명확하다. 다음 두 단계에 나오는 거의 모든 용어가
+이 논문에서 정의된다.&lt;/p&gt;
+&lt;h3 id=&#34;2단계--rag의-리트리버&#34;&gt;
+    &lt;a href=&#34;#2%eb%8b%a8%ea%b3%84--rag%ec%9d%98-%eb%a6%ac%ed%8a%b8%eb%a6%ac%eb%b2%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2단계 · RAG의 리트리버
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2004.04906&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;2004.04906&lt;/a&gt; Dense Passage Retrieval for Open-Domain QA (2020-04)&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2005.11401&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;2005.11401&lt;/a&gt; Retrieval-Augmented Generation (2020-05)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;DPR을 RAG보다 먼저 두는 이유: &lt;strong&gt;&amp;lsquo;리트리버&amp;rsquo;라는 말의 실체&lt;/strong&gt;가 DPR에 있다.
+dual-encoder, in-batch negative, 대조학습. 그리고 1단계의 Q·K 내적이 여기선
+질문·문단 임베딩 내적이 된다 — 같은 연산의 다른 쓰임이라 순서를 이렇게 잡았다.
+DPR 없이 RAG를 읽으면 절반이 블랙박스다.&lt;/p&gt;
+&lt;h3 id=&#34;3단계--deepseek-r1의-강화학습&#34;&gt;
+    &lt;a href=&#34;#3%eb%8b%a8%ea%b3%84--deepseek-r1%ec%9d%98-%ea%b0%95%ed%99%94%ed%95%99%ec%8a%b5&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3단계 · DeepSeek R1의 강화학습
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/1707.06347&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;1707.06347&lt;/a&gt; Proximal Policy Optimization Algorithms (2017-07)&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2402.03300&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;2402.03300&lt;/a&gt; DeepSeekMath (2024-02) — §4만&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://arxiv.org/abs/2501.12948&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;2501.12948&lt;/a&gt; DeepSeek-R1 (2025-01)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;RL이 약한 영역이라 &lt;strong&gt;R1으로 바로 가지 않는다.&lt;/strong&gt; 이게 오늘 정한 것 중에 제일
+중요한 결정이다.&lt;/p&gt;
+&lt;p&gt;R1의 GRPO는 논문에서 &lt;em&gt;&amp;lsquo;PPO에서 value model을 뺀 것&amp;rsquo;&lt;/em&gt; 으로 정의된다. 즉 PPO를
+모르면 R1의 핵심 문장이 &lt;strong&gt;문자 그대로 안 읽힌다.&lt;/strong&gt; policy gradient, advantage,
+clipped surrogate objective를 먼저 손에 넣어야 한다. PPO의 §3 목적함수는 눈으로
+읽지 말고 손으로 따라 유도해볼 생각이다.&lt;/p&gt;
+&lt;p&gt;그다음 DeepSeekMath §4에서 GRPO가 처음 나오는 자리를 보고 — PPO의 value model을
+왜 버렸고 그룹 내 상대 보상으로 어떻게 대체했는지 — 마지막에 R1으로 간다.
+R1-Zero(순수 RL)와 R1(cold-start + 다단계)의 차이, 그리고 그 유명한 &amp;lsquo;aha moment&amp;rsquo;가
+정말 뭐였는지는 앞의 두 편을 근거로 &lt;strong&gt;직접 판단&lt;/strong&gt;해볼 것.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;단계를 건너뛰지 말 것 — 각 단계가 다음 단계의 용어를 만든다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;읽는-방식-내-답을-먼저-적는다&#34;&gt;
+    &lt;a href=&#34;#%ec%9d%bd%eb%8a%94-%eb%b0%a9%ec%8b%9d-%eb%82%b4-%eb%8b%b5%ec%9d%84-%eb%a8%bc%ec%a0%80-%ec%a0%81%eb%8a%94%eb%8b%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    읽는 방식: 내 답을 먼저 적는다
+&lt;/h2&gt;&lt;p&gt;구조를 짜면서 같이 정한 게 하나 더 있다. &lt;strong&gt;논문을 열기 전에 질문을 받고 내 답부터
+적는다.&lt;/strong&gt; 그다음에 논문으로 검증한다.&lt;/p&gt;
+&lt;p&gt;요약본을 읽으면 &amp;ldquo;아 그렇구나&amp;rdquo; 하고 끝나는데, 내 답을 먼저 적어두면 논문과 갈리는
+지점이 눈에 보인다. 맞은 것보다 &lt;strong&gt;틀린 게 더 값지다&lt;/strong&gt; — 틀린 자리가 정확히 내가
+모르는 자리니까. 그래서 노트마다 &lt;code&gt;## 내 생각&lt;/code&gt; 섹션을 두고, 거기엔 다듬은 문장이
+아니라 &lt;strong&gt;내가 실제로 한 말을 그대로&lt;/strong&gt; 옮기기로 했다. 오답을 예쁘게 고쳐 쓰면
+기록의 의미가 없다.&lt;/p&gt;
+&lt;p&gt;오늘 저녁에 1단계를 시작했다. 질문 네 개를 받았는데 네 번째에서 한참 붙들렸다.
+다음 글에서.&lt;/p&gt;
+&lt;h2 id=&#34;오늘-남긴-것&#34;&gt;
+    &lt;a href=&#34;#%ec%98%a4%eb%8a%98-%eb%82%a8%ea%b8%b4-%ea%b2%83&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    오늘 남긴 것
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;저장소 구조와 규칙 2개&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;profile/&lt;/code&gt; 4종 — 특히 &amp;ldquo;강화학습이 약하다&amp;quot;를 명시적으로 적어둔 것&lt;/li&gt;
+&lt;li&gt;3단계 커리큘럼과, R1 앞에 PPO를 두는 이유&lt;/li&gt;
+&lt;li&gt;읽는 방식: 예측 → 검증, 그리고 내 말을 안 다듬고 남기기&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;읽은 논문 0편. 그래도 오늘이 제일 중요한 날이었던 것 같다.&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
