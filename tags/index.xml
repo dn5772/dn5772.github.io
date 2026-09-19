@@ -223,19 +223,155 @@
         <description></description>
         </item>
         <item>
-        <title>CSS</title>
-        <link>https://dn5772.github.io/tags/css/</link>
-        <pubDate>Wed, 25 Mar 2026 23:25:00 +0900</pubDate>
+        <title>CLI</title>
+        <link>https://dn5772.github.io/tags/cli/</link>
+        <pubDate>Fri, 27 Mar 2026 14:11:00 +0900</pubDate>
         
-        <guid>https://dn5772.github.io/tags/css/</guid>
+        <guid>https://dn5772.github.io/tags/cli/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>LaunchAgent</title>
+        <link>https://dn5772.github.io/tags/launchagent/</link>
+        <pubDate>Fri, 27 Mar 2026 14:11:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/launchagent/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Rust</title>
+        <link>https://dn5772.github.io/tags/rust/</link>
+        <pubDate>Fri, 27 Mar 2026 14:11:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/rust/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Seam</title>
+        <link>https://dn5772.github.io/tags/seam/</link>
+        <pubDate>Fri, 27 Mar 2026 14:11:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/seam/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>데몬</title>
+        <link>https://dn5772.github.io/tags/%EB%8D%B0%EB%AA%AC/</link>
+        <pubDate>Fri, 27 Mar 2026 14:11:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/%EB%8D%B0%EB%AA%AC/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>HITL</title>
+        <link>https://dn5772.github.io/tags/hitl/</link>
+        <pubDate>Fri, 27 Mar 2026 00:19:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/hitl/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>TUI</title>
+        <link>https://dn5772.github.io/tags/tui/</link>
+        <pubDate>Fri, 27 Mar 2026 00:19:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/tui/</guid>
         <description></description>
         </item>
         <item>
         <title>UX</title>
         <link>https://dn5772.github.io/tags/ux/</link>
-        <pubDate>Wed, 25 Mar 2026 23:25:00 +0900</pubDate>
+        <pubDate>Fri, 27 Mar 2026 00:19:00 +0900</pubDate>
         
         <guid>https://dn5772.github.io/tags/ux/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>에이전트</title>
+        <link>https://dn5772.github.io/tags/%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8/</link>
+        <pubDate>Fri, 27 Mar 2026 00:19:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>LLM</title>
+        <link>https://dn5772.github.io/tags/llm/</link>
+        <pubDate>Thu, 26 Mar 2026 22:44:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/llm/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Ollama</title>
+        <link>https://dn5772.github.io/tags/ollama/</link>
+        <pubDate>Thu, 26 Mar 2026 22:44:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/ollama/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>라우팅</title>
+        <link>https://dn5772.github.io/tags/%EB%9D%BC%EC%9A%B0%ED%8C%85/</link>
+        <pubDate>Thu, 26 Mar 2026 22:44:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/%EB%9D%BC%EC%9A%B0%ED%8C%85/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>메모리</title>
+        <link>https://dn5772.github.io/tags/%EB%A9%94%EB%AA%A8%EB%A6%AC/</link>
+        <pubDate>Thu, 26 Mar 2026 22:44:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/%EB%A9%94%EB%AA%A8%EB%A6%AC/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>비용</title>
+        <link>https://dn5772.github.io/tags/%EB%B9%84%EC%9A%A9/</link>
+        <pubDate>Thu, 26 Mar 2026 22:44:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/%EB%B9%84%EC%9A%A9/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>IPC</title>
+        <link>https://dn5772.github.io/tags/ipc/</link>
+        <pubDate>Thu, 26 Mar 2026 16:34:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/ipc/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>UnixSocket</title>
+        <link>https://dn5772.github.io/tags/unixsocket/</link>
+        <pubDate>Thu, 26 Mar 2026 16:34:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/unixsocket/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>보안</title>
+        <link>https://dn5772.github.io/tags/%EB%B3%B4%EC%95%88/</link>
+        <pubDate>Thu, 26 Mar 2026 16:34:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/%EB%B3%B4%EC%95%88/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Textual</title>
+        <link>https://dn5772.github.io/tags/textual/</link>
+        <pubDate>Thu, 26 Mar 2026 10:06:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/textual/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>CSS</title>
+        <link>https://dn5772.github.io/tags/css/</link>
+        <pubDate>Wed, 25 Mar 2026 23:25:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/css/</guid>
         <description></description>
         </item>
         <item>
@@ -279,19 +415,75 @@
         <description></description>
         </item>
         <item>
-        <title>보안</title>
-        <link>https://dn5772.github.io/tags/%EB%B3%B4%EC%95%88/</link>
-        <pubDate>Wed, 25 Mar 2026 22:33:00 +0900</pubDate>
+        <title>Axum</title>
+        <link>https://dn5772.github.io/tags/axum/</link>
+        <pubDate>Wed, 25 Mar 2026 17:37:00 +0900</pubDate>
         
-        <guid>https://dn5772.github.io/tags/%EB%B3%B4%EC%95%88/</guid>
+        <guid>https://dn5772.github.io/tags/axum/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Clap</title>
+        <link>https://dn5772.github.io/tags/clap/</link>
+        <pubDate>Wed, 25 Mar 2026 17:37:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/clap/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>Keyring</title>
+        <link>https://dn5772.github.io/tags/keyring/</link>
+        <pubDate>Wed, 25 Mar 2026 17:37:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/keyring/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>AI</title>
+        <link>https://dn5772.github.io/tags/ai/</link>
+        <pubDate>Tue, 24 Mar 2026 09:00:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/ai/</guid>
         <description></description>
         </item>
         <item>
         <title>Docker</title>
         <link>https://dn5772.github.io/tags/docker/</link>
-        <pubDate>Fri, 06 Feb 2026 00:00:00 +0000</pubDate>
+        <pubDate>Tue, 24 Mar 2026 09:00:00 +0900</pubDate>
         
         <guid>https://dn5772.github.io/tags/docker/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>YAML</title>
+        <link>https://dn5772.github.io/tags/yaml/</link>
+        <pubDate>Tue, 24 Mar 2026 09:00:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/yaml/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>설계</title>
+        <link>https://dn5772.github.io/tags/%EC%84%A4%EA%B3%84/</link>
+        <pubDate>Tue, 24 Mar 2026 09:00:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/%EC%84%A4%EA%B3%84/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>피벗</title>
+        <link>https://dn5772.github.io/tags/%ED%94%BC%EB%B2%97/</link>
+        <pubDate>Tue, 24 Mar 2026 09:00:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/%ED%94%BC%EB%B2%97/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>아키텍처</title>
+        <link>https://dn5772.github.io/tags/%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</link>
+        <pubDate>Mon, 16 Mar 2026 20:00:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/tags/%EC%95%84%ED%82%A4%ED%85%8D%EC%B2%98/</guid>
         <description></description>
         </item>
         <item>
@@ -412,14 +604,6 @@
         <pubDate>Tue, 03 Feb 2026 00:00:00 +0000</pubDate>
         
         <guid>https://dn5772.github.io/tags/%EC%9D%B8%EC%A6%9D/</guid>
-        <description></description>
-        </item>
-        <item>
-        <title>설계</title>
-        <link>https://dn5772.github.io/tags/%EC%84%A4%EA%B3%84/</link>
-        <pubDate>Mon, 02 Feb 2026 23:19:00 +0900</pubDate>
-        
-        <guid>https://dn5772.github.io/tags/%EC%84%A4%EA%B3%84/</guid>
         <description></description>
         </item>
         <item>

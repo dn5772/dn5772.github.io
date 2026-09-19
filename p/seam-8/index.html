@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="3개월 계획을 사흘에 밀어넣고 멈췄음. 커밋 73개 회고">
+<title>seam 개발 일지 #8 - 데몬, 설치 마법사, 그리고 멈춘 자리</title>
+
+<link rel='canonical' href='https://dn5772.github.io/p/seam-8/'>
+
+<link rel="stylesheet" href="/scss/style.min.760e3dabc1e140d2e6abd27a8ca0aabb60e568829b29f67d2df12024136eff37.css"><meta property='og:title' content="seam 개발 일지 #8 - 데몬, 설치 마법사, 그리고 멈춘 자리">
+<meta property='og:description' content="3개월 계획을 사흘에 밀어넣고 멈췄음. 커밋 73개 회고">
+<meta property='og:url' content='https://dn5772.github.io/p/seam-8/'>
+<meta property='og:site_name' content='대니짱'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='seam' /><meta property='article:tag' content='Rust' /><meta property='article:tag' content='데몬' /><meta property='article:tag' content='LaunchAgent' /><meta property='article:tag' content='회고' /><meta property='article:tag' content='CLI' /><meta property='article:published_time' content='2026-03-27T14:11:00&#43;09:00'/><meta property='article:modified_time' content='2026-03-27T14:11:00&#43;09:00'/>
+<meta name="twitter:title" content="seam 개발 일지 #8 - 데몬, 설치 마법사, 그리고 멈춘 자리">
+<meta name="twitter:description" content="3개월 계획을 사흘에 밀어넣고 멈췄음. 커밋 73개 회고">
+    <link rel="shortcut icon" href="/pokeball_icon.png" />
+
+  
+
+<meta name="google-adsense-account" content="ca-pub-2130075151823864">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130075151823864"
+     crossorigin="anonymous"></script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/ditto_2_hud2704b3b9534528c44bbff8ffb4fb3e3_5178_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏷️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">대니짱</a></h1>
+            <h2 class="site-description">Danny ZZang의 블로그</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/dn5772'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.instagram.com/sum._.melon/'
+                        target="_blank"
+                        title="Instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://dn5772.github.io/" selected>한국어</option>
+                                
+                                    <option value="https://dn5772.github.io/en/" >English</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>다크 모드</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#-0043--start--stop--restart">🔁 00:43 — start / stop / restart</a>
+      <ol>
+        <li><a href="#재부팅해도-살아-있게">재부팅해도 살아 있게</a></li>
+      </ol>
+    </li>
+    <li><a href="#-0126--이름-하나-빠져서-안-뜨던-데몬">🐛 01:26 — 이름 하나 빠져서 안 뜨던 데몬</a></li>
+    <li><a href="#-0152--설치하고-처음-켰을-때">🧙 01:52 — 설치하고 처음 켰을 때</a></li>
+    <li><a href="#-1411--마지막-커밋">🌏 14:11 — 마지막 커밋</a></li>
+    <li><a href="#-사흘-커밋-73개">📊 사흘, 커밋 73개</a></li>
+    <li><a href="#-안-만든-것들">🕳️ 안 만든 것들</a></li>
+    <li><a href="#-배운-것">💭 배운 것</a>
+      <ol>
+        <li><a href="#설계를-먼저-쓰면-싸게-버릴-수-있음">설계를 먼저 쓰면 싸게 버릴 수 있음</a></li>
+        <li><a href="#안-보이는-제품은-설명이-안-됨">&ldquo;안 보이는 제품&quot;은 설명이 안 됨</a></li>
+        <li><a href="#조용한-실패가-제일-위험함">조용한 실패가 제일 위험함</a></li>
+        <li><a href="#빠른-게-마냥-좋진-않았음">빠른 게 마냥 좋진 않았음</a></li>
+      </ol>
+    </li>
+    <li><a href="#-지금">🎯 지금</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/tool/seam/" style="background-color: #5f3dc4; color: #fff;">
+                seam
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/seam-8/">seam 개발 일지 #8 - 데몬, 설치 마법사, 그리고 멈춘 자리</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            3개월 계획을 사흘에 밀어넣고 멈췄음. 커밋 73개 회고
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 27, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="seam-개발-일지-8---데몬-설치-마법사-그리고-멈춘-자리">
+    <a href="#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-8---%eb%8d%b0%eb%aa%ac-%ec%84%a4%ec%b9%98-%eb%a7%88%eb%b2%95%ec%82%ac-%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%a9%88%ec%b6%98-%ec%9e%90%eb%a6%ac" class="header-anchor">#</a>
+    seam 개발 일지 #8 - 데몬, 설치 마법사, 그리고 멈춘 자리
+</h1><p><a class="link" href="https://dn5772.github.io/p/seam-7/" >#7</a>까지 오면 기능은 다 있음. 근데 <strong>쓸 수 있는 물건은 아니었음.</strong></p>
+<p>데몬을 어떻게 띄우는지, 재부팅하면 어떻게 되는지, 처음 설치한 사람이 뭘 해야 하는지가 비어 있었음.</p>
+<h2 id="-0043--start--stop--restart">
+    <a href="#-0043--start--stop--restart" class="header-anchor">#</a>
+    🔁 00:43 — start / stop / restart
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">00:43  feat: seam start/stop/restart + seam service install/uninstall
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>seam start</code> 가 데몬을 띄움. 게이트웨이(<code>:11400</code>)랑 IPC 소켓(<code>daemon.sock</code>)이 같이 올라감.</p>
+<p>구조가 좀 특이한데, <strong>바이너리가 자기 자신을 다시 실행함.</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">seam start  →  seam __gateway  (hidden command)
+</span></span><span class="line"><span class="cl">seam run    →  seam __daemon --env-yaml &lt;path&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>__gateway</code>, <code>__daemon</code>, <code>__agent</code> 는 clap에서 <code>hide = true</code> 로 숨겨둔 커맨드임.
+<code>seam --help</code> 에는 안 나오는데 내부적으로 자기를 부를 때 씀.</p>
+<p>이렇게 한 이유는 <strong>단일 바이너리를 지키려고</strong>임. 데몬 실행 파일을 따로 두면 설치할 게 두 개가 됨.
+<a class="link" href="https://dn5772.github.io/p/seam-3/" >#3</a>에서 Rust를 고른 이유가 &ldquo;<code>curl | sh</code> 한 줄&quot;이었는데, 그걸 끝까지 밀려면 파일이 하나여야 함.</p>
+<h3 id="재부팅해도-살아-있게">
+    <a href="#%ec%9e%ac%eb%b6%80%ed%8c%85%ed%95%b4%eb%8f%84-%ec%82%b4%ec%95%84-%ec%9e%88%ea%b2%8c" class="header-anchor">#</a>
+    재부팅해도 살아 있게
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">seam service install     <span class="c1"># macOS LaunchAgent 등록</span>
+</span></span><span class="line"><span class="cl">seam service uninstall
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>프록시라서 <strong>항상 떠 있어야 의미가 있음.</strong> 로그인할 때마다 <code>seam start</code> 를 쳐야 하면 아무도 안 씀.</p>
+<p>macOS만 구현했고 Linux systemd는 안 했음. 지금도 안 되어 있음.</p>
+<h2 id="-0126--이름-하나-빠져서-안-뜨던-데몬">
+    <a href="#-0126--%ec%9d%b4%eb%a6%84-%ed%95%98%eb%82%98-%eb%b9%a0%ec%a0%b8%ec%84%9c-%ec%95%88-%eb%9c%a8%eb%8d%98-%eb%8d%b0%eb%aa%ac" class="header-anchor">#</a>
+    🐛 01:26 — 이름 하나 빠져서 안 뜨던 데몬
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01:26  fix: __gateway 이름 누락 + config.toml 하위 호환 파싱
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>__gateway</code> 를 clap enum에 정의는 했는데 <strong>디스패치에서 빠져 있었음.</strong> <code>seam start</code> 가 조용히 아무것도 안 함.</p>
+<p>같이 고친 게 설정 파일 하위 호환임. <a class="link" href="https://dn5772.github.io/p/seam-6/" >#6</a>에서 <code>router_slider</code>, <code>ollama_base_url</code>, <code>classifier_model</code> 을 추가했는데,
+<strong>그 전에 만들어진 <code>config.toml</code> 에는 그 필드가 없음.</strong> 파싱이 통째로 실패해서 설정이 날아감.</p>
+<p>없으면 기본값을 쓰게 바꿨음. 설정 파일은 한 번 만들어지면 사용자 기계에 계속 남으니까, <strong>새 필드는 항상 옵셔널이어야 함.</strong></p>
+<h2 id="-0152--설치하고-처음-켰을-때">
+    <a href="#-0152--%ec%84%a4%ec%b9%98%ed%95%98%ea%b3%a0-%ec%b2%98%ec%9d%8c-%ec%bc%b0%ec%9d%84-%eb%95%8c" class="header-anchor">#</a>
+    🧙 01:52 — 설치하고 처음 켰을 때
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01:52  feat: seam setup — 대화형 초기 설정 마법사
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>seam start</code> 를 처음 치면 setup이 자동으로 뜸. <code>first_run</code> 을 감지해서.</p>
+<p>물어보는 건 이런 것들임.</p>
+<ul>
+<li>API 키 (anthropic / openai / google / github) → <strong>OS 키체인에 저장</strong></li>
+<li><a class="link" href="https://dn5772.github.io/p/seam-6/" >라우팅 슬라이더</a> 0~9</li>
+<li>Ollama 쓸 건지, 주소는 어딘지</li>
+</ul>
+<p><code>dialoguer</code> 로 만들었음. 설정 파일 포맷을 문서에서 찾아 읽게 하는 것보다 이게 나음.
+특히 <strong>API 키를 어디다 둬야 하는지</strong>는 물어보는 게 맞음. 안 그러면 다들 환경변수에 평문으로 둠.</p>
+<h2 id="-1411--마지막-커밋">
+    <a href="#-1411--%eb%a7%88%ec%a7%80%eb%a7%89-%ec%bb%a4%eb%b0%8b" class="header-anchor">#</a>
+    🌏 14:11 — 마지막 커밋
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">14:11  feat: setup wizard 언어 선택 + EN/KO 완전 이중 언어화
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>setup 첫 질문이 언어 선택이고, CLI 출력 전체를 영어/한국어로 갈랐음.</p>
+<p>그리고 이게 <strong>마지막 커밋임.</strong></p>
+<h2 id="-사흘-커밋-73개">
+    <a href="#-%ec%82%ac%ed%9d%98-%ec%bb%a4%eb%b0%8b-73%ea%b0%9c" class="header-anchor">#</a>
+    📊 사흘, 커밋 73개
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">seam-cli   (Rust)    47 커밋
+</span></span><span class="line"><span class="cl">seam-code  (Python)  26 커밋
+</span></span><span class="line"><span class="cl">                     ─────
+</span></span><span class="line"><span class="cl">                     73 커밋   3/25 ~ 3/27
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>테스트는 81개.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>모듈</th>
+<th>테스트</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>router</td>
+<td>12</td>
+</tr>
+<tr>
+<td>agents/code</td>
+<td>14</td>
+</tr>
+<tr>
+<td>gateway</td>
+<td>9</td>
+</tr>
+<tr>
+<td>cli</td>
+<td>8</td>
+</tr>
+<tr>
+<td>config / memory</td>
+<td>14</td>
+</tr>
+<tr>
+<td>ipc</td>
+<td>6</td>
+</tr>
+<tr>
+<td>나머지</td>
+<td>13</td>
+</tr>
+<tr>
+<td><strong>integration</strong></td>
+<td><strong>5</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>론칭 계획 문서에 적어둔 일정은 이랬음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">M+0  Week 1-2   Task 1-4   scaffold, config, seam.yaml 파싱, 메모리
+</span></span><span class="line"><span class="cl">M+1  Week 3-4   Task 5-7   Gateway, Runner, CLI
+</span></span><span class="line"><span class="cl">M+2  Week 5-6   Task 8     Image build
+</span></span><span class="line"><span class="cl">M+2  Week 7-8   Task 9     GitHub registry
+</span></span><span class="line"><span class="cl">M+3  Week 9     Task 12    README, install.sh, 내부 테스트
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>3개월 계획을 사흘에 했음.</strong> Task 1~9가 <a class="link" href="https://dn5772.github.io/p/seam-3/" >#3</a>의 2시간 25분에 다 들어가 있음.</p>
+<h2 id="-안-만든-것들">
+    <a href="#-%ec%95%88-%eb%a7%8c%eb%93%a0-%ea%b2%83%eb%93%a4" class="header-anchor">#</a>
+    🕳️ 안 만든 것들
+</h2><p>정직하게 적으면 이만큼 비어 있음.</p>
+<ul>
+<li><code>seam journal</code> / <code>seam budget</code> — <strong>stub만 있음.</strong> <a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>의 킬 메시지가 &ldquo;AI 활동 영수증&quot;이었는데 그게 비어 있음</li>
+<li><code>journal.rs</code> 는 작성됐는데 <strong>프록시에서 호출을 안 함</strong></li>
+<li><code>seam logs --follow</code> — 미구현</li>
+<li><code>seam service</code> — macOS만. Linux systemd 없음</li>
+<li><strong>Trust Sandbox</strong> (Layer 2) — 통째로 없음</li>
+<li><strong>Lazy Skill Router</strong> (Layer 3) — <code>seam.yaml</code> 에 필드만 있고 구현 없음</li>
+<li><strong>에이전트 통신 버스</strong> — 없음</li>
+<li><strong>Semantic Memory</strong> — 없음. Episodic + Shared만</li>
+<li><code>hub.seam.dev</code> — 레지스트리는 GitHub 레포로 대체</li>
+</ul>
+<p><a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>에서 적었던 6레이어 중 <strong>실제로 만든 건 Layer 0, 1, 4 세 개</strong>임.</p>
+<h2 id="-배운-것">
+    <a href="#-%eb%b0%b0%ec%9a%b4-%ea%b2%83" class="header-anchor">#</a>
+    💭 배운 것
+</h2><h3 id="설계를-먼저-쓰면-싸게-버릴-수-있음">
+    <a href="#%ec%84%a4%ea%b3%84%eb%a5%bc-%eb%a8%bc%ec%a0%80-%ec%93%b0%eb%a9%b4-%ec%8b%b8%ea%b2%8c-%eb%b2%84%eb%a6%b4-%ec%88%98-%ec%9e%88%ec%9d%8c" class="header-anchor">#</a>
+    설계를 먼저 쓰면 싸게 버릴 수 있음
+</h3><p><a class="link" href="https://dn5772.github.io/p/seam-2/" >#2</a>에서 일주일 만에 방향을 통째로 갈아엎었는데, <strong>코드가 한 줄도 없는 상태</strong>였음.
+Sprint 1~7을 반쯤 짜고 알았으면 훨씬 아팠을 것.</p>
+<p>문서 쓰는 게 느려 보여도, 버릴 때 손해가 작음.</p>
+<h3 id="안-보이는-제품은-설명이-안-됨">
+    <a href="#%ec%95%88-%eb%b3%b4%ec%9d%b4%eb%8a%94-%ec%a0%9c%ed%92%88%ec%9d%80-%ec%84%a4%eb%aa%85%ec%9d%b4-%ec%95%88-%eb%90%a8" class="header-anchor">#</a>
+    &ldquo;안 보이는 제품&quot;은 설명이 안 됨
+</h3><p>v0.4는 &ldquo;백그라운드에서 메모리를 주입하는 투명한 레이어&quot;였음. 기능은 같은데 설명이 안 됐음.
+<code>seam.yaml</code> 이라는 <strong>파일 하나</strong>를 중심에 두니까 한 문장으로 끝남 — &ldquo;Docker처럼 AI 환경을 공유함&rdquo;.</p>
+<h3 id="조용한-실패가-제일-위험함">
+    <a href="#%ec%a1%b0%ec%9a%a9%ed%95%9c-%ec%8b%a4%ed%8c%a8%ea%b0%80-%ec%a0%9c%ec%9d%bc-%ec%9c%84%ed%97%98%ed%95%a8" class="header-anchor">#</a>
+    조용한 실패가 제일 위험함
+</h3><ul>
+<li><a class="link" href="https://dn5772.github.io/p/seam-3/" >#3</a> — HTTP 4xx/5xx를 안 보고 지나감</li>
+<li><a class="link" href="https://dn5772.github.io/p/seam-4/" >#4</a> — 종료 코드 0이 아닌데 성공 반환, 루프 상한에서 말없이 종료</li>
+<li><a class="link" href="https://dn5772.github.io/p/seam-5/" >#5</a> — accept 루프가 통째로 죽음</li>
+<li><a class="link" href="https://dn5772.github.io/p/seam-7/" >#7</a> — 라우터 응답이 비면 기본값으로 조용히 넘어감</li>
+</ul>
+<p>전부 다른 날 다른 언어에서 나왔는데 같은 모양임. <strong>에러를 안 내고 &ldquo;그럴듯하게&rdquo; 계속 가는 코드.</strong></p>
+<h3 id="빠른-게-마냥-좋진-않았음">
+    <a href="#%eb%b9%a0%eb%a5%b8-%ea%b2%8c-%eb%a7%88%eb%83%a5-%ec%a2%8b%ec%a7%84-%ec%95%8a%ec%95%98%ec%9d%8c" class="header-anchor">#</a>
+    빠른 게 마냥 좋진 않았음
+</h3><p>3개월 계획을 사흘에 밀어넣은 건 기분이 좋았는데, 결과를 보면 <strong>넓고 얕음.</strong>
+레이어 6개 중 3개, 킬 기능인 journal/budget은 stub, Linux는 미지원.</p>
+<p>돌이켜보면 <strong>Phase 1만 제대로 끝냈으면 쓸 수 있는 물건이 됐을 것 같음.</strong>
+&ldquo;설치만 하면 AI가 나를 기억함 + 오늘 AI가 쓴 돈&rdquo; 딱 여기까지. 그게 <a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>에서 정한 MVP 범위이기도 했음.</p>
+<p>기능을 넓히는 속도가 붙으니까 <strong>범위를 지키는 쪽이 오히려 어려웠음.</strong></p>
+<h2 id="-지금">
+    <a href="#-%ec%a7%80%ea%b8%88" class="header-anchor">#</a>
+    🎯 지금
+</h2><p>3/27 이후로 멈춰 있음.</p>
+<p><code>docs/superpowers/plans/2026-03-27-seam-phase-a-routing-memory.md</code> 가 다음 계획인데 실행을 안 했음.
+CLAUDE.md의 &ldquo;다음 단계&quot;에도 <code>Task 10-11</code>, <code>hub.seam.dev</code> 가 그대로 남아 있음.</p>
+<p>버린 프로젝트는 아니고, 멈춘 자리가 명확하다는 정도임.
+돌아온다면 <strong>새 기능이 아니라 journal이랑 budget부터</strong> 할 것 같음. 그게 원래 제일 처음에 보여주기로 한 거였음.</p>
+<p>#seam #Rust #데몬 #회고 #CLI</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/seam/">Seam</a>
+        
+            <a href="/tags/rust/">Rust</a>
+        
+            <a href="/tags/%EB%8D%B0%EB%AA%AC/">데몬</a>
+        
+            <a href="/tags/launchagent/">LaunchAgent</a>
+        
+            <a href="/tags/%ED%9A%8C%EA%B3%A0/">회고</a>
+        
+            <a href="/tags/cli/">CLI</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/seam-3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">seam 개발 일지 #3 - Rust CLI를 2시간 25분에 밀어넣었음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/seam-5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">seam 개발 일지 #5 - Rust랑 Python을 유닉스 소켓으로 이었음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/seam-1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">seam 개발 일지 #1 - AI 도구들이 각자의 섬이라서</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/seam-7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">seam 개발 일지 #7 - 에이전트한테 허락받게 만들었음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/seam-6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">seam 개발 일지 #6 - 비용과 품질을 슬라이더 하나로</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2026 대니짱
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

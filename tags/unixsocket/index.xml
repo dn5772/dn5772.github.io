@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>UnixSocket on 대니짱</title>
+        <link>https://dn5772.github.io/tags/unixsocket/</link>
+        <description>Recent content in UnixSocket on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Thu, 26 Mar 2026 16:34:00 +0900</lastBuildDate><atom:link href="https://dn5772.github.io/tags/unixsocket/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>seam 개발 일지 #5 - Rust랑 Python을 유닉스 소켓으로 이었음</title>
+        <link>https://dn5772.github.io/p/seam-5/</link>
+        <pubDate>Thu, 26 Mar 2026 16:34:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/seam-5/</guid>
+        <description>&lt;h1 id=&#34;seam-개발-일지-5---rust랑-python을-유닉스-소켓으로-이었음&#34;&gt;
+    &lt;a href=&#34;#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-5---rust%eb%9e%91-python%ec%9d%84-%ec%9c%a0%eb%8b%89%ec%8a%a4-%ec%86%8c%ec%bc%93%ec%9c%bc%eb%a1%9c-%ec%9d%b4%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    seam 개발 일지 #5 - Rust랑 Python을 유닉스 소켓으로 이었음
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-4/&#34; &gt;#4&lt;/a&gt;에서 Python 에이전트를 만들었는데, 얘가 Rust 데몬한테 말을 걸어야 함.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;메모리 저장해줘&lt;/li&gt;
+&lt;li&gt;이 요청 어느 모델로 보낼지 정해줘&lt;/li&gt;
+&lt;li&gt;이 대화 처리해줘&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;게이트웨이가 이미 HTTP로 &lt;code&gt;:11400&lt;/code&gt; 에 떠 있으니까 거기다 붙이면 되는데, &lt;strong&gt;일부러 안 했음.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-왜-http가-아니라-유닉스-소켓인가&#34;&gt;
+    &lt;a href=&#34;#-%ec%99%9c-http%ea%b0%80-%ec%95%84%eb%8b%88%eb%9d%bc-%ec%9c%a0%eb%8b%89%ec%8a%a4-%ec%86%8c%ec%bc%93%ec%9d%b8%ea%b0%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔌 왜 HTTP가 아니라 유닉스 소켓인가
+&lt;/h2&gt;&lt;p&gt;게이트웨이 포트는 &lt;strong&gt;Tier 1용&lt;/strong&gt;임. Cursor 같은 외부 앱이 환경변수 오버라이드로 들어오는 입구.
+여기는 OpenAI/Anthropic 호환 형식을 지켜야 하고, 네트워크에 열려 있음.&lt;/p&gt;
+&lt;p&gt;근데 seam-code가 쓰는 건 성격이 다름.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;같은 기계 안에서만 씀&lt;/li&gt;
+&lt;li&gt;형식을 남의 API에 맞출 이유가 없음&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;다른 사용자가 접근하면 안 됨&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;포트로 열면 그 기계의 누구나 붙을 수 있음. 유닉스 소켓은 파일이라 &lt;strong&gt;파일 퍼미션으로 막을 수 있음.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/.seam/daemon.sock   (0o600 — 소유자만)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;0o600&lt;/code&gt; 을 CLAUDE.md 주의사항에 따로 적어뒀음. 이게 빠지면 메모리랑 API 키를 쓰는 경로가 통째로 열림.&lt;/p&gt;
+&lt;h2 id=&#34;-json-lines&#34;&gt;
+    &lt;a href=&#34;#-json-lines&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📝 JSON Lines
+&lt;/h2&gt;&lt;p&gt;프로토콜은 제일 단순한 걸로 했음. &lt;strong&gt;한 줄에 JSON 하나.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{&amp;#34;type&amp;#34;:&amp;#34;memory_save&amp;#34;,&amp;#34;content&amp;#34;:&amp;#34;RS256 선택함&amp;#34;,&amp;#34;env_id&amp;#34;:&amp;#34;backend&amp;#34;}\n
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{&amp;#34;type&amp;#34;:&amp;#34;route&amp;#34;,&amp;#34;text&amp;#34;:&amp;#34;이 함수 리팩터링해줘&amp;#34;}\n
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{&amp;#34;type&amp;#34;:&amp;#34;chat&amp;#34;,&amp;#34;messages&amp;#34;:[...]}\n
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;gRPC나 MessagePack도 생각했는데 안 갔음.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;스키마 정의 파일이 없음.&lt;/strong&gt; 양쪽(Rust/Python)에 코드 생성기를 붙일 필요가 없음&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;nc -U ~/.seam/daemon.sock&lt;/code&gt; 으로 손으로 찔러볼 수 있음.&lt;/strong&gt; 디버깅할 때 이게 큼&lt;/li&gt;
+&lt;li&gt;줄바꿈이 메시지 경계라 파싱이 그냥 &lt;code&gt;read_line()&lt;/code&gt; 임&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;핸들러는 네 종류임.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;타입&lt;/th&gt;
+&lt;th&gt;하는 일&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;chat&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;메모리 주입 + LLM 호출&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;memory_save&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;private(episodic) 메모리 저장&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;shared_memory_save&lt;/code&gt; / &lt;code&gt;shared_memory_get&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;공유 메모리&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;route&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;이 요청 어느 모델로 갈지만 알려줌&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id=&#34;-10281059--rust-쪽-서버&#34;&gt;
+    &lt;a href=&#34;#-10281059--rust-%ec%aa%bd-%ec%84%9c%eb%b2%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🦀 10:28~10:59 — Rust 쪽 서버
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;10:28  feat: add ipc module scaffold
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;10:29  feat: implement Unix socket IPC server accept loop
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;10:31  feat: implement memory_save IPC handler
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;10:33  feat: implement chat IPC handler with memory injection and Anthropic API
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;10:36  feat: start IPC server alongside HTTP gateway in daemon
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;10:59  fix: socket permissions, accept loop resilience, shared http client, configurable model
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;31분인데 마지막 커밋 하나가 23분 걸렸음. 거기 들어간 게 전부 &lt;strong&gt;&amp;ldquo;이게 오래 떠 있을 때&amp;rdquo;&lt;/strong&gt; 문제임.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 소켓 퍼미션.&lt;/strong&gt; 만들 때 퍼미션을 안 정하면 umask를 따라감. 명시적으로 &lt;code&gt;0o600&lt;/code&gt; 으로 박음.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. accept 루프 복원력.&lt;/strong&gt; 연결 하나 받다가 에러 나면 &lt;strong&gt;루프가 통째로 죽고 있었음.&lt;/strong&gt;
+클라이언트 하나가 이상하게 끊었을 뿐인데 데몬의 IPC가 영영 멈춤. 에러를 로그만 찍고 루프는 계속 돌게 바꿈.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. HTTP 클라이언트 공유.&lt;/strong&gt; 요청마다 &lt;code&gt;reqwest::Client&lt;/code&gt; 를 새로 만들고 있었음.
+커넥션 풀이랑 TLS 세션이 매번 버려짐. 하나 만들어서 돌려쓰게 함.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. 모델 하드코딩.&lt;/strong&gt; 설정에서 읽게 바꿈.&lt;/p&gt;
+&lt;h2 id=&#34;-파이썬-쪽-클라이언트&#34;&gt;
+    &lt;a href=&#34;#-%ed%8c%8c%ec%9d%b4%ec%8d%ac-%ec%aa%bd-%ed%81%b4%eb%9d%bc%ec%9d%b4%ec%96%b8%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🐍 파이썬 쪽 클라이언트
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;seam_code/ipc.py&lt;/code&gt; 가 소켓에 붙어서 한 줄 쓰고 한 줄 읽음. 데몬이 안 떠 있으면 먼저 알려줌.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;09&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;53&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;config&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;loader&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;daemon&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;startup&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;check&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;에이전트를 띄우기 전에 데몬 체크를 먼저 함.&lt;/strong&gt; 안 그러면 사용자가 요청을 다 친 다음에 &amp;ldquo;연결 실패&amp;quot;를 봄.&lt;/p&gt;
+&lt;h2 id=&#34;-15481634--두-개를-cli로-묶기&#34;&gt;
+    &lt;a href=&#34;#-15481634--%eb%91%90-%ea%b0%9c%eb%a5%bc-cli%eb%a1%9c-%eb%ac%b6%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔗 15:48~16:34 — 두 개를 CLI로 묶기
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;15:48  feat: add seam install command
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;15:55  fix: assert Err in test_install_fake_app_fails_gracefully
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;16:16  fix: add pip -- separator to prevent option injection, mark pip test as ignored
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;16:22  feat: add seam code command — thin wrapper for seam-code agent
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;16:25  fix: make check_daemon testable, add assertions to code command tests
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;16:34  fix: prefer pip3 over pip for install command
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam install seam-code   &lt;span class=&#34;c1&#34;&gt;# pip으로 설치&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam code &lt;span class=&#34;s2&#34;&gt;&amp;#34;요청&amp;#34;&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;# 실행&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam code&lt;/code&gt; 는 &lt;strong&gt;얇은 래퍼&lt;/strong&gt;임. 데몬 살아 있는지 보고 seam-code를 띄우는 게 전부.
+Rust에서 에이전트 로직을 다시 만들지 않았음.&lt;/p&gt;
+&lt;h3 id=&#34;pip에----를-붙인-이유&#34;&gt;
+    &lt;a href=&#34;#pip%ec%97%90----%eb%a5%bc-%eb%b6%99%ec%9d%b8-%ec%9d%b4%ec%9c%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    pip에 &lt;code&gt;--&lt;/code&gt; 를 붙인 이유
+&lt;/h3&gt;&lt;p&gt;16:16 커밋이 짧은데 중요함.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 전
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Command&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;new&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;pip3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;install&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 후
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Command&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;new&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;pip3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;install&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;--&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam install &amp;lt;app&amp;gt;&lt;/code&gt; 의 &lt;code&gt;&amp;lt;app&amp;gt;&lt;/code&gt; 이 사용자 입력임. 여기에 &lt;code&gt;--upgrade&lt;/code&gt; 나 &lt;code&gt;--index-url ...&lt;/code&gt; 같은 걸 넣으면 &lt;strong&gt;pip 옵션으로 해석됨.&lt;/strong&gt;
+&lt;code&gt;--&lt;/code&gt; 는 &amp;ldquo;여기부터는 옵션이 아니라 인자&amp;quot;라는 표시라서 그 경로가 막힘.&lt;/p&gt;
+&lt;p&gt;임의 명령 실행까지는 아닌데(셸을 안 거침), 설치 소스를 바꿔치기하는 정도는 됨.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;입구를 두 개로 나눈 게 맞았음.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:11400  HTTP    ← 외부 앱 (Tier 1). 남의 API 형식을 지켜야 함
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;daemon.sock     ← 내 앱 (Tier 2). 내 맘대로, 대신 퍼미션으로 잠금
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;하나로 합쳤으면 seam-code용 엔드포인트가 네트워크에 노출됐을 것. 퍼미션으로 막을 수 있는 걸 인증 로직으로 막게 됐을 거고.&lt;/p&gt;
+&lt;p&gt;그리고 10:59 커밋에 몰린 네 가지가 전부 &lt;strong&gt;&amp;ldquo;짧게 돌 땐 안 보이는 문제&amp;rdquo;&lt;/strong&gt; 였음.
+데몬처럼 오래 떠 있는 프로그램은 accept 루프 하나 죽는 게 치명적인데, 테스트는 보통 한 번 붙었다 끊는 걸로 끝나서 안 잡힘.&lt;/p&gt;
+&lt;p&gt;#seam #IPC #UnixSocket #Rust #Python&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

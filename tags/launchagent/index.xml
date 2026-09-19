@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>LaunchAgent on 대니짱</title>
+        <link>https://dn5772.github.io/tags/launchagent/</link>
+        <description>Recent content in LaunchAgent on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Fri, 27 Mar 2026 14:11:00 +0900</lastBuildDate><atom:link href="https://dn5772.github.io/tags/launchagent/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>seam 개발 일지 #8 - 데몬, 설치 마법사, 그리고 멈춘 자리</title>
+        <link>https://dn5772.github.io/p/seam-8/</link>
+        <pubDate>Fri, 27 Mar 2026 14:11:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/seam-8/</guid>
+        <description>&lt;h1 id=&#34;seam-개발-일지-8---데몬-설치-마법사-그리고-멈춘-자리&#34;&gt;
+    &lt;a href=&#34;#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-8---%eb%8d%b0%eb%aa%ac-%ec%84%a4%ec%b9%98-%eb%a7%88%eb%b2%95%ec%82%ac-%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%a9%88%ec%b6%98-%ec%9e%90%eb%a6%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    seam 개발 일지 #8 - 데몬, 설치 마법사, 그리고 멈춘 자리
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-7/&#34; &gt;#7&lt;/a&gt;까지 오면 기능은 다 있음. 근데 &lt;strong&gt;쓸 수 있는 물건은 아니었음.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;데몬을 어떻게 띄우는지, 재부팅하면 어떻게 되는지, 처음 설치한 사람이 뭘 해야 하는지가 비어 있었음.&lt;/p&gt;
+&lt;h2 id=&#34;-0043--start--stop--restart&#34;&gt;
+    &lt;a href=&#34;#-0043--start--stop--restart&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔁 00:43 — start / stop / restart
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;00:43  feat: seam start/stop/restart + seam service install/uninstall
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam start&lt;/code&gt; 가 데몬을 띄움. 게이트웨이(&lt;code&gt;:11400&lt;/code&gt;)랑 IPC 소켓(&lt;code&gt;daemon.sock&lt;/code&gt;)이 같이 올라감.&lt;/p&gt;
+&lt;p&gt;구조가 좀 특이한데, &lt;strong&gt;바이너리가 자기 자신을 다시 실행함.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam start  →  seam __gateway  (hidden command)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam run    →  seam __daemon --env-yaml &amp;lt;path&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;__gateway&lt;/code&gt;, &lt;code&gt;__daemon&lt;/code&gt;, &lt;code&gt;__agent&lt;/code&gt; 는 clap에서 &lt;code&gt;hide = true&lt;/code&gt; 로 숨겨둔 커맨드임.
+&lt;code&gt;seam --help&lt;/code&gt; 에는 안 나오는데 내부적으로 자기를 부를 때 씀.&lt;/p&gt;
+&lt;p&gt;이렇게 한 이유는 &lt;strong&gt;단일 바이너리를 지키려고&lt;/strong&gt;임. 데몬 실행 파일을 따로 두면 설치할 게 두 개가 됨.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt;에서 Rust를 고른 이유가 &amp;ldquo;&lt;code&gt;curl | sh&lt;/code&gt; 한 줄&amp;quot;이었는데, 그걸 끝까지 밀려면 파일이 하나여야 함.&lt;/p&gt;
+&lt;h3 id=&#34;재부팅해도-살아-있게&#34;&gt;
+    &lt;a href=&#34;#%ec%9e%ac%eb%b6%80%ed%8c%85%ed%95%b4%eb%8f%84-%ec%82%b4%ec%95%84-%ec%9e%88%ea%b2%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    재부팅해도 살아 있게
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam service install     &lt;span class=&#34;c1&#34;&gt;# macOS LaunchAgent 등록&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam service uninstall
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;프록시라서 &lt;strong&gt;항상 떠 있어야 의미가 있음.&lt;/strong&gt; 로그인할 때마다 &lt;code&gt;seam start&lt;/code&gt; 를 쳐야 하면 아무도 안 씀.&lt;/p&gt;
+&lt;p&gt;macOS만 구현했고 Linux systemd는 안 했음. 지금도 안 되어 있음.&lt;/p&gt;
+&lt;h2 id=&#34;-0126--이름-하나-빠져서-안-뜨던-데몬&#34;&gt;
+    &lt;a href=&#34;#-0126--%ec%9d%b4%eb%a6%84-%ed%95%98%eb%82%98-%eb%b9%a0%ec%a0%b8%ec%84%9c-%ec%95%88-%eb%9c%a8%eb%8d%98-%eb%8d%b0%eb%aa%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🐛 01:26 — 이름 하나 빠져서 안 뜨던 데몬
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:26  fix: __gateway 이름 누락 + config.toml 하위 호환 파싱
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;__gateway&lt;/code&gt; 를 clap enum에 정의는 했는데 &lt;strong&gt;디스패치에서 빠져 있었음.&lt;/strong&gt; &lt;code&gt;seam start&lt;/code&gt; 가 조용히 아무것도 안 함.&lt;/p&gt;
+&lt;p&gt;같이 고친 게 설정 파일 하위 호환임. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-6/&#34; &gt;#6&lt;/a&gt;에서 &lt;code&gt;router_slider&lt;/code&gt;, &lt;code&gt;ollama_base_url&lt;/code&gt;, &lt;code&gt;classifier_model&lt;/code&gt; 을 추가했는데,
+&lt;strong&gt;그 전에 만들어진 &lt;code&gt;config.toml&lt;/code&gt; 에는 그 필드가 없음.&lt;/strong&gt; 파싱이 통째로 실패해서 설정이 날아감.&lt;/p&gt;
+&lt;p&gt;없으면 기본값을 쓰게 바꿨음. 설정 파일은 한 번 만들어지면 사용자 기계에 계속 남으니까, &lt;strong&gt;새 필드는 항상 옵셔널이어야 함.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-0152--설치하고-처음-켰을-때&#34;&gt;
+    &lt;a href=&#34;#-0152--%ec%84%a4%ec%b9%98%ed%95%98%ea%b3%a0-%ec%b2%98%ec%9d%8c-%ec%bc%b0%ec%9d%84-%eb%95%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🧙 01:52 — 설치하고 처음 켰을 때
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:52  feat: seam setup — 대화형 초기 설정 마법사
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam start&lt;/code&gt; 를 처음 치면 setup이 자동으로 뜸. &lt;code&gt;first_run&lt;/code&gt; 을 감지해서.&lt;/p&gt;
+&lt;p&gt;물어보는 건 이런 것들임.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;API 키 (anthropic / openai / google / github) → &lt;strong&gt;OS 키체인에 저장&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-6/&#34; &gt;라우팅 슬라이더&lt;/a&gt; 0~9&lt;/li&gt;
+&lt;li&gt;Ollama 쓸 건지, 주소는 어딘지&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;dialoguer&lt;/code&gt; 로 만들었음. 설정 파일 포맷을 문서에서 찾아 읽게 하는 것보다 이게 나음.
+특히 &lt;strong&gt;API 키를 어디다 둬야 하는지&lt;/strong&gt;는 물어보는 게 맞음. 안 그러면 다들 환경변수에 평문으로 둠.&lt;/p&gt;
+&lt;h2 id=&#34;-1411--마지막-커밋&#34;&gt;
+    &lt;a href=&#34;#-1411--%eb%a7%88%ec%a7%80%eb%a7%89-%ec%bb%a4%eb%b0%8b&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🌏 14:11 — 마지막 커밋
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;14:11  feat: setup wizard 언어 선택 + EN/KO 완전 이중 언어화
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;setup 첫 질문이 언어 선택이고, CLI 출력 전체를 영어/한국어로 갈랐음.&lt;/p&gt;
+&lt;p&gt;그리고 이게 &lt;strong&gt;마지막 커밋임.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-사흘-커밋-73개&#34;&gt;
+    &lt;a href=&#34;#-%ec%82%ac%ed%9d%98-%ec%bb%a4%eb%b0%8b-73%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📊 사흘, 커밋 73개
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam-cli   (Rust)    47 커밋
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam-code  (Python)  26 커밋
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     ─────
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     73 커밋   3/25 ~ 3/27
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;테스트는 81개.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;모듈&lt;/th&gt;
+&lt;th&gt;테스트&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;router&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;agents/code&lt;/td&gt;
+&lt;td&gt;14&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gateway&lt;/td&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cli&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;config / memory&lt;/td&gt;
+&lt;td&gt;14&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ipc&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;나머지&lt;/td&gt;
+&lt;td&gt;13&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;integration&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;5&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;론칭 계획 문서에 적어둔 일정은 이랬음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;M+0  Week 1-2   Task 1-4   scaffold, config, seam.yaml 파싱, 메모리
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;M+1  Week 3-4   Task 5-7   Gateway, Runner, CLI
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;M+2  Week 5-6   Task 8     Image build
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;M+2  Week 7-8   Task 9     GitHub registry
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;M+3  Week 9     Task 12    README, install.sh, 내부 테스트
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;3개월 계획을 사흘에 했음.&lt;/strong&gt; Task 1~9가 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt;의 2시간 25분에 다 들어가 있음.&lt;/p&gt;
+&lt;h2 id=&#34;-안-만든-것들&#34;&gt;
+    &lt;a href=&#34;#-%ec%95%88-%eb%a7%8c%eb%93%a0-%ea%b2%83%eb%93%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🕳️ 안 만든 것들
+&lt;/h2&gt;&lt;p&gt;정직하게 적으면 이만큼 비어 있음.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;seam journal&lt;/code&gt; / &lt;code&gt;seam budget&lt;/code&gt; — &lt;strong&gt;stub만 있음.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;의 킬 메시지가 &amp;ldquo;AI 활동 영수증&amp;quot;이었는데 그게 비어 있음&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;journal.rs&lt;/code&gt; 는 작성됐는데 &lt;strong&gt;프록시에서 호출을 안 함&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;seam logs --follow&lt;/code&gt; — 미구현&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;seam service&lt;/code&gt; — macOS만. Linux systemd 없음&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Trust Sandbox&lt;/strong&gt; (Layer 2) — 통째로 없음&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lazy Skill Router&lt;/strong&gt; (Layer 3) — &lt;code&gt;seam.yaml&lt;/code&gt; 에 필드만 있고 구현 없음&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;에이전트 통신 버스&lt;/strong&gt; — 없음&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Semantic Memory&lt;/strong&gt; — 없음. Episodic + Shared만&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hub.seam.dev&lt;/code&gt; — 레지스트리는 GitHub 레포로 대체&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;에서 적었던 6레이어 중 &lt;strong&gt;실제로 만든 건 Layer 0, 1, 4 세 개&lt;/strong&gt;임.&lt;/p&gt;
+&lt;h2 id=&#34;-배운-것&#34;&gt;
+    &lt;a href=&#34;#-%eb%b0%b0%ec%9a%b4-%ea%b2%83&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    💭 배운 것
+&lt;/h2&gt;&lt;h3 id=&#34;설계를-먼저-쓰면-싸게-버릴-수-있음&#34;&gt;
+    &lt;a href=&#34;#%ec%84%a4%ea%b3%84%eb%a5%bc-%eb%a8%bc%ec%a0%80-%ec%93%b0%eb%a9%b4-%ec%8b%b8%ea%b2%8c-%eb%b2%84%eb%a6%b4-%ec%88%98-%ec%9e%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    설계를 먼저 쓰면 싸게 버릴 수 있음
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-2/&#34; &gt;#2&lt;/a&gt;에서 일주일 만에 방향을 통째로 갈아엎었는데, &lt;strong&gt;코드가 한 줄도 없는 상태&lt;/strong&gt;였음.
+Sprint 1~7을 반쯤 짜고 알았으면 훨씬 아팠을 것.&lt;/p&gt;
+&lt;p&gt;문서 쓰는 게 느려 보여도, 버릴 때 손해가 작음.&lt;/p&gt;
+&lt;h3 id=&#34;안-보이는-제품은-설명이-안-됨&#34;&gt;
+    &lt;a href=&#34;#%ec%95%88-%eb%b3%b4%ec%9d%b4%eb%8a%94-%ec%a0%9c%ed%92%88%ec%9d%80-%ec%84%a4%eb%aa%85%ec%9d%b4-%ec%95%88-%eb%90%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    &amp;ldquo;안 보이는 제품&amp;quot;은 설명이 안 됨
+&lt;/h3&gt;&lt;p&gt;v0.4는 &amp;ldquo;백그라운드에서 메모리를 주입하는 투명한 레이어&amp;quot;였음. 기능은 같은데 설명이 안 됐음.
+&lt;code&gt;seam.yaml&lt;/code&gt; 이라는 &lt;strong&gt;파일 하나&lt;/strong&gt;를 중심에 두니까 한 문장으로 끝남 — &amp;ldquo;Docker처럼 AI 환경을 공유함&amp;rdquo;.&lt;/p&gt;
+&lt;h3 id=&#34;조용한-실패가-제일-위험함&#34;&gt;
+    &lt;a href=&#34;#%ec%a1%b0%ec%9a%a9%ed%95%9c-%ec%8b%a4%ed%8c%a8%ea%b0%80-%ec%a0%9c%ec%9d%bc-%ec%9c%84%ed%97%98%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    조용한 실패가 제일 위험함
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt; — HTTP 4xx/5xx를 안 보고 지나감&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-4/&#34; &gt;#4&lt;/a&gt; — 종료 코드 0이 아닌데 성공 반환, 루프 상한에서 말없이 종료&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-5/&#34; &gt;#5&lt;/a&gt; — accept 루프가 통째로 죽음&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-7/&#34; &gt;#7&lt;/a&gt; — 라우터 응답이 비면 기본값으로 조용히 넘어감&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;전부 다른 날 다른 언어에서 나왔는데 같은 모양임. &lt;strong&gt;에러를 안 내고 &amp;ldquo;그럴듯하게&amp;rdquo; 계속 가는 코드.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;빠른-게-마냥-좋진-않았음&#34;&gt;
+    &lt;a href=&#34;#%eb%b9%a0%eb%a5%b8-%ea%b2%8c-%eb%a7%88%eb%83%a5-%ec%a2%8b%ec%a7%84-%ec%95%8a%ec%95%98%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    빠른 게 마냥 좋진 않았음
+&lt;/h3&gt;&lt;p&gt;3개월 계획을 사흘에 밀어넣은 건 기분이 좋았는데, 결과를 보면 &lt;strong&gt;넓고 얕음.&lt;/strong&gt;
+레이어 6개 중 3개, 킬 기능인 journal/budget은 stub, Linux는 미지원.&lt;/p&gt;
+&lt;p&gt;돌이켜보면 &lt;strong&gt;Phase 1만 제대로 끝냈으면 쓸 수 있는 물건이 됐을 것 같음.&lt;/strong&gt;
+&amp;ldquo;설치만 하면 AI가 나를 기억함 + 오늘 AI가 쓴 돈&amp;rdquo; 딱 여기까지. 그게 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;에서 정한 MVP 범위이기도 했음.&lt;/p&gt;
+&lt;p&gt;기능을 넓히는 속도가 붙으니까 &lt;strong&gt;범위를 지키는 쪽이 오히려 어려웠음.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-지금&#34;&gt;
+    &lt;a href=&#34;#-%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 지금
+&lt;/h2&gt;&lt;p&gt;3/27 이후로 멈춰 있음.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docs/superpowers/plans/2026-03-27-seam-phase-a-routing-memory.md&lt;/code&gt; 가 다음 계획인데 실행을 안 했음.
+CLAUDE.md의 &amp;ldquo;다음 단계&amp;quot;에도 &lt;code&gt;Task 10-11&lt;/code&gt;, &lt;code&gt;hub.seam.dev&lt;/code&gt; 가 그대로 남아 있음.&lt;/p&gt;
+&lt;p&gt;버린 프로젝트는 아니고, 멈춘 자리가 명확하다는 정도임.
+돌아온다면 &lt;strong&gt;새 기능이 아니라 journal이랑 budget부터&lt;/strong&gt; 할 것 같음. 그게 원래 제일 처음에 보여주기로 한 거였음.&lt;/p&gt;
+&lt;p&gt;#seam #Rust #데몬 #회고 #CLI&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

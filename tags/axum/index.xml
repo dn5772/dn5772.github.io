@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Axum on 대니짱</title>
+        <link>https://dn5772.github.io/tags/axum/</link>
+        <description>Recent content in Axum on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Wed, 25 Mar 2026 17:37:00 +0900</lastBuildDate><atom:link href="https://dn5772.github.io/tags/axum/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>seam 개발 일지 #3 - Rust CLI를 2시간 25분에 밀어넣었음</title>
+        <link>https://dn5772.github.io/p/seam-3/</link>
+        <pubDate>Wed, 25 Mar 2026 17:37:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/seam-3/</guid>
+        <description>&lt;h1 id=&#34;seam-개발-일지-3---rust-cli를-2시간-25분에-밀어넣었음&#34;&gt;
+    &lt;a href=&#34;#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-3---rust-cli%eb%a5%bc-2%ec%8b%9c%ea%b0%84-25%eb%b6%84%ec%97%90-%eb%b0%80%ec%96%b4%eb%84%a3%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    seam 개발 일지 #3 - Rust CLI를 2시간 25분에 밀어넣었음
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-2/&#34; &gt;#2&lt;/a&gt;에서 &lt;code&gt;seam.yaml&lt;/code&gt; 로 방향을 잡고, 바로 Rust로 짜기 시작했음.&lt;/p&gt;
+&lt;p&gt;커밋 시각을 보면 이럼.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;15:12  feat: project scaffold with clap CLI, lib.rs, stub modules
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;17:37  fix: propagate proxy body read errors as 502, wire journal writes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;2시간 25분에 커밋 18개.&lt;/strong&gt; 론칭 계획에는 이 범위가 &lt;code&gt;M+0 ~ M+3&lt;/code&gt;, 그러니까 3개월로 잡혀 있었음.&lt;/p&gt;
+&lt;h2 id=&#34;-왜-rust인가&#34;&gt;
+    &lt;a href=&#34;#-%ec%99%9c-rust%ec%9d%b8%ea%b0%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🦀 왜 Rust인가
+&lt;/h2&gt;&lt;p&gt;단일 바이너리로 떨어지는 게 제일 컸음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -fsSL install.seam.dev &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;이 한 줄로 끝나야 하는데, Python이면 런타임이랑 의존성이 따라옴. Node면 더 심함.
+&lt;strong&gt;&amp;ldquo;AI 환경 관리 도구를 쓰려고 환경을 관리해야 하는&amp;rdquo;&lt;/strong&gt; 상황이 되면 안 됐음.&lt;/p&gt;
+&lt;p&gt;게다가 데몬으로 계속 떠 있어야 하고, 프록시라서 모든 AI 요청이 여길 통과함. 메모리 사용량이랑 지연이 그대로 체감됨.&lt;/p&gt;
+&lt;h2 id=&#34;-15121533--뼈대&#34;&gt;
+    &lt;a href=&#34;#-15121533--%eb%bc%88%eb%8c%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🧱 15:12~15:33 — 뼈대
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;15:12  project scaffold with clap CLI, lib.rs, stub modules
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;15:18  fix: normalize Pull dispatch path, remove unreachable wildcard arm
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;15:26  feat: config init, ~/.seam/ dir structure, keyring key management
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;15:28  feat: seam.yaml parsing with SeamConfig, ToolType, skills union
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;15:30  feat: episodic memory with env_id partitioning and context injection
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;15:32  feat: HTTP gateway with memory injection, proxy to Anthropic/OpenAI, journal
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;15:33  fix: use &amp;amp;Path instead of &amp;amp;PathBuf in journal::append
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;20분 만에 게이트웨이까지 갔음.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;api-키는-os-키체인에&#34;&gt;
+    &lt;a href=&#34;#api-%ed%82%a4%eb%8a%94-os-%ed%82%a4%ec%b2%b4%ec%9d%b8%ec%97%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    API 키는 OS 키체인에
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;.env&lt;/code&gt; 나 config 파일에 평문으로 두는 걸 처음부터 안 하기로 했음.
+&lt;code&gt;keyring&lt;/code&gt; 크레이트를 쓰면 macOS Keychain / Linux Secret Service에 그대로 들어감.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam key add anthropic sk-ant-...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam key list
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;설정 파일(&lt;code&gt;~/.seam/config.toml&lt;/code&gt;)에는 키가 안 들어감. 포트, 기본 모델 같은 것만 들어감.&lt;/p&gt;
+&lt;h3 id=&#34;스토리지는-sql-없이-jsonl&#34;&gt;
+    &lt;a href=&#34;#%ec%8a%a4%ed%86%a0%eb%a6%ac%ec%a7%80%eb%8a%94-sql-%ec%97%86%ec%9d%b4-jsonl&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    스토리지는 SQL 없이 JSONL
+&lt;/h3&gt;&lt;p&gt;문서 버전 이력에 이렇게 적혀 있음.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;v0.6: SQL 제거 → 파일 기반 스토리지 확정&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;메모리를 처음엔 SQLite로 잡았다가 JSONL(append-only)로 바꿨음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/.seam/memory/episodic.jsonl    # env_id로 파티셔닝, append-only
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/.seam/journal/YYYY-MM-DD.jsonl # 날짜별 활동 기록
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;append-only라 쓰기가 단순하고, 사람이 &lt;code&gt;tail -f&lt;/code&gt; 로 그냥 볼 수 있음.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;정담&lt;/a&gt; 때랑 비슷한 결론인데, 데이터가 작고 동시 쓰기가 없으면 DB가 필요 없음.&lt;/p&gt;
+&lt;h2 id=&#34;-15351543--프로세스-관리&#34;&gt;
+    &lt;a href=&#34;#-15351543--%ed%94%84%eb%a1%9c%ec%84%b8%ec%8a%a4-%ea%b4%80%eb%a6%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ⚙️ 15:35~15:43 — 프로세스 관리
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;35&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;runner&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;—&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;process&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;manager&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;external&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;tool&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;env&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;files&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PID&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;management&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;40&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;watch_with_restart&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;runner&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;process&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;manager&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;15&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;43&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;fix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;replace&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;phantom&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;re&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;spawn&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;correct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Crashed&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;status&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam run&lt;/code&gt; 이 &lt;code&gt;seam.yaml&lt;/code&gt; 의 native 툴들을 서브프로세스로 띄움. 그럼 &lt;strong&gt;누가 살아 있는지&lt;/strong&gt; 알아야 함.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/.seam/run/&amp;lt;name&amp;gt;.pid
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;PID 파일 쓰고, 살아 있는지는 &lt;code&gt;libc::kill(pid, 0)&lt;/code&gt; 으로 확인함. 시그널 0은 실제로 안 보내고 &lt;strong&gt;보낼 수 있는지만&lt;/strong&gt; 검사함. macOS/Linux 공통으로 됨.&lt;/p&gt;
+&lt;p&gt;15:43 커밋이 재밌는데, &lt;code&gt;watch_with_restart&lt;/code&gt; 가 크래시를 감지하고 &lt;strong&gt;자기가 다시 띄우려고&lt;/strong&gt; 했었음.
+그러면 재시작 책임이 두 군데(감시자 + 코디네이터)로 갈라져서 유령 프로세스가 생김. &lt;code&gt;Crashed&lt;/code&gt; 상태로 끊고 나가게 바꿨음.&lt;/p&gt;
+&lt;h2 id=&#34;-15431717--cli-서브커맨드&#34;&gt;
+    &lt;a href=&#34;#-15431717--cli-%ec%84%9c%eb%b8%8c%ec%bb%a4%eb%a7%a8%eb%93%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🖥️ 15:43~17:17 — CLI 서브커맨드
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;16:58  feat: CLI — run/stop/ps/logs/status subcommands with unit tests
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;17:17  fix: CLI quality — check kill return, fix unwrap on path, PID parse safety,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              follow warning, status liveness check
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;17:17 커밋이 자잘한 것만 모아놨는데 전부 같은 종류임.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;kill()&lt;/code&gt; 반환값을 안 보고 성공으로 친 것&lt;/li&gt;
+&lt;li&gt;경로 변환에서 &lt;code&gt;unwrap()&lt;/code&gt; 쓴 것&lt;/li&gt;
+&lt;li&gt;PID 파일 내용이 숫자가 아닐 때 터지는 것&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--follow&lt;/code&gt; 가 미구현인데 아무 말 없이 조용한 것&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;status&lt;/code&gt; 가 PID 파일만 보고 &amp;ldquo;실행 중&amp;quot;이라고 한 것 (프로세스는 죽었는데)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;전부 &amp;ldquo;실패 경로를 안 본 것&amp;quot;임.&lt;/strong&gt; 잘 돌아갈 때만 생각하고 짠 코드.&lt;/p&gt;
+&lt;h2 id=&#34;-17191728--이미지랑-레지스트리&#34;&gt;
+    &lt;a href=&#34;#-17191728--%ec%9d%b4%eb%af%b8%ec%a7%80%eb%9e%91-%eb%a0%88%ec%a7%80%ec%8a%a4%ed%8a%b8%eb%a6%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📦 17:19~17:28 — 이미지랑 레지스트리
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;17:19  feat: image build — seam.yaml → tar.gz with .seam-lock generation
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;17:23  feat: GitHub registry — pull seam.yaml from seam-envs repo, push with auto-create
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;17:28  fix: add HTTP error checking in registry pull/push, check repo creation response
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam build&lt;/code&gt; 가 &lt;code&gt;seam.yaml&lt;/code&gt; 이랑 프롬프트 파일들을 &lt;code&gt;tar.gz&lt;/code&gt; 로 묶고 &lt;code&gt;.seam-lock&lt;/code&gt; 을 만듦.
+Docker 이미지 흉내인데 레이어는 없음. 그냥 압축 파일 하나임.&lt;/p&gt;
+&lt;p&gt;레지스트리는 GitHub Contents API를 씀. 레포가 없으면 만들어줌.&lt;/p&gt;
+&lt;p&gt;17:28 커밋이 중요한데, &lt;strong&gt;HTTP 응답 상태를 아무도 안 보고 있었음.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-rust&#34; data-lang=&#34;rust&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 전 — 404가 와도 그냥 지나감
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resp&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;// 후
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;resp&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;send&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;().&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;await&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;error_for_status&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;reqwest&lt;/code&gt; 는 4xx/5xx를 에러로 안 봄. 네트워크가 성공했으면 성공임.
+&lt;code&gt;.error_for_status()?&lt;/code&gt; 를 안 붙이면 &lt;strong&gt;404 응답을 파싱하려다 이상한 데서 터짐.&lt;/strong&gt; 레포 생성 응답도 마찬가지였음.&lt;/p&gt;
+&lt;h2 id=&#34;-17341737--마무리&#34;&gt;
+    &lt;a href=&#34;#-17341737--%eb%a7%88%eb%ac%b4%eb%a6%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔌 17:34~17:37 — 마무리
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;17:34  docs: README and install script
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;17:37  fix: propagate proxy body read errors as 502, wire journal writes on each request
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;프록시가 바디를 읽다가 실패하면 그걸 삼키고 있었음. 502로 올려보내게 바꿈.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;18개 중 7개가 &lt;code&gt;fix:&lt;/code&gt; 였고, 전부 직전 &lt;code&gt;feat:&lt;/code&gt; 을 고치는 거였음.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;15:40 feat: watch_with_restart      → 15:43 fix: 유령 재실행 제거
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;17:19 feat: image build             → 17:21 fix: SeamLock pub, 경로, mtime
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;17:23 feat: GitHub registry         → 17:28 fix: HTTP 에러 체크
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;빠르게 밀고 바로 되돌아와서 고치는 식이었음. 기능 하나 넣고 다시 읽어보면 실패 경로가 비어 있음.
+&lt;strong&gt;&amp;ldquo;돌아가게 만들기&amp;quot;랑 &amp;ldquo;안 터지게 만들기&amp;quot;가 다른 작업&lt;/strong&gt;이라는 게 커밋 로그에 그대로 남았음.&lt;/p&gt;
+&lt;p&gt;그리고 3개월 계획을 2시간 반에 끝낸 건 기분은 좋은데, 이게 마냥 좋은 일인지는 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-8/&#34; &gt;마지막 글&lt;/a&gt;에서 다시 생각해봄.&lt;/p&gt;
+&lt;p&gt;#seam #Rust #CLI #axum #clap&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

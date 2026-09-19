@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>LLM on 대니짱</title>
+        <link>https://dn5772.github.io/tags/llm/</link>
+        <description>Recent content in LLM on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Thu, 26 Mar 2026 22:44:00 +0900</lastBuildDate><atom:link href="https://dn5772.github.io/tags/llm/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>seam 개발 일지 #6 - 비용과 품질을 슬라이더 하나로</title>
+        <link>https://dn5772.github.io/p/seam-6/</link>
+        <pubDate>Thu, 26 Mar 2026 22:44:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/seam-6/</guid>
+        <description>&lt;h1 id=&#34;seam-개발-일지-6---비용과-품질을-슬라이더-하나로&#34;&gt;
+    &lt;a href=&#34;#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-6---%eb%b9%84%ec%9a%a9%ea%b3%bc-%ed%92%88%ec%a7%88%ec%9d%84-%ec%8a%ac%eb%9d%bc%ec%9d%b4%eb%8d%94-%ed%95%98%eb%82%98%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    seam 개발 일지 #6 - 비용과 품질을 슬라이더 하나로
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;의 핵심 아이디어 5개 중 두 번째가 &lt;strong&gt;&amp;ldquo;LLM 추상화 — 사용자는 모델을 몰라도 된다&amp;rdquo;&lt;/strong&gt; 였음.&lt;/p&gt;
+&lt;p&gt;말은 좋은데 막상 구현하려니까 문제가 있음. &lt;strong&gt;사용자가 모델을 모르면, 비싼 모델을 써도 모름.&lt;/strong&gt;
+알아서 골라주는 게 좋다가도, 청구서를 보면 얘기가 달라짐.&lt;/p&gt;
+&lt;p&gt;그래서 &lt;strong&gt;슬라이더 하나&lt;/strong&gt;로 풀었음.&lt;/p&gt;
+&lt;h2 id=&#34;-0에서-9까지&#34;&gt;
+    &lt;a href=&#34;#-0%ec%97%90%ec%84%9c-9%ea%b9%8c%ec%a7%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎚️ 0에서 9까지
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam setup  →  라우팅 성향: [0 ────●──── 9]
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;슬라이더&lt;/th&gt;
+&lt;th&gt;전략&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;0–2&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;로컬 Ollama 최우선. 부족하면 최저가 API (haiku / gemini-flash / gpt-4o-mini)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;3–5&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;균형. 복잡도 판정 후 simple→경량 API, complex→중급 API&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;6–8&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;성능 우선. complex 요청은 최고 모델 (opus / gemini-pro / gpt-4o)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;9&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;항상 최고 모델&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&amp;ldquo;어떤 모델 쓸래?&amp;rdquo; 대신 &lt;strong&gt;&amp;ldquo;돈이랑 품질 중에 어디에 가까울래?&amp;rdquo;&lt;/strong&gt; 를 물음.
+모델 이름은 계속 몰라도 되는데, 비용 방향은 내가 쥐고 있음.&lt;/p&gt;
+&lt;p&gt;값은 &lt;code&gt;~/.seam/config.toml&lt;/code&gt; 에 들어가고, 범위를 벗어나면 0~9로 잘라냄.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;29&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;fix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Clone&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SeamAppConfig&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;clamp&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;router_slider&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;9&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;on&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;load&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;설정 파일은 사람이 손으로 고칠 수 있으니까 &lt;code&gt;router_slider = 42&lt;/code&gt; 가 들어올 수 있음. 읽을 때 캡핑함.&lt;/p&gt;
+&lt;h2 id=&#34;-복잡도는-누가-판정하나&#34;&gt;
+    &lt;a href=&#34;#-%eb%b3%b5%ec%9e%a1%eb%8f%84%eb%8a%94-%eb%88%84%ea%b0%80-%ed%8c%90%ec%a0%95%ed%95%98%eb%82%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🧠 복잡도는 누가 판정하나
+&lt;/h2&gt;&lt;p&gt;슬라이더만으론 부족함. &amp;ldquo;이 요청이 간단한가 복잡한가&amp;quot;를 알아야 3~8 구간에서 갈래를 탈 수 있음.&lt;/p&gt;
+&lt;p&gt;근데 &lt;strong&gt;복잡도를 판정하려고 GPT-4를 부르면 본말전도&lt;/strong&gt;임. 판정 비용이 실행 비용보다 비쌀 수 있음.&lt;/p&gt;
+&lt;p&gt;그래서 &lt;strong&gt;로컬 Ollama 소형 모델&lt;/strong&gt;한테 시킴.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;요청 텍스트 → Ollama (phi3:mini / llama3.2:3b) → simple | medium | complex
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;비용: $0
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;타임아웃: 5초
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Ollama가 안 떠 있거나 느리면 &lt;strong&gt;휴리스틱으로 폴백&lt;/strong&gt;함. 텍스트 길이 기준.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;22:20  feat: implement Ollama complexity classifier with heuristic fallback
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;이 폴백이 꼭 필요했던 게, &lt;strong&gt;분류기가 전체 파이프라인의 단일 장애점이 되면 안 되기 때문&lt;/strong&gt;임.
+Ollama를 안 깐 사람도 seam을 쓸 수 있어야 함. 라우팅 품질만 떨어지고 동작은 해야 함.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;에서 &amp;ldquo;Gateway가 죽어도 앱은 돌아가야 한다&amp;quot;고 적었던 거랑 같은 원칙임.&lt;/p&gt;
+&lt;h2 id=&#34;-프로바이더-4개&#34;&gt;
+    &lt;a href=&#34;#-%ed%94%84%eb%a1%9c%eb%b0%94%ec%9d%b4%eb%8d%94-4%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔀 프로바이더 4개
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Anthropic · OpenAI · Google · Ollama
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;라우팅 표가 (복잡도 × 슬라이더) → 프로바이더 + 모델로 가는데, &lt;strong&gt;선택된 프로바이더에 키가 없으면&lt;/strong&gt; 다음으로 넘어감.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;22:20  feat: add RouterState with 0-9 slider routing logic and classifier stub
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;22:20  fix: add Debug derives and suppress dead_code in router
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-27 01:39  feat: GoogleModels medium 필드 추가, route()에 Google fallback 통합
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-27 01:44  feat: proxy_handler — router 연동, 4개 프로바이더, shared memory 주입
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Google을 나중에 끼워넣었는데, &lt;code&gt;medium&lt;/code&gt; 등급 모델이 비어 있어서 폴백 체인이 중간에 끊겼음.
+&lt;strong&gt;세 단계(simple/medium/complex)를 프로바이더마다 다 채워야&lt;/strong&gt; 표가 완성됨.&lt;/p&gt;
+&lt;h2 id=&#34;-메모리를-두-겹으로-나눴음&#34;&gt;
+    &lt;a href=&#34;#-%eb%a9%94%eb%aa%a8%eb%a6%ac%eb%a5%bc-%eb%91%90-%ea%b2%b9%ec%9c%bc%eb%a1%9c-%eb%82%98%eb%88%b4%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🧩 메모리를 두 겹으로 나눴음
+&lt;/h2&gt;&lt;p&gt;같은 날 밤에 메모리도 갈랐음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;episodic.jsonl   private  — 환경별(env_id) 파티션. &amp;#34;이 환경에서 한 일&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;shared.jsonl     shared   — 글로벌. &amp;#34;툴들이 같이 아는 것&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;에서 &amp;ldquo;code editor에서 한 작업을 planner가 안다&amp;quot;고 했던 게 이 &lt;code&gt;shared&lt;/code&gt; 레이어임.
+그냥 다 공유하면 될 것 같은데 그러면 안 되는 게, &lt;strong&gt;환경마다 관련 없는 맥락이 섞임.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;백엔드 환경에서 한 작업이 영상 편집 환경 프롬프트에 끼어들면 노이즈임. 토큰도 낭비고.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;14&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SharedStore&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cross&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;tool&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;shared&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;memory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;layer&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;32&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;extend&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IpcState&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SharedStore&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RouterState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;shared_memory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handlers&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;22&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;41&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;wire&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SharedStore&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;RouterState&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;into&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;gateway&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;daemon&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;seam&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.6&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;그래서 &lt;strong&gt;저장할 때 어디에 넣을지를 고르게&lt;/strong&gt; 함. IPC에 핸들러를 따로 뒀음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;memory_save          → private (episodic, env_id 파티션)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;shared_memory_save   → shared (글로벌)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;주입할 때는 둘을 합쳐서 하나의 컨텍스트로 만듦.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-27 01:41  feat: inject에 format_combined_context() 추가 (episodic + shared 결합)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-키체인-조회-두-번&#34;&gt;
+    &lt;a href=&#34;#-%ed%82%a4%ec%b2%b4%ec%9d%b8-%ec%a1%b0%ed%9a%8c-%eb%91%90-%eb%b2%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔑 키체인 조회 두 번
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;22:44  fix: fetch openai key once and reuse instead of double keychain lookup
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;작은 건데, 요청 하나 처리하면서 &lt;strong&gt;OS 키체인을 두 번 조회&lt;/strong&gt;하고 있었음.
+macOS 키체인 접근은 생각보다 안 싸고, 프록시는 요청마다 도는 경로라서 그대로 지연이 됨.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;알아서 해준다&amp;quot;에는 항상 통제 손잡이가 하나 필요한 것 같음.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;모델 선택을 완전히 자동화하면 편한데, 사용자가 통제감을 잃음.
+모델 이름을 다 보여주면 통제는 되는데 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;의 문제로 되돌아감.&lt;/p&gt;
+&lt;p&gt;슬라이더 하나가 그 사이 절충이었음. &lt;strong&gt;추상화는 유지하되, 사용자가 신경 쓰는 축(비용)만 노출.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;그리고 분류기를 로컬 모델로 돌린 게 좋았음. 판정이 공짜라서 &lt;strong&gt;모든 요청에 다 걸 수 있음.&lt;/strong&gt;
+API를 불렀으면 &amp;ldquo;복잡도 판정할 가치가 있는 요청인가&amp;quot;를 또 판단해야 했을 것.&lt;/p&gt;
+&lt;p&gt;#seam #라우팅 #Ollama #LLM #비용&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>seam 개발 일지 #4 - 17분 만에 만든 코딩 에이전트</title>
+        <link>https://dn5772.github.io/p/seam-4/</link>
+        <pubDate>Thu, 26 Mar 2026 10:06:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/seam-4/</guid>
+        <description>&lt;h1 id=&#34;seam-개발-일지-4---17분-만에-만든-코딩-에이전트&#34;&gt;
+    &lt;a href=&#34;#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-4---17%eb%b6%84-%eb%a7%8c%ec%97%90-%eb%a7%8c%eb%93%a0-%ec%bd%94%eb%94%a9-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    seam 개발 일지 #4 - 17분 만에 만든 코딩 에이전트
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt;에서 런타임은 만들었는데, &lt;strong&gt;그 위에서 돌 앱이 없었음.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;seam.yaml&lt;/code&gt; 에 &lt;code&gt;type: native&lt;/code&gt; 툴을 적을 수 있게 해놨지만 정작 띄울 게 없음.
+플랫폼만 있고 앱이 없는 상태라 아무것도 증명이 안 됨.&lt;/p&gt;
+&lt;p&gt;그래서 첫 공식 앱을 만들었음. &lt;strong&gt;seam-code&lt;/strong&gt; — 터미널 코딩 에이전트.&lt;/p&gt;
+&lt;h2 id=&#34;-왜-python인가&#34;&gt;
+    &lt;a href=&#34;#-%ec%99%9c-python%ec%9d%b8%ea%b0%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🐍 왜 Python인가
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt;에서 Rust를 고른 이유가 &amp;ldquo;단일 바이너리&amp;quot;였는데, 여기선 정반대로 갔음.&lt;/p&gt;
+&lt;p&gt;에이전트 쪽은 &lt;strong&gt;생태계가 전부 Python&lt;/strong&gt;임. LangChain, 각종 LLM SDK, TUI 라이브러리까지.
+deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다시 짤 이유가 없었음.&lt;/p&gt;
+&lt;p&gt;그래서 &lt;strong&gt;듀얼 프로젝트&lt;/strong&gt;가 됨.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam-cli   (Rust)    런타임 · 게이트웨이 · 데몬 · 라우터
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam-code  (Python)  코딩 에이전트 · TUI
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;역할이 갈림. &lt;strong&gt;seam-cli가 모델 라우팅이랑 메모리를 맡고, seam-code는 툴 실행이랑 UX에 집중함.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-09491006-커밋-13개&#34;&gt;
+    &lt;a href=&#34;#-09491006-%ec%bb%a4%eb%b0%8b-13%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ⏱️ 09:49~10:06, 커밋 13개
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;09&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;49&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;scaffold&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;seam&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;code&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;project&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;09&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;53&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;config&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;loader&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;daemon&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;startup&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;check&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;09&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;57&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;implement&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;seam&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;daemon&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IPC&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;client&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;09&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;59&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;implement&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;local&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;tool&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;files&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;shell&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;search&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;memory_save&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;01&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;fix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;execute&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;error&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;key&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;on&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;non&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;zero&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;exit&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;grep_files&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;returns&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sorted&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;list&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;03&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;implement&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IPC&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;based&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;agent&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;loop&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;tool&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dispatch&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;04&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;fix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;append&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fallback&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;message&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;history&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;on&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;MAX_TOOL_LOOPS&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;exit&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;06&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;headless&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;execution&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mode&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;06&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Textual&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;TUI&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;chat&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;interface&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;06&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;seam&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;yaml&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;definition&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;system&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;17분임.&lt;/strong&gt; 스캐폴드부터 TUI까지.&lt;/p&gt;
+&lt;h2 id=&#34;-툴-8개&#34;&gt;
+    &lt;a href=&#34;#-%ed%88%b4-8%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔧 툴 8개
+&lt;/h2&gt;&lt;p&gt;에이전트가 쓸 수 있는 도구를 로컬에 뒀음.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;툴&lt;/th&gt;
+&lt;th&gt;하는 일&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;read_file&lt;/code&gt; / &lt;code&gt;write_file&lt;/code&gt; / &lt;code&gt;edit_file&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;파일 읽기·쓰기·수정&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;execute&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;셸 명령&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;glob&lt;/code&gt; / &lt;code&gt;grep&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;파일 찾기&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;todo&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;작업 목록&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;memory_save&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;seam 메모리에 저장&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;memory_save&lt;/code&gt; 만 IPC로 seam-cli에 넘어감. 나머지는 전부 로컬에서 처리.
+&lt;strong&gt;메모리만 공유하고 파일 작업은 각자 하는 구조&lt;/strong&gt;임.&lt;/p&gt;
+&lt;p&gt;10:01 커밋이 툴 두 개를 고치는데 둘 다 같은 종류임.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;execute&lt;/code&gt; 가 &lt;strong&gt;종료 코드가 0이 아닌데 성공으로 반환&lt;/strong&gt;하고 있었음. 에이전트가 &amp;ldquo;명령이 잘 됐구나&amp;rdquo; 하고 다음 단계로 감&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grep_files&lt;/code&gt; 가 &lt;strong&gt;순서가 매번 달랐음.&lt;/strong&gt; 파일시스템 순회 순서 그대로라서 같은 요청에 다른 결과가 나옴&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;두 번째는 특히 에이전트한테 나쁨. &lt;strong&gt;같은 상황에서 다르게 행동하면 디버깅이 불가능해짐.&lt;/strong&gt; 정렬해서 반환하게 바꿈.&lt;/p&gt;
+&lt;h2 id=&#34;-에이전트-루프&#34;&gt;
+    &lt;a href=&#34;#-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8-%eb%a3%a8%ed%94%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔁 에이전트 루프
+&lt;/h2&gt;&lt;p&gt;핵심은 이거 하나임.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;사용자 요청
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  → LLM 호출 (툴 목록 같이 전달)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  → LLM이 툴 호출을 요청
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  → 툴 실행
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  → 결과를 히스토리에 넣고 다시 LLM 호출
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  → 툴 호출이 없으면 종료
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;무한 루프가 될 수 있어서 &lt;code&gt;MAX_TOOL_LOOPS&lt;/code&gt; 로 상한을 뒀음.&lt;/p&gt;
+&lt;p&gt;10:04 커밋이 그 상한에 걸렸을 때를 고침. 원래는 &lt;strong&gt;그냥 조용히 빠져나갔음.&lt;/strong&gt;
+사용자 입장에선 에이전트가 아무 말 없이 멈춘 것처럼 보임. 히스토리에 &amp;ldquo;한도에 걸려서 멈췄다&amp;quot;는 메시지를 넣고 나가게 바꿈.&lt;/p&gt;
+&lt;p&gt;에이전트가 실패할 때 &lt;strong&gt;왜 실패했는지 말하게 하는 건&lt;/strong&gt; 생각보다 중요한 것 같음.&lt;/p&gt;
+&lt;h2 id=&#34;-모드-두-개&#34;&gt;
+    &lt;a href=&#34;#-%eb%aa%a8%eb%93%9c-%eb%91%90-%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🖥️ 모드 두 개
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;headless&lt;/strong&gt; — 단발 실행.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam code &lt;span class=&#34;s2&#34;&gt;&amp;#34;이 코드베이스 설명해줘&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;TUI&lt;/strong&gt; — Textual로 만든 대화형 화면.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam code
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;headless를 먼저 만들었음. 스크립트에서 부르기 쉽고, &lt;strong&gt;TUI 없이도 에이전트 루프를 테스트할 수 있어서&lt;/strong&gt;임.
+TUI를 먼저 만들었으면 화면이랑 로직이 엉켜서 테스트가 어려웠을 것.&lt;/p&gt;
+&lt;h2 id=&#34;-seam-code가-다른-에이전트랑-다른-점&#34;&gt;
+    &lt;a href=&#34;#-seam-code%ea%b0%80-%eb%8b%a4%eb%a5%b8-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8%eb%9e%91-%eb%8b%a4%eb%a5%b8-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 seam-code가 다른 에이전트랑 다른 점
+&lt;/h2&gt;&lt;p&gt;문서에 비교표를 적어놨는데, 결국 전부 &lt;strong&gt;seam 위에 있다&lt;/strong&gt;는 데서 나옴.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;기능&lt;/th&gt;
+&lt;th&gt;보통의 에이전트&lt;/th&gt;
+&lt;th&gt;seam-code&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;세션 간 메모리&lt;/td&gt;
+&lt;td&gt;로컬 SQLite&lt;/td&gt;
+&lt;td&gt;seam episodic memory — 다음 세션에도 맥락 유지&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;모델 라우팅&lt;/td&gt;
+&lt;td&gt;수동 플래그&lt;/td&gt;
+&lt;td&gt;seam Gateway 자동 라우팅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;팀 세팅 공유&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;seam push me/code-setup&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;팀 온보딩&lt;/td&gt;
+&lt;td&gt;❌&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;seam pull team/code-standard &amp;amp;&amp;amp; seam run&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;시니어가 쓰던 프롬프트랑 스킬 세팅을 새 팀원이 &lt;strong&gt;한 줄로 받아 쓰는 것&lt;/strong&gt; — 이게 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-2/&#34; &gt;#2&lt;/a&gt;에서 피벗한 이유 그 자체임.
+플랫폼 혼자서는 못 보여주는 걸 앱이 하나 생기니까 보여줄 수 있게 됨.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;Rust로 다 통일하고 싶은 마음이 있었는데, &lt;strong&gt;언어를 갈라놓은 게 맞았음.&lt;/strong&gt;
+런타임은 단일 바이너리여야 하고 에이전트는 생태계를 타야 함. 요구사항이 정반대라 억지로 한쪽에 맞췄으면 둘 다 나빠졌을 것.&lt;/p&gt;
+&lt;p&gt;대신 &lt;strong&gt;두 프로세스가 대화할 방법&lt;/strong&gt;이 필요해짐. 그게 다음 글임.&lt;/p&gt;
+&lt;p&gt;#seam #Python #에이전트 #Textual #TUI&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>seam 개발 일지 #1 - AI 도구들이 각자의 섬이라서</title>
+        <link>https://dn5772.github.io/p/seam-1/</link>
+        <pubDate>Mon, 16 Mar 2026 20:00:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/seam-1/</guid>
+        <description>&lt;h1 id=&#34;seam-개발-일지-1---ai-도구들이-각자의-섬이라서&#34;&gt;
+    &lt;a href=&#34;#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-1---ai-%eb%8f%84%ea%b5%ac%eb%93%a4%ec%9d%b4-%ea%b0%81%ec%9e%90%ec%9d%98-%ec%84%ac%ec%9d%b4%eb%9d%bc%ec%84%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    seam 개발 일지 #1 - AI 도구들이 각자의 섬이라서
+&lt;/h1&gt;&lt;p&gt;AI 도구를 여러 개 쓰다 보면 계속 걸리는 게 있음.&lt;/p&gt;
+&lt;p&gt;Cursor에서 인증 API를 만들다가 Claude Desktop을 열면, &lt;strong&gt;맥락을 처음부터 다시 설명해야 함.&lt;/strong&gt;
+어제 AI랑 한 작업을 오늘 AI는 모름. 같은 컴퓨터, 같은 사람인데.&lt;/p&gt;
+&lt;p&gt;이걸 해결하는 걸 만들어보기로 했음. 오늘은 코드 한 줄도 안 쓰고 설계 문서만 10개 썼음.&lt;/p&gt;
+&lt;h2 id=&#34;-문제-목록을-먼저-적었음&#34;&gt;
+    &lt;a href=&#34;#-%eb%ac%b8%ec%a0%9c-%eb%aa%a9%eb%a1%9d%ec%9d%84-%eb%a8%bc%ec%a0%80-%ec%a0%81%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🏝️ 문제 목록을 먼저 적었음
+&lt;/h2&gt;&lt;p&gt;불편한 걸 표로 쭉 적어봤음.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;상황&lt;/th&gt;
+&lt;th&gt;문제&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Cursor 쓰다 Claude Desktop 열면&lt;/td&gt;
+&lt;td&gt;맥락 처음부터 다시 설명&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;코드 에디터 + 영상 생성 동시 실행&lt;/td&gt;
+&lt;td&gt;GPU 충돌, 팬 폭발&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AI 에이전트 여러 개 돌리면&lt;/td&gt;
+&lt;td&gt;서로 대화 못 함, 내가 중계해야 함&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;MCP 서버 추가하려면&lt;/td&gt;
+&lt;td&gt;JSON 설정, 포트, 재시작 — 개발자만 가능&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;스킬 40개 설치&lt;/td&gt;
+&lt;td&gt;매 대화마다 20,000토큰을 도구 설명에 씀&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;간단한 질문에 Claude API 호출&lt;/td&gt;
+&lt;td&gt;비용 낭비 — 로컬 소형 모델이면 충분&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;AI가 내 파일 건드렸는지&lt;/td&gt;
+&lt;td&gt;알 방법 없음&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;적어놓고 보니 &lt;strong&gt;근원이 하나였음.&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AI 도구들이 각자의 섬이다.
+같은 사용자, 같은 하드웨어인데 — 서로 모르고, 맥락을 공유하지 않고, 자원을 나누지 않는다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;-이름은-seam&#34;&gt;
+    &lt;a href=&#34;#-%ec%9d%b4%eb%a6%84%ec%9d%80-seam&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🧵 이름은 seam
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;seam&lt;/strong&gt; — 이음새, 솔기.
+천을 꿰매는 실처럼 AI 앱들 사이에 투명하게 존재하면서 연결한다는 뜻.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;code editor | video generator | planner | ai agent | ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;────────────────────────────────────────────────────────  ← seam
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ollama | claude api | openai api | gemini | ...
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;seamless&lt;/strong&gt; 에서 따온 것도 있음. 사용자가 이음새의 존재를 못 느끼는 게 목표라서.&lt;/p&gt;
+&lt;p&gt;처음엔 &amp;ldquo;AI OS&amp;quot;라는 이름으로 기획했었는데(v0.1~v0.3), OS라고 하니까 너무 거창하고 실제로 하는 일이랑도 안 맞았음.
+커널이나 스케줄러를 만드는 게 아니라 &lt;strong&gt;그냥 중간에 끼는 레이어&lt;/strong&gt;임.&lt;/p&gt;
+&lt;h2 id=&#34;-핵심-아이디어-5개&#34;&gt;
+    &lt;a href=&#34;#-%ed%95%b5%ec%8b%ac-%ec%95%84%ec%9d%b4%eb%94%94%ec%96%b4-5%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    💡 핵심 아이디어 5개
+&lt;/h2&gt;&lt;h3 id=&#34;1-통합-메모리--모든-ai가-나를-기억함&#34;&gt;
+    &lt;a href=&#34;#1-%ed%86%b5%ed%95%a9-%eb%a9%94%eb%aa%a8%eb%a6%ac--%eb%aa%a8%eb%93%a0-ai%ea%b0%80-%eb%82%98%eb%a5%bc-%ea%b8%b0%ec%96%b5%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    1. 통합 메모리 — 모든 AI가 나를 기억함
+&lt;/h3&gt;&lt;p&gt;모든 AI 앱과의 대화를 하나의 저장소로 모음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;어제 code editor에서: &amp;#34;TypeScript로 인증 API 만들었음, RS256 선택&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;오늘 AI planner에서: &amp;#34;그 API에 맞는 프론트 일정 짜줘&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     → seam이 &amp;#34;TypeScript, RS256 API&amp;#34; 맥락 주입
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                     → planner는 처음 보는 대화인데 맥락을 알고 있음
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;2-llm-추상화--모델을-몰라도-됨&#34;&gt;
+    &lt;a href=&#34;#2-llm-%ec%b6%94%ec%83%81%ed%99%94--%eb%aa%a8%eb%8d%b8%ec%9d%84-%eb%aa%b0%eb%9d%bc%eb%8f%84-%eb%90%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2. LLM 추상화 — 모델을 몰라도 됨
+&lt;/h3&gt;&lt;p&gt;요청의 복잡도랑 도메인 보고 seam이 고름.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;간단한 질문  → 로컬 소형 모델 ($0)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;코딩 작업    → 로컬 코딩 특화 모델 ($0)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;복잡한 분석  → Claude API ($)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;3-스킬-지연-로딩--필요할-때만-적재&#34;&gt;
+    &lt;a href=&#34;#3-%ec%8a%a4%ed%82%ac-%ec%a7%80%ec%97%b0-%eb%a1%9c%eb%94%a9--%ed%95%84%ec%9a%94%ed%95%a0-%eb%95%8c%eb%a7%8c-%ec%a0%81%ec%9e%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3. 스킬 지연 로딩 — 필요할 때만 적재
+&lt;/h3&gt;&lt;p&gt;40개 깔아도 대화 시작할 때 토큰을 안 씀. 요청 보고 필요한 것만 그 순간에 로드.&lt;/p&gt;
+&lt;h3 id=&#34;4-에이전트-통신--ai들끼리-협업&#34;&gt;
+    &lt;a href=&#34;#4-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8-%ed%86%b5%ec%8b%a0--ai%eb%93%a4%eb%81%bc%eb%a6%ac-%ed%98%91%ec%97%85&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    4. 에이전트 통신 — AI들끼리 협업
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;code agent  →→→  seam 통신 버스  →→→  test agent
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                                 →→→  deploy agent
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;내가 중계자가 될 필요가 없어짐.&lt;/p&gt;
+&lt;h3 id=&#34;5-메모리-자동-업데이트&#34;&gt;
+    &lt;a href=&#34;#5-%eb%a9%94%eb%aa%a8%eb%a6%ac-%ec%9e%90%eb%8f%99-%ec%97%85%eb%8d%b0%ec%9d%b4%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    5. 메모리 자동 업데이트
+&lt;/h3&gt;&lt;p&gt;대화 끝날 때 &amp;ldquo;이 대화에서 기억해야 할 게 뭔지&amp;rdquo; seam이 판단해서 저장.&lt;/p&gt;
+&lt;h2 id=&#34;-6레이어로-쌓았음&#34;&gt;
+    &lt;a href=&#34;#-6%eb%a0%88%ec%9d%b4%ec%96%b4%eb%a1%9c-%ec%8c%93%ec%95%98%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🏗️ 6레이어로 쌓았음
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Layer 5 · UX             CLI · Activity Journal · REST API
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Layer 4 · Memory Kernel  Working · Episodic · Semantic
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Layer 3 · Skill Router   Lazy Loading · 트리거 매칭
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Layer 2 · Trust Sandbox  Permission · 시스템 감시
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Layer 1 · Smart Router   복잡도×도메인 라우팅 · 비용 예산
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Layer 0 · Gateway        OpenAI/Anthropic/Ollama 호환 프록시
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Layer 0이 제일 중요함.&lt;/strong&gt; 기존 앱들이 seam을 거치게 만드는 게 여기서 결정됨.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;OPENAI_API_BASE&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;http://localhost:11400/v1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;ANTHROPIC_API_URL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;http://localhost:11400/anthropic
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;OLLAMA_HOST&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;http://localhost:11400/ollama
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;환경변수만 바꾸면 &lt;strong&gt;앱은 자기가 프록시를 거치는지도 모름.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-2티어--tier-1은-미끼-tier-2가-본체&#34;&gt;
+    &lt;a href=&#34;#-2%ed%8b%b0%ec%96%b4--tier-1%ec%9d%80-%eb%af%b8%eb%81%bc-tier-2%ea%b0%80-%eb%b3%b8%ec%b2%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎣 2티어 — Tier 1은 미끼, Tier 2가 본체
+&lt;/h2&gt;&lt;p&gt;이게 채택 전략의 핵심임.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tier 1 (프록시)&lt;/strong&gt;: 쓰던 앱 그대로 씀. seam이 사이에 껴서 메모리 주입하고 기록함.
+가입 저항이 0임. 설치하고 환경변수만 바뀌면 끝.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tier 2 (네이티브)&lt;/strong&gt;: &lt;code&gt;seam &amp;quot;요청&amp;quot;&lt;/code&gt; 으로 직접 씀. 전체 파이프라인을 다 씀.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;레이어&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Tier 1&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Tier 2&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Gateway&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Smart Router&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;△ 보수적&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Trust Sandbox&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;△ 기록만&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Skill Router&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✗&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Memory&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅ 주입만&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;✅ 주입+업데이트&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Phase 1: Tier 1 메모리 공유   → &amp;#34;오 이게 되네?&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Phase 2: 비용 절감            → &amp;#34;진짜 돈이 줄었다&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Phase 3: seam CLI 직접 사용   → &amp;#34;이게 더 편하네&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Phase 4: 신뢰 + 자동화        → 정착
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-seam이-죽어도-앱은-돌아가야-함&#34;&gt;
+    &lt;a href=&#34;#-seam%ec%9d%b4-%ec%a3%bd%ec%96%b4%eb%8f%84-%ec%95%b1%ec%9d%80-%eb%8f%8c%ec%95%84%ea%b0%80%ec%95%bc-%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🛡️ seam이 죽어도 앱은 돌아가야 함
+&lt;/h2&gt;&lt;p&gt;설계하면서 제일 신경 쓴 부분임.&lt;/p&gt;
+&lt;p&gt;모든 AI 요청이 seam을 거치게 만들면, &lt;strong&gt;seam이 단일 장애점&lt;/strong&gt;이 됨.
+게이트웨이가 죽으면 Cursor도 못 쓰고 Claude Code도 못 씀. 그건 최악임.&lt;/p&gt;
+&lt;p&gt;그래서 passthrough 폴백을 설계에 박아뒀음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Gateway 정상 → 모든 기능
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Gateway 장애 → 환경변수를 원래 API 엔드포인트로 자동 복원
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              앱들은 직접 API와 통신 (메모리·라우팅 없이)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              seam 재시작 시 자동 복귀
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;사용자한테 보장하는 건 한 줄임. &lt;strong&gt;&amp;ldquo;seam이 죽어도 AI 앱은 동작한다.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-열린-질문을-같이-적었음&#34;&gt;
+    &lt;a href=&#34;#-%ec%97%b4%eb%a6%b0-%ec%a7%88%eb%ac%b8%ec%9d%84-%ea%b0%99%ec%9d%b4-%ec%a0%81%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ❓ 열린 질문을 같이 적었음
+&lt;/h2&gt;&lt;p&gt;모르는 걸 모른다고 적어두는 게 나중에 도움이 될 것 같았음.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Gateway 장애 시 passthrough 폴백을 &lt;strong&gt;구체적으로 어떻게&lt;/strong&gt; 구현하나 (iptables? 로컬 캐시?)&lt;/li&gt;
+&lt;li&gt;복잡도 분류: 규칙 기반 vs 경량 분류 모델 vs 하이브리드&lt;/li&gt;
+&lt;li&gt;메모리 주입 threshold 0.75 — 낮으면 노이즈, 높으면 누락&lt;/li&gt;
+&lt;li&gt;에이전트 버스 프로토콜: 자체 설계 vs 기존 메시지 브로커&lt;/li&gt;
+&lt;li&gt;오픈소스 전략: 코어 OSS + 클라우드 메모리 동기화 유료?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;하루 종일 문서만 10개 썼는데 코드보다 이게 더 힘들었음.&lt;/p&gt;
+&lt;p&gt;제일 오래 붙든 건 &lt;strong&gt;&amp;ldquo;이걸 왜 쓰지?&amp;rdquo;&lt;/strong&gt; 였음.
+기능을 나열하는 건 쉬운데, 사용자가 설치할 이유 하나를 만드는 게 어려웠음. Tier 1을 미끼로 두는 구조가 그 답이었음.&lt;/p&gt;
+&lt;p&gt;근데 이 설계가 일주일 뒤에 &lt;strong&gt;통째로 갈아엎힘.&lt;/strong&gt; 다음 글에서.&lt;/p&gt;
+&lt;p&gt;#seam #AI #설계 #아키텍처 #LLM&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
