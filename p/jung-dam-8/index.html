@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="사장님은 폰으로 메뉴를 고침. 언어 탭을 없애고 저장 버튼을 하나로 줄인 이야기">
+<title>정담 개발 일지 #8 - 관리자 화면을 모바일 우선으로 갈아엎음</title>
+
+<link rel='canonical' href='https://dn5772.github.io/p/jung-dam-8/'>
+
+<link rel="stylesheet" href="/scss/style.min.760e3dabc1e140d2e6abd27a8ca0aabb60e568829b29f67d2df12024136eff37.css"><meta property='og:title' content="정담 개발 일지 #8 - 관리자 화면을 모바일 우선으로 갈아엎음">
+<meta property='og:description' content="사장님은 폰으로 메뉴를 고침. 언어 탭을 없애고 저장 버튼을 하나로 줄인 이야기">
+<meta property='og:url' content='https://dn5772.github.io/p/jung-dam-8/'>
+<meta property='og:site_name' content='대니짱'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='정담' /><meta property='article:tag' content='웹개발' /><meta property='article:tag' content='UX' /><meta property='article:tag' content='모바일' /><meta property='article:tag' content='관리자' /><meta property='article:tag' content='CSS' /><meta property='article:published_time' content='2026-03-25T23:25:00&#43;09:00'/><meta property='article:modified_time' content='2026-03-25T23:25:00&#43;09:00'/>
+<meta name="twitter:title" content="정담 개발 일지 #8 - 관리자 화면을 모바일 우선으로 갈아엎음">
+<meta name="twitter:description" content="사장님은 폰으로 메뉴를 고침. 언어 탭을 없애고 저장 버튼을 하나로 줄인 이야기">
+    <link rel="shortcut icon" href="/pokeball_icon.png" />
+
+  
+
+<meta name="google-adsense-account" content="ca-pub-2130075151823864">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130075151823864"
+     crossorigin="anonymous"></script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/ditto_2_hud2704b3b9534528c44bbff8ffb4fb3e3_5178_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏷️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">대니짱</a></h1>
+            <h2 class="site-description">Danny ZZang의 블로그</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/dn5772'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.instagram.com/sum._.melon/'
+                        target="_blank"
+                        title="Instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://dn5772.github.io/" selected>한국어</option>
+                                
+                                    <option value="https://dn5772.github.io/en/" >English</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>다크 모드</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#-화면을-두-개로-쪼갬">📐 화면을 두 개로 쪼갬</a></li>
+    <li><a href="#-언어-탭을-없앴음">🇰🇷🇺🇸 언어 탭을 없앴음</a></li>
+    <li><a href="#-저장-버튼을-하나로-줄임">💾 저장 버튼을 하나로 줄임</a></li>
+    <li><a href="#-토스트를-아래로-내림">🔔 토스트를 아래로 내림</a></li>
+    <li><a href="#-목록에-썸네일">🖼️ 목록에 썸네일</a></li>
+    <li><a href="#-이번엔-설계-문서부터">📝 이번엔 설계 문서부터</a></li>
+    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/web/jung-dam/" style="background-color: #c92a2a; color: #fff;">
+                정담
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/jung-dam-8/">정담 개발 일지 #8 - 관리자 화면을 모바일 우선으로 갈아엎음</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            사장님은 폰으로 메뉴를 고침. 언어 탭을 없애고 저장 버튼을 하나로 줄인 이야기
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 25, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="정담-개발-일지-8---관리자-화면을-모바일-우선으로-갈아엎음">
+    <a href="#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-8---%ea%b4%80%eb%a6%ac%ec%9e%90-%ed%99%94%eb%a9%b4%ec%9d%84-%eb%aa%a8%eb%b0%94%ec%9d%bc-%ec%9a%b0%ec%84%a0%ec%9c%bc%eb%a1%9c-%ea%b0%88%ec%95%84%ec%97%8e%ec%9d%8c" class="header-anchor">#</a>
+    정담 개발 일지 #8 - 관리자 화면을 모바일 우선으로 갈아엎음
+</h1><p><a class="link" href="https://dn5772.github.io/p/jung-dam-7/" >#7</a>에서 보안 고치고 같은 날 밤에 이어서 한 작업임.</p>
+<p>관리자 페이지는 <a class="link" href="https://dn5772.github.io/p/jung-dam-3/" >#3</a>에서 만든 그대로였는데, <strong>데스크탑 기준 좌우 2단 레이아웃</strong>이었음.
+왼쪽에 메뉴 목록, 오른쪽에 편집 폼.</p>
+<p>근데 사장님은 폰으로 씀. 2단이 폰에서 반씩 찌그러져서 둘 다 못 씀.</p>
+<h2 id="-화면을-두-개로-쪼갬">
+    <a href="#-%ed%99%94%eb%a9%b4%ec%9d%84-%eb%91%90-%ea%b0%9c%eb%a1%9c-%ec%aa%bc%ea%b0%ac" class="header-anchor">#</a>
+    📐 화면을 두 개로 쪼갬
+</h2><p>900px 미만에선 <strong>한 번에 한 화면만</strong> 보여주기로 했음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">mobileView: &#39;list&#39; | &#39;edit&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>transform: translateX</code> 로 슬라이드 전환함. 목록에서 항목을 누르면 편집 화면이 옆에서 밀려 들어오고, 뒤로 가면 다시 나감.
+폰 앱에서 익숙한 그 동작임.</p>
+<p>상단 헤더도 화면마다 바뀜.</p>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>화면</th>
+<th>헤더</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>목록</td>
+<td><code>메뉴 관리</code> + 로그아웃</td>
+</tr>
+<tr>
+<td>편집</td>
+<td><code>← 목록</code> + 항목 제목 + 삭제</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>떠다니는 FAB 버튼은 통째로 없앴음.</strong> 편집 폼 위에 떠 있어서 입력칸을 가림.
+&ldquo;새 항목 추가&quot;는 목록 화면 아래에 고정으로 뒀음.</p>
+<p>데스크탑(≥900px)은 기존 2단 그대로 둠. 둘 다 만족시키려다 둘 다 애매해지는 것보다 나음.</p>
+<h2 id="-언어-탭을-없앴음">
+    <a href="#-%ec%96%b8%ec%96%b4-%ed%83%ad%ec%9d%84-%ec%97%86%ec%95%b4%ec%9d%8c" class="header-anchor">#</a>
+    🇰🇷🇺🇸 언어 탭을 없앴음
+</h2><p>이게 이번에 제일 크게 바꾼 것.</p>
+<p><a class="link" href="https://dn5772.github.io/p/jung-dam-6/" >#6</a>에서 관리자 화면에 <strong>언어 탭</strong>을 만들었음. 한국어 탭 / English 탭.
+논리적으로는 깔끔한데 쓰기에 최악이었음.</p>
+<ul>
+<li>한국어 입력하고 탭 눌러서 영어 입력하고 다시 돌아와서 확인</li>
+<li>영어를 안 채웠는지 아닌지 탭을 눌러봐야 앎</li>
+<li>폰에선 탭 누르다가 키보드가 올라왔다 내려갔다 함</li>
+</ul>
+<p>그래서 <strong>탭을 없애고 둘 다 항상 보이게</strong> 했음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1. 이미지     — 전체 폭, 누르면 업로드
+</span></span><span class="line"><span class="cl">2. 가격       — $ 접두사 고정
+</span></span><span class="line"><span class="cl">3. 🇰🇷 한국어  — 제목 / 재료 설명    (배경색 있는 카드)
+</span></span><span class="line"><span class="cl">4. 🇺🇸 English — Title / Ingredients (배경색 있는 카드)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>영어를 보려면 스크롤을 내려야 하지만, <strong>번역이 비었는지가 스크롤 한 번으로 보임.</strong>
+탭으로 감춰두는 것보다 이게 훨씬 나았음.</p>
+<p>가격 입력칸엔 <code>$</code> 를 고정으로 박아뒀음. 매번 타이핑하던 걸 없앤 것.</p>
+<h2 id="-저장-버튼을-하나로-줄임">
+    <a href="#-%ec%a0%80%ec%9e%a5-%eb%b2%84%ed%8a%bc%ec%9d%84-%ed%95%98%eb%82%98%eb%a1%9c-%ec%a4%84%ec%9e%84" class="header-anchor">#</a>
+    💾 저장 버튼을 하나로 줄임
+</h2><p><a class="link" href="https://dn5772.github.io/p/jung-dam-3/" >#3</a>에서 <code>POST</code>(전체 저장)랑 <code>PATCH</code>(항목 저장)를 둘 다 만들었음.
+그래서 화면에 버튼이 두 개 있었음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[모든 변경사항 저장]   ← POST
+</span></span><span class="line"><span class="cl">[저장]                ← PATCH (항목 하나)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>사장님 입장에서 이건 그냥 <strong>&ldquo;뭘 눌러야 되는지 모르겠는 버튼 두 개&rdquo;</strong> 임.
+둘 다 눌러야 하나? 하나만 누르면 날아가나?</p>
+<p><strong>&ldquo;모든 변경사항 저장&quot;을 없앴음.</strong> 항목 단위 <code>저장</code> 만 남김.
+<code>POST</code> API는 그대로 두되 화면에서 뺐음. 새 항목을 추가할 땐 지금 보고 있는 카테고리가 자동으로 선택되게 함.</p>
+<p>모바일에선 저장 버튼을 편집 화면 <strong>하단에 고정</strong>으로 붙였음. 긴 폼을 끝까지 스크롤해야 저장할 수 있던 걸 없앤 것.</p>
+<h2 id="-토스트를-아래로-내림">
+    <a href="#-%ed%86%a0%ec%8a%a4%ed%8a%b8%eb%a5%bc-%ec%95%84%eb%9e%98%eb%a1%9c-%eb%82%b4%eb%a6%bc" class="header-anchor">#</a>
+    🔔 토스트를 아래로 내림
+</h2><p>알림 메시지가 화면 상단에 떴는데, 폰에서 상단은 <strong>엄지가 제일 안 닿는 자리</strong>임.
+하단 중앙으로 옮겼음.</p>
+<h2 id="-목록에-썸네일">
+    <a href="#-%eb%aa%a9%eb%a1%9d%ec%97%90-%ec%8d%b8%eb%84%a4%ec%9d%bc" class="header-anchor">#</a>
+    🖼️ 목록에 썸네일
+</h2><p>목록에 제목만 있으니까 어떤 메뉴인지 바로 안 보였음. 이미지가 있는 항목은 작은 썸네일을 같이 띄우게 함.
+메뉴판은 결국 사진으로 기억하는 거라서 이게 체감이 컸음.</p>
+<h2 id="-이번엔-설계-문서부터">
+    <a href="#-%ec%9d%b4%eb%b2%88%ec%97%94-%ec%84%a4%ea%b3%84-%eb%ac%b8%ec%84%9c%eb%b6%80%ed%84%b0" class="header-anchor">#</a>
+    📝 이번엔 설계 문서부터
+</h2><p><a class="link" href="https://dn5772.github.io/p/jung-dam-5/" >#5</a>에서 재미를 봐서 이번에도 문서를 먼저 썼음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docs/superpowers/specs/2026-03-25-admin-mobile-ux-design.md
+</span></span><span class="line"><span class="cl">docs/superpowers/plans/2026-03-25-admin-mobile-ux.md
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>스펙에 <code>Status: Approved</code> 라고 적어놓고 시작함. 혼자 하는 프로젝트에 승인이 무슨 의미인가 싶은데,
+<strong>&ldquo;여기까지 정했으니 이제 코드 치는 동안은 다시 고민 안 한다&rdquo;</strong> 는 선 긋기로는 쓸모 있었음.</p>
+<p>바뀐 파일은 두 개뿐임.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">src/app/admin/page.js          — 상태, 레이아웃, 폼 구조
+</span></span><span class="line"><span class="cl">src/app/admin/page.module.css  — 슬라이드 전환, 카드, $ 접두사, 토스트 위치
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="-느낀-점">
+    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    🎯 느낀 점
+</h2><p><strong>언어 탭이 제일 큰 교훈이었음.</strong> 데이터 구조가 <code>{ ko, en }</code> 이니까 UI도 탭으로 나누는 게 자연스러워 보였는데,
+쓰는 사람한텐 &ldquo;한 메뉴를 등록한다&quot;는 하나의 작업임. 구조를 그대로 화면에 옮기면 안 되는 거였음.</p>
+<p>저장 버튼 두 개도 같은 실수임. API가 둘이니까 버튼도 둘로 만든 것.
+<strong>API 모양이랑 화면 모양은 따로 결정해야 함.</strong></p>
+<p><a class="link" href="https://dn5772.github.io/p/jung-dam-6/" >#6</a>에서 붙인 Analytics로 방문자 대부분이 모바일인 걸 봤는데,
+정작 관리자 화면은 데스크탑 기준이었음. 손님 화면만 모바일을 챙기고 있었던 셈.</p>
+<p>#정담 #UX #모바일 #관리자 #CSS</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%EC%A0%95%EB%8B%B4/">정담</a>
+        
+            <a href="/tags/%EC%9B%B9%EA%B0%9C%EB%B0%9C/">웹개발</a>
+        
+            <a href="/tags/ux/">UX</a>
+        
+            <a href="/tags/%EB%AA%A8%EB%B0%94%EC%9D%BC/">모바일</a>
+        
+            <a href="/tags/%EA%B4%80%EB%A6%AC%EC%9E%90/">관리자</a>
+        
+            <a href="/tags/css/">CSS</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/jung-dam-3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #3 - 관리자 페이지를 하루에 다 만들었음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-2/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #2 - 메뉴 붙이고 잔손질</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-9/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #9 - 마지막 버그 하나, 그리고 넉 달 회고</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #6 - 다국어 구현이랑 Analytics</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2026 대니짱
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

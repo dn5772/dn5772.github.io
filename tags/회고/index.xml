@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>회고 on 대니짱</title>
+        <link>https://dn5772.github.io/tags/%ED%9A%8C%EA%B3%A0/</link>
+        <description>Recent content in 회고 on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Tue, 19 May 2026 13:07:00 +0900</lastBuildDate><atom:link href="https://dn5772.github.io/tags/%ED%9A%8C%EA%B3%A0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>정담 개발 일지 #9 - 마지막 버그 하나, 그리고 넉 달 회고</title>
+        <link>https://dn5772.github.io/p/jung-dam-9/</link>
+        <pubDate>Tue, 19 May 2026 13:07:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam-9/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-9---마지막-버그-하나-그리고-넉-달-회고&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-9---%eb%a7%88%ec%a7%80%eb%a7%89-%eb%b2%84%ea%b7%b8-%ed%95%98%eb%82%98-%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%84%89-%eb%8b%ac-%ed%9a%8c%ea%b3%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #9 - 마지막 버그 하나, 그리고 넉 달 회고
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;#8&lt;/a&gt; 이후 두 달 동안 조용했음. 잘 돌아갔으니까.&lt;/p&gt;
+&lt;p&gt;그러다 5월에 &lt;strong&gt;메뉴 저장이 갑자기 안 되기 시작함.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-3월에-고친-게-5월에-다시-터짐&#34;&gt;
+    &lt;a href=&#34;#-3%ec%9b%94%ec%97%90-%ea%b3%a0%ec%b9%9c-%ea%b2%8c-5%ec%9b%94%ec%97%90-%eb%8b%a4%ec%8b%9c-%ed%84%b0%ec%a7%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🐛 3월에 고친 게 5월에 다시 터짐
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: add allowOverwrite to Vercel Blob put to fix menu save failures
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;에서 레이스 컨디션 고칠 때 &lt;code&gt;list → del → put&lt;/code&gt; 을 &lt;strong&gt;같은 경로 덮어쓰기&lt;/strong&gt;로 바꿨었음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;menuData-ko.json&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;addRandomSuffix&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;그 사이에 Blob SDK 메이저 버전이 올라갔음.
+그리고 &lt;strong&gt;같은 경로에 덮어쓰려면 &lt;code&gt;allowOverwrite&lt;/code&gt; 를 명시적으로 줘야&lt;/strong&gt; 하게 바뀜. 안 주면 에러.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;menuData-ko.json&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;addRandomSuffix&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;allowOverwrite&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// ← 추가
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;한 줄 추가로 끝났음.&lt;/p&gt;
+&lt;p&gt;근데 이게 좀 재밌는 게, &lt;strong&gt;덮어쓰기를 실수로 하는 걸 막으려고 SDK가 막아둔 거임.&lt;/strong&gt; 나는 일부러 덮어쓰는 건데.
+3월에 &lt;code&gt;del&lt;/code&gt; 을 없앤 그 결정이 5월에 손이 한 번 더 간 셈인데, 그래도 메뉴가 잠깐 비는 것보단 나음.&lt;/p&gt;
+&lt;h2 id=&#34;-넉-달-커밋-39개&#34;&gt;
+    &lt;a href=&#34;#-%eb%84%89-%eb%8b%ac-%ec%bb%a4%eb%b0%8b-39%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📊 넉 달, 커밋 39개
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;시기&lt;/th&gt;
+&lt;th&gt;한 일&lt;/th&gt;
+&lt;th&gt;커밋&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1/15&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-1/&#34; &gt;템플릿 이식, 컴포넌트 분리&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1/16~17&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-2/&#34; &gt;메뉴 데이터, 잔손질&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1/28 낮&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;관리자 페이지&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1/28 밤&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;저장소 3연속 교체&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2/2~4&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;다국어 설계&lt;/a&gt;·&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-6/&#34; &gt;구현&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3/25 밤&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;보안 구멍 4개&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3/25 심야&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;모바일 우선 관리자&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5/19&lt;/td&gt;
+&lt;td&gt;마지막 버그&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;최종 스택.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Next.js 15 App Router + React 19
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Vercel Blob (메뉴 JSON 2장 + 이미지)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;JWT + bcrypt (관리자 1명)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Bootstrap 5 + CSS Modules
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;DB 없음
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-넉-달-동안-배운-것-4개&#34;&gt;
+    &lt;a href=&#34;#-%eb%84%89-%eb%8b%ac-%eb%8f%99%ec%95%88-%eb%b0%b0%ec%9a%b4-%ea%b2%83-4%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    💭 넉 달 동안 배운 것 4개
+&lt;/h2&gt;&lt;h3 id=&#34;1-로컬에서-되는데요가-제일-무서움&#34;&gt;
+    &lt;a href=&#34;#1-%eb%a1%9c%ec%bb%ac%ec%97%90%ec%84%9c-%eb%90%98%eb%8a%94%eb%8d%b0%ec%9a%94%ea%b0%80-%ec%a0%9c%ec%9d%bc-%eb%ac%b4%ec%84%9c%ec%9b%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    1. &amp;ldquo;로컬에서 되는데요&amp;quot;가 제일 무서움
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 파일 쓰기가 로컬에선 100% 돌아갔음. 배포 환경이 다르다는 걸 코드가 알려주지 않음.
+그리고 메모리로 바꾼 것도 &lt;strong&gt;똑같은 착각을 다른 방식으로 반복한 것&lt;/strong&gt;이었음 — &amp;ldquo;이 프로세스가 계속 살아 있다&amp;quot;는 전제.&lt;/p&gt;
+&lt;p&gt;진짜 고쳐야 했던 건 저장 위치가 아니라 그 전제였음.&lt;/p&gt;
+&lt;h3 id=&#34;2-db-없이도-되는-게-꽤-많음&#34;&gt;
+    &lt;a href=&#34;#2-db-%ec%97%86%ec%9d%b4%eb%8f%84-%eb%90%98%eb%8a%94-%ea%b2%8c-%ea%bd%a4-%eb%a7%8e%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2. DB 없이도 되는 게 꽤 많음
+&lt;/h3&gt;&lt;p&gt;메뉴판처럼 &lt;strong&gt;작고, 자주 안 바뀌고, 동시 수정이 없는&lt;/strong&gt; 데이터는 JSON 두 장으로 충분했음.
+스키마 마이그레이션이 없으니 넉 달 동안 데이터 구조 바꾸는 게 파일 고치는 일이었음.&lt;/p&gt;
+&lt;p&gt;다만 이건 &amp;ldquo;DB는 오버엔지니어링&amp;quot;이라는 얘기가 아님. 조건이 맞아서 된 것.
+동시에 수정하는 사람이 둘만 됐어도 이 구조는 바로 깨짐.&lt;/p&gt;
+&lt;h3 id=&#34;3-저장-형식이랑-편집-형식은-달라도-됨&#34;&gt;
+    &lt;a href=&#34;#3-%ec%a0%80%ec%9e%a5-%ed%98%95%ec%8b%9d%ec%9d%b4%eb%9e%91-%ed%8e%b8%ec%a7%91-%ed%98%95%ec%8b%9d%ec%9d%80-%eb%8b%ac%eb%9d%bc%eb%8f%84-%eb%90%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3. 저장 형식이랑 편집 형식은 달라도 됨
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;의 결론인데 제일 오래 남을 것 같음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;손님:    menuData-ko.json 한 장만 받음        (가볍게)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;관리자:  ko/en 합쳐서 { title: {ko, en} }     (편하게)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;경계:    저장할 때만 쪼갬
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;조회가 압도적으로 많고 수정은 거의 없는 화면이라 가능한 선택이었음.&lt;/p&gt;
+&lt;h3 id=&#34;4-조용히-실패하는-버그가-제일-오래-삶&#34;&gt;
+    &lt;a href=&#34;#4-%ec%a1%b0%ec%9a%a9%ed%9e%88-%ec%8b%a4%ed%8c%a8%ed%95%98%eb%8a%94-%eb%b2%84%ea%b7%b8%ea%b0%80-%ec%a0%9c%ec%9d%bc-%ec%98%a4%eb%9e%98-%ec%82%b6&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    4. 조용히 실패하는 버그가 제일 오래 삶
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;의 레이스 컨디션은 &lt;strong&gt;에러를 안 냄.&lt;/strong&gt; 그냥 메뉴가 잠깐 비어 보임.
+아무도 신고 안 해주고 로그에도 안 남음. 두 달을 살아남았음.&lt;/p&gt;
+&lt;p&gt;인증 없던 업로드 엔드포인트도 마찬가지임. 잘 작동했음 — 너무 잘 작동해서 아무나 쓸 수 있었던 것.&lt;/p&gt;
+&lt;h2 id=&#34;-다시-한다면&#34;&gt;
+    &lt;a href=&#34;#-%eb%8b%a4%ec%8b%9c-%ed%95%9c%eb%8b%a4%eb%a9%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    😬 다시 한다면
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;나중에 고칠 것&amp;quot;을 어딘가 적어뒀을 것.&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 하루에 1045줄을 쏟아낼 때, 시크릿 하드코딩이랑 디버그 로깅이랑 업로드 인증 누락이 전부 그때 생겼음.
+그때는 &amp;ldquo;일단 되게 하고 나중에&amp;quot;라고 생각했는데 &lt;strong&gt;나중이 두 달 뒤&lt;/strong&gt;였음. TODO 주석 하나만 남겼어도 달랐을 듯.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Analytics를 첫날 붙였을 것.&lt;/strong&gt; 한 줄인데, 내 추측이랑 실제 손님 행동을 구분해줌.
+방문자 대부분이 모바일인 걸 알고 있었으면 관리자 화면을 처음부터 모바일로 만들었을 것.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;설계 문서를 더 일찍 썼을 것.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;·&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;#8&lt;/a&gt;처럼 문서 먼저 쓴 작업은 배포하고 뒤집은 적이 한 번도 없음.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;처럼 바로 코드부터 친 날은 하루에 세 번 갈아엎었음.&lt;/p&gt;
+&lt;h2 id=&#34;-지금&#34;&gt;
+    &lt;a href=&#34;#-%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 지금
+&lt;/h2&gt;&lt;p&gt;사이트는 잘 돌아가고 있음. &lt;a class=&#34;link&#34; href=&#34;https://jung-dam.vercel.app&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://jung-dam.vercel.app&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;메뉴가 바뀌면 사장님이 폰으로 들어가서 고침. 내가 하는 일은 없음.
+&lt;strong&gt;그게 이 프로젝트의 목표였으니까 된 것 같음.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;#정담 #웹개발 #VercelBlob #회고 #NextJS&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

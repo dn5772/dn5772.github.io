@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>레이스컨디션 on 대니짱</title>
+        <link>https://dn5772.github.io/tags/%EB%A0%88%EC%9D%B4%EC%8A%A4%EC%BB%A8%EB%94%94%EC%85%98/</link>
+        <description>Recent content in 레이스컨디션 on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Wed, 25 Mar 2026 22:33:00 +0900</lastBuildDate><atom:link href="https://dn5772.github.io/tags/%EB%A0%88%EC%9D%B4%EC%8A%A4%EC%BB%A8%EB%94%94%EC%85%98/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음</title>
+        <link>https://dn5772.github.io/p/jung-dam-7/</link>
+        <pubDate>Wed, 25 Mar 2026 22:33:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam-7/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-7---두-달-만에-보안-구멍-네-개를-찾았음&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-7---%eb%91%90-%eb%8b%ac-%eb%a7%8c%ec%97%90-%eb%b3%b4%ec%95%88-%ea%b5%ac%eb%a9%8d-%eb%84%a4-%ea%b0%9c%eb%a5%bc-%ec%b0%be%ec%95%98%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음
+&lt;/h1&gt;&lt;p&gt;두 달 만에 코드를 다시 열었음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 하루에 1045줄 쏟아낸 그 관리자 API를 차분히 읽어봤는데,
+&lt;strong&gt;볼수록 등이 서늘해졌음.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;fix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;resolve&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;critical&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;security&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vulnerabilities&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;API&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;routes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;auth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;login&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;   &lt;span class=&#34;mi&#34;&gt;60&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+++-------&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;        &lt;span class=&#34;mi&#34;&gt;124&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+++++-------------&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upload&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;       &lt;span class=&#34;mi&#34;&gt;31&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++++---&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;files&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;changed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;74&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;insertions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;141&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;deletions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;141줄 지우고 74줄 넣음. &lt;strong&gt;고치면서 코드가 줄어든 게 좀 웃김.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-1-시크릿이-코드에-박혀-있었음&#34;&gt;
+    &lt;a href=&#34;#-1-%ec%8b%9c%ed%81%ac%eb%a6%bf%ec%9d%b4-%ec%bd%94%eb%93%9c%ec%97%90-%eb%b0%95%ed%98%80-%ec%9e%88%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔴 1. 시크릿이 코드에 박혀 있었음
+&lt;/h2&gt;&lt;p&gt;로그인 라우트에 &lt;strong&gt;JWT 시크릿이랑 bcrypt 해시가 그대로&lt;/strong&gt; 들어 있었음.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.env&lt;/code&gt; 를 만들기 전에 &amp;ldquo;일단 되게&amp;rdquo; 하려고 상수로 박아놓고, 동작하니까 그대로 넘어간 것.
+공개 저장소라 그대로 올라가 있었음.&lt;/p&gt;
+&lt;p&gt;전부 환경변수로 뺐음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;JWT_SECRET
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ADMIN_PASSWORD_HASH
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;BLOB_READ_WRITE_TOKEN
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-2-비밀번호를-평문으로-로깅하고-있었음&#34;&gt;
+    &lt;a href=&#34;#-2-%eb%b9%84%eb%b0%80%eb%b2%88%ed%98%b8%eb%a5%bc-%ed%8f%89%eb%ac%b8%ec%9c%bc%eb%a1%9c-%eb%a1%9c%ea%b9%85%ed%95%98%ea%b3%a0-%ec%9e%88%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔴 2. 비밀번호를 평문으로 로깅하고 있었음
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Login attempt:&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// ← 이게 남아 있었음
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;로그인이 왜 안 되는지 보려고 넣은 건데 안 지웠음.
+Vercel 대시보드 로그에 관리자 비밀번호가 평문으로 쌓이고 있었던 것.&lt;/p&gt;
+&lt;p&gt;지웠음.&lt;/p&gt;
+&lt;h2 id=&#34;-3-업로드-엔드포인트에-인증이-아예-없었음&#34;&gt;
+    &lt;a href=&#34;#-3-%ec%97%85%eb%a1%9c%eb%93%9c-%ec%97%94%eb%93%9c%ed%8f%ac%ec%9d%b8%ed%8a%b8%ec%97%90-%ec%9d%b8%ec%a6%9d%ec%9d%b4-%ec%95%84%ec%98%88-%ec%97%86%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔴 3. 업로드 엔드포인트에 인증이 아예 없었음
+&lt;/h2&gt;&lt;p&gt;이게 제일 심각했음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;POST&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upload&lt;/span&gt;   &lt;span class=&#34;err&#34;&gt;←&lt;/span&gt;  &lt;span class=&#34;err&#34;&gt;아무&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;검증&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;없음&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 메뉴 API엔 &lt;code&gt;verifyToken&lt;/code&gt; 을 붙였는데 &lt;strong&gt;업로드만 빼먹었음.&lt;/strong&gt;
+누구나 내 Blob 스토리지에 파일을 올릴 수 있는 상태였음. 용량은 내가 내고.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;user&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;verifyToken&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;user&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;NextResponse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;error&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Unauthorized&amp;#39;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;401&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;관리자 화면에서 이미지 올릴 때 &lt;code&gt;Authorization&lt;/code&gt; 헤더를 안 보내고 있어서 그것도 같이 고침.&lt;/p&gt;
+&lt;h2 id=&#34;-4-메뉴가-잠깐-비는-레이스-컨디션&#34;&gt;
+    &lt;a href=&#34;#-4-%eb%a9%94%eb%89%b4%ea%b0%80-%ec%9e%a0%ea%b9%90-%eb%b9%84%eb%8a%94-%eb%a0%88%ec%9d%b4%ec%8a%a4-%ec%bb%a8%eb%94%94%ec%85%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🟠 4. 메뉴가 잠깐 비는 레이스 컨디션
+&lt;/h2&gt;&lt;p&gt;이건 보안은 아닌데 더 무서웠음.&lt;/p&gt;
+&lt;p&gt;저장 로직이 이랬음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;list  →  del(기존 파일)  →  put(새 파일)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;지우고 나서 올리는 사이에 메뉴가 빈 채로 응답되는 창이 있었음.&lt;/strong&gt;
+손님이 하필 그 0.x초에 들어오면 메뉴판이 텅 비어 보임. 에러도 아니고 그냥 빈 메뉴라 아무도 신고를 안 해줌.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;del&lt;/code&gt; 단계를 아예 없애고 &lt;strong&gt;같은 이름에 덮어쓰기&lt;/strong&gt;로 바꿨음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;menuData-ko.json&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;token&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;BLOB_TOKEN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;access&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;public&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;contentType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;application/json&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;addRandomSuffix&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// ← 같은 경로에 덮어쓰기
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;addRandomSuffix: false&lt;/code&gt; 를 줘야 랜덤 접미사 없이 같은 경로를 씀. 그래야 덮어쓰기가 됨.&lt;/p&gt;
+&lt;p&gt;덤으로 ko/en 저장을 &lt;code&gt;Promise.all&lt;/code&gt; 로 묶어서 왕복을 반으로 줄였음.
+응답도 전부 &lt;code&gt;NextResponse.json&lt;/code&gt; 으로 통일함. 원래는 &lt;code&gt;new Response(JSON.stringify(...))&lt;/code&gt; 랑 섞여 있었음.&lt;/p&gt;
+&lt;h2 id=&#34;-같은-날-잡은-버그-8개&#34;&gt;
+    &lt;a href=&#34;#-%ea%b0%99%ec%9d%80-%eb%82%a0-%ec%9e%a1%ec%9d%80-%eb%b2%84%ea%b7%b8-8%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🐛 같은 날 잡은 버그 8개
+&lt;/h2&gt;&lt;p&gt;보안 말고 커밋 하나 더 있음.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;mergeLocalizedMenuData&lt;/code&gt; 가 EN만 기준으로 합치고 있었음.&lt;/strong&gt;
+한국어에만 있는 카테고리는 관리자 화면에 아예 안 뜸. 합집합으로 바꿈.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;편집 중에 배경 갱신이 폼을 덮어씀.&lt;/strong&gt;
+&lt;code&gt;editItem&lt;/code&gt; 이펙트 의존성에 &lt;code&gt;menuData&lt;/code&gt; 가 들어 있어서, 백그라운드 리페치가 오면 &lt;strong&gt;저장 안 한 입력이 날아감.&lt;/strong&gt; 의존성에서 뺐음.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GLightbox 메모리 누수.&lt;/strong&gt;
+언어를 바꿀 때마다 라이트박스를 새로 만드는데 기존 걸 안 없앴음. 언어 토글을 왔다갔다 하면 인스턴스가 계속 쌓임.
+ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&lt;/code&gt; 하고, 언마운트 때도 정리하게 함.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;첫 화면에서 언어가 깜빡였음.&lt;/strong&gt;
+영어 사용자가 들어오면 한국어가 한 프레임 보였다가 영어로 바뀜. &lt;code&gt;localStorage&lt;/code&gt; 를 &lt;code&gt;useEffect&lt;/code&gt; 에서 읽어서 생긴 일.
+&lt;code&gt;useState&lt;/code&gt; 의 &lt;strong&gt;lazy initializer&lt;/strong&gt; 로 옮겨서 첫 렌더 전에 동기적으로 읽게 함.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 전
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;lang&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setLang&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ko&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;useEffect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setLang&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;localStorage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;locale&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;??&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;detect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 후
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;lang&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setLang&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;localStorage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;locale&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;??&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;detect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;나머지는 중복 가드 제거, 쓸모없는 별칭 제거, 디버그 &lt;code&gt;console.log&lt;/code&gt; 청소.
+&lt;code&gt;html lang&lt;/code&gt; 속성이 언어 따라 안 바뀌던 것도 고쳤음.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;네 개 중 세 개가 &amp;ldquo;디버깅용으로 넣었다가 안 지운 것&amp;quot;이거나 &amp;ldquo;일단 되게 하려고 건너뛴 것&amp;quot;이었음.&lt;/strong&gt;
+시크릿 하드코딩, 평문 로깅, 업로드 인증 누락. 셋 다 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 하루에 1045줄 쏟아낼 때 생긴 것들임.&lt;/p&gt;
+&lt;p&gt;빨리 만드는 건 좋은데, &lt;strong&gt;&amp;ldquo;나중에 고칠 것&amp;rdquo; 목록을 어딘가에 안 적어두면 나중이 두 달 뒤가 됨.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;그리고 4번 레이스 컨디션은 아무도 신고를 안 해줌. 에러가 안 나고 그냥 빈 화면이라서.
+&lt;strong&gt;조용히 실패하는 버그가 제일 오래 살아남는 듯.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;#정담 #보안 #JWT #레이스컨디션 #리팩터링&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

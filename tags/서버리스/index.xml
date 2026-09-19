@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>서버리스 on 대니짱</title>
+        <link>https://dn5772.github.io/tags/%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4/</link>
+        <description>Recent content in 서버리스 on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Wed, 28 Jan 2026 18:39:00 +0900</lastBuildDate><atom:link href="https://dn5772.github.io/tags/%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>정담 개발 일지 #4 - 저장소를 하루에 세 번 갈아엎었음</title>
+        <link>https://dn5772.github.io/p/jung-dam-4/</link>
+        <pubDate>Wed, 28 Jan 2026 18:39:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam-4/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-4---저장소를-하루에-세-번-갈아엎었음&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-4---%ec%a0%80%ec%9e%a5%ec%86%8c%eb%a5%bc-%ed%95%98%eb%a3%a8%ec%97%90-%ec%84%b8-%eb%b2%88-%ea%b0%88%ec%95%84%ec%97%8e%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #4 - 저장소를 하루에 세 번 갈아엎었음
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 관리자 페이지 만들고 배포했음.
+그리고 저녁 내내 저장소를 세 번 바꿨음. 커밋 시간까지 붙여서 남겨둠.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;57&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;Fix&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Vercel&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;deployment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Change&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;API&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;based&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;storage&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;59&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;refactor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;removing&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;memory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;storage&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;direct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;access&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;integrate&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Vercel&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Blob&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;storage&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uploads&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;16:57 → 16:59, 2분.&lt;/strong&gt; 이 2분이 이 글의 하이라이트임.&lt;/p&gt;
+&lt;h2 id=&#34;1-1차---파일에-쓰기-로컬에선-완벽&#34;&gt;
+    &lt;a href=&#34;#1-1%ec%b0%a8---%ed%8c%8c%ec%9d%bc%ec%97%90-%ec%93%b0%ea%b8%b0-%eb%a1%9c%ec%bb%ac%ec%97%90%ec%84%a0-%ec%99%84%eb%b2%bd&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    1️⃣ 1차 - 파일에 쓰기 (로컬에선 완벽)
+&lt;/h2&gt;&lt;p&gt;처음엔 &lt;code&gt;src/data/menuData.json&lt;/code&gt; 을 &lt;code&gt;fs&lt;/code&gt; 로 직접 읽고 씀.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;JSON&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;parse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;readFileSync&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;MENU_PATH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;utf8&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// ...수정...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;writeFileSync&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;MENU_PATH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;JSON&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;stringify&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;로컬에서 완벽하게 잘 됨. 관리자에서 메뉴 고치면 바로 반영되고, 새로고침해도 남아 있음.&lt;/p&gt;
+&lt;p&gt;배포하니까 &lt;strong&gt;저장 버튼을 눌러도 아무 일이 안 일어남.&lt;/strong&gt;
+에러도 안 뜸. 성공 응답이 오는데 새로고침하면 그대로임.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Vercel 서버리스 함수의 파일시스템은 읽기 전용임.&lt;/strong&gt; (&lt;code&gt;/tmp&lt;/code&gt; 빼고)
+머리로는 알고 있었는데 내 코드가 그걸로 죽는 걸 본 건 처음이었음.&lt;/p&gt;
+&lt;h2 id=&#34;2-2차---메모리에-올리기-2분-만에-철회&#34;&gt;
+    &lt;a href=&#34;#2-2%ec%b0%a8---%eb%a9%94%eb%aa%a8%eb%a6%ac%ec%97%90-%ec%98%ac%eb%a6%ac%ea%b8%b0-2%eb%b6%84-%eb%a7%8c%ec%97%90-%ec%b2%a0%ed%9a%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2️⃣ 2차 - 메모리에 올리기 (2분 만에 철회)
+&lt;/h2&gt;&lt;p&gt;그래서 프로세스 메모리에 올려두고 거기서 읽고 쓰게 바꿈.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;menuCache&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;menuCache&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;menuCache&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;loadInitialData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;배포하니까 &lt;strong&gt;저장은 됨.&lt;/strong&gt; 오 되네 하고 좋아함.&lt;/p&gt;
+&lt;p&gt;그리고 좀 있다가 새로고침하니까 원래대로 돌아가 있음.&lt;/p&gt;
+&lt;p&gt;당연한 일이었음. 람다는 요청 없으면 죽고, 죽으면 메모리가 날아감. 인스턴스가 여러 개면 저장한 인스턴스랑 읽는 인스턴스가 다를 수도 있음.
+&lt;strong&gt;&amp;ldquo;서버가 계속 살아 있다&amp;quot;를 전제로 한 설계였음.&lt;/strong&gt; 서버리스에선 그 전제가 틀림.&lt;/p&gt;
+&lt;p&gt;2분 만에 되돌렸음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;75eec6d  +44  −17   메모리 저장소 도입
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;a8fee7f  +17  −76   메모리 저장소 제거
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;3-3차---vercel-blob-한-시간-걸림&#34;&gt;
+    &lt;a href=&#34;#3-3%ec%b0%a8---vercel-blob-%ed%95%9c-%ec%8b%9c%ea%b0%84-%ea%b1%b8%eb%a6%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3️⃣ 3차 - Vercel Blob (한 시간 걸림)
+&lt;/h2&gt;&lt;p&gt;결국 메뉴 데이터를 &lt;strong&gt;Blob에 JSON 파일로&lt;/strong&gt; 올림.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;menuData.json     ← 나중에 ko/en 으로 쪼개짐
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;DB를 안 쓴 이유는 이럼.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;메뉴 항목이 수십 개임. 테이블 만들 규모가 아님&lt;/li&gt;
+&lt;li&gt;하루에 몇 번 바뀔까 말까임. 동시성 걱정이 없음&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;이미지는 어차피 Blob에 올려야 함.&lt;/strong&gt; 저장소를 둘로 나눌 이유가 없음&lt;/li&gt;
+&lt;li&gt;스키마 마이그레이션이 없음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;GET&lt;/code&gt; 은 Blob에서 파일을 찾아 URL로 받아오고, &lt;code&gt;POST&lt;/code&gt;/&lt;code&gt;PATCH&lt;/code&gt; 는 수정해서 다시 올림.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;blobs&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;token&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;BLOB_TOKEN&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;menuBlob&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;blobs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;find&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pathname&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;menuData.json&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fetch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;menuBlob&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;이때 짠 저장 로직(&lt;code&gt;list → del → put&lt;/code&gt;)에 &lt;strong&gt;레이스 컨디션&lt;/strong&gt;이 있었는데,
+두 달 뒤에야 발견함. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;에서 다룸.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;-덤으로-낙관적-업데이트&#34;&gt;
+    &lt;a href=&#34;#-%eb%8d%a4%ec%9c%bc%eb%a1%9c-%eb%82%99%ea%b4%80%ec%a0%81-%ec%97%85%eb%8d%b0%ec%9d%b4%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ⚡ 덤으로 낙관적 업데이트
+&lt;/h2&gt;&lt;p&gt;Blob 왕복이 로컬 파일보다 확실히 느림. 메뉴 하나 고칠 때마다 스피너가 돌면 답답함.&lt;/p&gt;
+&lt;p&gt;그래서 &lt;strong&gt;화면을 먼저 바꾸고 요청을 뒤에 보내게&lt;/strong&gt; 함. 실패하면 되돌리고 에러를 띄움.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;클릭 → 화면 즉시 반영 → 요청 전송 → 실패 시 롤백 + 에러
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;메뉴판 편집은 실패할 일이 거의 없는 작업임. 성공을 기본으로 깔고 가는 게 맞음.&lt;/p&gt;
+&lt;h2 id=&#34;-그리고-readme&#34;&gt;
+    &lt;a href=&#34;#-%ea%b7%b8%eb%a6%ac%ea%b3%a0-readme&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📄 그리고 README
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docs: update README.md with project features, setup instructions, and API endpoints
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;오늘 하도 갈아엎어서, 지금 구조를 안 적어두면 일주일 뒤에 나도 까먹을 것 같았음.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;로컬에서 되는데요&amp;quot;가 제일 무서운 말임.&lt;/strong&gt; 파일 쓰기는 로컬에서 100% 돌아감. 배포 환경이 다르다는 걸 코드가 알려주지 않음.&lt;/p&gt;
+&lt;p&gt;그리고 2차(메모리)는 &lt;strong&gt;1차랑 똑같은 착각을 다른 방식으로 반복한 것&lt;/strong&gt;이었음.
+&amp;ldquo;이 프로세스가 계속 살아 있다&amp;quot;를 전제했다는 점에서 파일이나 메모리나 같음. 진짜 고쳐야 했던 건 저장 위치가 아니라 그 전제였음.&lt;/p&gt;
+&lt;p&gt;2분 만에 철회한 커밋이 남아 있는 게 좀 민망한데, 그래도 지우진 않을 거임. 이게 그날 실제로 있었던 일이니까.&lt;/p&gt;
+&lt;p&gt;#정담 #VercelBlob #서버리스 #배포 #NextJS&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

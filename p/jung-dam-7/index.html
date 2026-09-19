@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="코드에 박힌 시크릿, 평문 비밀번호 로깅, 인증 없는 업로드, 메뉴가 잠깐 비는 레이스 컨디션">
+<title>정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음</title>
+
+<link rel='canonical' href='https://dn5772.github.io/p/jung-dam-7/'>
+
+<link rel="stylesheet" href="/scss/style.min.760e3dabc1e140d2e6abd27a8ca0aabb60e568829b29f67d2df12024136eff37.css"><meta property='og:title' content="정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음">
+<meta property='og:description' content="코드에 박힌 시크릿, 평문 비밀번호 로깅, 인증 없는 업로드, 메뉴가 잠깐 비는 레이스 컨디션">
+<meta property='og:url' content='https://dn5772.github.io/p/jung-dam-7/'>
+<meta property='og:site_name' content='대니짱'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='정담' /><meta property='article:tag' content='웹개발' /><meta property='article:tag' content='보안' /><meta property='article:tag' content='JWT' /><meta property='article:tag' content='레이스컨디션' /><meta property='article:tag' content='리팩터링' /><meta property='article:published_time' content='2026-03-25T22:33:00&#43;09:00'/><meta property='article:modified_time' content='2026-03-25T22:33:00&#43;09:00'/>
+<meta name="twitter:title" content="정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음">
+<meta name="twitter:description" content="코드에 박힌 시크릿, 평문 비밀번호 로깅, 인증 없는 업로드, 메뉴가 잠깐 비는 레이스 컨디션">
+    <link rel="shortcut icon" href="/pokeball_icon.png" />
+
+  
+
+<meta name="google-adsense-account" content="ca-pub-2130075151823864">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130075151823864"
+     crossorigin="anonymous"></script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/ditto_2_hud2704b3b9534528c44bbff8ffb4fb3e3_5178_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏷️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">대니짱</a></h1>
+            <h2 class="site-description">Danny ZZang의 블로그</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/dn5772'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.instagram.com/sum._.melon/'
+                        target="_blank"
+                        title="Instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://dn5772.github.io/" selected>한국어</option>
+                                
+                                    <option value="https://dn5772.github.io/en/" >English</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>다크 모드</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#-1-시크릿이-코드에-박혀-있었음">🔴 1. 시크릿이 코드에 박혀 있었음</a></li>
+    <li><a href="#-2-비밀번호를-평문으로-로깅하고-있었음">🔴 2. 비밀번호를 평문으로 로깅하고 있었음</a></li>
+    <li><a href="#-3-업로드-엔드포인트에-인증이-아예-없었음">🔴 3. 업로드 엔드포인트에 인증이 아예 없었음</a></li>
+    <li><a href="#-4-메뉴가-잠깐-비는-레이스-컨디션">🟠 4. 메뉴가 잠깐 비는 레이스 컨디션</a></li>
+    <li><a href="#-같은-날-잡은-버그-8개">🐛 같은 날 잡은 버그 8개</a></li>
+    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/web/jung-dam/" style="background-color: #c92a2a; color: #fff;">
+                정담
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/jung-dam-7/">정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            코드에 박힌 시크릿, 평문 비밀번호 로깅, 인증 없는 업로드, 메뉴가 잠깐 비는 레이스 컨디션
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 25, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="정담-개발-일지-7---두-달-만에-보안-구멍-네-개를-찾았음">
+    <a href="#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-7---%eb%91%90-%eb%8b%ac-%eb%a7%8c%ec%97%90-%eb%b3%b4%ec%95%88-%ea%b5%ac%eb%a9%8d-%eb%84%a4-%ea%b0%9c%eb%a5%bc-%ec%b0%be%ec%95%98%ec%9d%8c" class="header-anchor">#</a>
+    정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음
+</h1><p>두 달 만에 코드를 다시 열었음. <a class="link" href="https://dn5772.github.io/p/jung-dam-3/" >#3</a>에서 하루에 1045줄 쏟아낸 그 관리자 API를 차분히 읽어봤는데,
+<strong>볼수록 등이 서늘해졌음.</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">fix</span><span class="p">:</span> <span class="n">resolve</span> <span class="n">critical</span> <span class="n">security</span> <span class="n">vulnerabilities</span> <span class="ow">in</span> <span class="n">API</span> <span class="n">routes</span>
+</span></span><span class="line"><span class="cl"> <span class="n">src</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">auth</span><span class="o">/</span><span class="n">login</span><span class="o">/</span><span class="n">route</span><span class="o">.</span><span class="n">js</span>   <span class="mi">60</span> <span class="o">+++-------</span>
+</span></span><span class="line"><span class="cl"> <span class="n">src</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">menu</span><span class="o">/</span><span class="n">route</span><span class="o">.</span><span class="n">js</span>        <span class="mi">124</span> <span class="o">+++++-------------</span>
+</span></span><span class="line"><span class="cl"> <span class="n">src</span><span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">upload</span><span class="o">/</span><span class="n">route</span><span class="o">.</span><span class="n">js</span>       <span class="mi">31</span> <span class="o">++++---</span>
+</span></span><span class="line"><span class="cl"> <span class="mi">3</span> <span class="n">files</span> <span class="n">changed</span><span class="p">,</span> <span class="mi">74</span> <span class="n">insertions</span><span class="p">(</span><span class="o">+</span><span class="p">),</span> <span class="mi">141</span> <span class="n">deletions</span><span class="p">(</span><span class="o">-</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>141줄 지우고 74줄 넣음. <strong>고치면서 코드가 줄어든 게 좀 웃김.</strong></p>
+<h2 id="-1-시크릿이-코드에-박혀-있었음">
+    <a href="#-1-%ec%8b%9c%ed%81%ac%eb%a6%bf%ec%9d%b4-%ec%bd%94%eb%93%9c%ec%97%90-%eb%b0%95%ed%98%80-%ec%9e%88%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
+    🔴 1. 시크릿이 코드에 박혀 있었음
+</h2><p>로그인 라우트에 <strong>JWT 시크릿이랑 bcrypt 해시가 그대로</strong> 들어 있었음.</p>
+<p><code>.env</code> 를 만들기 전에 &ldquo;일단 되게&rdquo; 하려고 상수로 박아놓고, 동작하니까 그대로 넘어간 것.
+공개 저장소라 그대로 올라가 있었음.</p>
+<p>전부 환경변수로 뺐음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">JWT_SECRET
+</span></span><span class="line"><span class="cl">ADMIN_PASSWORD_HASH
+</span></span><span class="line"><span class="cl">BLOB_READ_WRITE_TOKEN
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="-2-비밀번호를-평문으로-로깅하고-있었음">
+    <a href="#-2-%eb%b9%84%eb%b0%80%eb%b2%88%ed%98%b8%eb%a5%bc-%ed%8f%89%eb%ac%b8%ec%9c%bc%eb%a1%9c-%eb%a1%9c%ea%b9%85%ed%95%98%ea%b3%a0-%ec%9e%88%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
+    🔴 2. 비밀번호를 평문으로 로깅하고 있었음
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Login attempt:&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="p">);</span>   <span class="c1">// ← 이게 남아 있었음
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>로그인이 왜 안 되는지 보려고 넣은 건데 안 지웠음.
+Vercel 대시보드 로그에 관리자 비밀번호가 평문으로 쌓이고 있었던 것.</p>
+<p>지웠음.</p>
+<h2 id="-3-업로드-엔드포인트에-인증이-아예-없었음">
+    <a href="#-3-%ec%97%85%eb%a1%9c%eb%93%9c-%ec%97%94%eb%93%9c%ed%8f%ac%ec%9d%b8%ed%8a%b8%ec%97%90-%ec%9d%b8%ec%a6%9d%ec%9d%b4-%ec%95%84%ec%98%88-%ec%97%86%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
+    🔴 3. 업로드 엔드포인트에 인증이 아예 없었음
+</h2><p>이게 제일 심각했음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">upload</span>   <span class="err">←</span>  <span class="err">아무</span> <span class="err">검증</span> <span class="err">없음</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="link" href="https://dn5772.github.io/p/jung-dam-3/" >#3</a>에서 메뉴 API엔 <code>verifyToken</code> 을 붙였는데 <strong>업로드만 빼먹었음.</strong>
+누구나 내 Blob 스토리지에 파일을 올릴 수 있는 상태였음. 용량은 내가 내고.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">verifyToken</span><span class="p">(</span><span class="nx">request</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="k">return</span> <span class="nx">NextResponse</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span> <span class="nx">error</span><span class="o">:</span> <span class="s1">&#39;Unauthorized&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">401</span> <span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>관리자 화면에서 이미지 올릴 때 <code>Authorization</code> 헤더를 안 보내고 있어서 그것도 같이 고침.</p>
+<h2 id="-4-메뉴가-잠깐-비는-레이스-컨디션">
+    <a href="#-4-%eb%a9%94%eb%89%b4%ea%b0%80-%ec%9e%a0%ea%b9%90-%eb%b9%84%eb%8a%94-%eb%a0%88%ec%9d%b4%ec%8a%a4-%ec%bb%a8%eb%94%94%ec%85%98" class="header-anchor">#</a>
+    🟠 4. 메뉴가 잠깐 비는 레이스 컨디션
+</h2><p>이건 보안은 아닌데 더 무서웠음.</p>
+<p>저장 로직이 이랬음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">list  →  del(기존 파일)  →  put(새 파일)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>지우고 나서 올리는 사이에 메뉴가 빈 채로 응답되는 창이 있었음.</strong>
+손님이 하필 그 0.x초에 들어오면 메뉴판이 텅 비어 보임. 에러도 아니고 그냥 빈 메뉴라 아무도 신고를 안 해줌.</p>
+<p><code>del</code> 단계를 아예 없애고 <strong>같은 이름에 덮어쓰기</strong>로 바꿨음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">await</span> <span class="nx">put</span><span class="p">(</span><span class="s1">&#39;menuData-ko.json&#39;</span><span class="p">,</span> <span class="nx">body</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">token</span><span class="o">:</span> <span class="nx">BLOB_TOKEN</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">access</span><span class="o">:</span> <span class="s1">&#39;public&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">contentType</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">addRandomSuffix</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>   <span class="c1">// ← 같은 경로에 덮어쓰기
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>addRandomSuffix: false</code> 를 줘야 랜덤 접미사 없이 같은 경로를 씀. 그래야 덮어쓰기가 됨.</p>
+<p>덤으로 ko/en 저장을 <code>Promise.all</code> 로 묶어서 왕복을 반으로 줄였음.
+응답도 전부 <code>NextResponse.json</code> 으로 통일함. 원래는 <code>new Response(JSON.stringify(...))</code> 랑 섞여 있었음.</p>
+<h2 id="-같은-날-잡은-버그-8개">
+    <a href="#-%ea%b0%99%ec%9d%80-%eb%82%a0-%ec%9e%a1%ec%9d%80-%eb%b2%84%ea%b7%b8-8%ea%b0%9c" class="header-anchor">#</a>
+    🐛 같은 날 잡은 버그 8개
+</h2><p>보안 말고 커밋 하나 더 있음.</p>
+<p><strong><code>mergeLocalizedMenuData</code> 가 EN만 기준으로 합치고 있었음.</strong>
+한국어에만 있는 카테고리는 관리자 화면에 아예 안 뜸. 합집합으로 바꿈.</p>
+<p><strong>편집 중에 배경 갱신이 폼을 덮어씀.</strong>
+<code>editItem</code> 이펙트 의존성에 <code>menuData</code> 가 들어 있어서, 백그라운드 리페치가 오면 <strong>저장 안 한 입력이 날아감.</strong> 의존성에서 뺐음.</p>
+<p><strong>GLightbox 메모리 누수.</strong>
+언어를 바꿀 때마다 라이트박스를 새로 만드는데 기존 걸 안 없앴음. 언어 토글을 왔다갔다 하면 인스턴스가 계속 쌓임.
+ref로 인스턴스를 들고 있다가 재생성 전에 <code>destroy()</code> 하고, 언마운트 때도 정리하게 함.</p>
+<p><strong>첫 화면에서 언어가 깜빡였음.</strong>
+영어 사용자가 들어오면 한국어가 한 프레임 보였다가 영어로 바뀜. <code>localStorage</code> 를 <code>useEffect</code> 에서 읽어서 생긴 일.
+<code>useState</code> 의 <strong>lazy initializer</strong> 로 옮겨서 첫 렌더 전에 동기적으로 읽게 함.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="c1">// 전
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">lang</span><span class="p">,</span> <span class="nx">setLang</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="s1">&#39;ko&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">useEffect</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="p">{</span> <span class="nx">setLang</span><span class="p">(</span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;locale&#39;</span><span class="p">)</span> <span class="o">??</span> <span class="nx">detect</span><span class="p">());</span> <span class="p">},</span> <span class="p">[]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 후
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="p">[</span><span class="nx">lang</span><span class="p">,</span> <span class="nx">setLang</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(()</span> <span class="p">=&gt;</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;locale&#39;</span><span class="p">)</span> <span class="o">??</span> <span class="nx">detect</span><span class="p">());</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>나머지는 중복 가드 제거, 쓸모없는 별칭 제거, 디버그 <code>console.log</code> 청소.
+<code>html lang</code> 속성이 언어 따라 안 바뀌던 것도 고쳤음.</p>
+<h2 id="-느낀-점">
+    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    🎯 느낀 점
+</h2><p><strong>네 개 중 세 개가 &ldquo;디버깅용으로 넣었다가 안 지운 것&quot;이거나 &ldquo;일단 되게 하려고 건너뛴 것&quot;이었음.</strong>
+시크릿 하드코딩, 평문 로깅, 업로드 인증 누락. 셋 다 <a class="link" href="https://dn5772.github.io/p/jung-dam-3/" >#3</a>에서 하루에 1045줄 쏟아낼 때 생긴 것들임.</p>
+<p>빨리 만드는 건 좋은데, <strong>&ldquo;나중에 고칠 것&rdquo; 목록을 어딘가에 안 적어두면 나중이 두 달 뒤가 됨.</strong></p>
+<p>그리고 4번 레이스 컨디션은 아무도 신고를 안 해줌. 에러가 안 나고 그냥 빈 화면이라서.
+<strong>조용히 실패하는 버그가 제일 오래 살아남는 듯.</strong></p>
+<p>#정담 #보안 #JWT #레이스컨디션 #리팩터링</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%EC%A0%95%EB%8B%B4/">정담</a>
+        
+            <a href="/tags/%EC%9B%B9%EA%B0%9C%EB%B0%9C/">웹개발</a>
+        
+            <a href="/tags/%EB%B3%B4%EC%95%88/">보안</a>
+        
+            <a href="/tags/jwt/">JWT</a>
+        
+            <a href="/tags/%EB%A0%88%EC%9D%B4%EC%8A%A4%EC%BB%A8%EB%94%94%EC%85%98/">레이스컨디션</a>
+        
+            <a href="/tags/%EB%A6%AC%ED%8C%A9%ED%84%B0%EB%A7%81/">리팩터링</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/jung-dam-3/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #3 - 관리자 페이지를 하루에 다 만들었음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #1 - 템플릿 하나로 시작했음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-9/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #9 - 마지막 버그 하나, 그리고 넉 달 회고</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #8 - 관리자 화면을 모바일 우선으로 갈아엎음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #6 - 다국어 구현이랑 Analytics</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2026 대니짱
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

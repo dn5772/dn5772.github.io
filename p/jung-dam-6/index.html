@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="API에 locale 쿼리 붙이고, 관리자에서 두 언어 동시 편집. 그리고 방문자 수를 처음 봄">
+<title>정담 개발 일지 #6 - 다국어 구현이랑 Analytics</title>
+
+<link rel='canonical' href='https://dn5772.github.io/p/jung-dam-6/'>
+
+<link rel="stylesheet" href="/scss/style.min.760e3dabc1e140d2e6abd27a8ca0aabb60e568829b29f67d2df12024136eff37.css"><meta property='og:title' content="정담 개발 일지 #6 - 다국어 구현이랑 Analytics">
+<meta property='og:description' content="API에 locale 쿼리 붙이고, 관리자에서 두 언어 동시 편집. 그리고 방문자 수를 처음 봄">
+<meta property='og:url' content='https://dn5772.github.io/p/jung-dam-6/'>
+<meta property='og:site_name' content='대니짱'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='정담' /><meta property='article:tag' content='웹개발' /><meta property='article:tag' content='다국어' /><meta property='article:tag' content='i18n' /><meta property='article:tag' content='React' /><meta property='article:tag' content='Analytics' /><meta property='article:published_time' content='2026-02-04T16:36:00&#43;09:00'/><meta property='article:modified_time' content='2026-02-04T16:36:00&#43;09:00'/>
+<meta name="twitter:title" content="정담 개발 일지 #6 - 다국어 구현이랑 Analytics">
+<meta name="twitter:description" content="API에 locale 쿼리 붙이고, 관리자에서 두 언어 동시 편집. 그리고 방문자 수를 처음 봄">
+    <link rel="shortcut icon" href="/pokeball_icon.png" />
+
+  
+
+<meta name="google-adsense-account" content="ca-pub-2130075151823864">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130075151823864"
+     crossorigin="anonymous"></script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/ditto_2_hud2704b3b9534528c44bbff8ffb4fb3e3_5178_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏷️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">대니짱</a></h1>
+            <h2 class="site-description">Danny ZZang의 블로그</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/dn5772'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.instagram.com/sum._.melon/'
+                        target="_blank"
+                        title="Instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://dn5772.github.io/" selected>한국어</option>
+                                
+                                    <option value="https://dn5772.github.io/en/" >English</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>다크 모드</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#-api에-locale-붙이기">🔌 API에 locale 붙이기</a></li>
+    <li><a href="#-languagecontext">🌐 LanguageContext</a></li>
+    <li><a href="#-관리자는-두-언어를-동시에">✏️ 관리자는 두 언어를 동시에</a></li>
+    <li><a href="#-vercel-analytics">📊 Vercel Analytics</a></li>
+    <li><a href="#-브랜치를-나눠서-작업함">🌿 브랜치를 나눠서 작업함</a></li>
+    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/web/jung-dam/" style="background-color: #c92a2a; color: #fff;">
+                정담
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/jung-dam-6/">정담 개발 일지 #6 - 다국어 구현이랑 Analytics</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            API에 locale 쿼리 붙이고, 관리자에서 두 언어 동시 편집. 그리고 방문자 수를 처음 봄
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 04, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="정담-개발-일지-6---다국어-구현이랑-analytics">
+    <a href="#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-6---%eb%8b%a4%ea%b5%ad%ec%96%b4-%ea%b5%ac%ed%98%84%ec%9d%b4%eb%9e%91-analytics" class="header-anchor">#</a>
+    정담 개발 일지 #6 - 다국어 구현이랑 Analytics
+</h1><p><a class="link" href="https://dn5772.github.io/p/jung-dam-5/" >#5</a>에서 정한 설계대로 구현함. 2월 2~4일 커밋 9개.</p>
+<h2 id="-api에-locale-붙이기">
+    <a href="#-api%ec%97%90-locale-%eb%b6%99%ec%9d%b4%ea%b8%b0" class="header-anchor">#</a>
+    🔌 API에 locale 붙이기
+</h2><p><code>GET</code> 은 쿼리 파라미터 하나 추가하면 끝임.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">locale</span> <span class="o">=</span> <span class="nx">searchParams</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;locale&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;ko&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">validLocales</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="s1">&#39;ko&#39;</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">safeLocale</span> <span class="o">=</span> <span class="nx">validLocales</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">locale</span><span class="p">)</span> <span class="o">?</span> <span class="nx">locale</span> <span class="o">:</span> <span class="s1">&#39;ko&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">fileName</span> <span class="o">=</span> <span class="sb">`menuData-</span><span class="si">${</span><span class="nx">safeLocale</span><span class="si">}</span><span class="sb">.json`</span><span class="p">;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>허용 목록으로 검증하는 게 중요함.</strong> 이게 파일명에 그대로 들어가니까, 검증 없으면 <code>?locale=../../something</code> 같은 게 들어올 수 있음.</p>
+<p>캐시 헤더도 같이 달았음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="s1">&#39;Cache-Control&#39;</span><span class="o">:</span> <span class="s1">&#39;public, s-maxage=60, stale-while-revalidate=300&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>메뉴는 한 달에 몇 번 바뀌는데 조회는 계속 일어남. CDN이 60초 캐시하고, 만료돼도 5분 동안은 <strong>일단 옛날 걸 주면서 뒤에서 갱신</strong>함.
+사장님이 메뉴를 고치면 최대 1분 늦게 반영되는데, 그 정도는 괜찮다고 봄.</p>
+<h2 id="-languagecontext">
+    <a href="#-languagecontext" class="header-anchor">#</a>
+    🌐 LanguageContext
+</h2><p>언어 상태는 컨텍스트 하나로 관리함.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">localStorage(&#39;locale&#39;)  →  navigator.language  →  &#39;ko&#39;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>저장된 선택이 있으면 그거, 없으면 브라우저 언어, 그것도 아니면 한국어.
+<strong>기본을 영어가 아니라 한국어로 둔 건 손님 대부분이 한국인이라서임.</strong></p>
+<p><code>MenuSection</code> 은 <code>/api/menu?locale=&lt;locale&gt;</code> 을 부르고, 언어가 바뀌면 다시 가져옴.</p>
+<p>한 가지 좋았던 게, API가 이미 단일 언어 데이터를 주니까 <strong>화면 코드에서 언어 분기가 통째로 사라졌음.</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="line"><span class="cl"><span class="c1">// 전
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;{</span><span class="nx">getLocalizedValue</span><span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">title</span><span class="p">,</span> <span class="nx">currentLocale</span><span class="p">)}&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 후
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;{</span><span class="nx">item</span><span class="p">.</span><span class="nx">title</span><span class="p">}&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="link" href="https://dn5772.github.io/p/jung-dam-5/" >#5</a>에서 파일을 쪼개기로 한 이득이 여기서 나옴.</p>
+<h2 id="-관리자는-두-언어를-동시에">
+    <a href="#-%ea%b4%80%eb%a6%ac%ec%9e%90%eb%8a%94-%eb%91%90-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%8f%99%ec%8b%9c%ec%97%90" class="header-anchor">#</a>
+    ✏️ 관리자는 두 언어를 동시에
+</h2><p>관리자 화면에선 반대로 합쳐서 다룸. 서버에서 받은 ko/en 두 파일을 하나로 병합해서 편집하고, 저장할 때 다시 쪼갬.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">불러오기:  menuData-ko.json + menuData-en.json  →  { title: { ko, en }, ... }
+</span></span><span class="line"><span class="cl">저장:      { title: { ko, en }, ... }            →  { ko: {...}, en: {...} }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>PATCH</code> 도 양쪽 언어를 같이 받게 바꿨음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">categoryId</span><span class="o">:</span> <span class="s1">&#39;fried&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">data</span><span class="o">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">en</span><span class="o">:</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;Garlic Soy Chicken&#39;</span><span class="p">,</span> <span class="nx">ingredients</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;$18&#39;</span><span class="p">,</span> <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">ko</span><span class="o">:</span> <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;간장마늘치킨&#39;</span><span class="p">,</span>        <span class="nx">ingredients</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span><span class="p">,</span> <span class="nx">price</span><span class="o">:</span> <span class="s1">&#39;$18&#39;</span><span class="p">,</span> <span class="nx">image</span><span class="o">:</span> <span class="s1">&#39;...&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>한쪽만 보내는 경로를 안 만들었으니 어긋날 수가 없음.</strong> 설계 때 정한 그대로임.</p>
+<h2 id="-vercel-analytics">
+    <a href="#-vercel-analytics" class="header-anchor">#</a>
+    📊 Vercel Analytics
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">feat: add analytics integration to RootLayout component
+</span></span><span class="line"><span class="cl">feat: add @vercel/analytics dependency
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>&lt;Analytics /&gt;</code> 한 줄 넣으면 끝임. 설정 없음.</p>
+<p>이거 붙이고 나서 처음으로 <strong>사람들이 실제로 뭘 보는지</strong> 알게 됐음.
+대부분 모바일이고, 메뉴 섹션에 제일 오래 머무름. <a class="link" href="https://dn5772.github.io/p/jung-dam-2/" >#2</a>에서 만든 &ldquo;메뉴로 바로 가기&rdquo; 버튼이 괜히 만든 게 아니었음.</p>
+<p>이 관찰이 나중에 <a class="link" href="https://dn5772.github.io/p/jung-dam-8/" >#8</a>에서 관리자 화면을 모바일 우선으로 갈아엎는 근거가 됨.</p>
+<h2 id="-브랜치를-나눠서-작업함">
+    <a href="#-%eb%b8%8c%eb%9e%9c%ec%b9%98%eb%a5%bc-%eb%82%98%eb%88%a0%ec%84%9c-%ec%9e%91%ec%97%85%ed%95%a8" class="header-anchor">#</a>
+    🌿 브랜치를 나눠서 작업함
+</h2><p>이번엔 PR을 세 개 만들었음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Merge pull request #1 from dn5772/devlop
+</span></span><span class="line"><span class="cl">Merge pull request #2 from dn5772/feat/localization
+</span></span><span class="line"><span class="cl">Merge pull request #3 from dn5772/devlop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>혼자 하는 프로젝트라 브랜치가 의미 있나 싶었는데, <strong>다국어 작업 중에 메뉴가 깨지면 손님한테 바로 보임.</strong>
+<code>main</code> 에 바로 밀지 않고 Preview 배포에서 확인하고 머지하니까 마음이 편했음.</p>
+<h2 id="-느낀-점">
+    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    🎯 느낀 점
+</h2><p><strong>설계를 먼저 해두니까 구현이 그냥 받아쓰기였음.</strong> Phase 2~4가 문서에 적힌 순서대로 끝남.
+<a class="link" href="https://dn5772.github.io/p/jung-dam-4/" >#4</a>처럼 배포하고 나서 뒤집는 일이 한 번도 없었음.</p>
+<p>Analytics는 진작 붙일 걸 그랬음. 한 줄인데 &ldquo;내 추측&quot;이랑 &ldquo;실제 손님 행동&quot;을 구분해줌.</p>
+<p>#정담 #다국어 #i18n #React #Analytics #Vercel</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%EC%A0%95%EB%8B%B4/">정담</a>
+        
+            <a href="/tags/%EC%9B%B9%EA%B0%9C%EB%B0%9C/">웹개발</a>
+        
+            <a href="/tags/%EB%8B%A4%EA%B5%AD%EC%96%B4/">다국어</a>
+        
+            <a href="/tags/i18n/">I18n</a>
+        
+            <a href="/tags/react/">React</a>
+        
+            <a href="/tags/analytics/">Analytics</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/jung-dam-5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #5 - 다국어를 어떻게 저장할지 먼저 정했음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #1 - 템플릿 하나로 시작했음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-9/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #9 - 마지막 버그 하나, 그리고 넉 달 회고</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #8 - 관리자 화면을 모바일 우선으로 갈아엎음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2026 대니짱
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

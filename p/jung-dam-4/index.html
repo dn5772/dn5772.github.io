@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="파일 → 메모리 → 파일 → Vercel Blob. 서버리스에선 파일에 못 쓴다는 걸 몸으로 배운 날">
+<title>정담 개발 일지 #4 - 저장소를 하루에 세 번 갈아엎었음</title>
+
+<link rel='canonical' href='https://dn5772.github.io/p/jung-dam-4/'>
+
+<link rel="stylesheet" href="/scss/style.min.760e3dabc1e140d2e6abd27a8ca0aabb60e568829b29f67d2df12024136eff37.css"><meta property='og:title' content="정담 개발 일지 #4 - 저장소를 하루에 세 번 갈아엎었음">
+<meta property='og:description' content="파일 → 메모리 → 파일 → Vercel Blob. 서버리스에선 파일에 못 쓴다는 걸 몸으로 배운 날">
+<meta property='og:url' content='https://dn5772.github.io/p/jung-dam-4/'>
+<meta property='og:site_name' content='대니짱'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='정담' /><meta property='article:tag' content='웹개발' /><meta property='article:tag' content='VercelBlob' /><meta property='article:tag' content='서버리스' /><meta property='article:tag' content='배포' /><meta property='article:tag' content='낙관적업데이트' /><meta property='article:published_time' content='2026-01-28T18:39:00&#43;09:00'/><meta property='article:modified_time' content='2026-01-28T18:39:00&#43;09:00'/>
+<meta name="twitter:title" content="정담 개발 일지 #4 - 저장소를 하루에 세 번 갈아엎었음">
+<meta name="twitter:description" content="파일 → 메모리 → 파일 → Vercel Blob. 서버리스에선 파일에 못 쓴다는 걸 몸으로 배운 날">
+    <link rel="shortcut icon" href="/pokeball_icon.png" />
+
+  
+
+<meta name="google-adsense-account" content="ca-pub-2130075151823864">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130075151823864"
+     crossorigin="anonymous"></script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/ditto_2_hud2704b3b9534528c44bbff8ffb4fb3e3_5178_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏷️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">대니짱</a></h1>
+            <h2 class="site-description">Danny ZZang의 블로그</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/dn5772'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.instagram.com/sum._.melon/'
+                        target="_blank"
+                        title="Instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://dn5772.github.io/" selected>한국어</option>
+                                
+                                    <option value="https://dn5772.github.io/en/" >English</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>다크 모드</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1-1차---파일에-쓰기-로컬에선-완벽">1️⃣ 1차 - 파일에 쓰기 (로컬에선 완벽)</a></li>
+    <li><a href="#2-2차---메모리에-올리기-2분-만에-철회">2️⃣ 2차 - 메모리에 올리기 (2분 만에 철회)</a></li>
+    <li><a href="#3-3차---vercel-blob-한-시간-걸림">3️⃣ 3차 - Vercel Blob (한 시간 걸림)</a></li>
+    <li><a href="#-덤으로-낙관적-업데이트">⚡ 덤으로 낙관적 업데이트</a></li>
+    <li><a href="#-그리고-readme">📄 그리고 README</a></li>
+    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/web/jung-dam/" style="background-color: #c92a2a; color: #fff;">
+                정담
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/jung-dam-4/">정담 개발 일지 #4 - 저장소를 하루에 세 번 갈아엎었음</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            파일 → 메모리 → 파일 → Vercel Blob. 서버리스에선 파일에 못 쓴다는 걸 몸으로 배운 날
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 28, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="정담-개발-일지-4---저장소를-하루에-세-번-갈아엎었음">
+    <a href="#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-4---%ec%a0%80%ec%9e%a5%ec%86%8c%eb%a5%bc-%ed%95%98%eb%a3%a8%ec%97%90-%ec%84%b8-%eb%b2%88-%ea%b0%88%ec%95%84%ec%97%8e%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
+    정담 개발 일지 #4 - 저장소를 하루에 세 번 갈아엎었음
+</h1><p><a class="link" href="https://dn5772.github.io/p/jung-dam-3/" >#3</a>에서 관리자 페이지 만들고 배포했음.
+그리고 저녁 내내 저장소를 세 번 바꿨음. 커밋 시간까지 붙여서 남겨둠.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="mi">16</span><span class="p">:</span><span class="mi">57</span>  <span class="n">Fix</span> <span class="n">Vercel</span> <span class="n">deployment</span><span class="p">:</span> <span class="n">Change</span> <span class="n">menu</span> <span class="n">API</span> <span class="n">to</span> <span class="n">memory</span><span class="o">-</span><span class="n">based</span> <span class="n">storage</span>
+</span></span><span class="line"><span class="cl"><span class="mi">16</span><span class="p">:</span><span class="mi">59</span>  <span class="n">refactor</span><span class="p">:</span> <span class="n">removing</span> <span class="ow">in</span><span class="o">-</span><span class="n">memory</span> <span class="n">storage</span> <span class="ow">and</span> <span class="n">using</span> <span class="n">direct</span> <span class="n">file</span> <span class="n">access</span>
+</span></span><span class="line"><span class="cl"><span class="mi">18</span><span class="p">:</span><span class="mi">10</span>  <span class="n">feat</span><span class="p">:</span> <span class="n">integrate</span> <span class="n">Vercel</span> <span class="n">Blob</span> <span class="k">for</span> <span class="n">menu</span> <span class="n">data</span> <span class="n">storage</span> <span class="ow">and</span> <span class="n">image</span> <span class="n">uploads</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>16:57 → 16:59, 2분.</strong> 이 2분이 이 글의 하이라이트임.</p>
+<h2 id="1-1차---파일에-쓰기-로컬에선-완벽">
+    <a href="#1-1%ec%b0%a8---%ed%8c%8c%ec%9d%bc%ec%97%90-%ec%93%b0%ea%b8%b0-%eb%a1%9c%ec%bb%ac%ec%97%90%ec%84%a0-%ec%99%84%eb%b2%bd" class="header-anchor">#</a>
+    1️⃣ 1차 - 파일에 쓰기 (로컬에선 완벽)
+</h2><p>처음엔 <code>src/data/menuData.json</code> 을 <code>fs</code> 로 직접 읽고 씀.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">fs</span><span class="p">.</span><span class="nx">readFileSync</span><span class="p">(</span><span class="nx">MENU_PATH</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// ...수정...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="nx">MENU_PATH</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>로컬에서 완벽하게 잘 됨. 관리자에서 메뉴 고치면 바로 반영되고, 새로고침해도 남아 있음.</p>
+<p>배포하니까 <strong>저장 버튼을 눌러도 아무 일이 안 일어남.</strong>
+에러도 안 뜸. 성공 응답이 오는데 새로고침하면 그대로임.</p>
+<p><strong>Vercel 서버리스 함수의 파일시스템은 읽기 전용임.</strong> (<code>/tmp</code> 빼고)
+머리로는 알고 있었는데 내 코드가 그걸로 죽는 걸 본 건 처음이었음.</p>
+<h2 id="2-2차---메모리에-올리기-2분-만에-철회">
+    <a href="#2-2%ec%b0%a8---%eb%a9%94%eb%aa%a8%eb%a6%ac%ec%97%90-%ec%98%ac%eb%a6%ac%ea%b8%b0-2%eb%b6%84-%eb%a7%8c%ec%97%90-%ec%b2%a0%ed%9a%8c" class="header-anchor">#</a>
+    2️⃣ 2차 - 메모리에 올리기 (2분 만에 철회)
+</h2><p>그래서 프로세스 메모리에 올려두고 거기서 읽고 쓰게 바꿈.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">menuCache</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">menuCache</span><span class="p">)</span> <span class="nx">menuCache</span> <span class="o">=</span> <span class="nx">loadInitialData</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>배포하니까 <strong>저장은 됨.</strong> 오 되네 하고 좋아함.</p>
+<p>그리고 좀 있다가 새로고침하니까 원래대로 돌아가 있음.</p>
+<p>당연한 일이었음. 람다는 요청 없으면 죽고, 죽으면 메모리가 날아감. 인스턴스가 여러 개면 저장한 인스턴스랑 읽는 인스턴스가 다를 수도 있음.
+<strong>&ldquo;서버가 계속 살아 있다&quot;를 전제로 한 설계였음.</strong> 서버리스에선 그 전제가 틀림.</p>
+<p>2분 만에 되돌렸음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">75eec6d  +44  −17   메모리 저장소 도입
+</span></span><span class="line"><span class="cl">a8fee7f  +17  −76   메모리 저장소 제거
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="3-3차---vercel-blob-한-시간-걸림">
+    <a href="#3-3%ec%b0%a8---vercel-blob-%ed%95%9c-%ec%8b%9c%ea%b0%84-%ea%b1%b8%eb%a6%bc" class="header-anchor">#</a>
+    3️⃣ 3차 - Vercel Blob (한 시간 걸림)
+</h2><p>결국 메뉴 데이터를 <strong>Blob에 JSON 파일로</strong> 올림.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">menuData.json     ← 나중에 ko/en 으로 쪼개짐
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>DB를 안 쓴 이유는 이럼.</p>
+<ul>
+<li>메뉴 항목이 수십 개임. 테이블 만들 규모가 아님</li>
+<li>하루에 몇 번 바뀔까 말까임. 동시성 걱정이 없음</li>
+<li><strong>이미지는 어차피 Blob에 올려야 함.</strong> 저장소를 둘로 나눌 이유가 없음</li>
+<li>스키마 마이그레이션이 없음</li>
+</ul>
+<p><code>GET</code> 은 Blob에서 파일을 찾아 URL로 받아오고, <code>POST</code>/<code>PATCH</code> 는 수정해서 다시 올림.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span> <span class="nx">blobs</span> <span class="p">}</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">list</span><span class="p">({</span> <span class="nx">token</span><span class="o">:</span> <span class="nx">BLOB_TOKEN</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">menuBlob</span> <span class="o">=</span> <span class="nx">blobs</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">b</span> <span class="p">=&gt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">pathname</span> <span class="o">===</span> <span class="s1">&#39;menuData.json&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="kr">await</span> <span class="p">(</span><span class="kr">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">menuBlob</span><span class="p">.</span><span class="nx">url</span><span class="p">)).</span><span class="nx">json</span><span class="p">();</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>이때 짠 저장 로직(<code>list → del → put</code>)에 <strong>레이스 컨디션</strong>이 있었는데,
+두 달 뒤에야 발견함. <a class="link" href="https://dn5772.github.io/p/jung-dam-7/" >#7</a>에서 다룸.</p>
+</blockquote>
+<h2 id="-덤으로-낙관적-업데이트">
+    <a href="#-%eb%8d%a4%ec%9c%bc%eb%a1%9c-%eb%82%99%ea%b4%80%ec%a0%81-%ec%97%85%eb%8d%b0%ec%9d%b4%ed%8a%b8" class="header-anchor">#</a>
+    ⚡ 덤으로 낙관적 업데이트
+</h2><p>Blob 왕복이 로컬 파일보다 확실히 느림. 메뉴 하나 고칠 때마다 스피너가 돌면 답답함.</p>
+<p>그래서 <strong>화면을 먼저 바꾸고 요청을 뒤에 보내게</strong> 함. 실패하면 되돌리고 에러를 띄움.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">클릭 → 화면 즉시 반영 → 요청 전송 → 실패 시 롤백 + 에러
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>메뉴판 편집은 실패할 일이 거의 없는 작업임. 성공을 기본으로 깔고 가는 게 맞음.</p>
+<h2 id="-그리고-readme">
+    <a href="#-%ea%b7%b8%eb%a6%ac%ea%b3%a0-readme" class="header-anchor">#</a>
+    📄 그리고 README
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">docs: update README.md with project features, setup instructions, and API endpoints
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>오늘 하도 갈아엎어서, 지금 구조를 안 적어두면 일주일 뒤에 나도 까먹을 것 같았음.</p>
+<h2 id="-느낀-점">
+    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    🎯 느낀 점
+</h2><p><strong>&ldquo;로컬에서 되는데요&quot;가 제일 무서운 말임.</strong> 파일 쓰기는 로컬에서 100% 돌아감. 배포 환경이 다르다는 걸 코드가 알려주지 않음.</p>
+<p>그리고 2차(메모리)는 <strong>1차랑 똑같은 착각을 다른 방식으로 반복한 것</strong>이었음.
+&ldquo;이 프로세스가 계속 살아 있다&quot;를 전제했다는 점에서 파일이나 메모리나 같음. 진짜 고쳐야 했던 건 저장 위치가 아니라 그 전제였음.</p>
+<p>2분 만에 철회한 커밋이 남아 있는 게 좀 민망한데, 그래도 지우진 않을 거임. 이게 그날 실제로 있었던 일이니까.</p>
+<p>#정담 #VercelBlob #서버리스 #배포 #NextJS</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%EC%A0%95%EB%8B%B4/">정담</a>
+        
+            <a href="/tags/%EC%9B%B9%EA%B0%9C%EB%B0%9C/">웹개발</a>
+        
+            <a href="/tags/vercelblob/">VercelBlob</a>
+        
+            <a href="/tags/%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4/">서버리스</a>
+        
+            <a href="/tags/%EB%B0%B0%ED%8F%AC/">배포</a>
+        
+            <a href="/tags/%EB%82%99%EA%B4%80%EC%A0%81%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8/">낙관적업데이트</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/jung-dam-9/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #9 - 마지막 버그 하나, 그리고 넉 달 회고</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #5 - 다국어를 어떻게 저장할지 먼저 정했음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #8 - 관리자 화면을 모바일 우선으로 갈아엎음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/jung-dam-6/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">정담 개발 일지 #6 - 다국어 구현이랑 Analytics</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2026 대니짱
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

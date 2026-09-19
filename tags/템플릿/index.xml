@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>템플릿 on 대니짱</title>
+        <link>https://dn5772.github.io/tags/%ED%85%9C%ED%94%8C%EB%A6%BF/</link>
+        <description>Recent content in 템플릿 on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Thu, 15 Jan 2026 16:20:00 +0900</lastBuildDate><atom:link href="https://dn5772.github.io/tags/%ED%85%9C%ED%94%8C%EB%A6%BF/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>정담 개발 일지 #1 - 템플릿 하나로 시작했음</title>
+        <link>https://dn5772.github.io/p/jung-dam-1/</link>
+        <pubDate>Thu, 15 Jan 2026 16:20:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam-1/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-1---템플릿-하나로-시작했음&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-1---%ed%85%9c%ed%94%8c%eb%a6%bf-%ed%95%98%eb%82%98%eb%a1%9c-%ec%8b%9c%ec%9e%91%ed%96%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #1 - 템플릿 하나로 시작했음
+&lt;/h1&gt;&lt;p&gt;식당 홈페이지를 만들게 됐음. 이름은 &lt;strong&gt;정담&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;사이트: &lt;a class=&#34;link&#34; href=&#34;https://jung-dam.vercel.app&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://jung-dam.vercel.app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;코드: &lt;a class=&#34;link&#34; href=&#34;https://github.com/dn5772/jung_dam&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/dn5772/jung_dam&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;오늘 커밋 6개 찍었는데 전부 1월 15일 하루임. 아침 8시 44분에 &lt;code&gt;create-next-app&lt;/code&gt; 치고 저녁까지 달림.&lt;/p&gt;
+&lt;h2 id=&#34;-디자인은-안-만들기로-함&#34;&gt;
+    &lt;a href=&#34;#-%eb%94%94%ec%9e%90%ec%9d%b8%ec%9d%80-%ec%95%88-%eb%a7%8c%eb%93%a4%ea%b8%b0%eb%a1%9c-%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎨 디자인은 안 만들기로 함
+&lt;/h2&gt;&lt;p&gt;식당 홈페이지는 디자인이 반인데, 난 디자이너가 아님.
+그래서 BootstrapMade의 &lt;strong&gt;Yummy&lt;/strong&gt; 템플릿을 사서 Next.js로 옮기기로 했음.&lt;/p&gt;
+&lt;p&gt;이게 맞는 판단이었던 게, 식당 홈페이지에 필요한 섹션이 이미 다 들어 있음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Hero · About · Why Us · Stats · Menu · Testimonials
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Chefs · Events · Gallery · Book a Table · Contact
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;직접 짰으면 이 목록 만드는 데만 며칠 걸렸을 것. 없는 섹션(Chefs, Events)은 나중에 빼거나 바꾸면 되고.&lt;/p&gt;
+&lt;h2 id=&#34;-정적-html을-nextjs로-옮기기&#34;&gt;
+    &lt;a href=&#34;#-%ec%a0%95%ec%a0%81-html%ec%9d%84-nextjs%eb%a1%9c-%ec%98%ae%ea%b8%b0%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔨 정적 HTML을 Next.js로 옮기기
+&lt;/h2&gt;&lt;p&gt;템플릿은 그냥 HTML + Bootstrap + jQuery 계열 라이브러리 뭉치임. 이걸 App Router에 얹는 게 오늘 작업의 대부분이었음.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;4d7b5e6&lt;/code&gt; 커밋이 이럼.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;43 files changed, 2810 insertions(+), 101 deletions(-)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/app/css/main.css        1650 ++++++++++++++++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/app/page.js              850 ++++++++++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/YummyScripts.js 201 ++++
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;main.css&lt;/code&gt; 1650줄은 손 안 대고 통째로 가져왔음.&lt;/strong&gt; 여기서 뭘 아끼려고 하면 디자인이 깨짐.&lt;/p&gt;
+&lt;p&gt;문제는 스크립트임. 템플릿은 &lt;code&gt;window.onload&lt;/code&gt; 에서 AOS 초기화하고, 모바일 네비 토글 붙이고, 스크롤 이벤트 걸고 하는 걸 전제로 짜여 있음. React에선 그게 그대로 안 됨.&lt;/p&gt;
+&lt;p&gt;그래서 &lt;code&gt;YummyScripts.js&lt;/code&gt; 라는 클라이언트 컴포넌트 하나를 만들어서 &lt;strong&gt;그 초기화 로직을 전부 여기로 몰아넣음.&lt;/strong&gt; AOS, 모바일 네비, 스크롤 동작.
+Bootstrap JS랑 &lt;code&gt;purecounter_vanilla.js&lt;/code&gt; 는 Next의 &lt;code&gt;&amp;lt;Script strategy=&amp;quot;afterInteractive&amp;quot;&amp;gt;&lt;/code&gt; 로 따로 실어줌.&lt;/p&gt;
+&lt;h2 id=&#34;-850줄짜리-pagejs-쪼개기&#34;&gt;
+    &lt;a href=&#34;#-850%ec%a4%84%ec%a7%9c%eb%a6%ac-pagejs-%ec%aa%bc%ea%b0%9c%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ✂️ 850줄짜리 page.js 쪼개기
+&lt;/h2&gt;&lt;p&gt;옮기고 나니까 &lt;code&gt;page.js&lt;/code&gt; 하나가 850줄이 됨. 스크롤이 안 끝남.&lt;/p&gt;
+&lt;p&gt;그래서 같은 날 바로 섹션별 컴포넌트로 쪼갰음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/app/page.js                        691 --------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/MenuSection.js          324 ++++++++++++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/ContactSection.js        80 ++++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/EventsSection.js         46 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/GallerySection.js        39 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/TestimonialsSection.js   38 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/StatsSection.js          35 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/ChefsSection.js          32 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/AboutSection.js          31 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/WhyUsSection.js          24 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/BookATableSection.js     22 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/HeroSection.js           21 ++
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;page.js&lt;/code&gt; 에서 691줄이 빠지고 컴포넌트 11개가 생김. &lt;code&gt;page.js&lt;/code&gt; 는 이제 섹션을 순서대로 나열하는 것만 함.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;MenuSection.js&lt;/code&gt; 가 324줄로 혼자 제일 큼.&lt;/strong&gt; 이때는 몰랐는데 앞으로 이 파일을 제일 많이 건드리게 됨.&lt;/p&gt;
+&lt;h2 id=&#34;-오늘-고친-잔버그&#34;&gt;
+    &lt;a href=&#34;#-%ec%98%a4%eb%8a%98-%ea%b3%a0%ec%b9%9c-%ec%9e%94%eb%b2%84%ea%b7%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🐛 오늘 고친 잔버그
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🐛 fix: fix the detail, info
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🐛 fix: fix menu nav bar
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: ubdate hero      ← 오타 남
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;네비게이션 바가 섹션 앵커랑 안 맞아서 엉뚱한 데로 점프하는 것, hero 문구 교체 같은 거.
+커밋 메시지에 &lt;code&gt;ubdate&lt;/code&gt; 오타 난 거 지금 보니까 웃김.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;디자인을 안 만들기로 한 게 오늘의 전부인 듯.&lt;/strong&gt; 템플릿 값이 몇 만원인데 며칠을 벌었음.&lt;/p&gt;
+&lt;p&gt;정적 템플릿을 React로 옮길 때 제일 성가신 건 CSS가 아니라 &lt;strong&gt;초기화 스크립트&lt;/strong&gt;였음.
+&amp;ldquo;페이지 다 뜨면 실행돼야 하는 코드&amp;quot;를 어디에 둘지가 문제인데, 클라이언트 컴포넌트 하나에 몰아넣는 걸로 일단 정리함.&lt;/p&gt;
+&lt;p&gt;다음엔 메뉴 데이터 붙일 차례임.&lt;/p&gt;
+&lt;p&gt;#정담 #웹개발 #NextJS #React #템플릿&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

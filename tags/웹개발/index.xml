@@ -6,30 +6,39 @@
         <description>Recent content in 웹개발 on 대니짱</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>ko</language>
-        <lastBuildDate>Tue, 19 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://dn5772.github.io/tags/%EC%9B%B9%EA%B0%9C%EB%B0%9C/index.xml" rel="self" type="application/rss+xml" /><item>
-        <title>정담 - 식당 홈페이지를 넉 달 동안 고쳐 쓴 기록</title>
-        <link>https://dn5772.github.io/p/jung-dam/</link>
-        <pubDate>Tue, 19 May 2026 00:00:00 +0000</pubDate>
+        <lastBuildDate>Tue, 19 May 2026 13:07:00 +0900</lastBuildDate><atom:link href="https://dn5772.github.io/tags/%EC%9B%B9%EA%B0%9C%EB%B0%9C/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>정담 개발 일지 #9 - 마지막 버그 하나, 그리고 넉 달 회고</title>
+        <link>https://dn5772.github.io/p/jung-dam-9/</link>
+        <pubDate>Tue, 19 May 2026 13:07:00 +0900</pubDate>
         
-        <guid>https://dn5772.github.io/p/jung-dam/</guid>
-        <description>&lt;h1 id=&#34;정담---식당-홈페이지를-넉-달-동안-고쳐-쓴-기록&#34;&gt;
-    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4---%ec%8b%9d%eb%8b%b9-%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80%eb%a5%bc-%eb%84%89-%eb%8b%ac-%eb%8f%99%ec%95%88-%ea%b3%a0%ec%b3%90-%ec%93%b4-%ea%b8%b0%eb%a1%9d&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    정담 - 식당 홈페이지를 넉 달 동안 고쳐 쓴 기록
-&lt;/h1&gt;&lt;p&gt;식당 홈페이지 하나 만들었음. 이름은 &lt;strong&gt;정담&lt;/strong&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;사이트: &lt;a class=&#34;link&#34; href=&#34;https://jung-dam.vercel.app&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://jung-dam.vercel.app&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;코드: &lt;a class=&#34;link&#34; href=&#34;https://github.com/dn5772/jung_dam&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;https://github.com/dn5772/jung_dam&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;1월 15일에 &lt;code&gt;create-next-app&lt;/code&gt; 으로 시작해서 5월 19일 마지막 커밋까지 39개. 넉 달인데 중간중간 뜯어고친 게 많아서 정리해봄.&lt;/p&gt;
-&lt;p&gt;스택은 Next.js 15 App Router + React 19. &lt;strong&gt;DB는 안 씀.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-1월---템플릿-갖다-붙이기&#34;&gt;
-    &lt;a href=&#34;#-1%ec%9b%94---%ed%85%9c%ed%94%8c%eb%a6%bf-%ea%b0%96%eb%8b%a4-%eb%b6%99%ec%9d%b4%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🏗️ 1월 - 템플릿 갖다 붙이기
-&lt;/h2&gt;&lt;p&gt;처음엔 BootstrapMade의 Yummy 템플릿을 Next.js로 옮기는 작업이었음.
-Hero, About, Menu, Chefs, Gallery, Events, Contact… 섹션이 한 무더기.&lt;/p&gt;
-&lt;p&gt;이때 커밋들이 죄다 이런 식임.&lt;/p&gt;
+        <guid>https://dn5772.github.io/p/jung-dam-9/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-9---마지막-버그-하나-그리고-넉-달-회고&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-9---%eb%a7%88%ec%a7%80%eb%a7%89-%eb%b2%84%ea%b7%b8-%ed%95%98%eb%82%98-%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%84%89-%eb%8b%ac-%ed%9a%8c%ea%b3%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #9 - 마지막 버그 하나, 그리고 넉 달 회고
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;#8&lt;/a&gt; 이후 두 달 동안 조용했음. 잘 돌아갔으니까.&lt;/p&gt;
+&lt;p&gt;그러다 5월에 &lt;strong&gt;메뉴 저장이 갑자기 안 되기 시작함.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-3월에-고친-게-5월에-다시-터짐&#34;&gt;
+    &lt;a href=&#34;#-3%ec%9b%94%ec%97%90-%ea%b3%a0%ec%b9%9c-%ea%b2%8c-5%ec%9b%94%ec%97%90-%eb%8b%a4%ec%8b%9c-%ed%84%b0%ec%a7%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🐛 3월에 고친 게 5월에 다시 터짐
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: add allowOverwrite to Vercel Blob put to fix menu save failures
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;에서 레이스 컨디션 고칠 때 &lt;code&gt;list → del → put&lt;/code&gt; 을 &lt;strong&gt;같은 경로 덮어쓰기&lt;/strong&gt;로 바꿨었음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;menuData-ko.json&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;addRandomSuffix&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;그 사이에 Blob SDK 메이저 버전이 올라갔음.
+그리고 &lt;strong&gt;같은 경로에 덮어쓰려면 &lt;code&gt;allowOverwrite&lt;/code&gt; 를 명시적으로 줘야&lt;/strong&gt; 하게 바뀜. 안 주면 에러.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -38,17 +47,106 @@ Hero, About, Menu, Chefs, Gallery, Events, Contact… 섹션이 한 무더기.&l
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🐛 fix: fix menu nav bar
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🐛 fix: fix the detail, info
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: image paths in MenuSection component
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: update contact links to use telephone protocol
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;menuData-ko.json&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;addRandomSuffix&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;allowOverwrite&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// ← 추가
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;전화번호 링크를 &lt;code&gt;tel:&lt;/code&gt; 프로토콜로 바꾼 건 의외로 중요했음. 식당 홈페이지는 폰으로 보는 사람이 대부분인데 번호를 눌러서 바로 전화가 걸려야 함.&lt;/p&gt;
-&lt;h2 id=&#34;-1월-28일---메뉴-데이터를-어디에-둘-것인가-하루에-3번-바뀜&#34;&gt;
-    &lt;a href=&#34;#-1%ec%9b%94-28%ec%9d%bc---%eb%a9%94%eb%89%b4-%eb%8d%b0%ec%9d%b4%ed%84%b0%eb%a5%bc-%ec%96%b4%eb%94%94%ec%97%90-%eb%91%98-%ea%b2%83%ec%9d%b8%ea%b0%80-%ed%95%98%eb%a3%a8%ec%97%90-3%eb%b2%88-%eb%b0%94%eb%80%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    💥 1월 28일 - 메뉴 데이터를 어디에 둘 것인가 (하루에 3번 바뀜)
-&lt;/h2&gt;&lt;p&gt;제일 삽질한 날임. 커밋 3개가 같은 날에 연달아 있음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;한 줄 추가로 끝났음.&lt;/p&gt;
+&lt;p&gt;근데 이게 좀 재밌는 게, &lt;strong&gt;덮어쓰기를 실수로 하는 걸 막으려고 SDK가 막아둔 거임.&lt;/strong&gt; 나는 일부러 덮어쓰는 건데.
+3월에 &lt;code&gt;del&lt;/code&gt; 을 없앤 그 결정이 5월에 손이 한 번 더 간 셈인데, 그래도 메뉴가 잠깐 비는 것보단 나음.&lt;/p&gt;
+&lt;h2 id=&#34;-넉-달-커밋-39개&#34;&gt;
+    &lt;a href=&#34;#-%eb%84%89-%eb%8b%ac-%ec%bb%a4%eb%b0%8b-39%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📊 넉 달, 커밋 39개
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;시기&lt;/th&gt;
+&lt;th&gt;한 일&lt;/th&gt;
+&lt;th&gt;커밋&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1/15&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-1/&#34; &gt;템플릿 이식, 컴포넌트 분리&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1/16~17&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-2/&#34; &gt;메뉴 데이터, 잔손질&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1/28 낮&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;관리자 페이지&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1/28 밤&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;저장소 3연속 교체&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2/2~4&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;다국어 설계&lt;/a&gt;·&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-6/&#34; &gt;구현&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3/25 밤&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;보안 구멍 4개&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3/25 심야&lt;/td&gt;
+&lt;td&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;모바일 우선 관리자&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5/19&lt;/td&gt;
+&lt;td&gt;마지막 버그&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;최종 스택.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Next.js 15 App Router + React 19
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Vercel Blob (메뉴 JSON 2장 + 이미지)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;JWT + bcrypt (관리자 1명)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Bootstrap 5 + CSS Modules
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;DB 없음
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-넉-달-동안-배운-것-4개&#34;&gt;
+    &lt;a href=&#34;#-%eb%84%89-%eb%8b%ac-%eb%8f%99%ec%95%88-%eb%b0%b0%ec%9a%b4-%ea%b2%83-4%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    💭 넉 달 동안 배운 것 4개
+&lt;/h2&gt;&lt;h3 id=&#34;1-로컬에서-되는데요가-제일-무서움&#34;&gt;
+    &lt;a href=&#34;#1-%eb%a1%9c%ec%bb%ac%ec%97%90%ec%84%9c-%eb%90%98%eb%8a%94%eb%8d%b0%ec%9a%94%ea%b0%80-%ec%a0%9c%ec%9d%bc-%eb%ac%b4%ec%84%9c%ec%9b%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    1. &amp;ldquo;로컬에서 되는데요&amp;quot;가 제일 무서움
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 파일 쓰기가 로컬에선 100% 돌아갔음. 배포 환경이 다르다는 걸 코드가 알려주지 않음.
+그리고 메모리로 바꾼 것도 &lt;strong&gt;똑같은 착각을 다른 방식으로 반복한 것&lt;/strong&gt;이었음 — &amp;ldquo;이 프로세스가 계속 살아 있다&amp;quot;는 전제.&lt;/p&gt;
+&lt;p&gt;진짜 고쳐야 했던 건 저장 위치가 아니라 그 전제였음.&lt;/p&gt;
+&lt;h3 id=&#34;2-db-없이도-되는-게-꽤-많음&#34;&gt;
+    &lt;a href=&#34;#2-db-%ec%97%86%ec%9d%b4%eb%8f%84-%eb%90%98%eb%8a%94-%ea%b2%8c-%ea%bd%a4-%eb%a7%8e%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2. DB 없이도 되는 게 꽤 많음
+&lt;/h3&gt;&lt;p&gt;메뉴판처럼 &lt;strong&gt;작고, 자주 안 바뀌고, 동시 수정이 없는&lt;/strong&gt; 데이터는 JSON 두 장으로 충분했음.
+스키마 마이그레이션이 없으니 넉 달 동안 데이터 구조 바꾸는 게 파일 고치는 일이었음.&lt;/p&gt;
+&lt;p&gt;다만 이건 &amp;ldquo;DB는 오버엔지니어링&amp;quot;이라는 얘기가 아님. 조건이 맞아서 된 것.
+동시에 수정하는 사람이 둘만 됐어도 이 구조는 바로 깨짐.&lt;/p&gt;
+&lt;h3 id=&#34;3-저장-형식이랑-편집-형식은-달라도-됨&#34;&gt;
+    &lt;a href=&#34;#3-%ec%a0%80%ec%9e%a5-%ed%98%95%ec%8b%9d%ec%9d%b4%eb%9e%91-%ed%8e%b8%ec%a7%91-%ed%98%95%ec%8b%9d%ec%9d%80-%eb%8b%ac%eb%9d%bc%eb%8f%84-%eb%90%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3. 저장 형식이랑 편집 형식은 달라도 됨
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;의 결론인데 제일 오래 남을 것 같음.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -56,17 +154,558 @@ Hero, About, Menu, Chefs, Gallery, Events, Contact… 섹션이 한 무더기.&l
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;75&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;eec6d&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;Fix&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Vercel&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;deployment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Change&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;API&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;based&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;storage&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;a8fee7f&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;refactor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;removing&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;memory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;storage&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;direct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;access&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ffce2&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;integrate&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Vercel&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Blob&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;storage&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uploads&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;손님:    menuData-ko.json 한 장만 받음        (가볍게)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;관리자:  ko/en 합쳐서 { title: {ko, en} }     (편하게)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;경계:    저장할 때만 쪼갬
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;1차 - 파일에 쓰기.&lt;/strong&gt; 처음엔 &lt;code&gt;src/data/menuData.json&lt;/code&gt; 을 직접 읽고 씀. 로컬에선 완벽하게 잘 됨.
-배포하니까 관리자 페이지에서 메뉴를 저장해도 아무 일이 안 일어남. &lt;strong&gt;Vercel 서버리스는 파일시스템에 쓸 수가 없음.&lt;/strong&gt; 이걸 몸으로 배움.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2차 - 메모리에 올리기.&lt;/strong&gt; 그래서 프로세스 메모리에 올려두고 거기서 읽고 쓰게 바꿈. 배포하니까 저장은 됨.
-근데 조금 있다가 새로고침하면 원래대로 돌아옴. 람다가 죽었다 살아나면 메모리가 날아가니까 당연한 일이었음. 44줄 추가했다가 그대로 되돌림.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3차 - Vercel Blob.&lt;/strong&gt; 결국 메뉴 데이터를 &lt;strong&gt;Blob에 JSON 파일로&lt;/strong&gt; 올림.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;조회가 압도적으로 많고 수정은 거의 없는 화면이라 가능한 선택이었음.&lt;/p&gt;
+&lt;h3 id=&#34;4-조용히-실패하는-버그가-제일-오래-삶&#34;&gt;
+    &lt;a href=&#34;#4-%ec%a1%b0%ec%9a%a9%ed%9e%88-%ec%8b%a4%ed%8c%a8%ed%95%98%eb%8a%94-%eb%b2%84%ea%b7%b8%ea%b0%80-%ec%a0%9c%ec%9d%bc-%ec%98%a4%eb%9e%98-%ec%82%b6&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    4. 조용히 실패하는 버그가 제일 오래 삶
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;의 레이스 컨디션은 &lt;strong&gt;에러를 안 냄.&lt;/strong&gt; 그냥 메뉴가 잠깐 비어 보임.
+아무도 신고 안 해주고 로그에도 안 남음. 두 달을 살아남았음.&lt;/p&gt;
+&lt;p&gt;인증 없던 업로드 엔드포인트도 마찬가지임. 잘 작동했음 — 너무 잘 작동해서 아무나 쓸 수 있었던 것.&lt;/p&gt;
+&lt;h2 id=&#34;-다시-한다면&#34;&gt;
+    &lt;a href=&#34;#-%eb%8b%a4%ec%8b%9c-%ed%95%9c%eb%8b%a4%eb%a9%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    😬 다시 한다면
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;나중에 고칠 것&amp;quot;을 어딘가 적어뒀을 것.&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 하루에 1045줄을 쏟아낼 때, 시크릿 하드코딩이랑 디버그 로깅이랑 업로드 인증 누락이 전부 그때 생겼음.
+그때는 &amp;ldquo;일단 되게 하고 나중에&amp;quot;라고 생각했는데 &lt;strong&gt;나중이 두 달 뒤&lt;/strong&gt;였음. TODO 주석 하나만 남겼어도 달랐을 듯.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Analytics를 첫날 붙였을 것.&lt;/strong&gt; 한 줄인데, 내 추측이랑 실제 손님 행동을 구분해줌.
+방문자 대부분이 모바일인 걸 알고 있었으면 관리자 화면을 처음부터 모바일로 만들었을 것.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;설계 문서를 더 일찍 썼을 것.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;·&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;#8&lt;/a&gt;처럼 문서 먼저 쓴 작업은 배포하고 뒤집은 적이 한 번도 없음.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;처럼 바로 코드부터 친 날은 하루에 세 번 갈아엎었음.&lt;/p&gt;
+&lt;h2 id=&#34;-지금&#34;&gt;
+    &lt;a href=&#34;#-%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 지금
+&lt;/h2&gt;&lt;p&gt;사이트는 잘 돌아가고 있음. &lt;a class=&#34;link&#34; href=&#34;https://jung-dam.vercel.app&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://jung-dam.vercel.app&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;메뉴가 바뀌면 사장님이 폰으로 들어가서 고침. 내가 하는 일은 없음.
+&lt;strong&gt;그게 이 프로젝트의 목표였으니까 된 것 같음.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;#정담 #웹개발 #VercelBlob #회고 #NextJS&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>정담 개발 일지 #8 - 관리자 화면을 모바일 우선으로 갈아엎음</title>
+        <link>https://dn5772.github.io/p/jung-dam-8/</link>
+        <pubDate>Wed, 25 Mar 2026 23:25:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam-8/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-8---관리자-화면을-모바일-우선으로-갈아엎음&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-8---%ea%b4%80%eb%a6%ac%ec%9e%90-%ed%99%94%eb%a9%b4%ec%9d%84-%eb%aa%a8%eb%b0%94%ec%9d%bc-%ec%9a%b0%ec%84%a0%ec%9c%bc%eb%a1%9c-%ea%b0%88%ec%95%84%ec%97%8e%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #8 - 관리자 화면을 모바일 우선으로 갈아엎음
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;에서 보안 고치고 같은 날 밤에 이어서 한 작업임.&lt;/p&gt;
+&lt;p&gt;관리자 페이지는 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 만든 그대로였는데, &lt;strong&gt;데스크탑 기준 좌우 2단 레이아웃&lt;/strong&gt;이었음.
+왼쪽에 메뉴 목록, 오른쪽에 편집 폼.&lt;/p&gt;
+&lt;p&gt;근데 사장님은 폰으로 씀. 2단이 폰에서 반씩 찌그러져서 둘 다 못 씀.&lt;/p&gt;
+&lt;h2 id=&#34;-화면을-두-개로-쪼갬&#34;&gt;
+    &lt;a href=&#34;#-%ed%99%94%eb%a9%b4%ec%9d%84-%eb%91%90-%ea%b0%9c%eb%a1%9c-%ec%aa%bc%ea%b0%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📐 화면을 두 개로 쪼갬
+&lt;/h2&gt;&lt;p&gt;900px 미만에선 &lt;strong&gt;한 번에 한 화면만&lt;/strong&gt; 보여주기로 했음.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mobileView: &amp;#39;list&amp;#39; | &amp;#39;edit&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;transform: translateX&lt;/code&gt; 로 슬라이드 전환함. 목록에서 항목을 누르면 편집 화면이 옆에서 밀려 들어오고, 뒤로 가면 다시 나감.
+폰 앱에서 익숙한 그 동작임.&lt;/p&gt;
+&lt;p&gt;상단 헤더도 화면마다 바뀜.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;화면&lt;/th&gt;
+&lt;th&gt;헤더&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;목록&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;메뉴 관리&lt;/code&gt; + 로그아웃&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;편집&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;← 목록&lt;/code&gt; + 항목 제목 + 삭제&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;떠다니는 FAB 버튼은 통째로 없앴음.&lt;/strong&gt; 편집 폼 위에 떠 있어서 입력칸을 가림.
+&amp;ldquo;새 항목 추가&amp;quot;는 목록 화면 아래에 고정으로 뒀음.&lt;/p&gt;
+&lt;p&gt;데스크탑(≥900px)은 기존 2단 그대로 둠. 둘 다 만족시키려다 둘 다 애매해지는 것보다 나음.&lt;/p&gt;
+&lt;h2 id=&#34;-언어-탭을-없앴음&#34;&gt;
+    &lt;a href=&#34;#-%ec%96%b8%ec%96%b4-%ed%83%ad%ec%9d%84-%ec%97%86%ec%95%b4%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🇰🇷🇺🇸 언어 탭을 없앴음
+&lt;/h2&gt;&lt;p&gt;이게 이번에 제일 크게 바꾼 것.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-6/&#34; &gt;#6&lt;/a&gt;에서 관리자 화면에 &lt;strong&gt;언어 탭&lt;/strong&gt;을 만들었음. 한국어 탭 / English 탭.
+논리적으로는 깔끔한데 쓰기에 최악이었음.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;한국어 입력하고 탭 눌러서 영어 입력하고 다시 돌아와서 확인&lt;/li&gt;
+&lt;li&gt;영어를 안 채웠는지 아닌지 탭을 눌러봐야 앎&lt;/li&gt;
+&lt;li&gt;폰에선 탭 누르다가 키보드가 올라왔다 내려갔다 함&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;그래서 &lt;strong&gt;탭을 없애고 둘 다 항상 보이게&lt;/strong&gt; 했음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;1. 이미지     — 전체 폭, 누르면 업로드
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;2. 가격       — $ 접두사 고정
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;3. 🇰🇷 한국어  — 제목 / 재료 설명    (배경색 있는 카드)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;4. 🇺🇸 English — Title / Ingredients (배경색 있는 카드)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;영어를 보려면 스크롤을 내려야 하지만, &lt;strong&gt;번역이 비었는지가 스크롤 한 번으로 보임.&lt;/strong&gt;
+탭으로 감춰두는 것보다 이게 훨씬 나았음.&lt;/p&gt;
+&lt;p&gt;가격 입력칸엔 &lt;code&gt;$&lt;/code&gt; 를 고정으로 박아뒀음. 매번 타이핑하던 걸 없앤 것.&lt;/p&gt;
+&lt;h2 id=&#34;-저장-버튼을-하나로-줄임&#34;&gt;
+    &lt;a href=&#34;#-%ec%a0%80%ec%9e%a5-%eb%b2%84%ed%8a%bc%ec%9d%84-%ed%95%98%eb%82%98%eb%a1%9c-%ec%a4%84%ec%9e%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    💾 저장 버튼을 하나로 줄임
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 &lt;code&gt;POST&lt;/code&gt;(전체 저장)랑 &lt;code&gt;PATCH&lt;/code&gt;(항목 저장)를 둘 다 만들었음.
+그래서 화면에 버튼이 두 개 있었음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[모든 변경사항 저장]   ← POST
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;[저장]                ← PATCH (항목 하나)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;사장님 입장에서 이건 그냥 &lt;strong&gt;&amp;ldquo;뭘 눌러야 되는지 모르겠는 버튼 두 개&amp;rdquo;&lt;/strong&gt; 임.
+둘 다 눌러야 하나? 하나만 누르면 날아가나?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;모든 변경사항 저장&amp;quot;을 없앴음.&lt;/strong&gt; 항목 단위 &lt;code&gt;저장&lt;/code&gt; 만 남김.
+&lt;code&gt;POST&lt;/code&gt; API는 그대로 두되 화면에서 뺐음. 새 항목을 추가할 땐 지금 보고 있는 카테고리가 자동으로 선택되게 함.&lt;/p&gt;
+&lt;p&gt;모바일에선 저장 버튼을 편집 화면 &lt;strong&gt;하단에 고정&lt;/strong&gt;으로 붙였음. 긴 폼을 끝까지 스크롤해야 저장할 수 있던 걸 없앤 것.&lt;/p&gt;
+&lt;h2 id=&#34;-토스트를-아래로-내림&#34;&gt;
+    &lt;a href=&#34;#-%ed%86%a0%ec%8a%a4%ed%8a%b8%eb%a5%bc-%ec%95%84%eb%9e%98%eb%a1%9c-%eb%82%b4%eb%a6%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔔 토스트를 아래로 내림
+&lt;/h2&gt;&lt;p&gt;알림 메시지가 화면 상단에 떴는데, 폰에서 상단은 &lt;strong&gt;엄지가 제일 안 닿는 자리&lt;/strong&gt;임.
+하단 중앙으로 옮겼음.&lt;/p&gt;
+&lt;h2 id=&#34;-목록에-썸네일&#34;&gt;
+    &lt;a href=&#34;#-%eb%aa%a9%eb%a1%9d%ec%97%90-%ec%8d%b8%eb%84%a4%ec%9d%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🖼️ 목록에 썸네일
+&lt;/h2&gt;&lt;p&gt;목록에 제목만 있으니까 어떤 메뉴인지 바로 안 보였음. 이미지가 있는 항목은 작은 썸네일을 같이 띄우게 함.
+메뉴판은 결국 사진으로 기억하는 거라서 이게 체감이 컸음.&lt;/p&gt;
+&lt;h2 id=&#34;-이번엔-설계-문서부터&#34;&gt;
+    &lt;a href=&#34;#-%ec%9d%b4%eb%b2%88%ec%97%94-%ec%84%a4%ea%b3%84-%eb%ac%b8%ec%84%9c%eb%b6%80%ed%84%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📝 이번엔 설계 문서부터
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;에서 재미를 봐서 이번에도 문서를 먼저 썼음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docs/superpowers/specs/2026-03-25-admin-mobile-ux-design.md
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docs/superpowers/plans/2026-03-25-admin-mobile-ux.md
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;스펙에 &lt;code&gt;Status: Approved&lt;/code&gt; 라고 적어놓고 시작함. 혼자 하는 프로젝트에 승인이 무슨 의미인가 싶은데,
+&lt;strong&gt;&amp;ldquo;여기까지 정했으니 이제 코드 치는 동안은 다시 고민 안 한다&amp;rdquo;&lt;/strong&gt; 는 선 긋기로는 쓸모 있었음.&lt;/p&gt;
+&lt;p&gt;바뀐 파일은 두 개뿐임.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/app/admin/page.js          — 상태, 레이아웃, 폼 구조
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/app/admin/page.module.css  — 슬라이드 전환, 카드, $ 접두사, 토스트 위치
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;언어 탭이 제일 큰 교훈이었음.&lt;/strong&gt; 데이터 구조가 &lt;code&gt;{ ko, en }&lt;/code&gt; 이니까 UI도 탭으로 나누는 게 자연스러워 보였는데,
+쓰는 사람한텐 &amp;ldquo;한 메뉴를 등록한다&amp;quot;는 하나의 작업임. 구조를 그대로 화면에 옮기면 안 되는 거였음.&lt;/p&gt;
+&lt;p&gt;저장 버튼 두 개도 같은 실수임. API가 둘이니까 버튼도 둘로 만든 것.
+&lt;strong&gt;API 모양이랑 화면 모양은 따로 결정해야 함.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-6/&#34; &gt;#6&lt;/a&gt;에서 붙인 Analytics로 방문자 대부분이 모바일인 걸 봤는데,
+정작 관리자 화면은 데스크탑 기준이었음. 손님 화면만 모바일을 챙기고 있었던 셈.&lt;/p&gt;
+&lt;p&gt;#정담 #UX #모바일 #관리자 #CSS&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음</title>
+        <link>https://dn5772.github.io/p/jung-dam-7/</link>
+        <pubDate>Wed, 25 Mar 2026 22:33:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam-7/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-7---두-달-만에-보안-구멍-네-개를-찾았음&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-7---%eb%91%90-%eb%8b%ac-%eb%a7%8c%ec%97%90-%eb%b3%b4%ec%95%88-%ea%b5%ac%eb%a9%8d-%eb%84%a4-%ea%b0%9c%eb%a5%bc-%ec%b0%be%ec%95%98%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음
+&lt;/h1&gt;&lt;p&gt;두 달 만에 코드를 다시 열었음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 하루에 1045줄 쏟아낸 그 관리자 API를 차분히 읽어봤는데,
+&lt;strong&gt;볼수록 등이 서늘해졌음.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;fix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;resolve&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;critical&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;security&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vulnerabilities&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;API&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;routes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;auth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;login&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;   &lt;span class=&#34;mi&#34;&gt;60&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+++-------&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;        &lt;span class=&#34;mi&#34;&gt;124&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+++++-------------&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upload&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;       &lt;span class=&#34;mi&#34;&gt;31&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++++---&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;files&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;changed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;74&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;insertions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;141&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;deletions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;141줄 지우고 74줄 넣음. &lt;strong&gt;고치면서 코드가 줄어든 게 좀 웃김.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-1-시크릿이-코드에-박혀-있었음&#34;&gt;
+    &lt;a href=&#34;#-1-%ec%8b%9c%ed%81%ac%eb%a6%bf%ec%9d%b4-%ec%bd%94%eb%93%9c%ec%97%90-%eb%b0%95%ed%98%80-%ec%9e%88%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔴 1. 시크릿이 코드에 박혀 있었음
+&lt;/h2&gt;&lt;p&gt;로그인 라우트에 &lt;strong&gt;JWT 시크릿이랑 bcrypt 해시가 그대로&lt;/strong&gt; 들어 있었음.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;.env&lt;/code&gt; 를 만들기 전에 &amp;ldquo;일단 되게&amp;rdquo; 하려고 상수로 박아놓고, 동작하니까 그대로 넘어간 것.
+공개 저장소라 그대로 올라가 있었음.&lt;/p&gt;
+&lt;p&gt;전부 환경변수로 뺐음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;JWT_SECRET
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ADMIN_PASSWORD_HASH
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;BLOB_READ_WRITE_TOKEN
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-2-비밀번호를-평문으로-로깅하고-있었음&#34;&gt;
+    &lt;a href=&#34;#-2-%eb%b9%84%eb%b0%80%eb%b2%88%ed%98%b8%eb%a5%bc-%ed%8f%89%eb%ac%b8%ec%9c%bc%eb%a1%9c-%eb%a1%9c%ea%b9%85%ed%95%98%ea%b3%a0-%ec%9e%88%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔴 2. 비밀번호를 평문으로 로깅하고 있었음
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Login attempt:&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// ← 이게 남아 있었음
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;로그인이 왜 안 되는지 보려고 넣은 건데 안 지웠음.
+Vercel 대시보드 로그에 관리자 비밀번호가 평문으로 쌓이고 있었던 것.&lt;/p&gt;
+&lt;p&gt;지웠음.&lt;/p&gt;
+&lt;h2 id=&#34;-3-업로드-엔드포인트에-인증이-아예-없었음&#34;&gt;
+    &lt;a href=&#34;#-3-%ec%97%85%eb%a1%9c%eb%93%9c-%ec%97%94%eb%93%9c%ed%8f%ac%ec%9d%b8%ed%8a%b8%ec%97%90-%ec%9d%b8%ec%a6%9d%ec%9d%b4-%ec%95%84%ec%98%88-%ec%97%86%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔴 3. 업로드 엔드포인트에 인증이 아예 없었음
+&lt;/h2&gt;&lt;p&gt;이게 제일 심각했음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;POST&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upload&lt;/span&gt;   &lt;span class=&#34;err&#34;&gt;←&lt;/span&gt;  &lt;span class=&#34;err&#34;&gt;아무&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;검증&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;없음&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 메뉴 API엔 &lt;code&gt;verifyToken&lt;/code&gt; 을 붙였는데 &lt;strong&gt;업로드만 빼먹었음.&lt;/strong&gt;
+누구나 내 Blob 스토리지에 파일을 올릴 수 있는 상태였음. 용량은 내가 내고.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;user&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;verifyToken&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;request&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;user&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;NextResponse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;error&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Unauthorized&amp;#39;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;401&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;관리자 화면에서 이미지 올릴 때 &lt;code&gt;Authorization&lt;/code&gt; 헤더를 안 보내고 있어서 그것도 같이 고침.&lt;/p&gt;
+&lt;h2 id=&#34;-4-메뉴가-잠깐-비는-레이스-컨디션&#34;&gt;
+    &lt;a href=&#34;#-4-%eb%a9%94%eb%89%b4%ea%b0%80-%ec%9e%a0%ea%b9%90-%eb%b9%84%eb%8a%94-%eb%a0%88%ec%9d%b4%ec%8a%a4-%ec%bb%a8%eb%94%94%ec%85%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🟠 4. 메뉴가 잠깐 비는 레이스 컨디션
+&lt;/h2&gt;&lt;p&gt;이건 보안은 아닌데 더 무서웠음.&lt;/p&gt;
+&lt;p&gt;저장 로직이 이랬음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;list  →  del(기존 파일)  →  put(새 파일)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;지우고 나서 올리는 사이에 메뉴가 빈 채로 응답되는 창이 있었음.&lt;/strong&gt;
+손님이 하필 그 0.x초에 들어오면 메뉴판이 텅 비어 보임. 에러도 아니고 그냥 빈 메뉴라 아무도 신고를 안 해줌.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;del&lt;/code&gt; 단계를 아예 없애고 &lt;strong&gt;같은 이름에 덮어쓰기&lt;/strong&gt;로 바꿨음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;menuData-ko.json&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;token&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;BLOB_TOKEN&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;access&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;public&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;contentType&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;application/json&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;addRandomSuffix&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// ← 같은 경로에 덮어쓰기
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;addRandomSuffix: false&lt;/code&gt; 를 줘야 랜덤 접미사 없이 같은 경로를 씀. 그래야 덮어쓰기가 됨.&lt;/p&gt;
+&lt;p&gt;덤으로 ko/en 저장을 &lt;code&gt;Promise.all&lt;/code&gt; 로 묶어서 왕복을 반으로 줄였음.
+응답도 전부 &lt;code&gt;NextResponse.json&lt;/code&gt; 으로 통일함. 원래는 &lt;code&gt;new Response(JSON.stringify(...))&lt;/code&gt; 랑 섞여 있었음.&lt;/p&gt;
+&lt;h2 id=&#34;-같은-날-잡은-버그-8개&#34;&gt;
+    &lt;a href=&#34;#-%ea%b0%99%ec%9d%80-%eb%82%a0-%ec%9e%a1%ec%9d%80-%eb%b2%84%ea%b7%b8-8%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🐛 같은 날 잡은 버그 8개
+&lt;/h2&gt;&lt;p&gt;보안 말고 커밋 하나 더 있음.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;mergeLocalizedMenuData&lt;/code&gt; 가 EN만 기준으로 합치고 있었음.&lt;/strong&gt;
+한국어에만 있는 카테고리는 관리자 화면에 아예 안 뜸. 합집합으로 바꿈.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;편집 중에 배경 갱신이 폼을 덮어씀.&lt;/strong&gt;
+&lt;code&gt;editItem&lt;/code&gt; 이펙트 의존성에 &lt;code&gt;menuData&lt;/code&gt; 가 들어 있어서, 백그라운드 리페치가 오면 &lt;strong&gt;저장 안 한 입력이 날아감.&lt;/strong&gt; 의존성에서 뺐음.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GLightbox 메모리 누수.&lt;/strong&gt;
+언어를 바꿀 때마다 라이트박스를 새로 만드는데 기존 걸 안 없앴음. 언어 토글을 왔다갔다 하면 인스턴스가 계속 쌓임.
+ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&lt;/code&gt; 하고, 언마운트 때도 정리하게 함.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;첫 화면에서 언어가 깜빡였음.&lt;/strong&gt;
+영어 사용자가 들어오면 한국어가 한 프레임 보였다가 영어로 바뀜. &lt;code&gt;localStorage&lt;/code&gt; 를 &lt;code&gt;useEffect&lt;/code&gt; 에서 읽어서 생긴 일.
+&lt;code&gt;useState&lt;/code&gt; 의 &lt;strong&gt;lazy initializer&lt;/strong&gt; 로 옮겨서 첫 렌더 전에 동기적으로 읽게 함.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 전
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;lang&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setLang&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ko&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;useEffect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setLang&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;localStorage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;locale&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;??&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;detect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[]);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 후
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;lang&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;setLang&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;useState&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;localStorage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;locale&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;??&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;detect&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;나머지는 중복 가드 제거, 쓸모없는 별칭 제거, 디버그 &lt;code&gt;console.log&lt;/code&gt; 청소.
+&lt;code&gt;html lang&lt;/code&gt; 속성이 언어 따라 안 바뀌던 것도 고쳤음.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;네 개 중 세 개가 &amp;ldquo;디버깅용으로 넣었다가 안 지운 것&amp;quot;이거나 &amp;ldquo;일단 되게 하려고 건너뛴 것&amp;quot;이었음.&lt;/strong&gt;
+시크릿 하드코딩, 평문 로깅, 업로드 인증 누락. 셋 다 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 하루에 1045줄 쏟아낼 때 생긴 것들임.&lt;/p&gt;
+&lt;p&gt;빨리 만드는 건 좋은데, &lt;strong&gt;&amp;ldquo;나중에 고칠 것&amp;rdquo; 목록을 어딘가에 안 적어두면 나중이 두 달 뒤가 됨.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;그리고 4번 레이스 컨디션은 아무도 신고를 안 해줌. 에러가 안 나고 그냥 빈 화면이라서.
+&lt;strong&gt;조용히 실패하는 버그가 제일 오래 살아남는 듯.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;#정담 #보안 #JWT #레이스컨디션 #리팩터링&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>정담 개발 일지 #6 - 다국어 구현이랑 Analytics</title>
+        <link>https://dn5772.github.io/p/jung-dam-6/</link>
+        <pubDate>Wed, 04 Feb 2026 16:36:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam-6/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-6---다국어-구현이랑-analytics&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-6---%eb%8b%a4%ea%b5%ad%ec%96%b4-%ea%b5%ac%ed%98%84%ec%9d%b4%eb%9e%91-analytics&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #6 - 다국어 구현이랑 Analytics
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;에서 정한 설계대로 구현함. 2월 2~4일 커밋 9개.&lt;/p&gt;
+&lt;h2 id=&#34;-api에-locale-붙이기&#34;&gt;
+    &lt;a href=&#34;#-api%ec%97%90-locale-%eb%b6%99%ec%9d%b4%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔌 API에 locale 붙이기
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;GET&lt;/code&gt; 은 쿼리 파라미터 하나 추가하면 끝임.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;locale&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;searchParams&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;locale&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;||&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;ko&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;validLocales&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;en&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;ko&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;safeLocale&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;validLocales&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;includes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;locale&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;locale&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;ko&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fileName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`menuData-&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;safeLocale&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;.json`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;허용 목록으로 검증하는 게 중요함.&lt;/strong&gt; 이게 파일명에 그대로 들어가니까, 검증 없으면 &lt;code&gt;?locale=../../something&lt;/code&gt; 같은 게 들어올 수 있음.&lt;/p&gt;
+&lt;p&gt;캐시 헤더도 같이 달았음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Cache-Control&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;public, s-maxage=60, stale-while-revalidate=300&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;메뉴는 한 달에 몇 번 바뀌는데 조회는 계속 일어남. CDN이 60초 캐시하고, 만료돼도 5분 동안은 &lt;strong&gt;일단 옛날 걸 주면서 뒤에서 갱신&lt;/strong&gt;함.
+사장님이 메뉴를 고치면 최대 1분 늦게 반영되는데, 그 정도는 괜찮다고 봄.&lt;/p&gt;
+&lt;h2 id=&#34;-languagecontext&#34;&gt;
+    &lt;a href=&#34;#-languagecontext&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🌐 LanguageContext
+&lt;/h2&gt;&lt;p&gt;언어 상태는 컨텍스트 하나로 관리함.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;localStorage(&amp;#39;locale&amp;#39;)  →  navigator.language  →  &amp;#39;ko&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;저장된 선택이 있으면 그거, 없으면 브라우저 언어, 그것도 아니면 한국어.
+&lt;strong&gt;기본을 영어가 아니라 한국어로 둔 건 손님 대부분이 한국인이라서임.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;MenuSection&lt;/code&gt; 은 &lt;code&gt;/api/menu?locale=&amp;lt;locale&amp;gt;&lt;/code&gt; 을 부르고, 언어가 바뀌면 다시 가져옴.&lt;/p&gt;
+&lt;p&gt;한 가지 좋았던 게, API가 이미 단일 언어 데이터를 주니까 &lt;strong&gt;화면 코드에서 언어 분기가 통째로 사라졌음.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 전
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getLocalizedValue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;currentLocale&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)}&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// 후
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;에서 파일을 쪼개기로 한 이득이 여기서 나옴.&lt;/p&gt;
+&lt;h2 id=&#34;-관리자는-두-언어를-동시에&#34;&gt;
+    &lt;a href=&#34;#-%ea%b4%80%eb%a6%ac%ec%9e%90%eb%8a%94-%eb%91%90-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%8f%99%ec%8b%9c%ec%97%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ✏️ 관리자는 두 언어를 동시에
+&lt;/h2&gt;&lt;p&gt;관리자 화면에선 반대로 합쳐서 다룸. 서버에서 받은 ko/en 두 파일을 하나로 병합해서 편집하고, 저장할 때 다시 쪼갬.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;불러오기:  menuData-ko.json + menuData-en.json  →  { title: { ko, en }, ... }
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;저장:      { title: { ko, en }, ... }            →  { ko: {...}, en: {...} }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;PATCH&lt;/code&gt; 도 양쪽 언어를 같이 받게 바꿨음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;add&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;categoryId&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;fried&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;en&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Garlic Soy Chicken&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ingredients&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;...&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;price&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;$18&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;...&amp;#39;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;ko&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;간장마늘치킨&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;        &lt;span class=&#34;nx&#34;&gt;ingredients&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;...&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;price&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;$18&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;...&amp;#39;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;한쪽만 보내는 경로를 안 만들었으니 어긋날 수가 없음.&lt;/strong&gt; 설계 때 정한 그대로임.&lt;/p&gt;
+&lt;h2 id=&#34;-vercel-analytics&#34;&gt;
+    &lt;a href=&#34;#-vercel-analytics&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📊 Vercel Analytics
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: add analytics integration to RootLayout component
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: add @vercel/analytics dependency
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;&amp;lt;Analytics /&amp;gt;&lt;/code&gt; 한 줄 넣으면 끝임. 설정 없음.&lt;/p&gt;
+&lt;p&gt;이거 붙이고 나서 처음으로 &lt;strong&gt;사람들이 실제로 뭘 보는지&lt;/strong&gt; 알게 됐음.
+대부분 모바일이고, 메뉴 섹션에 제일 오래 머무름. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-2/&#34; &gt;#2&lt;/a&gt;에서 만든 &amp;ldquo;메뉴로 바로 가기&amp;rdquo; 버튼이 괜히 만든 게 아니었음.&lt;/p&gt;
+&lt;p&gt;이 관찰이 나중에 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;#8&lt;/a&gt;에서 관리자 화면을 모바일 우선으로 갈아엎는 근거가 됨.&lt;/p&gt;
+&lt;h2 id=&#34;-브랜치를-나눠서-작업함&#34;&gt;
+    &lt;a href=&#34;#-%eb%b8%8c%eb%9e%9c%ec%b9%98%eb%a5%bc-%eb%82%98%eb%88%a0%ec%84%9c-%ec%9e%91%ec%97%85%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🌿 브랜치를 나눠서 작업함
+&lt;/h2&gt;&lt;p&gt;이번엔 PR을 세 개 만들었음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Merge pull request #1 from dn5772/devlop
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Merge pull request #2 from dn5772/feat/localization
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Merge pull request #3 from dn5772/devlop
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;혼자 하는 프로젝트라 브랜치가 의미 있나 싶었는데, &lt;strong&gt;다국어 작업 중에 메뉴가 깨지면 손님한테 바로 보임.&lt;/strong&gt;
+&lt;code&gt;main&lt;/code&gt; 에 바로 밀지 않고 Preview 배포에서 확인하고 머지하니까 마음이 편했음.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;설계를 먼저 해두니까 구현이 그냥 받아쓰기였음.&lt;/strong&gt; Phase 2~4가 문서에 적힌 순서대로 끝남.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;처럼 배포하고 나서 뒤집는 일이 한 번도 없었음.&lt;/p&gt;
+&lt;p&gt;Analytics는 진작 붙일 걸 그랬음. 한 줄인데 &amp;ldquo;내 추측&amp;quot;이랑 &amp;ldquo;실제 손님 행동&amp;quot;을 구분해줌.&lt;/p&gt;
+&lt;p&gt;#정담 #다국어 #i18n #React #Analytics #Vercel&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>정담 개발 일지 #5 - 다국어를 어떻게 저장할지 먼저 정했음</title>
+        <link>https://dn5772.github.io/p/jung-dam-5/</link>
+        <pubDate>Mon, 02 Feb 2026 23:19:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam-5/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-5---다국어를-어떻게-저장할지-먼저-정했음&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-5---%eb%8b%a4%ea%b5%ad%ec%96%b4%eb%a5%bc-%ec%96%b4%eb%96%bb%ea%b2%8c-%ec%a0%80%ec%9e%a5%ed%95%a0%ec%a7%80-%eb%a8%bc%ec%a0%80-%ec%a0%95%ed%96%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #5 - 다국어를 어떻게 저장할지 먼저 정했음
+&lt;/h1&gt;&lt;p&gt;외국인 손님이 꽤 온다고 해서 &lt;strong&gt;영어 메뉴&lt;/strong&gt;를 붙이기로 했음.&lt;/p&gt;
+&lt;p&gt;근데 이번엔 바로 코드를 안 쳤음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 하루에 세 번 갈아엎고 나니까, 저장 구조를 잘못 잡으면 얼마나 피곤한지 알게 됐음.
+그래서 설계 문서를 먼저 썼음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docs/menu-localization.md          ← 데이터 형식 설계
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docs/menu-implementation-process.md ← Phase 1~6 작업 계획
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-두-가지-선택지&#34;&gt;
+    &lt;a href=&#34;#-%eb%91%90-%ea%b0%80%ec%a7%80-%ec%84%a0%ed%83%9d%ec%a7%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🤔 두 가지 선택지
+&lt;/h2&gt;&lt;h3 id=&#34;방법-a-필드-안에-언어를-넣기&#34;&gt;
+    &lt;a href=&#34;#%eb%b0%a9%eb%b2%95-a-%ed%95%84%eb%93%9c-%ec%95%88%ec%97%90-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%84%a3%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    방법 A. 필드 안에 언어를 넣기
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;ko&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;간장마늘치킨&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Garlic Soy Chicken&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;#34;ingredients&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;ko&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;닭, 마늘, 간장&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Chicken, garlic, soy sauce&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;#34;price&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;$18&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;파일 하나로 끝남. 관리자에서 양쪽 언어를 같이 편집하기도 편함.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;근데 손님한테 나가는 페이로드가 두 배임.&lt;/strong&gt; 한국어로 보는 손님이 영어 메뉴까지 통째로 받아감.&lt;/p&gt;
+&lt;h3 id=&#34;방법-b-로케일별로-파일을-쪼개기&#34;&gt;
+    &lt;a href=&#34;#%eb%b0%a9%eb%b2%95-b-%eb%a1%9c%ec%bc%80%ec%9d%bc%eb%b3%84%eb%a1%9c-%ed%8c%8c%ec%9d%bc%ec%9d%84-%ec%aa%bc%ea%b0%9c%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    방법 B. 로케일별로 파일을 쪼개기
+&lt;/h3&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
@@ -76,87 +715,729 @@ Hero, About, Menu, Chefs, Gallery, Events, Contact… 섹션이 한 무더기.&l
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;menuData-en.json
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;DB를 안 쓴 이유는 간단함. 메뉴판은 데이터가 수십 개고, 하루에 몇 번 바뀔까 말까임.
-테이블 만들고 마이그레이션 관리할 이유가 없었음. 이미지도 어차피 Blob에 올려야 하니 저장소를 하나로 통일함.&lt;/p&gt;
-&lt;h2 id=&#34;-2월---낙관적-업데이트&#34;&gt;
-    &lt;a href=&#34;#-2%ec%9b%94---%eb%82%99%ea%b4%80%ec%a0%81-%ec%97%85%eb%8d%b0%ec%9d%b4%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    ⚡ 2월 - 낙관적 업데이트
-&lt;/h2&gt;&lt;p&gt;관리자 페이지에서 메뉴를 고칠 때마다 Blob 왕복을 기다리니까 답답했음.
-그래서 화면을 &lt;strong&gt;먼저&lt;/strong&gt; 바꾸고 요청을 뒤에 보내게 함. 실패하면 되돌리고.&lt;/p&gt;
-&lt;p&gt;메뉴판 편집은 실패할 일이 거의 없는 작업이라 이쪽이 체감이 훨씬 좋았음.&lt;/p&gt;
-&lt;h2 id=&#34;-23월---한국어영어&#34;&gt;
-    &lt;a href=&#34;#-23%ec%9b%94---%ed%95%9c%ea%b5%ad%ec%96%b4%ec%98%81%ec%96%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🌏 2~3월 - 한국어/영어
-&lt;/h2&gt;&lt;p&gt;메뉴 아이템 한 칸이 이렇게 생김.&lt;/p&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;간장마늘치킨&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;ingredients&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;닭, 마늘, 간장&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;price&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;$18&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;손님은 자기 언어 파일 하나만 받음. 항목 구조도 단순해짐.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;대신 두 파일이 어긋날 수 있음.&lt;/strong&gt; 한쪽에만 항목이 추가되면 순서가 밀려서 엉뚱한 재료가 붙음.&lt;/p&gt;
+&lt;h2 id=&#34;-b로-감&#34;&gt;
+    &lt;a href=&#34;#-b%eb%a1%9c-%ea%b0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ✅ B로 감
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;조회가 압도적으로 많고 수정은 거의 없는 화면&lt;/strong&gt;이라서임.&lt;/p&gt;
+&lt;p&gt;메뉴 조회는 손님이 올 때마다 일어나고, 메뉴 수정은 한 달에 몇 번임.
+그럼 &lt;strong&gt;조회 쪽을 가볍게 하고, 어긋날 위험은 쓰기 쪽에서 막는 게&lt;/strong&gt; 맞다고 봤음.&lt;/p&gt;
+&lt;p&gt;공통 필드는 두 파일에 똑같이 복제함.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;필드&lt;/th&gt;
+&lt;th&gt;로케일별&lt;/th&gt;
+&lt;th&gt;공통&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;name&lt;/code&gt; (카테고리)&lt;/td&gt;
+&lt;td&gt;○&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;description&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;○&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;title&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;○&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;ingredients&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;○&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;price&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;○&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;image&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;○&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;price&lt;/code&gt; 랑 &lt;code&gt;image&lt;/code&gt; 는 언어랑 상관없으니 그대로 복제. 중복이 생기지만 파일이 두 장뿐이라 감당할 만함.&lt;/p&gt;
+&lt;h2 id=&#34;-어긋남을-막는-장치-3개&#34;&gt;
+    &lt;a href=&#34;#-%ec%96%b4%ea%b8%8b%eb%82%a8%ec%9d%84-%eb%a7%89%eb%8a%94-%ec%9e%a5%ec%b9%98-3%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🛡️ 어긋남을 막는 장치 3개
+&lt;/h2&gt;&lt;p&gt;B의 유일한 약점이 데이터 불일치라서, 그걸 막는 걸 설계에 넣었음.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 저장은 항상 양쪽 동시에.&lt;/strong&gt; API가 한쪽만 받는 걸 허용하지 않음.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;ko&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;냉면&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Cold Noodles&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;POST /api/menu   ←  { en: {...}, ko: {...} }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;관리자 페이지는 항목별로 ko/en 필드를 같이 편집하고, 저장할 때 &lt;code&gt;{ en: {...}, ko: {...} }&lt;/code&gt; 형태로 보내서 &lt;strong&gt;두 로케일 파일을 한 번에 갱신&lt;/strong&gt;함.&lt;/p&gt;
-&lt;p&gt;보는 쪽은 &lt;code&gt;LanguageContext&lt;/code&gt; 가 &lt;code&gt;localStorage&lt;/code&gt; 에 현재 언어를 들고 있고, 없으면 브라우저 언어로 감지함. 기본은 한국어.
-&lt;code&gt;MenuSection&lt;/code&gt; 은 &lt;code&gt;/api/menu?locale=&amp;lt;locale&amp;gt;&lt;/code&gt; 을 부르고 언어가 바뀌면 다시 가져옴.&lt;/p&gt;
-&lt;h2 id=&#34;-3월-25일---보안-구멍-메우기&#34;&gt;
-    &lt;a href=&#34;#-3%ec%9b%94-25%ec%9d%bc---%eb%b3%b4%ec%95%88-%ea%b5%ac%eb%a9%8d-%eb%a9%94%ec%9a%b0%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔒 3월 25일 - 보안 구멍 메우기
-&lt;/h2&gt;&lt;p&gt;이날 커밋 하나가 제일 뜨끔했음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;한쪽만 고치는 경로를 아예 안 만들면 어긋날 수가 없음.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 검증 스크립트.&lt;/strong&gt; 두 파일의 &lt;code&gt;categoryId&lt;/code&gt;, 항목 개수, 순서, &lt;code&gt;image&lt;/code&gt;, &lt;code&gt;price&lt;/code&gt; 가 같은지 확인.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;enData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;categories&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;forEach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;enCat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;idx&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;koCat&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;koData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;categories&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;idx&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;assert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;enCat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;id&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;koCat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`Category ID mismatch at &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;idx&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;assert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;enCat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;length&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;koCat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;length&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`Item count mismatch in &lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;enCat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;id&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;enCat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;items&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;forEach&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;enItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;i&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;assert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;enItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;image&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;koItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`Image mismatch`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;assert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;enItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;price&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;koItem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;price&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`Price mismatch`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;3. 관리자 UI에선 합쳐서 다룸.&lt;/strong&gt; 화면에서는 &lt;code&gt;{ ko, en }&lt;/code&gt; 객체로 들고 있다가 &lt;strong&gt;저장할 때만&lt;/strong&gt; 두 로케일로 쪼갬.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;convertToLocaleSpecific&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;menuData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;({&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;en&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;categories&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;menuData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;categories&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;({&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getLocale&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;en&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nx&#34;&gt;ko&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;categories&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;menuData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;categories&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;map&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;c&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;({&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getLocale&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;ko&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;저장 형식이랑 편집 형식을 분리한 게 핵심임.&lt;/strong&gt; 손님은 쪼개진 걸 받고, 관리자는 합쳐진 걸 편집함.&lt;/p&gt;
+&lt;h2 id=&#34;-phase-16&#34;&gt;
+    &lt;a href=&#34;#-phase-16&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📋 Phase 1~6
+&lt;/h2&gt;&lt;p&gt;작업 계획도 같이 적었음.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Phase&lt;/th&gt;
+&lt;th&gt;내용&lt;/th&gt;
+&lt;th&gt;예상&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;데이터 준비 및 마이그레이션&lt;/td&gt;
+&lt;td&gt;2-3시간&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;API 수정&lt;/td&gt;
+&lt;td&gt;4-6시간&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;관리자 UI 수정&lt;/td&gt;
+&lt;td&gt;6-8시간&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;프론트엔드 표시 수정&lt;/td&gt;
+&lt;td&gt;2-3시간&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;통합 테스트&lt;/td&gt;
+&lt;td&gt;3-4시간&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;배포 및 모니터링&lt;/td&gt;
+&lt;td&gt;1-2시간&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;합계&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;18-26시간&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;오늘 한 건 Phase 1임. 기존 데이터를 백업하고 &lt;code&gt;menuData-ko.json&lt;/code&gt; 을 만들어서 번역을 채워 넣음.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: resolve critical security vulnerabilities in API routes
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;add: Phase 1: 데이터 준비 및 마이그레이션
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;고친 게 이만큼임.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1. JWT 시크릿이랑 bcrypt 해시가 코드에 박혀 있었음.&lt;/strong&gt; 전부 환경변수로 뺐음.
-&lt;code&gt;JWT_SECRET&lt;/code&gt;, &lt;code&gt;ADMIN_PASSWORD_HASH&lt;/code&gt;, &lt;code&gt;BLOB_READ_WRITE_TOKEN&lt;/code&gt; 셋 다 &lt;code&gt;.env&lt;/code&gt; 로.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2. 로그인 라우트가 비밀번호를 평문으로 로깅하고 있었음.&lt;/strong&gt; 디버깅한다고 넣어놓고 그대로 둔 것. 삭제.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3. 업로드 엔드포인트에 인증이 아예 없었음.&lt;/strong&gt; 이게 제일 심각했음.
-&lt;code&gt;POST /api/upload&lt;/code&gt; 가 무방비라 누구나 내 Blob 스토리지에 파일을 올릴 수 있었음. JWT 검증 추가함.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;4. 메뉴 저장에 레이스 컨디션이 있었음.&lt;/strong&gt; 원래 저장 로직이 이랬음.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;list → delete → put
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;지우고 나서 올리는 사이에 &lt;strong&gt;메뉴가 빈 채로 응답되는 창&lt;/strong&gt;이 있었음. 손님이 하필 그 순간에 들어오면 메뉴판이 텅 비어 보임.
-&lt;code&gt;put(..., { addRandomSuffix: false })&lt;/code&gt; 으로 &lt;strong&gt;같은 이름에 덮어쓰기&lt;/strong&gt;로 바꿔서 delete 단계를 아예 없앴음.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;5. en/ko 저장을 병렬로.&lt;/strong&gt; 순차로 두 번 왕복하던 걸 &lt;code&gt;Promise.all&lt;/code&gt; 로 묶음.&lt;/p&gt;
-&lt;p&gt;직접 짠 코드에서 이런 게 나오니까 좀 부끄러웠는데, 그래도 배포 전에 찾은 게 어딤.&lt;/p&gt;
-&lt;h2 id=&#34;-3월-25일---관리자-화면을-모바일-우선으로&#34;&gt;
-    &lt;a href=&#34;#-3%ec%9b%94-25%ec%9d%bc---%ea%b4%80%eb%a6%ac%ec%9e%90-%ed%99%94%eb%a9%b4%ec%9d%84-%eb%aa%a8%eb%b0%94%ec%9d%bc-%ec%9a%b0%ec%84%a0%ec%9c%bc%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📱 3월 25일 - 관리자 화면을 모바일 우선으로
-&lt;/h2&gt;&lt;p&gt;사장님이 폰으로 메뉴를 고침. 근데 관리자 페이지가 데스크탑 기준이었음.&lt;/p&gt;
-&lt;p&gt;슬라이드 네비게이션으로 바꾸고, ko/en 입력 칸을 섹션으로 접었다 펼 수 있게 함.
-드래그 정렬은 DnD Kit 쓰는데 터치에서도 잘 동작해서 그대로 뒀음.&lt;/p&gt;
-&lt;h2 id=&#34;-5월-19일---마지막-한-방&#34;&gt;
-    &lt;a href=&#34;#-5%ec%9b%94-19%ec%9d%bc---%eb%a7%88%ec%a7%80%eb%a7%89-%ed%95%9c-%eb%b0%a9&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🐛 5월 19일 - 마지막 한 방
-&lt;/h2&gt;&lt;p&gt;3월에 &lt;code&gt;addRandomSuffix: false&lt;/code&gt; 로 바꿨는데, 5월에 갑자기 메뉴 저장이 다시 실패하기 시작함.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: add allowOverwrite to Vercel Blob put to fix menu save failures
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Blob SDK가 올라가면서 &lt;strong&gt;같은 경로에 덮어쓰려면 &lt;code&gt;allowOverwrite&lt;/code&gt; 를 명시적으로 줘야&lt;/strong&gt; 하게 바뀌었음.
-3월에 delete를 없앤 그 결정이 5월에 한 번 더 손이 간 셈인데, 그래도 레이스 컨디션으로 메뉴가 비는 것보단 나음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;기존 Blob 데이터를 먼저 &lt;code&gt;backup/&lt;/code&gt; 에 내려받아 뒀음.&lt;/strong&gt; 마이그레이션 중에 날리면 메뉴판이 통째로 사라짐.&lt;/p&gt;
+&lt;h2 id=&#34;-위험-요소를-미리-적어둠&#34;&gt;
+    &lt;a href=&#34;#-%ec%9c%84%ed%97%98-%ec%9a%94%ec%86%8c%eb%a5%bc-%eb%af%b8%eb%a6%ac-%ec%a0%81%ec%96%b4%eb%91%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ⚠️ 위험 요소를 미리 적어둠
+&lt;/h2&gt;&lt;p&gt;설계 문서 끝에 이런 걸 적었음.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;데이터 불일치&lt;/strong&gt; → 저장 시 검증, 정기 체크&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;번역 누락&lt;/strong&gt; → 한쪽만 입력됐을 때 경고&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;배포 중 장애&lt;/strong&gt; → Preview에서 검증, Blob 백업, &lt;code&gt;git revert&lt;/code&gt; 준비&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;보안&lt;/strong&gt; → JWT 만료 시간, HTTPS 강제, 관리자 활동 로그&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;마지막 항목을 적어놓고 정작 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 만든 구멍은 못 봤음.
+두 달 뒤에 발견함..&lt;/p&gt;
 &lt;h2 id=&#34;-느낀-점&#34;&gt;
     &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     🎯 느낀 점
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Vercel에선 파일에 못 쓴다.&lt;/strong&gt; 이걸 하루에 세 번 고쳐가며 배움. 머리로 아는 거랑 배포해서 깨지는 걸 보는 건 다름.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;DB 없이도 되는 게 꽤 많음.&lt;/strong&gt; 메뉴판처럼 작고 자주 안 바뀌는 데이터는 JSON 파일 두 장으로 충분했음. 오히려 스키마 마이그레이션이 없어서 편함.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;디버깅용 코드가 제일 위험함.&lt;/strong&gt; 비밀번호 평문 로깅이랑 인증 없는 업로드 엔드포인트, 둘 다 &amp;ldquo;일단 되게 해놓고 나중에&amp;rdquo; 하고 넘긴 것들이었음. 나중이 두 달 뒤였음..&lt;/p&gt;
-&lt;p&gt;#정담 #웹개발 #NextJS #VercelBlob #다국어 #보안&lt;/p&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;저장 형식이랑 편집 형식이 같을 필요가 없다&lt;/strong&gt;는 게 이번에 제일 크게 배운 것.
+화면에선 합쳐서 쓰고 저장은 쪼개서 하면, 편함이랑 성능을 둘 다 가져갈 수 있음.&lt;/p&gt;
+&lt;p&gt;그리고 문서를 먼저 쓰니까 &amp;ldquo;필드 안에 넣을까 파일 쪼갤까&amp;quot;를 코드로 시험해보지 않고 결정할 수 있었음.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 두 시간 걸린 걸 오늘은 안 겪었음.&lt;/p&gt;
+&lt;p&gt;다음 글에서 Phase 2~6 구현.&lt;/p&gt;
+&lt;p&gt;#정담 #다국어 #i18n #설계 #VercelBlob&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>정담 개발 일지 #4 - 저장소를 하루에 세 번 갈아엎었음</title>
+        <link>https://dn5772.github.io/p/jung-dam-4/</link>
+        <pubDate>Wed, 28 Jan 2026 18:39:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam-4/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-4---저장소를-하루에-세-번-갈아엎었음&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-4---%ec%a0%80%ec%9e%a5%ec%86%8c%eb%a5%bc-%ed%95%98%eb%a3%a8%ec%97%90-%ec%84%b8-%eb%b2%88-%ea%b0%88%ec%95%84%ec%97%8e%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #4 - 저장소를 하루에 세 번 갈아엎었음
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 관리자 페이지 만들고 배포했음.
+그리고 저녁 내내 저장소를 세 번 바꿨음. 커밋 시간까지 붙여서 남겨둠.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;57&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;Fix&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Vercel&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;deployment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Change&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;API&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;based&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;storage&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;16&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;59&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;refactor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;removing&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;memory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;storage&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;direct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;access&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;integrate&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Vercel&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Blob&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;storage&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uploads&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;16:57 → 16:59, 2분.&lt;/strong&gt; 이 2분이 이 글의 하이라이트임.&lt;/p&gt;
+&lt;h2 id=&#34;1-1차---파일에-쓰기-로컬에선-완벽&#34;&gt;
+    &lt;a href=&#34;#1-1%ec%b0%a8---%ed%8c%8c%ec%9d%bc%ec%97%90-%ec%93%b0%ea%b8%b0-%eb%a1%9c%ec%bb%ac%ec%97%90%ec%84%a0-%ec%99%84%eb%b2%bd&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    1️⃣ 1차 - 파일에 쓰기 (로컬에선 완벽)
+&lt;/h2&gt;&lt;p&gt;처음엔 &lt;code&gt;src/data/menuData.json&lt;/code&gt; 을 &lt;code&gt;fs&lt;/code&gt; 로 직접 읽고 씀.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;JSON&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;parse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;readFileSync&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;MENU_PATH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;utf8&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;// ...수정...
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;writeFileSync&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;MENU_PATH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;JSON&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;stringify&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;로컬에서 완벽하게 잘 됨. 관리자에서 메뉴 고치면 바로 반영되고, 새로고침해도 남아 있음.&lt;/p&gt;
+&lt;p&gt;배포하니까 &lt;strong&gt;저장 버튼을 눌러도 아무 일이 안 일어남.&lt;/strong&gt;
+에러도 안 뜸. 성공 응답이 오는데 새로고침하면 그대로임.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Vercel 서버리스 함수의 파일시스템은 읽기 전용임.&lt;/strong&gt; (&lt;code&gt;/tmp&lt;/code&gt; 빼고)
+머리로는 알고 있었는데 내 코드가 그걸로 죽는 걸 본 건 처음이었음.&lt;/p&gt;
+&lt;h2 id=&#34;2-2차---메모리에-올리기-2분-만에-철회&#34;&gt;
+    &lt;a href=&#34;#2-2%ec%b0%a8---%eb%a9%94%eb%aa%a8%eb%a6%ac%ec%97%90-%ec%98%ac%eb%a6%ac%ea%b8%b0-2%eb%b6%84-%eb%a7%8c%ec%97%90-%ec%b2%a0%ed%9a%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2️⃣ 2차 - 메모리에 올리기 (2분 만에 철회)
+&lt;/h2&gt;&lt;p&gt;그래서 프로세스 메모리에 올려두고 거기서 읽고 쓰게 바꿈.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kd&#34;&gt;let&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;menuCache&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;menuCache&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;menuCache&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;loadInitialData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;배포하니까 &lt;strong&gt;저장은 됨.&lt;/strong&gt; 오 되네 하고 좋아함.&lt;/p&gt;
+&lt;p&gt;그리고 좀 있다가 새로고침하니까 원래대로 돌아가 있음.&lt;/p&gt;
+&lt;p&gt;당연한 일이었음. 람다는 요청 없으면 죽고, 죽으면 메모리가 날아감. 인스턴스가 여러 개면 저장한 인스턴스랑 읽는 인스턴스가 다를 수도 있음.
+&lt;strong&gt;&amp;ldquo;서버가 계속 살아 있다&amp;quot;를 전제로 한 설계였음.&lt;/strong&gt; 서버리스에선 그 전제가 틀림.&lt;/p&gt;
+&lt;p&gt;2분 만에 되돌렸음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;75eec6d  +44  −17   메모리 저장소 도입
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;a8fee7f  +17  −76   메모리 저장소 제거
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;3-3차---vercel-blob-한-시간-걸림&#34;&gt;
+    &lt;a href=&#34;#3-3%ec%b0%a8---vercel-blob-%ed%95%9c-%ec%8b%9c%ea%b0%84-%ea%b1%b8%eb%a6%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3️⃣ 3차 - Vercel Blob (한 시간 걸림)
+&lt;/h2&gt;&lt;p&gt;결국 메뉴 데이터를 &lt;strong&gt;Blob에 JSON 파일로&lt;/strong&gt; 올림.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;menuData.json     ← 나중에 ko/en 으로 쪼개짐
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;DB를 안 쓴 이유는 이럼.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;메뉴 항목이 수십 개임. 테이블 만들 규모가 아님&lt;/li&gt;
+&lt;li&gt;하루에 몇 번 바뀔까 말까임. 동시성 걱정이 없음&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;이미지는 어차피 Blob에 올려야 함.&lt;/strong&gt; 저장소를 둘로 나눌 이유가 없음&lt;/li&gt;
+&lt;li&gt;스키마 마이그레이션이 없음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code&gt;GET&lt;/code&gt; 은 Blob에서 파일을 찾아 URL로 받아오고, &lt;code&gt;POST&lt;/code&gt;/&lt;code&gt;PATCH&lt;/code&gt; 는 수정해서 다시 올림.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;blobs&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;list&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;token&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;BLOB_TOKEN&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;menuBlob&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;blobs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;find&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;b&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;b&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pathname&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;===&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;menuData.json&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fetch&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;menuBlob&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;url&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)).&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;이때 짠 저장 로직(&lt;code&gt;list → del → put&lt;/code&gt;)에 &lt;strong&gt;레이스 컨디션&lt;/strong&gt;이 있었는데,
+두 달 뒤에야 발견함. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;에서 다룸.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;-덤으로-낙관적-업데이트&#34;&gt;
+    &lt;a href=&#34;#-%eb%8d%a4%ec%9c%bc%eb%a1%9c-%eb%82%99%ea%b4%80%ec%a0%81-%ec%97%85%eb%8d%b0%ec%9d%b4%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ⚡ 덤으로 낙관적 업데이트
+&lt;/h2&gt;&lt;p&gt;Blob 왕복이 로컬 파일보다 확실히 느림. 메뉴 하나 고칠 때마다 스피너가 돌면 답답함.&lt;/p&gt;
+&lt;p&gt;그래서 &lt;strong&gt;화면을 먼저 바꾸고 요청을 뒤에 보내게&lt;/strong&gt; 함. 실패하면 되돌리고 에러를 띄움.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;클릭 → 화면 즉시 반영 → 요청 전송 → 실패 시 롤백 + 에러
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;메뉴판 편집은 실패할 일이 거의 없는 작업임. 성공을 기본으로 깔고 가는 게 맞음.&lt;/p&gt;
+&lt;h2 id=&#34;-그리고-readme&#34;&gt;
+    &lt;a href=&#34;#-%ea%b7%b8%eb%a6%ac%ea%b3%a0-readme&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📄 그리고 README
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docs: update README.md with project features, setup instructions, and API endpoints
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;오늘 하도 갈아엎어서, 지금 구조를 안 적어두면 일주일 뒤에 나도 까먹을 것 같았음.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;로컬에서 되는데요&amp;quot;가 제일 무서운 말임.&lt;/strong&gt; 파일 쓰기는 로컬에서 100% 돌아감. 배포 환경이 다르다는 걸 코드가 알려주지 않음.&lt;/p&gt;
+&lt;p&gt;그리고 2차(메모리)는 &lt;strong&gt;1차랑 똑같은 착각을 다른 방식으로 반복한 것&lt;/strong&gt;이었음.
+&amp;ldquo;이 프로세스가 계속 살아 있다&amp;quot;를 전제했다는 점에서 파일이나 메모리나 같음. 진짜 고쳐야 했던 건 저장 위치가 아니라 그 전제였음.&lt;/p&gt;
+&lt;p&gt;2분 만에 철회한 커밋이 남아 있는 게 좀 민망한데, 그래도 지우진 않을 거임. 이게 그날 실제로 있었던 일이니까.&lt;/p&gt;
+&lt;p&gt;#정담 #VercelBlob #서버리스 #배포 #NextJS&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>정담 개발 일지 #3 - 관리자 페이지를 하루에 다 만들었음</title>
+        <link>https://dn5772.github.io/p/jung-dam-3/</link>
+        <pubDate>Wed, 28 Jan 2026 14:21:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam-3/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-3---관리자-페이지를-하루에-다-만들었음&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-3---%ea%b4%80%eb%a6%ac%ec%9e%90-%ed%8e%98%ec%9d%b4%ec%a7%80%eb%a5%bc-%ed%95%98%eb%a3%a8%ec%97%90-%eb%8b%a4-%eb%a7%8c%eb%93%a4%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #3 - 관리자 페이지를 하루에 다 만들었음
+&lt;/h1&gt;&lt;p&gt;메뉴가 바뀔 때마다 내가 JSON 고치고 배포하는 건 말이 안 됨.
+&lt;strong&gt;사장님이 직접 고칠 수 있어야 함.&lt;/strong&gt; 그래서 관리자 페이지를 만들었음.&lt;/p&gt;
+&lt;p&gt;커밋 하나에 1045줄이 들어갔음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;admin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;             &lt;span class=&#34;mi&#34;&gt;516&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++++++++++++++&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;admin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;module&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;css&lt;/span&gt;     &lt;span class=&#34;mi&#34;&gt;272&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++++++++&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;         &lt;span class=&#34;mi&#34;&gt;138&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++++&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;auth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;login&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;    &lt;span class=&#34;mi&#34;&gt;68&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upload&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;        &lt;span class=&#34;mi&#34;&gt;51&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;files&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;changed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1045&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;insertions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-로그인은-비밀번호-하나로&#34;&gt;
+    &lt;a href=&#34;#-%eb%a1%9c%ea%b7%b8%ec%9d%b8%ec%9d%80-%eb%b9%84%eb%b0%80%eb%b2%88%ed%98%b8-%ed%95%98%eb%82%98%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔑 로그인은 비밀번호 하나로
+&lt;/h2&gt;&lt;p&gt;쓰는 사람이 사장님 한 명임. 회원가입도 없고 권한 구분도 없음.
+그래서 &lt;strong&gt;유저 테이블도 안 만들었음.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;POST /api/auth/login  →  { password }  →  { token }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;비밀번호는 &lt;strong&gt;bcrypt 해시&lt;/strong&gt;로 환경변수에 둠 (&lt;code&gt;ADMIN_PASSWORD_HASH&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;맞으면 JWT 발급, 이후 요청은 &lt;code&gt;Authorization: Bearer &amp;lt;token&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;유저가 한 명일 때 DB를 안 만드는 건 게으른 게 아니라 맞는 선택인 것 같음. 테이블 하나 만들면 마이그레이션이 따라오고 백업이 따라옴.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;다만 이때 짠 로그인 라우트에 &lt;strong&gt;꽤 심각한 문제 두 개&lt;/strong&gt;가 있었음.
+두 달 뒤에 발견해서 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;에서 갈아엎음.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;-메뉴-crud-api&#34;&gt;
+    &lt;a href=&#34;#-%eb%a9%94%eb%89%b4-crud-api&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📝 메뉴 CRUD API
+&lt;/h2&gt;&lt;p&gt;라우트 하나에 다 몰아넣었음.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;메서드&lt;/th&gt;
+&lt;th&gt;하는 일&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /api/menu&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;메뉴 전체 조회 (인증 없음, 손님도 씀)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;POST /api/menu&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;메뉴 전체 덮어쓰기&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PATCH /api/menu&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;항목 단위 추가/수정/삭제&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;PATCH&lt;/code&gt; 는 &lt;code&gt;action&lt;/code&gt; 으로 분기함.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;add&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;    &lt;span class=&#34;nx&#34;&gt;categoryId&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;update&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;categoryId&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;itemIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;delete&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;categoryId&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;itemIndex&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;전체 저장(&lt;code&gt;POST&lt;/code&gt;)이랑 항목 저장(&lt;code&gt;PATCH&lt;/code&gt;)을 &lt;strong&gt;둘 다&lt;/strong&gt; 만들어둔 게 나중에 문제가 됨.
+관리자 화면에 저장 버튼이 두 개 생기는데, 사장님 입장에선 뭘 눌러야 하는지 알 수가 없음. 이건 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;#8&lt;/a&gt;에서 정리함.&lt;/p&gt;
+&lt;h2 id=&#34;-이미지-업로드&#34;&gt;
+    &lt;a href=&#34;#-%ec%9d%b4%eb%af%b8%ec%a7%80-%ec%97%85%eb%a1%9c%eb%93%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🖼️ 이미지 업로드
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;POST&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upload&lt;/span&gt;  &lt;span class=&#34;err&#34;&gt;→&lt;/span&gt;  &lt;span class=&#34;err&#34;&gt;파일&lt;/span&gt;  &lt;span class=&#34;err&#34;&gt;→&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;url&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;받아서 저장하고 URL을 돌려줌. 메뉴 항목엔 그 URL만 들어감.&lt;/p&gt;
+&lt;p&gt;항목을 &lt;strong&gt;삭제할 때 이미지도 같이 지우게&lt;/strong&gt; 해놨음. 안 그러면 안 쓰는 이미지가 계속 쌓임.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;itemToDelete&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;startsWith&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;https://&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;del&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;itemToDelete&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;token&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;BLOB_TOKEN&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;이 업로드 엔드포인트에도 구멍이 있었는데, 역시 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;에서 다룸.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;-드래그로-메뉴-순서-바꾸기&#34;&gt;
+    &lt;a href=&#34;#-%eb%93%9c%eb%9e%98%ea%b7%b8%eb%a1%9c-%eb%a9%94%eb%89%b4-%ec%88%9c%ec%84%9c-%eb%b0%94%ea%be%b8%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🖱️ 드래그로 메뉴 순서 바꾸기
+&lt;/h2&gt;&lt;p&gt;메뉴판은 순서가 중요함. 대표 메뉴가 맨 위에 있어야 함.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;@dnd-kit&lt;/code&gt; 을 씀. react-beautiful-dnd가 더 유명한데 유지보수가 멈췄고, DnD Kit은 &lt;strong&gt;터치를 기본으로 지원&lt;/strong&gt;함.
+사장님이 폰으로 쓸 걸 생각하면 이게 결정적이었음.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;하루에 1045줄은 좀 무리였음. 돌아가긴 하는데 &lt;strong&gt;급하게 짠 흔적이 그대로 남음.&lt;/strong&gt;
+디버깅한다고 넣은 &lt;code&gt;console.log&lt;/code&gt;, &amp;ldquo;일단 되게&amp;rdquo; 하려고 건너뛴 검증, 저장 버튼 두 개 같은 것들.&lt;/p&gt;
+&lt;p&gt;두 달 뒤에 그걸 전부 되갚게 됨..&lt;/p&gt;
+&lt;p&gt;그리고 아직 제일 큰 문제가 안 드러났음. &lt;strong&gt;이 메뉴 데이터를 어디에 저장할 거냐&lt;/strong&gt; 하는 것.
+로컬에선 완벽하게 잘 돌아갔는데, 오늘 저녁에 배포하고 나서 알게 됨.&lt;/p&gt;
+&lt;p&gt;#정담 #관리자 #JWT #bcrypt #DndKit&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>정담 개발 일지 #2 - 메뉴 붙이고 잔손질</title>
+        <link>https://dn5772.github.io/p/jung-dam-2/</link>
+        <pubDate>Sat, 17 Jan 2026 10:09:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam-2/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-2---메뉴-붙이고-잔손질&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-2---%eb%a9%94%eb%89%b4-%eb%b6%99%ec%9d%b4%ea%b3%a0-%ec%9e%94%ec%86%90%ec%a7%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #2 - 메뉴 붙이고 잔손질
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-1/&#34; &gt;#1&lt;/a&gt;에서 뼈대는 세웠으니 이제 실제 메뉴를 넣을 차례임.
+1월 16~17일 이틀 동안 커밋 6개. 큰 기능은 없고 잔손질이 대부분이었는데, 잔손질이 제일 오래 걸림.&lt;/p&gt;
+&lt;h2 id=&#34;-메뉴-데이터&#34;&gt;
+    &lt;a href=&#34;#-%eb%a9%94%eb%89%b4-%eb%8d%b0%ec%9d%b4%ed%84%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🍽️ 메뉴 데이터
+&lt;/h2&gt;&lt;p&gt;일단 JSON 파일 하나에 박았음. 카테고리 안에 아이템 배열이 들어가는 단순한 구조.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;nt&#34;&gt;&amp;#34;categories&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nt&#34;&gt;&amp;#34;id&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;fried&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nt&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;튀김&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nt&#34;&gt;&amp;#34;description&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;바삭한 것들&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;nt&#34;&gt;&amp;#34;items&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;image&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;...&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;간장마늘치킨&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;ingredients&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;닭, 마늘, 간장&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;price&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;$18&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;price&lt;/code&gt; 를 숫자가 아니라 &lt;strong&gt;문자열&lt;/strong&gt;로 둔 게 나중에 편했음. &lt;code&gt;$18&lt;/code&gt;, &lt;code&gt;18,000원&lt;/code&gt;, &lt;code&gt;시가&lt;/code&gt; 같은 걸 다 넣을 수 있음.
+가격 계산을 할 일이 없는 화면이라 숫자로 둘 이유가 없었음.&lt;/p&gt;
+&lt;h2 id=&#34;-이미지-경로로-두-번-자빠짐&#34;&gt;
+    &lt;a href=&#34;#-%ec%9d%b4%eb%af%b8%ec%a7%80-%ea%b2%bd%eb%a1%9c%eb%a1%9c-%eb%91%90-%eb%b2%88-%ec%9e%90%eb%b9%a0%ec%a7%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🖼️ 이미지 경로로 두 번 자빠짐
+&lt;/h2&gt;&lt;p&gt;커밋 두 개가 연속으로 이미지 경로 고치는 거임.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: menu img issue
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: image paths in MenuSection component
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;템플릿은 &lt;code&gt;assets/img/menu/...&lt;/code&gt; 같은 상대 경로를 씀. Next.js에선 &lt;code&gt;public/&lt;/code&gt; 이 루트라서 &lt;code&gt;/img/menu/...&lt;/code&gt; 로 바뀌어야 함.
+근데 CSS 안의 &lt;code&gt;background-image&lt;/code&gt; 랑 JSX의 &lt;code&gt;src&lt;/code&gt; 랑 기준이 달라서 한 번에 안 잡혔음. 하나 고치면 다른 하나가 깨짐.&lt;/p&gt;
+&lt;h2 id=&#34;-전화번호는-눌러서-걸려야-함&#34;&gt;
+    &lt;a href=&#34;#-%ec%a0%84%ed%99%94%eb%b2%88%ed%98%b8%eb%8a%94-%eb%88%8c%eb%9f%ac%ec%84%9c-%ea%b1%b8%eb%a0%a4%ec%95%bc-%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📞 전화번호는 눌러서 걸려야 함
+&lt;/h2&gt;&lt;p&gt;이게 오늘 제일 잘한 것 같음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: update contact links to use telephone protocol
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;템플릿은 연락처 번호가 그냥 텍스트임. 근데 &lt;strong&gt;식당 홈페이지는 폰으로 보는 사람이 거의 전부&lt;/strong&gt;고, 그 사람들이 하는 행동은 하나임 — 전화 걸어서 예약하거나 위치 묻기.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;href&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;tel:0XX-XXX-XXXX&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;0XX-XXX-XXXX&lt;span class=&#34;p&#34;&gt;&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;한 줄인데 &amp;ldquo;번호 외워서 전화앱 열고 누르기&amp;rdquo; 가 &amp;ldquo;탭 한 번&amp;quot;이 됨.&lt;/p&gt;
+&lt;h2 id=&#34;-메뉴로-바로-내려가는-버튼&#34;&gt;
+    &lt;a href=&#34;#-%eb%a9%94%eb%89%b4%eb%a1%9c-%eb%b0%94%eb%a1%9c-%eb%82%b4%eb%a0%a4%ea%b0%80%eb%8a%94-%eb%b2%84%ed%8a%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ⬇️ 메뉴로 바로 내려가는 버튼
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: add scroll-to-menu button functionality and styles
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;손님이 홈페이지 와서 제일 보고 싶은 건 메뉴임. 근데 Hero 아래에 About, Why Us, Stats가 쌓여 있어서 한참 스크롤해야 함.
+템플릿 기본 배치를 그대로 두되 Hero에 &lt;strong&gt;메뉴로 점프하는 버튼&lt;/strong&gt;을 달았음.&lt;/p&gt;
+&lt;p&gt;섹션 순서를 바꿀까도 생각했는데, 템플릿 디자인이 그 순서 전제로 짜여 있어서 건드리면 여기저기 깨질 것 같았음.&lt;/p&gt;
+&lt;h2 id=&#34;-프리로더가-안-사라짐&#34;&gt;
+    &lt;a href=&#34;#-%ed%94%84%eb%a6%ac%eb%a1%9c%eb%8d%94%ea%b0%80-%ec%95%88-%ec%82%ac%eb%9d%bc%ec%a7%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    👻 프리로더가 안 사라짐
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;fix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;enable&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;preloader&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;removal&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;on&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;component&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mount&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;템플릿엔 로딩 스피너가 있고, &lt;code&gt;window.load&lt;/code&gt; 이벤트에서 DOM을 지우는 식으로 사라짐.
+근데 Next.js에선 하이드레이션 타이밍이 달라서 &lt;strong&gt;그 이벤트를 이미 놓친 뒤&lt;/strong&gt;인 경우가 생김. 그러면 스피너가 영원히 안 없어짐.&lt;/p&gt;
+&lt;p&gt;화면이 하얗게 멈춘 것처럼 보여서 제일 치명적인 버그였음. &lt;code&gt;window.load&lt;/code&gt; 대신 컴포넌트 마운트 시점에 지우게 바꿔서 해결.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;정적 템플릿의 버그는 대부분 &amp;ldquo;타이밍&amp;quot;에서 나옴.&lt;/strong&gt; 이미지 경로는 30분이면 고치는데, 프리로더처럼 &amp;ldquo;이벤트를 언제 놓쳤나&amp;rdquo; 하는 건 한참 헤맴.
+&lt;code&gt;window.load&lt;/code&gt; / &lt;code&gt;DOMContentLoaded&lt;/code&gt; 전제로 짠 코드는 React에 올리는 순간 전부 의심해봐야 할 듯.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;code&gt;tel:&lt;/code&gt; 링크 같은 건 기술적으로는 아무것도 아닌데 실제 손님한텐 제일 큼. 이런 걸 놓치면 안 되겠음.&lt;/p&gt;
+&lt;p&gt;다음은 사장님이 직접 메뉴를 고칠 수 있게 관리자 페이지 만들 차례.&lt;/p&gt;
+&lt;p&gt;#정담 #웹개발 #NextJS #모바일 #디버깅&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>정담 개발 일지 #1 - 템플릿 하나로 시작했음</title>
+        <link>https://dn5772.github.io/p/jung-dam-1/</link>
+        <pubDate>Thu, 15 Jan 2026 16:20:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam-1/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-1---템플릿-하나로-시작했음&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-1---%ed%85%9c%ed%94%8c%eb%a6%bf-%ed%95%98%eb%82%98%eb%a1%9c-%ec%8b%9c%ec%9e%91%ed%96%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #1 - 템플릿 하나로 시작했음
+&lt;/h1&gt;&lt;p&gt;식당 홈페이지를 만들게 됐음. 이름은 &lt;strong&gt;정담&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;사이트: &lt;a class=&#34;link&#34; href=&#34;https://jung-dam.vercel.app&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://jung-dam.vercel.app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;코드: &lt;a class=&#34;link&#34; href=&#34;https://github.com/dn5772/jung_dam&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/dn5772/jung_dam&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;오늘 커밋 6개 찍었는데 전부 1월 15일 하루임. 아침 8시 44분에 &lt;code&gt;create-next-app&lt;/code&gt; 치고 저녁까지 달림.&lt;/p&gt;
+&lt;h2 id=&#34;-디자인은-안-만들기로-함&#34;&gt;
+    &lt;a href=&#34;#-%eb%94%94%ec%9e%90%ec%9d%b8%ec%9d%80-%ec%95%88-%eb%a7%8c%eb%93%a4%ea%b8%b0%eb%a1%9c-%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎨 디자인은 안 만들기로 함
+&lt;/h2&gt;&lt;p&gt;식당 홈페이지는 디자인이 반인데, 난 디자이너가 아님.
+그래서 BootstrapMade의 &lt;strong&gt;Yummy&lt;/strong&gt; 템플릿을 사서 Next.js로 옮기기로 했음.&lt;/p&gt;
+&lt;p&gt;이게 맞는 판단이었던 게, 식당 홈페이지에 필요한 섹션이 이미 다 들어 있음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Hero · About · Why Us · Stats · Menu · Testimonials
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Chefs · Events · Gallery · Book a Table · Contact
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;직접 짰으면 이 목록 만드는 데만 며칠 걸렸을 것. 없는 섹션(Chefs, Events)은 나중에 빼거나 바꾸면 되고.&lt;/p&gt;
+&lt;h2 id=&#34;-정적-html을-nextjs로-옮기기&#34;&gt;
+    &lt;a href=&#34;#-%ec%a0%95%ec%a0%81-html%ec%9d%84-nextjs%eb%a1%9c-%ec%98%ae%ea%b8%b0%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔨 정적 HTML을 Next.js로 옮기기
+&lt;/h2&gt;&lt;p&gt;템플릿은 그냥 HTML + Bootstrap + jQuery 계열 라이브러리 뭉치임. 이걸 App Router에 얹는 게 오늘 작업의 대부분이었음.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;4d7b5e6&lt;/code&gt; 커밋이 이럼.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;43 files changed, 2810 insertions(+), 101 deletions(-)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/app/css/main.css        1650 ++++++++++++++++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/app/page.js              850 ++++++++++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/YummyScripts.js 201 ++++
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;main.css&lt;/code&gt; 1650줄은 손 안 대고 통째로 가져왔음.&lt;/strong&gt; 여기서 뭘 아끼려고 하면 디자인이 깨짐.&lt;/p&gt;
+&lt;p&gt;문제는 스크립트임. 템플릿은 &lt;code&gt;window.onload&lt;/code&gt; 에서 AOS 초기화하고, 모바일 네비 토글 붙이고, 스크롤 이벤트 걸고 하는 걸 전제로 짜여 있음. React에선 그게 그대로 안 됨.&lt;/p&gt;
+&lt;p&gt;그래서 &lt;code&gt;YummyScripts.js&lt;/code&gt; 라는 클라이언트 컴포넌트 하나를 만들어서 &lt;strong&gt;그 초기화 로직을 전부 여기로 몰아넣음.&lt;/strong&gt; AOS, 모바일 네비, 스크롤 동작.
+Bootstrap JS랑 &lt;code&gt;purecounter_vanilla.js&lt;/code&gt; 는 Next의 &lt;code&gt;&amp;lt;Script strategy=&amp;quot;afterInteractive&amp;quot;&amp;gt;&lt;/code&gt; 로 따로 실어줌.&lt;/p&gt;
+&lt;h2 id=&#34;-850줄짜리-pagejs-쪼개기&#34;&gt;
+    &lt;a href=&#34;#-850%ec%a4%84%ec%a7%9c%eb%a6%ac-pagejs-%ec%aa%bc%ea%b0%9c%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ✂️ 850줄짜리 page.js 쪼개기
+&lt;/h2&gt;&lt;p&gt;옮기고 나니까 &lt;code&gt;page.js&lt;/code&gt; 하나가 850줄이 됨. 스크롤이 안 끝남.&lt;/p&gt;
+&lt;p&gt;그래서 같은 날 바로 섹션별 컴포넌트로 쪼갰음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/app/page.js                        691 --------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/MenuSection.js          324 ++++++++++++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/ContactSection.js        80 ++++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/EventsSection.js         46 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/GallerySection.js        39 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/TestimonialsSection.js   38 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/StatsSection.js          35 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/ChefsSection.js          32 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/AboutSection.js          31 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/WhyUsSection.js          24 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/BookATableSection.js     22 ++
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;src/components/HeroSection.js           21 ++
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;page.js&lt;/code&gt; 에서 691줄이 빠지고 컴포넌트 11개가 생김. &lt;code&gt;page.js&lt;/code&gt; 는 이제 섹션을 순서대로 나열하는 것만 함.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;MenuSection.js&lt;/code&gt; 가 324줄로 혼자 제일 큼.&lt;/strong&gt; 이때는 몰랐는데 앞으로 이 파일을 제일 많이 건드리게 됨.&lt;/p&gt;
+&lt;h2 id=&#34;-오늘-고친-잔버그&#34;&gt;
+    &lt;a href=&#34;#-%ec%98%a4%eb%8a%98-%ea%b3%a0%ec%b9%9c-%ec%9e%94%eb%b2%84%ea%b7%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🐛 오늘 고친 잔버그
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🐛 fix: fix the detail, info
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🐛 fix: fix menu nav bar
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: ubdate hero      ← 오타 남
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;네비게이션 바가 섹션 앵커랑 안 맞아서 엉뚱한 데로 점프하는 것, hero 문구 교체 같은 거.
+커밋 메시지에 &lt;code&gt;ubdate&lt;/code&gt; 오타 난 거 지금 보니까 웃김.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;디자인을 안 만들기로 한 게 오늘의 전부인 듯.&lt;/strong&gt; 템플릿 값이 몇 만원인데 며칠을 벌었음.&lt;/p&gt;
+&lt;p&gt;정적 템플릿을 React로 옮길 때 제일 성가신 건 CSS가 아니라 &lt;strong&gt;초기화 스크립트&lt;/strong&gt;였음.
+&amp;ldquo;페이지 다 뜨면 실행돼야 하는 코드&amp;quot;를 어디에 둘지가 문제인데, 클라이언트 컴포넌트 하나에 몰아넣는 걸로 일단 정리함.&lt;/p&gt;
+&lt;p&gt;다음엔 메뉴 데이터 붙일 차례임.&lt;/p&gt;
+&lt;p&gt;#정담 #웹개발 #NextJS #React #템플릿&lt;/p&gt;
 </description>
         </item>
         

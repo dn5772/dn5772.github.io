@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Bcrypt on 대니짱</title>
+        <link>https://dn5772.github.io/tags/bcrypt/</link>
+        <description>Recent content in Bcrypt on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Wed, 28 Jan 2026 14:21:00 +0900</lastBuildDate><atom:link href="https://dn5772.github.io/tags/bcrypt/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>정담 개발 일지 #3 - 관리자 페이지를 하루에 다 만들었음</title>
+        <link>https://dn5772.github.io/p/jung-dam-3/</link>
+        <pubDate>Wed, 28 Jan 2026 14:21:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam-3/</guid>
+        <description>&lt;h1 id=&#34;정담-개발-일지-3---관리자-페이지를-하루에-다-만들었음&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-3---%ea%b4%80%eb%a6%ac%ec%9e%90-%ed%8e%98%ec%9d%b4%ec%a7%80%eb%a5%bc-%ed%95%98%eb%a3%a8%ec%97%90-%eb%8b%a4-%eb%a7%8c%eb%93%a4%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 개발 일지 #3 - 관리자 페이지를 하루에 다 만들었음
+&lt;/h1&gt;&lt;p&gt;메뉴가 바뀔 때마다 내가 JSON 고치고 배포하는 건 말이 안 됨.
+&lt;strong&gt;사장님이 직접 고칠 수 있어야 함.&lt;/strong&gt; 그래서 관리자 페이지를 만들었음.&lt;/p&gt;
+&lt;p&gt;커밋 하나에 1045줄이 들어갔음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;admin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;             &lt;span class=&#34;mi&#34;&gt;516&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++++++++++++++&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;admin&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;module&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;css&lt;/span&gt;     &lt;span class=&#34;mi&#34;&gt;272&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++++++++&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;         &lt;span class=&#34;mi&#34;&gt;138&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++++&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;auth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;login&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;    &lt;span class=&#34;mi&#34;&gt;68&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;src&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upload&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;route&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;js&lt;/span&gt;        &lt;span class=&#34;mi&#34;&gt;51&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;files&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;changed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1045&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;insertions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-로그인은-비밀번호-하나로&#34;&gt;
+    &lt;a href=&#34;#-%eb%a1%9c%ea%b7%b8%ec%9d%b8%ec%9d%80-%eb%b9%84%eb%b0%80%eb%b2%88%ed%98%b8-%ed%95%98%eb%82%98%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔑 로그인은 비밀번호 하나로
+&lt;/h2&gt;&lt;p&gt;쓰는 사람이 사장님 한 명임. 회원가입도 없고 권한 구분도 없음.
+그래서 &lt;strong&gt;유저 테이블도 안 만들었음.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;POST /api/auth/login  →  { password }  →  { token }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;비밀번호는 &lt;strong&gt;bcrypt 해시&lt;/strong&gt;로 환경변수에 둠 (&lt;code&gt;ADMIN_PASSWORD_HASH&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;맞으면 JWT 발급, 이후 요청은 &lt;code&gt;Authorization: Bearer &amp;lt;token&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;유저가 한 명일 때 DB를 안 만드는 건 게으른 게 아니라 맞는 선택인 것 같음. 테이블 하나 만들면 마이그레이션이 따라오고 백업이 따라옴.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;다만 이때 짠 로그인 라우트에 &lt;strong&gt;꽤 심각한 문제 두 개&lt;/strong&gt;가 있었음.
+두 달 뒤에 발견해서 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;에서 갈아엎음.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;-메뉴-crud-api&#34;&gt;
+    &lt;a href=&#34;#-%eb%a9%94%eb%89%b4-crud-api&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📝 메뉴 CRUD API
+&lt;/h2&gt;&lt;p&gt;라우트 하나에 다 몰아넣었음.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;메서드&lt;/th&gt;
+&lt;th&gt;하는 일&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;GET /api/menu&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;메뉴 전체 조회 (인증 없음, 손님도 씀)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;POST /api/menu&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;메뉴 전체 덮어쓰기&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;code&gt;PATCH /api/menu&lt;/code&gt;&lt;/td&gt;
+&lt;td&gt;항목 단위 추가/수정/삭제&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;code&gt;PATCH&lt;/code&gt; 는 &lt;code&gt;action&lt;/code&gt; 으로 분기함.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;add&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;    &lt;span class=&#34;nx&#34;&gt;categoryId&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;update&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;categoryId&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;itemIndex&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;action&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;delete&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;categoryId&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;itemIndex&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;전체 저장(&lt;code&gt;POST&lt;/code&gt;)이랑 항목 저장(&lt;code&gt;PATCH&lt;/code&gt;)을 &lt;strong&gt;둘 다&lt;/strong&gt; 만들어둔 게 나중에 문제가 됨.
+관리자 화면에 저장 버튼이 두 개 생기는데, 사장님 입장에선 뭘 눌러야 하는지 알 수가 없음. 이건 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;#8&lt;/a&gt;에서 정리함.&lt;/p&gt;
+&lt;h2 id=&#34;-이미지-업로드&#34;&gt;
+    &lt;a href=&#34;#-%ec%9d%b4%eb%af%b8%ec%a7%80-%ec%97%85%eb%a1%9c%eb%93%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🖼️ 이미지 업로드
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;POST&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upload&lt;/span&gt;  &lt;span class=&#34;err&#34;&gt;→&lt;/span&gt;  &lt;span class=&#34;err&#34;&gt;파일&lt;/span&gt;  &lt;span class=&#34;err&#34;&gt;→&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;url&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;받아서 저장하고 URL을 돌려줌. 메뉴 항목엔 그 URL만 들어감.&lt;/p&gt;
+&lt;p&gt;항목을 &lt;strong&gt;삭제할 때 이미지도 같이 지우게&lt;/strong&gt; 해놨음. 안 그러면 안 쓰는 이미지가 계속 쌓임.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;itemToDelete&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;startsWith&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;https://&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;del&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;itemToDelete&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;token&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;BLOB_TOKEN&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;이 업로드 엔드포인트에도 구멍이 있었는데, 역시 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;에서 다룸.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;-드래그로-메뉴-순서-바꾸기&#34;&gt;
+    &lt;a href=&#34;#-%eb%93%9c%eb%9e%98%ea%b7%b8%eb%a1%9c-%eb%a9%94%eb%89%b4-%ec%88%9c%ec%84%9c-%eb%b0%94%ea%be%b8%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🖱️ 드래그로 메뉴 순서 바꾸기
+&lt;/h2&gt;&lt;p&gt;메뉴판은 순서가 중요함. 대표 메뉴가 맨 위에 있어야 함.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;@dnd-kit&lt;/code&gt; 을 씀. react-beautiful-dnd가 더 유명한데 유지보수가 멈췄고, DnD Kit은 &lt;strong&gt;터치를 기본으로 지원&lt;/strong&gt;함.
+사장님이 폰으로 쓸 걸 생각하면 이게 결정적이었음.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;하루에 1045줄은 좀 무리였음. 돌아가긴 하는데 &lt;strong&gt;급하게 짠 흔적이 그대로 남음.&lt;/strong&gt;
+디버깅한다고 넣은 &lt;code&gt;console.log&lt;/code&gt;, &amp;ldquo;일단 되게&amp;rdquo; 하려고 건너뛴 검증, 저장 버튼 두 개 같은 것들.&lt;/p&gt;
+&lt;p&gt;두 달 뒤에 그걸 전부 되갚게 됨..&lt;/p&gt;
+&lt;p&gt;그리고 아직 제일 큰 문제가 안 드러났음. &lt;strong&gt;이 메뉴 데이터를 어디에 저장할 거냐&lt;/strong&gt; 하는 것.
+로컬에선 완벽하게 잘 돌아갔는데, 오늘 저녁에 배포하고 나서 알게 됨.&lt;/p&gt;
+&lt;p&gt;#정담 #관리자 #JWT #bcrypt #DndKit&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
