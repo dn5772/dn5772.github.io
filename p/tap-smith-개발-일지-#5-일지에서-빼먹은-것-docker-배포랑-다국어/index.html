@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1~4편이 건너뛴 초반 작업. 멀티스테이지 빌드, nginx 리버스 프록시, i18n">
+<title>Tap Smith 개발 일지 #5 - 일지에서 빼먹은 것: Docker 배포랑 다국어</title>
+
+<link rel='canonical' href='https://dn5772.github.io/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%235-%EC%9D%BC%EC%A7%80%EC%97%90%EC%84%9C-%EB%B9%BC%EB%A8%B9%EC%9D%80-%EA%B2%83-docker-%EB%B0%B0%ED%8F%AC%EB%9E%91-%EB%8B%A4%EA%B5%AD%EC%96%B4/'>
+
+<link rel="stylesheet" href="/scss/style.min.760e3dabc1e140d2e6abd27a8ca0aabb60e568829b29f67d2df12024136eff37.css"><meta property='og:title' content="Tap Smith 개발 일지 #5 - 일지에서 빼먹은 것: Docker 배포랑 다국어">
+<meta property='og:description' content="1~4편이 건너뛴 초반 작업. 멀티스테이지 빌드, nginx 리버스 프록시, i18n">
+<meta property='og:url' content='https://dn5772.github.io/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%235-%EC%9D%BC%EC%A7%80%EC%97%90%EC%84%9C-%EB%B9%BC%EB%A8%B9%EC%9D%80-%EA%B2%83-docker-%EB%B0%B0%ED%8F%AC%EB%9E%91-%EB%8B%A4%EA%B5%AD%EC%96%B4/'>
+<meta property='og:site_name' content='대니짱'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='게임개발' /><meta property='article:tag' content='Tap Smith' /><meta property='article:tag' content='Docker' /><meta property='article:tag' content='nginx' /><meta property='article:tag' content='MySQL' /><meta property='article:tag' content='다국어' /><meta property='article:tag' content='배포' /><meta property='article:published_time' content='2026-02-06T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-02-06T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="Tap Smith 개발 일지 #5 - 일지에서 빼먹은 것: Docker 배포랑 다국어">
+<meta name="twitter:description" content="1~4편이 건너뛴 초반 작업. 멀티스테이지 빌드, nginx 리버스 프록시, i18n">
+    <link rel="shortcut icon" href="/pokeball_icon.png" />
+
+  
+
+<meta name="google-adsense-account" content="ca-pub-2130075151823864">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130075151823864"
+     crossorigin="anonymous"></script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/ditto_2_hud2704b3b9534528c44bbff8ffb4fb3e3_5178_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏷️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">대니짱</a></h1>
+            <h2 class="site-description">Danny ZZang의 블로그</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/dn5772'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.instagram.com/sum._.melon/'
+                        target="_blank"
+                        title="Instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://dn5772.github.io/" selected>한국어</option>
+                                
+                                    <option value="https://dn5772.github.io/en/" >English</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>다크 모드</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#-왜-처음부터-docker였나">🐳 왜 처음부터 Docker였나</a></li>
+    <li><a href="#-dockerfile---멀티스테이지--비루트">📦 Dockerfile - 멀티스테이지 + 비루트</a></li>
+    <li><a href="#-db가-준비될-때까지-기다리게-하기">⏳ DB가 준비될 때까지 기다리게 하기</a></li>
+    <li><a href="#-nginx---굳이-왜-끼웠나">🔀 nginx - 굳이 왜 끼웠나</a></li>
+    <li><a href="#-프론트-다국어">🌏 프론트 다국어</a></li>
+    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/game-dev/tap-smith/" style="background-color: #007bff; color: #fff;">
+                Tap Smith
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%235-%EC%9D%BC%EC%A7%80%EC%97%90%EC%84%9C-%EB%B9%BC%EB%A8%B9%EC%9D%80-%EA%B2%83-docker-%EB%B0%B0%ED%8F%AC%EB%9E%91-%EB%8B%A4%EA%B5%AD%EC%96%B4/">Tap Smith 개발 일지 #5 - 일지에서 빼먹은 것: Docker 배포랑 다국어</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            1~4편이 건너뛴 초반 작업. 멀티스테이지 빌드, nginx 리버스 프록시, i18n
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Feb 06, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    3 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="tap-smith-개발-일지-5---일지에서-빼먹은-것">
+    <a href="#tap-smith-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-5---%ec%9d%bc%ec%a7%80%ec%97%90%ec%84%9c-%eb%b9%bc%eb%a8%b9%ec%9d%80-%ea%b2%83" class="header-anchor">#</a>
+    Tap Smith 개발 일지 #5 - 일지에서 빼먹은 것
+</h1><p>지난 네 편이 API → 인증 → DB 테스트 → 일일 미션 순서로 갔는데, 정작 <strong>제일 먼저 만들어둔 것들</strong>을 건너뛰었음.
+1월 31일 ~ 2월 1일에 해둔 배포 구성이랑 다국어. 오늘 몰아서 정리함.</p>
+<h2 id="-왜-처음부터-docker였나">
+    <a href="#-%ec%99%9c-%ec%b2%98%ec%9d%8c%eb%b6%80%ed%84%b0-docker%ec%98%80%eb%82%98" class="header-anchor">#</a>
+    🐳 왜 처음부터 Docker였나
+</h2><p>로컬에 MySQL 깔기가 싫었음. 그게 다임.</p>
+<p>Node 버전도 팀마다 다를 거고, MySQL 8.4를 로컬에 깔면 나중에 지우기도 귀찮음. 그래서 처음부터 <code>docker-compose up -d</code> 한 방으로 끝나게 만들어둠.</p>
+<p>컨테이너 3개임.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nginx (80)  ──▶  app (3000, 내부만)  ──▶  db (MySQL 8.4)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="-dockerfile---멀티스테이지--비루트">
+    <a href="#-dockerfile---%eb%a9%80%ed%8b%b0%ec%8a%a4%ed%85%8c%ec%9d%b4%ec%a7%80--%eb%b9%84%eb%a3%a8%ed%8a%b8" class="header-anchor">#</a>
+    📦 Dockerfile - 멀티스테이지 + 비루트
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl"><span class="c"># Build stage</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> node:24-alpine AS builder</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> package*.json ./<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> npm ci<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># Runtime stage</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">FROM</span><span class="s"> node:24-alpine</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">WORKDIR</span><span class="s"> /app</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> apk add --no-cache dumb-init<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> --from<span class="o">=</span>builder /app/node_modules ./node_modules<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> package*.json ./<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> src ./src<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="c"># 비루트 유저</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> addgroup -g <span class="m">1001</span> -S nodejs<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> adduser -S nodejs -u <span class="m">1001</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">USER</span><span class="s"> nodejs</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">EXPOSE</span><span class="s"> 3000</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">HEALTHCHECK --interval=30s --timeout=10s </span>--start-period<span class="o">=</span>5s --retries<span class="o">=</span><span class="m">3</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    CMD node -e <span class="s2">&#34;require(&#39;http&#39;).get(&#39;http://localhost:3000/health&#39;, (r) =&gt; {if (r.statusCode !== 200) throw new Error(r.statusCode)})&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENTRYPOINT</span> <span class="p">[</span><span class="s2">&#34;dumb-init&#34;</span><span class="p">,</span> <span class="s2">&#34;--&#34;</span><span class="p">]</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;npm&#34;</span><span class="p">,</span> <span class="s2">&#34;start&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>신경 쓴 거 세 가지.</p>
+<p><strong>1. <code>dumb-init</code>.</strong> Node를 PID 1로 띄우면 시그널 처리가 제대로 안 됨.
+<code>docker-compose down</code> 할 때 SIGTERM이 안 먹어서 10초 기다렸다가 강제 종료되는 그 현상. <code>dumb-init</code> 을 ENTRYPOINT에 끼우면 깔끔하게 내려감.</p>
+<p><strong>2. 비루트 유저.</strong> 컨테이너 안에서 root로 돌 이유가 없음. <code>nodejs</code> 유저 만들어서 그걸로 실행.</p>
+<p><strong>3. HEALTHCHECK.</strong> 이게 다음 항목이랑 연결됨.</p>
+<h2 id="-db가-준비될-때까지-기다리게-하기">
+    <a href="#-db%ea%b0%80-%ec%a4%80%eb%b9%84%eb%90%a0-%eb%95%8c%ea%b9%8c%ec%a7%80-%ea%b8%b0%eb%8b%a4%eb%a6%ac%ea%b2%8c-%ed%95%98%ea%b8%b0" class="header-anchor">#</a>
+    ⏳ DB가 준비될 때까지 기다리게 하기
+</h2><p>처음에 <code>depends_on: - db</code> 만 걸었더니 API가 계속 죽었음.
+<strong><code>depends_on</code> 은 컨테이너가 &ldquo;시작&quot;되기만 기다리지, MySQL이 실제로 쿼리를 받을 준비가 됐는지는 안 봄.</strong> MySQL은 첫 부팅에 초기화를 하느라 수십 초가 걸림.</p>
+<p>그래서 헬스체크를 걸고 <code>service_healthy</code> 를 조건으로 줌.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">app</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">depends_on</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l">service_healthy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">db</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">healthcheck</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;CMD&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;mysqladmin&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;ping&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;-h&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;localhost&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;-u&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;root&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;-p${DB_ROOT_PASSWORD:-rootpassword}&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l">10s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l">5s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>이거 하고 나서 <code>docker-compose up</code> 한 번에 깔끔하게 뜸. <a class="link" href="https://dn5772.github.io/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%233-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%97%B0%EB%8F%99-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%99%84%EB%A3%8C/" >#3편</a>에서 &ldquo;스키마 자동 생성도 깔끔하게 끝남&quot;이라고 썼던 게 사실 이 구성 덕분이었음.</p>
+<h2 id="-nginx---굳이-왜-끼웠나">
+    <a href="#-nginx---%ea%b5%b3%ec%9d%b4-%ec%99%9c-%eb%81%bc%ec%9b%a0%eb%82%98" class="header-anchor">#</a>
+    🔀 nginx - 굳이 왜 끼웠나
+</h2><p>API 하나 띄우는데 리버스 프록시까지 필요한가 싶었는데, 넣어두니까 편한 게 꽤 있었음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">upstream</span> <span class="s">api_backend</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">server</span> <span class="n">app</span><span class="p">:</span><span class="mi">3000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">keepalive</span> <span class="mi">32</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">server</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">add_header</span> <span class="s">X-Frame-Options</span> <span class="s">&#34;SAMEORIGIN&#34;</span> <span class="s">always</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">add_header</span> <span class="s">X-Content-Type-Options</span> <span class="s">&#34;nosniff&#34;</span> <span class="s">always</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kn">add_header</span> <span class="s">X-XSS-Protection</span> <span class="s">&#34;1</span><span class="p">;</span> <span class="kn">mode=block&#34;</span> <span class="s">always</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">client_max_body_size</span> <span class="s">10M</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">proxy_pass</span> <span class="s">http://api_backend</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">proxy_http_version</span> <span class="mi">1</span><span class="s">.1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">proxy_set_header</span> <span class="s">Connection</span> <span class="s">&#34;&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">...</span>
+</span></span><span class="line"><span class="cl">    <span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s">location</span> <span class="s">/health</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">proxy_pass</span> <span class="s">http://api_backend/health</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kn">access_log</span> <span class="no">off</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>app을 외부에 노출 안 함.</strong> <code>ports</code> 가 아니라 <code>expose</code> 라서 3000번은 컨테이너 네트워크 안에서만 열림. 밖에서 닿는 건 nginx의 80뿐임.</li>
+<li><strong>보안 헤더를 앱 코드에서 뺄 수 있음.</strong> Fastify에서 매번 붙이는 것보다 여기 한 번 적는 게 나음.</li>
+<li><strong>Gzip이랑 keepalive.</strong> <code>proxy_http_version 1.1</code> + <code>Connection &quot;&quot;</code> 조합으로 업스트림 커넥션을 재사용함.</li>
+<li><strong><code>/health</code> 는 access_log 끔.</strong> 30초마다 찍히는 헬스체크 로그로 access.log가 도배되는 걸 막음.</li>
+</ul>
+<p>나중에 HTTPS 붙일 때도 앱은 안 건드리고 nginx만 고치면 됨.</p>
+<h2 id="-프론트-다국어">
+    <a href="#-%ed%94%84%eb%a1%a0%ed%8a%b8-%eb%8b%a4%ea%b5%ad%ec%96%b4" class="header-anchor">#</a>
+    🌏 프론트 다국어
+</h2><p>게임 UI 문자열은 <code>front/locales/ko.json</code>, <code>en.json</code> 로 분리함.
+키는 화면 단위로 네임스페이스를 줬음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="s2">&#34;tabs.market&#34;</span><span class="o">:</span> <span class="s2">&#34;Market&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;tabs.mining&#34;</span><span class="o">:</span> <span class="s2">&#34;Mining&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;tabs.smithy&#34;</span><span class="o">:</span> <span class="s2">&#34;Smithy&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;mining.tapTitle&#34;</span><span class="o">:</span> <span class="s2">&#34;Tap to Mine&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;mining.pickaxeShop&#34;</span><span class="o">:</span> <span class="s2">&#34;Pickaxe Workshop&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;smithy.enchant&#34;</span><span class="o">:</span> <span class="s2">&#34;Enchant&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;missions.checkin&#34;</span><span class="o">:</span> <span class="s2">&#34;Daily Check-in&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;missions.checkinHint&#34;</span><span class="o">:</span> <span class="s2">&#34;Once per day&#34;</span><span class="p">,</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>i18n.js</code> 안에 <strong>fallback 딕셔너리를 통째로 들고 있음.</strong> 로케일 JSON을 못 불러와도 UI가 빈 칸으로 뜨지 않게 하려고.
+Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 수 있어서 이렇게 둠.</p>
+<p>Telegram은 <code>initDataUnsafe.user.language_code</code> 로 유저 언어를 알려주니까, 첫 접속 때 그걸로 기본 언어를 정함.</p>
+<h2 id="-느낀-점">
+    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    🎯 느낀 점
+</h2><p>배포 구성은 만들 땐 지루한데 나중에 제일 고마운 부분인 듯.
+<a class="link" href="https://dn5772.github.io/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%233-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%97%B0%EB%8F%99-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%99%84%EB%A3%8C/" >#3편</a>에서 DB 테스트 10개가 655ms만에 다 통과한 것도, 사실 그 전에 <code>docker-compose up</code> 한 방으로 MySQL이 스키마랑 더미 데이터까지 들고 뜨게 해둔 덕분이었음.</p>
+<p><code>depends_on</code> 이 &ldquo;준비됨&quot;을 보장 안 한다는 건 이번에 제대로 알았음. healthcheck랑 <code>service_healthy</code> 세트로 기억해둬야 할 듯.</p>
+<p>다음엔 Telegram Mini App 실제 배포하면서 겪은 것들 써보겠음!</p>
+<p>#TapSmith #Docker #nginx #MySQL #다국어 #배포</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%EA%B2%8C%EC%9E%84%EA%B0%9C%EB%B0%9C/">게임개발</a>
+        
+            <a href="/tags/tap-smith/">Tap Smith</a>
+        
+            <a href="/tags/docker/">Docker</a>
+        
+            <a href="/tags/nginx/">Nginx</a>
+        
+            <a href="/tags/mysql/">MySQL</a>
+        
+            <a href="/tags/%EB%8B%A4%EA%B5%AD%EC%96%B4/">다국어</a>
+        
+            <a href="/tags/%EB%B0%B0%ED%8F%AC/">배포</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%233-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%97%B0%EB%8F%99-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%99%84%EB%A3%8C/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Tap Smith 개발 일지 #3 - 데이터베이스 연동 테스트 완료!</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%234-%EC%9D%BC%EC%9D%BC-%EB%AF%B8%EC%85%98-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EC%84%A4%EA%B3%84/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Tap Smith 개발 일지 #4 - 일일 미션 시스템 설계</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%232-%EB%B0%B1%EC%97%94%EB%93%9C-%EC%9D%B8%EC%A6%9D-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B5%AC%ED%98%84/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Tap Smith 개발 일지 #2 - 백엔드 인증 시스템 구현</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%231-api-%EA%B5%AC%ED%98%84%EA%B3%BC-%EB%AC%B8%EC%84%9C%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90-%EB%B6%84%EC%84%9D/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Tap Smith 개발 일지 #1 - API 구현과 문서의 차이점 분석</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/tap-smith-%ED%83%AD-%EC%8A%A4%EB%AF%B8%EC%8A%A4-%EA%B2%8C%EC%9E%84-%EA%B0%9C%EB%B0%9C-%EA%B8%B0%ED%9A%8D%EC%84%9C-v1.4/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Tap Smith (탭 스미스) — 게임 개발 기획서 (v1.4)</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2026 대니짱
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

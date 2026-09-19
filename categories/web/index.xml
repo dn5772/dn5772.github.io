@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Web on 대니짱</title>
+        <link>https://dn5772.github.io/categories/web/</link>
+        <description>Recent content in Web on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Tue, 19 May 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://dn5772.github.io/categories/web/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>정담 - 식당 홈페이지를 넉 달 동안 고쳐 쓴 기록</title>
+        <link>https://dn5772.github.io/p/jung-dam/</link>
+        <pubDate>Tue, 19 May 2026 00:00:00 +0000</pubDate>
+        
+        <guid>https://dn5772.github.io/p/jung-dam/</guid>
+        <description>&lt;h1 id=&#34;정담---식당-홈페이지를-넉-달-동안-고쳐-쓴-기록&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%95%eb%8b%b4---%ec%8b%9d%eb%8b%b9-%ed%99%88%ed%8e%98%ec%9d%b4%ec%a7%80%eb%a5%bc-%eb%84%89-%eb%8b%ac-%eb%8f%99%ec%95%88-%ea%b3%a0%ec%b3%90-%ec%93%b4-%ea%b8%b0%eb%a1%9d&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    정담 - 식당 홈페이지를 넉 달 동안 고쳐 쓴 기록
+&lt;/h1&gt;&lt;p&gt;식당 홈페이지 하나 만들었음. 이름은 &lt;strong&gt;정담&lt;/strong&gt;.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;사이트: &lt;a class=&#34;link&#34; href=&#34;https://jung-dam.vercel.app&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://jung-dam.vercel.app&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;코드: &lt;a class=&#34;link&#34; href=&#34;https://github.com/dn5772/jung_dam&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/dn5772/jung_dam&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;1월 15일에 &lt;code&gt;create-next-app&lt;/code&gt; 으로 시작해서 5월 19일 마지막 커밋까지 39개. 넉 달인데 중간중간 뜯어고친 게 많아서 정리해봄.&lt;/p&gt;
+&lt;p&gt;스택은 Next.js 15 App Router + React 19. &lt;strong&gt;DB는 안 씀.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-1월---템플릿-갖다-붙이기&#34;&gt;
+    &lt;a href=&#34;#-1%ec%9b%94---%ed%85%9c%ed%94%8c%eb%a6%bf-%ea%b0%96%eb%8b%a4-%eb%b6%99%ec%9d%b4%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🏗️ 1월 - 템플릿 갖다 붙이기
+&lt;/h2&gt;&lt;p&gt;처음엔 BootstrapMade의 Yummy 템플릿을 Next.js로 옮기는 작업이었음.
+Hero, About, Menu, Chefs, Gallery, Events, Contact… 섹션이 한 무더기.&lt;/p&gt;
+&lt;p&gt;이때 커밋들이 죄다 이런 식임.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🐛 fix: fix menu nav bar
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;🐛 fix: fix the detail, info
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: image paths in MenuSection component
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: update contact links to use telephone protocol
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;전화번호 링크를 &lt;code&gt;tel:&lt;/code&gt; 프로토콜로 바꾼 건 의외로 중요했음. 식당 홈페이지는 폰으로 보는 사람이 대부분인데 번호를 눌러서 바로 전화가 걸려야 함.&lt;/p&gt;
+&lt;h2 id=&#34;-1월-28일---메뉴-데이터를-어디에-둘-것인가-하루에-3번-바뀜&#34;&gt;
+    &lt;a href=&#34;#-1%ec%9b%94-28%ec%9d%bc---%eb%a9%94%eb%89%b4-%eb%8d%b0%ec%9d%b4%ed%84%b0%eb%a5%bc-%ec%96%b4%eb%94%94%ec%97%90-%eb%91%98-%ea%b2%83%ec%9d%b8%ea%b0%80-%ed%95%98%eb%a3%a8%ec%97%90-3%eb%b2%88-%eb%b0%94%eb%80%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    💥 1월 28일 - 메뉴 데이터를 어디에 둘 것인가 (하루에 3번 바뀜)
+&lt;/h2&gt;&lt;p&gt;제일 삽질한 날임. 커밋 3개가 같은 날에 연달아 있음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;75&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;eec6d&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;Fix&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Vercel&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;deployment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Change&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;API&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;memory&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;based&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;storage&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;a8fee7f&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;refactor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;removing&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;memory&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;storage&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;using&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;direct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;file&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;access&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;21&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ffce2&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;integrate&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Vercel&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Blob&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;storage&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uploads&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;1차 - 파일에 쓰기.&lt;/strong&gt; 처음엔 &lt;code&gt;src/data/menuData.json&lt;/code&gt; 을 직접 읽고 씀. 로컬에선 완벽하게 잘 됨.
+배포하니까 관리자 페이지에서 메뉴를 저장해도 아무 일이 안 일어남. &lt;strong&gt;Vercel 서버리스는 파일시스템에 쓸 수가 없음.&lt;/strong&gt; 이걸 몸으로 배움.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2차 - 메모리에 올리기.&lt;/strong&gt; 그래서 프로세스 메모리에 올려두고 거기서 읽고 쓰게 바꿈. 배포하니까 저장은 됨.
+근데 조금 있다가 새로고침하면 원래대로 돌아옴. 람다가 죽었다 살아나면 메모리가 날아가니까 당연한 일이었음. 44줄 추가했다가 그대로 되돌림.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3차 - Vercel Blob.&lt;/strong&gt; 결국 메뉴 데이터를 &lt;strong&gt;Blob에 JSON 파일로&lt;/strong&gt; 올림.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;menuData-ko.json
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;menuData-en.json
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;DB를 안 쓴 이유는 간단함. 메뉴판은 데이터가 수십 개고, 하루에 몇 번 바뀔까 말까임.
+테이블 만들고 마이그레이션 관리할 이유가 없었음. 이미지도 어차피 Blob에 올려야 하니 저장소를 하나로 통일함.&lt;/p&gt;
+&lt;h2 id=&#34;-2월---낙관적-업데이트&#34;&gt;
+    &lt;a href=&#34;#-2%ec%9b%94---%eb%82%99%ea%b4%80%ec%a0%81-%ec%97%85%eb%8d%b0%ec%9d%b4%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ⚡ 2월 - 낙관적 업데이트
+&lt;/h2&gt;&lt;p&gt;관리자 페이지에서 메뉴를 고칠 때마다 Blob 왕복을 기다리니까 답답했음.
+그래서 화면을 &lt;strong&gt;먼저&lt;/strong&gt; 바꾸고 요청을 뒤에 보내게 함. 실패하면 되돌리고.&lt;/p&gt;
+&lt;p&gt;메뉴판 편집은 실패할 일이 거의 없는 작업이라 이쪽이 체감이 훨씬 좋았음.&lt;/p&gt;
+&lt;h2 id=&#34;-23월---한국어영어&#34;&gt;
+    &lt;a href=&#34;#-23%ec%9b%94---%ed%95%9c%ea%b5%ad%ec%96%b4%ec%98%81%ec%96%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🌏 2~3월 - 한국어/영어
+&lt;/h2&gt;&lt;p&gt;메뉴 아이템 한 칸이 이렇게 생김.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;name&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;ko&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;냉면&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Cold Noodles&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;관리자 페이지는 항목별로 ko/en 필드를 같이 편집하고, 저장할 때 &lt;code&gt;{ en: {...}, ko: {...} }&lt;/code&gt; 형태로 보내서 &lt;strong&gt;두 로케일 파일을 한 번에 갱신&lt;/strong&gt;함.&lt;/p&gt;
+&lt;p&gt;보는 쪽은 &lt;code&gt;LanguageContext&lt;/code&gt; 가 &lt;code&gt;localStorage&lt;/code&gt; 에 현재 언어를 들고 있고, 없으면 브라우저 언어로 감지함. 기본은 한국어.
+&lt;code&gt;MenuSection&lt;/code&gt; 은 &lt;code&gt;/api/menu?locale=&amp;lt;locale&amp;gt;&lt;/code&gt; 을 부르고 언어가 바뀌면 다시 가져옴.&lt;/p&gt;
+&lt;h2 id=&#34;-3월-25일---보안-구멍-메우기&#34;&gt;
+    &lt;a href=&#34;#-3%ec%9b%94-25%ec%9d%bc---%eb%b3%b4%ec%95%88-%ea%b5%ac%eb%a9%8d-%eb%a9%94%ec%9a%b0%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔒 3월 25일 - 보안 구멍 메우기
+&lt;/h2&gt;&lt;p&gt;이날 커밋 하나가 제일 뜨끔했음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: resolve critical security vulnerabilities in API routes
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;고친 게 이만큼임.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. JWT 시크릿이랑 bcrypt 해시가 코드에 박혀 있었음.&lt;/strong&gt; 전부 환경변수로 뺐음.
+&lt;code&gt;JWT_SECRET&lt;/code&gt;, &lt;code&gt;ADMIN_PASSWORD_HASH&lt;/code&gt;, &lt;code&gt;BLOB_READ_WRITE_TOKEN&lt;/code&gt; 셋 다 &lt;code&gt;.env&lt;/code&gt; 로.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 로그인 라우트가 비밀번호를 평문으로 로깅하고 있었음.&lt;/strong&gt; 디버깅한다고 넣어놓고 그대로 둔 것. 삭제.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. 업로드 엔드포인트에 인증이 아예 없었음.&lt;/strong&gt; 이게 제일 심각했음.
+&lt;code&gt;POST /api/upload&lt;/code&gt; 가 무방비라 누구나 내 Blob 스토리지에 파일을 올릴 수 있었음. JWT 검증 추가함.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. 메뉴 저장에 레이스 컨디션이 있었음.&lt;/strong&gt; 원래 저장 로직이 이랬음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;list → delete → put
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;지우고 나서 올리는 사이에 &lt;strong&gt;메뉴가 빈 채로 응답되는 창&lt;/strong&gt;이 있었음. 손님이 하필 그 순간에 들어오면 메뉴판이 텅 비어 보임.
+&lt;code&gt;put(..., { addRandomSuffix: false })&lt;/code&gt; 으로 &lt;strong&gt;같은 이름에 덮어쓰기&lt;/strong&gt;로 바꿔서 delete 단계를 아예 없앴음.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5. en/ko 저장을 병렬로.&lt;/strong&gt; 순차로 두 번 왕복하던 걸 &lt;code&gt;Promise.all&lt;/code&gt; 로 묶음.&lt;/p&gt;
+&lt;p&gt;직접 짠 코드에서 이런 게 나오니까 좀 부끄러웠는데, 그래도 배포 전에 찾은 게 어딤.&lt;/p&gt;
+&lt;h2 id=&#34;-3월-25일---관리자-화면을-모바일-우선으로&#34;&gt;
+    &lt;a href=&#34;#-3%ec%9b%94-25%ec%9d%bc---%ea%b4%80%eb%a6%ac%ec%9e%90-%ed%99%94%eb%a9%b4%ec%9d%84-%eb%aa%a8%eb%b0%94%ec%9d%bc-%ec%9a%b0%ec%84%a0%ec%9c%bc%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📱 3월 25일 - 관리자 화면을 모바일 우선으로
+&lt;/h2&gt;&lt;p&gt;사장님이 폰으로 메뉴를 고침. 근데 관리자 페이지가 데스크탑 기준이었음.&lt;/p&gt;
+&lt;p&gt;슬라이드 네비게이션으로 바꾸고, ko/en 입력 칸을 섹션으로 접었다 펼 수 있게 함.
+드래그 정렬은 DnD Kit 쓰는데 터치에서도 잘 동작해서 그대로 뒀음.&lt;/p&gt;
+&lt;h2 id=&#34;-5월-19일---마지막-한-방&#34;&gt;
+    &lt;a href=&#34;#-5%ec%9b%94-19%ec%9d%bc---%eb%a7%88%ec%a7%80%eb%a7%89-%ed%95%9c-%eb%b0%a9&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🐛 5월 19일 - 마지막 한 방
+&lt;/h2&gt;&lt;p&gt;3월에 &lt;code&gt;addRandomSuffix: false&lt;/code&gt; 로 바꿨는데, 5월에 갑자기 메뉴 저장이 다시 실패하기 시작함.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: add allowOverwrite to Vercel Blob put to fix menu save failures
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Blob SDK가 올라가면서 &lt;strong&gt;같은 경로에 덮어쓰려면 &lt;code&gt;allowOverwrite&lt;/code&gt; 를 명시적으로 줘야&lt;/strong&gt; 하게 바뀌었음.
+3월에 delete를 없앤 그 결정이 5월에 한 번 더 손이 간 셈인데, 그래도 레이스 컨디션으로 메뉴가 비는 것보단 나음.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Vercel에선 파일에 못 쓴다.&lt;/strong&gt; 이걸 하루에 세 번 고쳐가며 배움. 머리로 아는 거랑 배포해서 깨지는 걸 보는 건 다름.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;DB 없이도 되는 게 꽤 많음.&lt;/strong&gt; 메뉴판처럼 작고 자주 안 바뀌는 데이터는 JSON 파일 두 장으로 충분했음. 오히려 스키마 마이그레이션이 없어서 편함.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;디버깅용 코드가 제일 위험함.&lt;/strong&gt; 비밀번호 평문 로깅이랑 인증 없는 업로드 엔드포인트, 둘 다 &amp;ldquo;일단 되게 해놓고 나중에&amp;rdquo; 하고 넘긴 것들이었음. 나중이 두 달 뒤였음..&lt;/p&gt;
+&lt;p&gt;#정담 #웹개발 #NextJS #VercelBlob #다국어 #보안&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
