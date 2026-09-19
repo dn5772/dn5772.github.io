@@ -15,14 +15,14 @@
         <description>&lt;h1 id=&#34;abide-개발-일지-8---ai가-생성하는-말은-번역이-안-됨&#34;&gt;
     &lt;a href=&#34;#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-8---ai%ea%b0%80-%ec%83%9d%ec%84%b1%ed%95%98%eb%8a%94-%eb%a7%90%ec%9d%80-%eb%b2%88%ec%97%ad%ec%9d%b4-%ec%95%88-%eb%90%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     ABIDE 개발 일지 #8 - AI가 생성하는 말은 번역이 안 됨
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt; 첫날에 한국어/영어 문자열 맵을 깔아뒀음. 나중에 고생 안 하려고.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;절반만 맞았음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;버튼이랑 라벨은 그걸로 됐는데, 이 앱에서 사용자가 보는 텍스트의 대부분은 &lt;strong&gt;AI가 그 자리에서 만들어내는 것&lt;/strong&gt;임.
-묵상 질문, 딥렌즈 분석, 묵상 노트, 에러 메시지, 무드 문구. 문자열 맵에 있을 리가 없음.&lt;/p&gt;
-&lt;p&gt;4월 10일 하루에 이걸 전부 뚫었음.&lt;/p&gt;
-&lt;h2 id=&#34;-언어가-통과해야-하는-경로&#34;&gt;
-    &lt;a href=&#34;#-%ec%96%b8%ec%96%b4%ea%b0%80-%ed%86%b5%ea%b3%bc%ed%95%b4%ec%95%bc-%ed%95%98%eb%8a%94-%ea%b2%bd%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🧵 언어가 통과해야 하는 경로
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt; 첫날에 한국어/영어 문자열 맵을 깔아뒀다. 나중에 고생 안 하려고.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;절반만 맞았다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;버튼이랑 라벨은 그걸로 됐는데, 이 앱에서 사용자가 보는 텍스트의 대부분은 &lt;strong&gt;AI가 그 자리에서 만들어내는 것&lt;/strong&gt;이다.
+묵상 질문, 딥렌즈 분석, 묵상 노트, 에러 메시지, 무드 문구. 문자열 맵에 있을 리가 없다.&lt;/p&gt;
+&lt;p&gt;4월 10일 하루에 이걸 전부 뚫었다.&lt;/p&gt;
+&lt;h2 id=&#34;언어가-통과해야-하는-경로&#34;&gt;
+    &lt;a href=&#34;#%ec%96%b8%ec%96%b4%ea%b0%80-%ed%86%b5%ea%b3%bc%ed%95%b4%ec%95%bc-%ed%95%98%eb%8a%94-%ea%b2%bd%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    언어가 통과해야 하는 경로
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -43,7 +43,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            → 생성된 텍스트
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;커밋이 이 순서 그대로임.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;커밋이 이 순서 그대로다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -70,13 +70,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;19:21  (core)   fix(core): include verse_text in DeepLens cache hit response
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;서브모듈 네 개를 한 번에 건드림.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;의 세션 스냅샷 때랑 같은 모양인데, 이번엔 더 넓음.&lt;/p&gt;
-&lt;h2 id=&#34;-캐시가-언어를-몰랐음&#34;&gt;
-    &lt;a href=&#34;#-%ec%ba%90%ec%8b%9c%ea%b0%80-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%aa%b0%eb%9e%90%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🗄️ 캐시가 언어를 몰랐음
-&lt;/h2&gt;&lt;p&gt;02:25 커밋이 이 작업에서 제일 아팠음.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 DeepLens 구절 &lt;strong&gt;62,189개를 미리 계산해서&lt;/strong&gt; DB에 박아뒀음.
-그 캐시 키에 &lt;strong&gt;언어가 없었음.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;서브모듈 네 개를 한 번에 건드린다.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;의 세션 스냅샷 때랑 같은 모양인데, 이번엔 더 넓다.&lt;/p&gt;
+&lt;h2 id=&#34;캐시가-언어를-몰랐음&#34;&gt;
+    &lt;a href=&#34;#%ec%ba%90%ec%8b%9c%ea%b0%80-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%aa%b0%eb%9e%90%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    캐시가 언어를 몰랐음
+&lt;/h2&gt;&lt;p&gt;02:25 커밋이 이 작업에서 제일 아팠다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 DeepLens 구절 &lt;strong&gt;62,189개를 미리 계산해서&lt;/strong&gt; DB에 박아뒀다.
+그 캐시 키에 &lt;strong&gt;언어가 없었다.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -87,13 +87,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;후:  verse_ref + language       → 분석 결과
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;영어 사용자가 구절을 열면 &lt;strong&gt;한국어 분석이 그대로 나옴.&lt;/strong&gt; 캐시는 히트하니까 에러도 안 남.&lt;/p&gt;
-&lt;p&gt;인프라에 컬럼을 추가하고(&lt;code&gt;00:02&lt;/code&gt;) 조회 키를 바꿨음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 자랑했던 사전 계산이 &lt;strong&gt;언어 하나 늘자 절반만 쓸모 있게&lt;/strong&gt; 된 셈임.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;캐시 키는 &amp;ldquo;결과가 달라지는 모든 입력&amp;quot;을 담아야&lt;/strong&gt; 하는데, 그때는 언어가 입력인 줄 몰랐음.&lt;/p&gt;
-&lt;h2 id=&#34;-하드코딩된-한국어가-계속-나왔음&#34;&gt;
-    &lt;a href=&#34;#-%ed%95%98%eb%93%9c%ec%bd%94%eb%94%a9%eb%90%9c-%ed%95%9c%ea%b5%ad%ec%96%b4%ea%b0%80-%ea%b3%84%ec%86%8d-%eb%82%98%ec%99%94%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🇰🇷 하드코딩된 한국어가 계속 나왔음
-&lt;/h2&gt;&lt;p&gt;01:50에 에러 메시지·무드 문구·노트 제목을 이중화했는데, 그날 저녁에 이게 또 나옴.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;영어 사용자가 구절을 열면 &lt;strong&gt;한국어 분석이 그대로 나온다.&lt;/strong&gt; 캐시는 히트하니까 에러도 안 난다.&lt;/p&gt;
+&lt;p&gt;인프라에 컬럼을 추가하고(&lt;code&gt;00:02&lt;/code&gt;) 조회 키를 바꿨다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 자랑했던 사전 계산이 &lt;strong&gt;언어 하나 늘자 절반만 쓸모 있게&lt;/strong&gt; 된 셈이다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;캐시 키는 &amp;ldquo;결과가 달라지는 모든 입력&amp;quot;을 담아야&lt;/strong&gt; 하는데, 그때는 언어가 입력인 줄 몰랐다.&lt;/p&gt;
+&lt;h2 id=&#34;하드코딩된-한국어가-계속-나왔음&#34;&gt;
+    &lt;a href=&#34;#%ed%95%98%eb%93%9c%ec%bd%94%eb%94%a9%eb%90%9c-%ed%95%9c%ea%b5%ad%ec%96%b4%ea%b0%80-%ea%b3%84%ec%86%8d-%eb%82%98%ec%99%94%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    하드코딩된 한국어가 계속 나왔음
+&lt;/h2&gt;&lt;p&gt;01:50에 에러 메시지·무드 문구·노트 제목을 이중화했는데, 그날 저녁에 이게 또 나온다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -102,13 +102,13 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;18:57  fix(ai): remove remaining hardcoded Korean strings
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;17시간 뒤에 &lt;strong&gt;남은 게 또 발견됨.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;노드가 일곱 개고(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;) 각각이 폴백 문구, 기본 제목, 예외 메시지를 들고 있음.
-한 군데씩 찾아서 고치는 방식이라 &lt;strong&gt;놓친 게 있는지 알 방법이 없었음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;문자열 맵을 처음부터 서버에도 뒀으면 &amp;ldquo;맵에 없는 리터럴&amp;quot;을 린트로 잡을 수 있었을 텐데, 사후에 하려니까 눈으로 찾는 수밖에 없었음.&lt;/p&gt;
-&lt;h2 id=&#34;-프롬프트도-언어별로&#34;&gt;
-    &lt;a href=&#34;#-%ed%94%84%eb%a1%ac%ed%94%84%ed%8a%b8%eb%8f%84-%ec%96%b8%ec%96%b4%eb%b3%84%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔤 프롬프트도 언어별로
+&lt;/div&gt;&lt;p&gt;17시간 뒤에 &lt;strong&gt;남은 게 또 발견된다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;노드가 일곱 개고(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;) 각각이 폴백 문구, 기본 제목, 예외 메시지를 들고 있다.
+한 군데씩 찾아서 고치는 방식이라 &lt;strong&gt;놓친 게 있는지 알 방법이 없었다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;문자열 맵을 처음부터 서버에도 뒀으면 &amp;ldquo;맵에 없는 리터럴&amp;quot;을 린트로 잡을 수 있었을 텐데, 사후에 하려니까 눈으로 찾는 수밖에 없었다.&lt;/p&gt;
+&lt;h2 id=&#34;프롬프트도-언어별로&#34;&gt;
+    &lt;a href=&#34;#%ed%94%84%eb%a1%ac%ed%94%84%ed%8a%b8%eb%8f%84-%ec%96%b8%ec%96%b4%eb%b3%84%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    프롬프트도 언어별로
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -119,13 +119,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;04-10 01:52  feat(ai): use language-aware prompt helpers for ask and deep-lens
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;영어로 답해줘&amp;quot;를 프롬프트에 한 줄 붙이는 걸로는 안 됐음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;딥렌즈는 원어(히브리어/헬라어) 분석이 들어가는데, 한국어 독자용 설명이랑 영어 독자용 설명이 &lt;strong&gt;내용 자체가 달라야&lt;/strong&gt; 함.
-한국어 성경 번역 관습을 설명하는 부분이 영어 사용자한테는 의미가 없음.&lt;/p&gt;
-&lt;p&gt;그래서 프롬프트를 통째로 따로 만들고, 언어에 따라 고르는 헬퍼를 씀.&lt;/p&gt;
-&lt;h2 id=&#34;-한-달-커밋-181개&#34;&gt;
-    &lt;a href=&#34;#-%ed%95%9c-%eb%8b%ac-%ec%bb%a4%eb%b0%8b-181%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📊 한 달, 커밋 181개
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;영어로 답해줘&amp;quot;를 프롬프트에 한 줄 붙이는 걸로는 안 됐다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;딥렌즈는 원어(히브리어/헬라어) 분석이 들어가는데, 한국어 독자용 설명이랑 영어 독자용 설명이 &lt;strong&gt;내용 자체가 달라야&lt;/strong&gt; 한다.
+한국어 성경 번역 관습을 설명하는 부분이 영어 사용자한테는 의미가 없다.&lt;/p&gt;
+&lt;p&gt;그래서 프롬프트를 통째로 따로 만들고, 언어에 따라 고르는 헬퍼를 쓴다.&lt;/p&gt;
+&lt;h2 id=&#34;한-달-커밋-181개&#34;&gt;
+    &lt;a href=&#34;#%ed%95%9c-%eb%8b%ac-%ec%bb%a4%eb%b0%8b-181%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    한 달, 커밋 181개
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -150,48 +150,47 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                181커밋   3/10 ~ 4/10
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;루트 37커밋 중 &lt;strong&gt;15개가 &amp;ldquo;Sync all submodules&amp;rdquo;&lt;/strong&gt; 임.&lt;/p&gt;
-&lt;h2 id=&#34;-배운-것&#34;&gt;
-    &lt;a href=&#34;#-%eb%b0%b0%ec%9a%b4-%ea%b2%83&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    💭 배운 것
+&lt;/div&gt;&lt;p&gt;루트 37커밋 중 &lt;strong&gt;15개가 &amp;ldquo;Sync all submodules&amp;rdquo;&lt;/strong&gt; 이다.&lt;/p&gt;
+&lt;h2 id=&#34;배운-것&#34;&gt;
+    &lt;a href=&#34;#%eb%b0%b0%ec%9a%b4-%ea%b2%83&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    배운 것
 &lt;/h2&gt;&lt;h3 id=&#34;다국어는-ui-문자열이-아니라-데이터-파이프라인임&#34;&gt;
     &lt;a href=&#34;#%eb%8b%a4%ea%b5%ad%ec%96%b4%eb%8a%94-ui-%eb%ac%b8%ec%9e%90%ec%97%b4%ec%9d%b4-%ec%95%84%eb%8b%88%eb%9d%bc-%eb%8d%b0%ec%9d%b4%ed%84%b0-%ed%8c%8c%ec%9d%b4%ed%94%84%eb%9d%bc%ec%9d%b8%ec%9e%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     다국어는 UI 문자열이 아니라 데이터 파이프라인임
-&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 문자열 맵을 먼저 깐 건 잘한 건데, &lt;strong&gt;그게 다국어의 10%였음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;나머지 90%는 언어 값이 Flutter → Core → AI → 그래프 상태 → 프롬프트 → 캐시 키까지 &lt;strong&gt;끊기지 않고 흘러가게&lt;/strong&gt; 만드는 일이었음.
-중간에 한 군데만 빠져도 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;의 캐시처럼 조용히 틀린 결과가 나옴.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 문자열 맵을 먼저 깐 건 잘한 건데, &lt;strong&gt;그게 다국어의 10%였다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;나머지 90%는 언어 값이 Flutter → Core → AI → 그래프 상태 → 프롬프트 → 캐시 키까지 &lt;strong&gt;끊기지 않고 흘러가게&lt;/strong&gt; 만드는 일이었다.
+중간에 한 군데만 빠져도 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;의 캐시처럼 조용히 틀린 결과가 나온다.&lt;/p&gt;
 &lt;p&gt;다시 한다면 &lt;strong&gt;요청 스키마에 &lt;code&gt;language&lt;/code&gt; 를 첫날에 넣었을 것.&lt;/strong&gt; 값이 하나뿐이더라도.&lt;/p&gt;
 &lt;h3 id=&#34;llm-판정에는-코드-가드가-붙어야-함&#34;&gt;
     &lt;a href=&#34;#llm-%ed%8c%90%ec%a0%95%ec%97%90%eb%8a%94-%ec%bd%94%eb%93%9c-%ea%b0%80%eb%93%9c%ea%b0%80-%eb%b6%99%ec%96%b4%ec%95%bc-%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     LLM 판정에는 코드 가드가 붙어야 함
 &lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 wrap_up 무한 반복 카운터, &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;의 Observer 상한·델타 캡·단조성·거절 가드.
-전부 같은 얘기임. &lt;strong&gt;흐름은 LLM이 잡아도 &amp;ldquo;그만&amp;quot;과 &amp;ldquo;한계&amp;quot;는 코드가 세야 함.&lt;/strong&gt;&lt;/p&gt;
+전부 같은 얘기다. &lt;strong&gt;흐름은 LLM이 잡아도 &amp;ldquo;그만&amp;quot;과 &amp;ldquo;한계&amp;quot;는 코드가 세야 한다.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;일단-되게는-반드시-다시-옴&#34;&gt;
     &lt;a href=&#34;#%ec%9d%bc%eb%8b%a8-%eb%90%98%ea%b2%8c%eb%8a%94-%eb%b0%98%eb%93%9c%ec%8b%9c-%eb%8b%a4%ec%8b%9c-%ec%98%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     &amp;ldquo;일단 되게&amp;quot;는 반드시 다시 옴
 &lt;/h3&gt;&lt;p&gt;SharedPreferences → secure storage(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;), &lt;code&gt;.env&lt;/code&gt; 커밋 → gitignore, 릴리즈 빌드 디버그 로그(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;).
-&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;정담&lt;/a&gt; 때랑 완전히 같은 패턴이 다른 프로젝트에서 또 나왔음.&lt;/p&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;정담&lt;/a&gt; 때랑 완전히 같은 패턴이 다른 프로젝트에서 또 나왔다.&lt;/p&gt;
 &lt;h3 id=&#34;옵션-하나가-조합을-곱으로-늘림&#34;&gt;
     &lt;a href=&#34;#%ec%98%b5%ec%85%98-%ed%95%98%eb%82%98%ea%b0%80-%ec%a1%b0%ed%95%a9%ec%9d%84-%ea%b3%b1%ec%9c%bc%eb%a1%9c-%eb%8a%98%eb%a6%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     옵션 하나가 조합을 곱으로 늘림
-&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;의 성경 버전 추가가 UI 버그 11개를, 여기 언어 추가가 캐시 재설계를 불렀음.
-&lt;strong&gt;기능 추가 비용은 그 기능이 아니라 기존 것과의 곱에서 나옴.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-안-끝낸-것들&#34;&gt;
-    &lt;a href=&#34;#-%ec%95%88-%eb%81%9d%eb%82%b8-%ea%b2%83%eb%93%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🕳️ 안 끝낸 것들
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;의 성경 버전 추가가 UI 버그 11개를, 여기 언어 추가가 캐시 재설계를 불렀다.
+&lt;strong&gt;기능 추가 비용은 그 기능이 아니라 기존 것과의 곱에서 나온다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;안-끝낸-것들&#34;&gt;
+    &lt;a href=&#34;#%ec%95%88-%eb%81%9d%eb%82%b8-%ea%b2%83%eb%93%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    안 끝낸 것들
 &lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;신학 RAG 시딩 미완료.&lt;/strong&gt; 청크 129개는 만들었는데 &lt;code&gt;seed_theology_vectors.py&lt;/code&gt; 를 안 씀. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 RAG가 반쪽임&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DeepLens 사전 계산이 KRV+NIV 2개 버전&lt;/strong&gt;뿐. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;에서 KJV/ASV를 넣었는데 캐시는 안 따라감&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;신학 RAG 시딩 미완료.&lt;/strong&gt; 청크 129개는 만들었는데 &lt;code&gt;seed_theology_vectors.py&lt;/code&gt; 를 안 쓴다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 RAG가 반쪽이다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DeepLens 사전 계산이 KRV+NIV 2개 버전&lt;/strong&gt;뿐. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;에서 KJV/ASV를 넣었는데 캐시는 안 따라간다&lt;/li&gt;
 &lt;li&gt;스크린샷이 README에 아직 &amp;ldquo;Coming soon&amp;rdquo;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;-지금&#34;&gt;
-    &lt;a href=&#34;#-%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 지금
-&lt;/h2&gt;&lt;p&gt;4월 10일 이후로 멈춰 있음.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-8/&#34; &gt;seam&lt;/a&gt;이 사흘 몰아치고 멈춘 거였다면, 이건 한 달을 붙들고 &lt;strong&gt;실제로 돌아가는 데까지&lt;/strong&gt; 갔음.
-앱이 있고, 서버 네 개가 뜨고, 62,189개 구절이 DB에 들어 있고, 로그인해서 묵상을 할 수 있음.&lt;/p&gt;
-&lt;p&gt;돌아온다면 신학 RAG 시딩부터 할 것 같음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에서 만들다 만 게 제일 걸림.&lt;/p&gt;
-&lt;p&gt;#ABIDE #다국어 #i18n #회고 #LangGraph&lt;/p&gt;
+&lt;h2 id=&#34;지금&#34;&gt;
+    &lt;a href=&#34;#%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    지금
+&lt;/h2&gt;&lt;p&gt;4월 10일 이후로 멈춰 있다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-8/&#34; &gt;seam&lt;/a&gt;이 사흘 몰아치고 멈춘 거였다면, 이건 한 달을 붙들고 &lt;strong&gt;실제로 돌아가는 데까지&lt;/strong&gt; 갔다.
+앱이 있고, 서버 네 개가 뜨고, 62,189개 구절이 DB에 들어 있고, 로그인해서 묵상을 할 수 있다.&lt;/p&gt;
+&lt;p&gt;돌아온다면 신학 RAG 시딩부터 할 것 같다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에서 만들다 만 게 제일 걸린다.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -203,11 +202,11 @@
         <description>&lt;h1 id=&#34;정담-개발-일지-6---다국어-구현이랑-analytics&#34;&gt;
     &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-6---%eb%8b%a4%ea%b5%ad%ec%96%b4-%ea%b5%ac%ed%98%84%ec%9d%b4%eb%9e%91-analytics&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     정담 개발 일지 #6 - 다국어 구현이랑 Analytics
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;에서 정한 설계대로 구현함. 2월 2~4일 커밋 9개.&lt;/p&gt;
-&lt;h2 id=&#34;-api에-locale-붙이기&#34;&gt;
-    &lt;a href=&#34;#-api%ec%97%90-locale-%eb%b6%99%ec%9d%b4%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔌 API에 locale 붙이기
-&lt;/h2&gt;&lt;p&gt;&lt;code&gt;GET&lt;/code&gt; 은 쿼리 파라미터 하나 추가하면 끝임.&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;에서 정한 설계대로 구현한다. 2월 2~4일 커밋 9개.&lt;/p&gt;
+&lt;h2 id=&#34;api에-locale-붙이기&#34;&gt;
+    &lt;a href=&#34;#api%ec%97%90-locale-%eb%b6%99%ec%9d%b4%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    API에 locale 붙이기
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;GET&lt;/code&gt; 은 쿼리 파라미터 하나 추가하면 끝이다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -222,8 +221,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;fileName&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;sb&#34;&gt;`menuData-&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;${&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;safeLocale&lt;/span&gt;&lt;span class=&#34;si&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;sb&#34;&gt;.json`&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;허용 목록으로 검증하는 게 중요함.&lt;/strong&gt; 이게 파일명에 그대로 들어가니까, 검증 없으면 &lt;code&gt;?locale=../../something&lt;/code&gt; 같은 게 들어올 수 있음.&lt;/p&gt;
-&lt;p&gt;캐시 헤더도 같이 달았음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;허용 목록으로 검증하는 게 중요하다.&lt;/strong&gt; 이게 파일명에 그대로 들어가니까, 검증 없으면 &lt;code&gt;?locale=../../something&lt;/code&gt; 같은 게 들어올 수 있다.&lt;/p&gt;
+&lt;p&gt;캐시 헤더도 같이 달았다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -232,12 +231,12 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Cache-Control&amp;#39;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;public, s-maxage=60, stale-while-revalidate=300&amp;#39;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;메뉴는 한 달에 몇 번 바뀌는데 조회는 계속 일어남. CDN이 60초 캐시하고, 만료돼도 5분 동안은 &lt;strong&gt;일단 옛날 걸 주면서 뒤에서 갱신&lt;/strong&gt;함.
-사장님이 메뉴를 고치면 최대 1분 늦게 반영되는데, 그 정도는 괜찮다고 봄.&lt;/p&gt;
-&lt;h2 id=&#34;-languagecontext&#34;&gt;
-    &lt;a href=&#34;#-languagecontext&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🌐 LanguageContext
-&lt;/h2&gt;&lt;p&gt;언어 상태는 컨텍스트 하나로 관리함.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;메뉴는 한 달에 몇 번 바뀌는데 조회는 계속 일어난다. CDN이 60초 캐시하고, 만료돼도 5분 동안은 &lt;strong&gt;일단 옛날 걸 주면서 뒤에서 갱신&lt;/strong&gt;한다.
+사장님이 메뉴를 고치면 최대 1분 늦게 반영되는데, 그 정도는 괜찮다고 본다.&lt;/p&gt;
+&lt;h2 id=&#34;languagecontext&#34;&gt;
+    &lt;a href=&#34;#languagecontext&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    LanguageContext
+&lt;/h2&gt;&lt;p&gt;언어 상태는 컨텍스트 하나로 관리한다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -247,9 +246,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;저장된 선택이 있으면 그거, 없으면 브라우저 언어, 그것도 아니면 한국어.
-&lt;strong&gt;기본을 영어가 아니라 한국어로 둔 건 손님 대부분이 한국인이라서임.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;MenuSection&lt;/code&gt; 은 &lt;code&gt;/api/menu?locale=&amp;lt;locale&amp;gt;&lt;/code&gt; 을 부르고, 언어가 바뀌면 다시 가져옴.&lt;/p&gt;
-&lt;p&gt;한 가지 좋았던 게, API가 이미 단일 언어 데이터를 주니까 &lt;strong&gt;화면 코드에서 언어 분기가 통째로 사라졌음.&lt;/strong&gt;&lt;/p&gt;
+&lt;strong&gt;기본을 영어가 아니라 한국어로 둔 건 손님 대부분이 한국인이라서다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;MenuSection&lt;/code&gt; 은 &lt;code&gt;/api/menu?locale=&amp;lt;locale&amp;gt;&lt;/code&gt; 을 부르고, 언어가 바뀌면 다시 가져온다.&lt;/p&gt;
+&lt;p&gt;한 가지 좋았던 게, API가 이미 단일 언어 데이터를 주니까 &lt;strong&gt;화면 코드에서 언어 분기가 통째로 사라졌다.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -266,11 +265,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;{&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;item&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;title&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&amp;lt;/&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;h4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;에서 파일을 쪼개기로 한 이득이 여기서 나옴.&lt;/p&gt;
-&lt;h2 id=&#34;-관리자는-두-언어를-동시에&#34;&gt;
-    &lt;a href=&#34;#-%ea%b4%80%eb%a6%ac%ec%9e%90%eb%8a%94-%eb%91%90-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%8f%99%ec%8b%9c%ec%97%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    ✏️ 관리자는 두 언어를 동시에
-&lt;/h2&gt;&lt;p&gt;관리자 화면에선 반대로 합쳐서 다룸. 서버에서 받은 ko/en 두 파일을 하나로 병합해서 편집하고, 저장할 때 다시 쪼갬.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;에서 파일을 쪼개기로 한 이득이 여기서 나온다.&lt;/p&gt;
+&lt;h2 id=&#34;관리자는-두-언어를-동시에&#34;&gt;
+    &lt;a href=&#34;#%ea%b4%80%eb%a6%ac%ec%9e%90%eb%8a%94-%eb%91%90-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%8f%99%ec%8b%9c%ec%97%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    관리자는 두 언어를 동시에
+&lt;/h2&gt;&lt;p&gt;관리자 화면에선 반대로 합쳐서 다룬다. 서버에서 받은 ko/en 두 파일을 하나로 병합해서 편집하고, 저장할 때 다시 쪼갠다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -281,7 +280,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;저장:      { title: { ko, en }, ... }            →  { ko: {...}, en: {...} }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;PATCH&lt;/code&gt; 도 양쪽 언어를 같이 받게 바꿨음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;PATCH&lt;/code&gt; 도 양쪽 언어를 같이 받게 바꿨다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -304,10 +303,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;한쪽만 보내는 경로를 안 만들었으니 어긋날 수가 없음.&lt;/strong&gt; 설계 때 정한 그대로임.&lt;/p&gt;
-&lt;h2 id=&#34;-vercel-analytics&#34;&gt;
-    &lt;a href=&#34;#-vercel-analytics&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📊 Vercel Analytics
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;한쪽만 보내는 경로를 안 만들었으니 어긋날 수가 없다.&lt;/strong&gt; 설계 때 정한 그대로다.&lt;/p&gt;
+&lt;h2 id=&#34;vercel-analytics&#34;&gt;
+    &lt;a href=&#34;#vercel-analytics&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    Vercel Analytics
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -318,14 +317,14 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: add @vercel/analytics dependency
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;&amp;lt;Analytics /&amp;gt;&lt;/code&gt; 한 줄 넣으면 끝임. 설정 없음.&lt;/p&gt;
-&lt;p&gt;이거 붙이고 나서 처음으로 &lt;strong&gt;사람들이 실제로 뭘 보는지&lt;/strong&gt; 알게 됐음.
-대부분 모바일이고, 메뉴 섹션에 제일 오래 머무름. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-2/&#34; &gt;#2&lt;/a&gt;에서 만든 &amp;ldquo;메뉴로 바로 가기&amp;rdquo; 버튼이 괜히 만든 게 아니었음.&lt;/p&gt;
-&lt;p&gt;이 관찰이 나중에 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;#8&lt;/a&gt;에서 관리자 화면을 모바일 우선으로 갈아엎는 근거가 됨.&lt;/p&gt;
-&lt;h2 id=&#34;-브랜치를-나눠서-작업함&#34;&gt;
-    &lt;a href=&#34;#-%eb%b8%8c%eb%9e%9c%ec%b9%98%eb%a5%bc-%eb%82%98%eb%88%a0%ec%84%9c-%ec%9e%91%ec%97%85%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🌿 브랜치를 나눠서 작업함
-&lt;/h2&gt;&lt;p&gt;이번엔 PR을 세 개 만들었음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;&amp;lt;Analytics /&amp;gt;&lt;/code&gt; 한 줄 넣으면 끝이다. 설정 없다.&lt;/p&gt;
+&lt;p&gt;이거 붙이고 나서 처음으로 &lt;strong&gt;사람들이 실제로 뭘 보는지&lt;/strong&gt; 알게 됐다.
+대부분 모바일이고, 메뉴 섹션에 제일 오래 머무른다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-2/&#34; &gt;#2&lt;/a&gt;에서 만든 &amp;ldquo;메뉴로 바로 가기&amp;rdquo; 버튼이 괜히 만든 게 아니었다.&lt;/p&gt;
+&lt;p&gt;이 관찰이 나중에 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;#8&lt;/a&gt;에서 관리자 화면을 모바일 우선으로 갈아엎는 근거가 된다.&lt;/p&gt;
+&lt;h2 id=&#34;브랜치를-나눠서-작업함&#34;&gt;
+    &lt;a href=&#34;#%eb%b8%8c%eb%9e%9c%ec%b9%98%eb%a5%bc-%eb%82%98%eb%88%a0%ec%84%9c-%ec%9e%91%ec%97%85%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    브랜치를 나눠서 작업함
+&lt;/h2&gt;&lt;p&gt;이번엔 PR을 세 개 만들었다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -338,15 +337,14 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Merge pull request #3 from dn5772/devlop
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;혼자 하는 프로젝트라 브랜치가 의미 있나 싶었는데, &lt;strong&gt;다국어 작업 중에 메뉴가 깨지면 손님한테 바로 보임.&lt;/strong&gt;
-&lt;code&gt;main&lt;/code&gt; 에 바로 밀지 않고 Preview 배포에서 확인하고 머지하니까 마음이 편했음.&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;설계를 먼저 해두니까 구현이 그냥 받아쓰기였음.&lt;/strong&gt; Phase 2~4가 문서에 적힌 순서대로 끝남.
-&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;처럼 배포하고 나서 뒤집는 일이 한 번도 없었음.&lt;/p&gt;
-&lt;p&gt;Analytics는 진작 붙일 걸 그랬음. 한 줄인데 &amp;ldquo;내 추측&amp;quot;이랑 &amp;ldquo;실제 손님 행동&amp;quot;을 구분해줌.&lt;/p&gt;
-&lt;p&gt;#정담 #다국어 #i18n #React #Analytics #Vercel&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;혼자 하는 프로젝트라 브랜치가 의미 있나 싶었는데, &lt;strong&gt;다국어 작업 중에 메뉴가 깨지면 손님한테 바로 보다.&lt;/strong&gt;
+&lt;code&gt;main&lt;/code&gt; 에 바로 밀지 않고 Preview 배포에서 확인하고 머지하니까 마음이 편했다.&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;설계를 먼저 해두니까 구현이 그냥 받아쓰기였다.&lt;/strong&gt; Phase 2~4가 문서에 적힌 순서대로 끝난다.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;처럼 배포하고 나서 뒤집는 일이 한 번도 없었다.&lt;/p&gt;
+&lt;p&gt;Analytics는 진작 붙일 걸 그랬다. 한 줄인데 &amp;ldquo;내 추측&amp;quot;이랑 &amp;ldquo;실제 손님 행동&amp;quot;을 구분해준다.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -358,9 +356,9 @@
         <description>&lt;h1 id=&#34;정담-개발-일지-5---다국어를-어떻게-저장할지-먼저-정했음&#34;&gt;
     &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-5---%eb%8b%a4%ea%b5%ad%ec%96%b4%eb%a5%bc-%ec%96%b4%eb%96%bb%ea%b2%8c-%ec%a0%80%ec%9e%a5%ed%95%a0%ec%a7%80-%eb%a8%bc%ec%a0%80-%ec%a0%95%ed%96%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     정담 개발 일지 #5 - 다국어를 어떻게 저장할지 먼저 정했음
-&lt;/h1&gt;&lt;p&gt;외국인 손님이 꽤 온다고 해서 &lt;strong&gt;영어 메뉴&lt;/strong&gt;를 붙이기로 했음.&lt;/p&gt;
-&lt;p&gt;근데 이번엔 바로 코드를 안 쳤음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 하루에 세 번 갈아엎고 나니까, 저장 구조를 잘못 잡으면 얼마나 피곤한지 알게 됐음.
-그래서 설계 문서를 먼저 썼음.&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;외국인 손님이 꽤 온다고 해서 &lt;strong&gt;영어 메뉴&lt;/strong&gt;를 붙이기로 했다.&lt;/p&gt;
+&lt;p&gt;근데 이번엔 바로 코드를 안 쳤다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 하루에 세 번 갈아엎고 나니까, 저장 구조를 잘못 잡으면 얼마나 피곤한지 알게 됐다.
+그래서 설계 문서를 먼저 썼다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -371,9 +369,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docs/menu-implementation-process.md ← Phase 1~6 작업 계획
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;-두-가지-선택지&#34;&gt;
-    &lt;a href=&#34;#-%eb%91%90-%ea%b0%80%ec%a7%80-%ec%84%a0%ed%83%9d%ec%a7%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🤔 두 가지 선택지
+&lt;/div&gt;&lt;h2 id=&#34;두-가지-선택지&#34;&gt;
+    &lt;a href=&#34;#%eb%91%90-%ea%b0%80%ec%a7%80-%ec%84%a0%ed%83%9d%ec%a7%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    두 가지 선택지
 &lt;/h2&gt;&lt;h3 id=&#34;방법-a-필드-안에-언어를-넣기&#34;&gt;
     &lt;a href=&#34;#%eb%b0%a9%eb%b2%95-a-%ed%95%84%eb%93%9c-%ec%95%88%ec%97%90-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%84%a3%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     방법 A. 필드 안에 언어를 넣기
@@ -393,8 +391,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;파일 하나로 끝남. 관리자에서 양쪽 언어를 같이 편집하기도 편함.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;근데 손님한테 나가는 페이로드가 두 배임.&lt;/strong&gt; 한국어로 보는 손님이 영어 메뉴까지 통째로 받아감.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;파일 하나로 끝난다. 관리자에서 양쪽 언어를 같이 편집하기도 편하다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;근데 손님한테 나가는 페이로드가 두 배다.&lt;/strong&gt; 한국어로 보는 손님이 영어 메뉴까지 통째로 받아간다.&lt;/p&gt;
 &lt;h3 id=&#34;방법-b-로케일별로-파일을-쪼개기&#34;&gt;
     &lt;a href=&#34;#%eb%b0%a9%eb%b2%95-b-%eb%a1%9c%ec%bc%80%ec%9d%bc%eb%b3%84%eb%a1%9c-%ed%8c%8c%ec%9d%bc%ec%9d%84-%ec%aa%bc%ea%b0%9c%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     방법 B. 로케일별로 파일을 쪼개기
@@ -416,15 +414,15 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;간장마늘치킨&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;ingredients&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;닭, 마늘, 간장&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;price&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;$18&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;손님은 자기 언어 파일 하나만 받음. 항목 구조도 단순해짐.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;대신 두 파일이 어긋날 수 있음.&lt;/strong&gt; 한쪽에만 항목이 추가되면 순서가 밀려서 엉뚱한 재료가 붙음.&lt;/p&gt;
-&lt;h2 id=&#34;-b로-감&#34;&gt;
-    &lt;a href=&#34;#-b%eb%a1%9c-%ea%b0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    ✅ B로 감
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;조회가 압도적으로 많고 수정은 거의 없는 화면&lt;/strong&gt;이라서임.&lt;/p&gt;
-&lt;p&gt;메뉴 조회는 손님이 올 때마다 일어나고, 메뉴 수정은 한 달에 몇 번임.
-그럼 &lt;strong&gt;조회 쪽을 가볍게 하고, 어긋날 위험은 쓰기 쪽에서 막는 게&lt;/strong&gt; 맞다고 봤음.&lt;/p&gt;
-&lt;p&gt;공통 필드는 두 파일에 똑같이 복제함.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;손님은 자기 언어 파일 하나만 받는다. 항목 구조도 단순해진다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;대신 두 파일이 어긋날 수 있다.&lt;/strong&gt; 한쪽에만 항목이 추가되면 순서가 밀려서 엉뚱한 재료가 붙는다.&lt;/p&gt;
+&lt;h2 id=&#34;b로-감&#34;&gt;
+    &lt;a href=&#34;#b%eb%a1%9c-%ea%b0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    B로 감
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;조회가 압도적으로 많고 수정은 거의 없는 화면&lt;/strong&gt;이라서다.&lt;/p&gt;
+&lt;p&gt;메뉴 조회는 손님이 올 때마다 일어나고, 메뉴 수정은 한 달에 몇 번이다.
+그럼 &lt;strong&gt;조회 쪽을 가볍게 하고, 어긋날 위험은 쓰기 쪽에서 막는 게&lt;/strong&gt; 맞다고 봤다.&lt;/p&gt;
+&lt;p&gt;공통 필드는 두 파일에 똑같이 복제한다.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -466,12 +464,12 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;code&gt;price&lt;/code&gt; 랑 &lt;code&gt;image&lt;/code&gt; 는 언어랑 상관없으니 그대로 복제. 중복이 생기지만 파일이 두 장뿐이라 감당할 만함.&lt;/p&gt;
-&lt;h2 id=&#34;-어긋남을-막는-장치-3개&#34;&gt;
-    &lt;a href=&#34;#-%ec%96%b4%ea%b8%8b%eb%82%a8%ec%9d%84-%eb%a7%89%eb%8a%94-%ec%9e%a5%ec%b9%98-3%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🛡️ 어긋남을 막는 장치 3개
-&lt;/h2&gt;&lt;p&gt;B의 유일한 약점이 데이터 불일치라서, 그걸 막는 걸 설계에 넣었음.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1. 저장은 항상 양쪽 동시에.&lt;/strong&gt; API가 한쪽만 받는 걸 허용하지 않음.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;price&lt;/code&gt; 랑 &lt;code&gt;image&lt;/code&gt; 는 언어랑 상관없으니 그대로 복제. 중복이 생기지만 파일이 두 장뿐이라 감당할 만한다.&lt;/p&gt;
+&lt;h2 id=&#34;어긋남을-막는-장치-3개&#34;&gt;
+    &lt;a href=&#34;#%ec%96%b4%ea%b8%8b%eb%82%a8%ec%9d%84-%eb%a7%89%eb%8a%94-%ec%9e%a5%ec%b9%98-3%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    어긋남을 막는 장치 3개
+&lt;/h2&gt;&lt;p&gt;B의 유일한 약점이 데이터 불일치라서, 그걸 막는 걸 설계에 넣었다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 저장은 항상 양쪽 동시에.&lt;/strong&gt; API가 한쪽만 받는 걸 허용하지 않는다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -480,7 +478,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;POST /api/menu   ←  { en: {...}, ko: {...} }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;한쪽만 고치는 경로를 아예 안 만들면 어긋날 수가 없음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;한쪽만 고치는 경로를 아예 안 만들면 어긋날 수가 없다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2. 검증 스크립트.&lt;/strong&gt; 두 파일의 &lt;code&gt;categoryId&lt;/code&gt;, 항목 개수, 순서, &lt;code&gt;image&lt;/code&gt;, &lt;code&gt;price&lt;/code&gt; 가 같은지 확인.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -506,7 +504,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;3. 관리자 UI에선 합쳐서 다룸.&lt;/strong&gt; 화면에서는 &lt;code&gt;{ ko, en }&lt;/code&gt; 객체로 들고 있다가 &lt;strong&gt;저장할 때만&lt;/strong&gt; 두 로케일로 쪼갬.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;3. 관리자 UI에선 합쳐서 다룬다.&lt;/strong&gt; 화면에서는 &lt;code&gt;{ ko, en }&lt;/code&gt; 객체로 들고 있다가 &lt;strong&gt;저장할 때만&lt;/strong&gt; 두 로케일로 쪼갠다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -521,11 +519,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;저장 형식이랑 편집 형식을 분리한 게 핵심임.&lt;/strong&gt; 손님은 쪼개진 걸 받고, 관리자는 합쳐진 걸 편집함.&lt;/p&gt;
-&lt;h2 id=&#34;-phase-16&#34;&gt;
-    &lt;a href=&#34;#-phase-16&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📋 Phase 1~6
-&lt;/h2&gt;&lt;p&gt;작업 계획도 같이 적었음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;저장 형식이랑 편집 형식을 분리한 게 핵심이다.&lt;/strong&gt; 손님은 쪼개진 걸 받고, 관리자는 합쳐진 걸 편집한다.&lt;/p&gt;
+&lt;h2 id=&#34;phase-16&#34;&gt;
+    &lt;a href=&#34;#phase-16&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    Phase 1~6
+&lt;/h2&gt;&lt;p&gt;작업 계획도 같이 적었다.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -572,7 +570,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;오늘 한 건 Phase 1임. 기존 데이터를 백업하고 &lt;code&gt;menuData-ko.json&lt;/code&gt; 을 만들어서 번역을 채워 넣음.&lt;/p&gt;
+&lt;p&gt;오늘 한 건 Phase 1이다. 기존 데이터를 백업하고 &lt;code&gt;menuData-ko.json&lt;/code&gt; 을 만들어서 번역을 채워 넣는다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -581,28 +579,27 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;add: Phase 1: 데이터 준비 및 마이그레이션
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;기존 Blob 데이터를 먼저 &lt;code&gt;backup/&lt;/code&gt; 에 내려받아 뒀음.&lt;/strong&gt; 마이그레이션 중에 날리면 메뉴판이 통째로 사라짐.&lt;/p&gt;
-&lt;h2 id=&#34;-위험-요소를-미리-적어둠&#34;&gt;
-    &lt;a href=&#34;#-%ec%9c%84%ed%97%98-%ec%9a%94%ec%86%8c%eb%a5%bc-%eb%af%b8%eb%a6%ac-%ec%a0%81%ec%96%b4%eb%91%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    ⚠️ 위험 요소를 미리 적어둠
-&lt;/h2&gt;&lt;p&gt;설계 문서 끝에 이런 걸 적었음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;기존 Blob 데이터를 먼저 &lt;code&gt;backup/&lt;/code&gt; 에 내려받아 뒀다.&lt;/strong&gt; 마이그레이션 중에 날리면 메뉴판이 통째로 사라진다.&lt;/p&gt;
+&lt;h2 id=&#34;위험-요소를-미리-적어둠&#34;&gt;
+    &lt;a href=&#34;#%ec%9c%84%ed%97%98-%ec%9a%94%ec%86%8c%eb%a5%bc-%eb%af%b8%eb%a6%ac-%ec%a0%81%ec%96%b4%eb%91%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    위험 요소를 미리 적어둠
+&lt;/h2&gt;&lt;p&gt;설계 문서 끝에 이런 걸 적었다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;데이터 불일치&lt;/strong&gt; → 저장 시 검증, 정기 체크&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;번역 누락&lt;/strong&gt; → 한쪽만 입력됐을 때 경고&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;배포 중 장애&lt;/strong&gt; → Preview에서 검증, Blob 백업, &lt;code&gt;git revert&lt;/code&gt; 준비&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;보안&lt;/strong&gt; → JWT 만료 시간, HTTPS 강제, 관리자 활동 로그&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;마지막 항목을 적어놓고 정작 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 만든 구멍은 못 봤음.
-두 달 뒤에 발견함..&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
+&lt;p&gt;마지막 항목을 적어놓고 정작 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 만든 구멍은 못 봤다.
+두 달 뒤에 발견한다..&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
 &lt;/h2&gt;&lt;p&gt;&lt;strong&gt;저장 형식이랑 편집 형식이 같을 필요가 없다&lt;/strong&gt;는 게 이번에 제일 크게 배운 것.
-화면에선 합쳐서 쓰고 저장은 쪼개서 하면, 편함이랑 성능을 둘 다 가져갈 수 있음.&lt;/p&gt;
-&lt;p&gt;그리고 문서를 먼저 쓰니까 &amp;ldquo;필드 안에 넣을까 파일 쪼갤까&amp;quot;를 코드로 시험해보지 않고 결정할 수 있었음.
-&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 두 시간 걸린 걸 오늘은 안 겪었음.&lt;/p&gt;
+화면에선 합쳐서 쓰고 저장은 쪼개서 하면, 편함이랑 성능을 둘 다 가져갈 수 있다.&lt;/p&gt;
+&lt;p&gt;그리고 문서를 먼저 쓰니까 &amp;ldquo;필드 안에 넣을까 파일 쪼갤까&amp;quot;를 코드로 시험해보지 않고 결정할 수 있었다.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 두 시간 걸린 걸 오늘은 안 겪었다.&lt;/p&gt;
 &lt;p&gt;다음 글에서 Phase 2~6 구현.&lt;/p&gt;
-&lt;p&gt;#정담 #다국어 #i18n #설계 #VercelBlob&lt;/p&gt;
 </description>
         </item>
         

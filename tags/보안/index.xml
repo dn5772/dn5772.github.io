@@ -15,25 +15,25 @@
         <description>&lt;h1 id=&#34;seam-개발-일지-5---rust랑-python을-유닉스-소켓으로-이었음&#34;&gt;
     &lt;a href=&#34;#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-5---rust%eb%9e%91-python%ec%9d%84-%ec%9c%a0%eb%8b%89%ec%8a%a4-%ec%86%8c%ec%bc%93%ec%9c%bc%eb%a1%9c-%ec%9d%b4%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     seam 개발 일지 #5 - Rust랑 Python을 유닉스 소켓으로 이었음
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-4/&#34; &gt;#4&lt;/a&gt;에서 Python 에이전트를 만들었는데, 얘가 Rust 데몬한테 말을 걸어야 함.&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-4/&#34; &gt;#4&lt;/a&gt;에서 Python 에이전트를 만들었는데, 얘가 Rust 데몬한테 말을 걸어야 한다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;메모리 저장해줘&lt;/li&gt;
 &lt;li&gt;이 요청 어느 모델로 보낼지 정해줘&lt;/li&gt;
 &lt;li&gt;이 대화 처리해줘&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;게이트웨이가 이미 HTTP로 &lt;code&gt;:11400&lt;/code&gt; 에 떠 있으니까 거기다 붙이면 되는데, &lt;strong&gt;일부러 안 했음.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-왜-http가-아니라-유닉스-소켓인가&#34;&gt;
-    &lt;a href=&#34;#-%ec%99%9c-http%ea%b0%80-%ec%95%84%eb%8b%88%eb%9d%bc-%ec%9c%a0%eb%8b%89%ec%8a%a4-%ec%86%8c%ec%bc%93%ec%9d%b8%ea%b0%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔌 왜 HTTP가 아니라 유닉스 소켓인가
-&lt;/h2&gt;&lt;p&gt;게이트웨이 포트는 &lt;strong&gt;Tier 1용&lt;/strong&gt;임. Cursor 같은 외부 앱이 환경변수 오버라이드로 들어오는 입구.
-여기는 OpenAI/Anthropic 호환 형식을 지켜야 하고, 네트워크에 열려 있음.&lt;/p&gt;
-&lt;p&gt;근데 seam-code가 쓰는 건 성격이 다름.&lt;/p&gt;
+&lt;p&gt;게이트웨이가 이미 HTTP로 &lt;code&gt;:11400&lt;/code&gt; 에 떠 있으니까 거기다 붙이면 되는데, &lt;strong&gt;일부러 안 했다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;왜-http가-아니라-유닉스-소켓인가&#34;&gt;
+    &lt;a href=&#34;#%ec%99%9c-http%ea%b0%80-%ec%95%84%eb%8b%88%eb%9d%bc-%ec%9c%a0%eb%8b%89%ec%8a%a4-%ec%86%8c%ec%bc%93%ec%9d%b8%ea%b0%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    왜 HTTP가 아니라 유닉스 소켓인가
+&lt;/h2&gt;&lt;p&gt;게이트웨이 포트는 &lt;strong&gt;Tier 1용&lt;/strong&gt;이다. Cursor 같은 외부 앱이 환경변수 오버라이드로 들어오는 입구.
+여기는 OpenAI/Anthropic 호환 형식을 지켜야 하고, 네트워크에 열려 있다.&lt;/p&gt;
+&lt;p&gt;근데 seam-code가 쓰는 건 성격이 다르다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;같은 기계 안에서만 씀&lt;/li&gt;
-&lt;li&gt;형식을 남의 API에 맞출 이유가 없음&lt;/li&gt;
+&lt;li&gt;같은 기계 안에서만 쓴다&lt;/li&gt;
+&lt;li&gt;형식을 남의 API에 맞출 이유가 없다&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;다른 사용자가 접근하면 안 됨&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;포트로 열면 그 기계의 누구나 붙을 수 있음. 유닉스 소켓은 파일이라 &lt;strong&gt;파일 퍼미션으로 막을 수 있음.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;포트로 열면 그 기계의 누구나 붙을 수 있다. 유닉스 소켓은 파일이라 &lt;strong&gt;파일 퍼미션으로 막을 수 있다.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -42,11 +42,11 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/.seam/daemon.sock   (0o600 — 소유자만)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;0o600&lt;/code&gt; 을 CLAUDE.md 주의사항에 따로 적어뒀음. 이게 빠지면 메모리랑 API 키를 쓰는 경로가 통째로 열림.&lt;/p&gt;
-&lt;h2 id=&#34;-json-lines&#34;&gt;
-    &lt;a href=&#34;#-json-lines&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📝 JSON Lines
-&lt;/h2&gt;&lt;p&gt;프로토콜은 제일 단순한 걸로 했음. &lt;strong&gt;한 줄에 JSON 하나.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;0o600&lt;/code&gt; 을 CLAUDE.md 주의사항에 따로 적어뒀다. 이게 빠지면 메모리랑 API 키를 쓰는 경로가 통째로 열린다.&lt;/p&gt;
+&lt;h2 id=&#34;json-lines&#34;&gt;
+    &lt;a href=&#34;#json-lines&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    JSON Lines
+&lt;/h2&gt;&lt;p&gt;프로토콜은 제일 단순한 걸로 했다. &lt;strong&gt;한 줄에 JSON 하나.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -59,13 +59,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{&amp;#34;type&amp;#34;:&amp;#34;chat&amp;#34;,&amp;#34;messages&amp;#34;:[...]}\n
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;gRPC나 MessagePack도 생각했는데 안 갔음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;gRPC나 MessagePack도 생각했는데 안 갔다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;스키마 정의 파일이 없음.&lt;/strong&gt; 양쪽(Rust/Python)에 코드 생성기를 붙일 필요가 없음&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;nc -U ~/.seam/daemon.sock&lt;/code&gt; 으로 손으로 찔러볼 수 있음.&lt;/strong&gt; 디버깅할 때 이게 큼&lt;/li&gt;
-&lt;li&gt;줄바꿈이 메시지 경계라 파싱이 그냥 &lt;code&gt;read_line()&lt;/code&gt; 임&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;스키마 정의 파일이 없다.&lt;/strong&gt; 양쪽(Rust/Python)에 코드 생성기를 붙일 필요가 없다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;nc -U ~/.seam/daemon.sock&lt;/code&gt; 으로 손으로 찔러볼 수 있다.&lt;/strong&gt; 디버깅할 때 이게 크다&lt;/li&gt;
+&lt;li&gt;줄바꿈이 메시지 경계라 파싱이 그냥 &lt;code&gt;read_line()&lt;/code&gt; 이다&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;핸들러는 네 종류임.&lt;/p&gt;
+&lt;p&gt;핸들러는 네 종류다.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -92,9 +92,9 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id=&#34;-10281059--rust-쪽-서버&#34;&gt;
-    &lt;a href=&#34;#-10281059--rust-%ec%aa%bd-%ec%84%9c%eb%b2%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🦀 10:28~10:59 — Rust 쪽 서버
+&lt;h2 id=&#34;10281059--rust-쪽-서버&#34;&gt;
+    &lt;a href=&#34;#10281059--rust-%ec%aa%bd-%ec%84%9c%eb%b2%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    10:28~10:59 — Rust 쪽 서버
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -113,17 +113,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;10:59  fix: socket permissions, accept loop resilience, shared http client, configurable model
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;31분인데 마지막 커밋 하나가 23분 걸렸음. 거기 들어간 게 전부 &lt;strong&gt;&amp;ldquo;이게 오래 떠 있을 때&amp;rdquo;&lt;/strong&gt; 문제임.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1. 소켓 퍼미션.&lt;/strong&gt; 만들 때 퍼미션을 안 정하면 umask를 따라감. 명시적으로 &lt;code&gt;0o600&lt;/code&gt; 으로 박음.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2. accept 루프 복원력.&lt;/strong&gt; 연결 하나 받다가 에러 나면 &lt;strong&gt;루프가 통째로 죽고 있었음.&lt;/strong&gt;
-클라이언트 하나가 이상하게 끊었을 뿐인데 데몬의 IPC가 영영 멈춤. 에러를 로그만 찍고 루프는 계속 돌게 바꿈.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3. HTTP 클라이언트 공유.&lt;/strong&gt; 요청마다 &lt;code&gt;reqwest::Client&lt;/code&gt; 를 새로 만들고 있었음.
-커넥션 풀이랑 TLS 세션이 매번 버려짐. 하나 만들어서 돌려쓰게 함.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;4. 모델 하드코딩.&lt;/strong&gt; 설정에서 읽게 바꿈.&lt;/p&gt;
-&lt;h2 id=&#34;-파이썬-쪽-클라이언트&#34;&gt;
-    &lt;a href=&#34;#-%ed%8c%8c%ec%9d%b4%ec%8d%ac-%ec%aa%bd-%ed%81%b4%eb%9d%bc%ec%9d%b4%ec%96%b8%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🐍 파이썬 쪽 클라이언트
-&lt;/h2&gt;&lt;p&gt;&lt;code&gt;seam_code/ipc.py&lt;/code&gt; 가 소켓에 붙어서 한 줄 쓰고 한 줄 읽음. 데몬이 안 떠 있으면 먼저 알려줌.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;31분인데 마지막 커밋 하나가 23분 걸렸다. 거기 들어간 게 전부 &lt;strong&gt;&amp;ldquo;이게 오래 떠 있을 때&amp;rdquo;&lt;/strong&gt; 문제다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 소켓 퍼미션.&lt;/strong&gt; 만들 때 퍼미션을 안 정하면 umask를 따라간다. 명시적으로 &lt;code&gt;0o600&lt;/code&gt; 으로 박는다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. accept 루프 복원력.&lt;/strong&gt; 연결 하나 받다가 에러 나면 &lt;strong&gt;루프가 통째로 죽고 있었다.&lt;/strong&gt;
+클라이언트 하나가 이상하게 끊었을 뿐인데 데몬의 IPC가 영영 멈춘다. 에러를 로그만 찍고 루프는 계속 돌게 바꾼다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. HTTP 클라이언트 공유.&lt;/strong&gt; 요청마다 &lt;code&gt;reqwest::Client&lt;/code&gt; 를 새로 만들고 있었다.
+커넥션 풀이랑 TLS 세션이 매번 버려진다. 하나 만들어서 돌려쓰게 한다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. 모델 하드코딩.&lt;/strong&gt; 설정에서 읽게 바꾼다.&lt;/p&gt;
+&lt;h2 id=&#34;파이썬-쪽-클라이언트&#34;&gt;
+    &lt;a href=&#34;#%ed%8c%8c%ec%9d%b4%ec%8d%ac-%ec%aa%bd-%ed%81%b4%eb%9d%bc%ec%9d%b4%ec%96%b8%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    파이썬 쪽 클라이언트
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;seam_code/ipc.py&lt;/code&gt; 가 소켓에 붙어서 한 줄 쓰고 한 줄 읽는다. 데몬이 안 떠 있으면 먼저 알려준다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -132,10 +132,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;09&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;53&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;config&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;loader&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;daemon&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;startup&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;check&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;에이전트를 띄우기 전에 데몬 체크를 먼저 함.&lt;/strong&gt; 안 그러면 사용자가 요청을 다 친 다음에 &amp;ldquo;연결 실패&amp;quot;를 봄.&lt;/p&gt;
-&lt;h2 id=&#34;-15481634--두-개를-cli로-묶기&#34;&gt;
-    &lt;a href=&#34;#-15481634--%eb%91%90-%ea%b0%9c%eb%a5%bc-cli%eb%a1%9c-%eb%ac%b6%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔗 15:48~16:34 — 두 개를 CLI로 묶기
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;에이전트를 띄우기 전에 데몬 체크를 먼저 한다.&lt;/strong&gt; 안 그러면 사용자가 요청을 다 친 다음에 &amp;ldquo;연결 실패&amp;quot;를 본다.&lt;/p&gt;
+&lt;h2 id=&#34;15481634--두-개를-cli로-묶기&#34;&gt;
+    &lt;a href=&#34;#15481634--%eb%91%90-%ea%b0%9c%eb%a5%bc-cli%eb%a1%9c-%eb%ac%b6%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    15:48~16:34 — 두 개를 CLI로 묶기
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -164,12 +164,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam code &lt;span class=&#34;s2&#34;&gt;&amp;#34;요청&amp;#34;&lt;/span&gt;          &lt;span class=&#34;c1&#34;&gt;# 실행&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam code&lt;/code&gt; 는 &lt;strong&gt;얇은 래퍼&lt;/strong&gt;임. 데몬 살아 있는지 보고 seam-code를 띄우는 게 전부.
-Rust에서 에이전트 로직을 다시 만들지 않았음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam code&lt;/code&gt; 는 &lt;strong&gt;얇은 래퍼&lt;/strong&gt;이다. 데몬 살아 있는지 보고 seam-code를 띄우는 게 전부.
+Rust에서 에이전트 로직을 다시 만들지 않았다.&lt;/p&gt;
 &lt;h3 id=&#34;pip에----를-붙인-이유&#34;&gt;
     &lt;a href=&#34;#pip%ec%97%90----%eb%a5%bc-%eb%b6%99%ec%9d%b8-%ec%9d%b4%ec%9c%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     pip에 &lt;code&gt;--&lt;/code&gt; 를 붙인 이유
-&lt;/h3&gt;&lt;p&gt;16:16 커밋이 짧은데 중요함.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;16:16 커밋이 짧은데 중요하다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -186,13 +186,13 @@ Rust에서 에이전트 로직을 다시 만들지 않았음.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Command&lt;/span&gt;::&lt;span class=&#34;n&#34;&gt;new&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;pip3&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;).&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;([&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;install&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;--&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;n&#34;&gt;app_name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;])&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam install &amp;lt;app&amp;gt;&lt;/code&gt; 의 &lt;code&gt;&amp;lt;app&amp;gt;&lt;/code&gt; 이 사용자 입력임. 여기에 &lt;code&gt;--upgrade&lt;/code&gt; 나 &lt;code&gt;--index-url ...&lt;/code&gt; 같은 걸 넣으면 &lt;strong&gt;pip 옵션으로 해석됨.&lt;/strong&gt;
-&lt;code&gt;--&lt;/code&gt; 는 &amp;ldquo;여기부터는 옵션이 아니라 인자&amp;quot;라는 표시라서 그 경로가 막힘.&lt;/p&gt;
-&lt;p&gt;임의 명령 실행까지는 아닌데(셸을 안 거침), 설치 소스를 바꿔치기하는 정도는 됨.&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;입구를 두 개로 나눈 게 맞았음.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam install &amp;lt;app&amp;gt;&lt;/code&gt; 의 &lt;code&gt;&amp;lt;app&amp;gt;&lt;/code&gt; 이 사용자 입력이다. 여기에 &lt;code&gt;--upgrade&lt;/code&gt; 나 &lt;code&gt;--index-url ...&lt;/code&gt; 같은 걸 넣으면 &lt;strong&gt;pip 옵션으로 해석된다.&lt;/strong&gt;
+&lt;code&gt;--&lt;/code&gt; 는 &amp;ldquo;여기부터는 옵션이 아니라 인자&amp;quot;라는 표시라서 그 경로가 막힌다.&lt;/p&gt;
+&lt;p&gt;임의 명령 실행까지는 아닌데(셸을 안 거친다), 설치 소스를 바꿔치기하는 정도는 된다.&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;입구를 두 개로 나눈 게 맞았다.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -204,9 +204,8 @@ Rust에서 에이전트 로직을 다시 만들지 않았음.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;하나로 합쳤으면 seam-code용 엔드포인트가 네트워크에 노출됐을 것. 퍼미션으로 막을 수 있는 걸 인증 로직으로 막게 됐을 거고.&lt;/p&gt;
-&lt;p&gt;그리고 10:59 커밋에 몰린 네 가지가 전부 &lt;strong&gt;&amp;ldquo;짧게 돌 땐 안 보이는 문제&amp;rdquo;&lt;/strong&gt; 였음.
-데몬처럼 오래 떠 있는 프로그램은 accept 루프 하나 죽는 게 치명적인데, 테스트는 보통 한 번 붙었다 끊는 걸로 끝나서 안 잡힘.&lt;/p&gt;
-&lt;p&gt;#seam #IPC #UnixSocket #Rust #Python&lt;/p&gt;
+&lt;p&gt;그리고 10:59 커밋에 몰린 네 가지가 전부 &lt;strong&gt;&amp;ldquo;짧게 돌 땐 안 보이는 문제&amp;rdquo;&lt;/strong&gt; 였다.
+데몬처럼 오래 떠 있는 프로그램은 accept 루프 하나 죽는 게 치명적인데, 테스트는 보통 한 번 붙었다 끊는 걸로 끝나서 안 잡힌다.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -218,8 +217,8 @@ Rust에서 에이전트 로직을 다시 만들지 않았음.&lt;/p&gt;
         <description>&lt;h1 id=&#34;정담-개발-일지-7---두-달-만에-보안-구멍-네-개를-찾았음&#34;&gt;
     &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-7---%eb%91%90-%eb%8b%ac-%eb%a7%8c%ec%97%90-%eb%b3%b4%ec%95%88-%ea%b5%ac%eb%a9%8d-%eb%84%a4-%ea%b0%9c%eb%a5%bc-%ec%b0%be%ec%95%98%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음
-&lt;/h1&gt;&lt;p&gt;두 달 만에 코드를 다시 열었음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 하루에 1045줄 쏟아낸 그 관리자 API를 차분히 읽어봤는데,
-&lt;strong&gt;볼수록 등이 서늘해졌음.&lt;/strong&gt;&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;두 달 만에 코드를 다시 열었다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 하루에 1045줄 쏟아낸 그 관리자 API를 차분히 읽어봤는데,
+&lt;strong&gt;볼수록 등이 서늘해졌다.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -236,14 +235,14 @@ Rust에서 에이전트 로직을 다시 만들지 않았음.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;files&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;changed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;74&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;insertions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;),&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;141&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;deletions&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;141줄 지우고 74줄 넣음. &lt;strong&gt;고치면서 코드가 줄어든 게 좀 웃김.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-1-시크릿이-코드에-박혀-있었음&#34;&gt;
-    &lt;a href=&#34;#-1-%ec%8b%9c%ed%81%ac%eb%a6%bf%ec%9d%b4-%ec%bd%94%eb%93%9c%ec%97%90-%eb%b0%95%ed%98%80-%ec%9e%88%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔴 1. 시크릿이 코드에 박혀 있었음
-&lt;/h2&gt;&lt;p&gt;로그인 라우트에 &lt;strong&gt;JWT 시크릿이랑 bcrypt 해시가 그대로&lt;/strong&gt; 들어 있었음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;141줄 지우고 74줄 넣는다. &lt;strong&gt;고치면서 코드가 줄어든 게 좀 웃긴다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;1-시크릿이-코드에-박혀-있었음&#34;&gt;
+    &lt;a href=&#34;#1-%ec%8b%9c%ed%81%ac%eb%a6%bf%ec%9d%b4-%ec%bd%94%eb%93%9c%ec%97%90-%eb%b0%95%ed%98%80-%ec%9e%88%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    1. 시크릿이 코드에 박혀 있었음
+&lt;/h2&gt;&lt;p&gt;로그인 라우트에 &lt;strong&gt;JWT 시크릿이랑 bcrypt 해시가 그대로&lt;/strong&gt; 들어 있었다.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;.env&lt;/code&gt; 를 만들기 전에 &amp;ldquo;일단 되게&amp;rdquo; 하려고 상수로 박아놓고, 동작하니까 그대로 넘어간 것.
-공개 저장소라 그대로 올라가 있었음.&lt;/p&gt;
-&lt;p&gt;전부 환경변수로 뺐음.&lt;/p&gt;
+공개 저장소라 그대로 올라가 있었다.&lt;/p&gt;
+&lt;p&gt;전부 환경변수로 뺐다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -256,9 +255,9 @@ Rust에서 에이전트 로직을 다시 만들지 않았음.&lt;/p&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;BLOB_READ_WRITE_TOKEN
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;-2-비밀번호를-평문으로-로깅하고-있었음&#34;&gt;
-    &lt;a href=&#34;#-2-%eb%b9%84%eb%b0%80%eb%b2%88%ed%98%b8%eb%a5%bc-%ed%8f%89%eb%ac%b8%ec%9c%bc%eb%a1%9c-%eb%a1%9c%ea%b9%85%ed%95%98%ea%b3%a0-%ec%9e%88%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔴 2. 비밀번호를 평문으로 로깅하고 있었음
+&lt;/div&gt;&lt;h2 id=&#34;2-비밀번호를-평문으로-로깅하고-있었음&#34;&gt;
+    &lt;a href=&#34;#2-%eb%b9%84%eb%b0%80%eb%b2%88%ed%98%b8%eb%a5%bc-%ed%8f%89%eb%ac%b8%ec%9c%bc%eb%a1%9c-%eb%a1%9c%ea%b9%85%ed%95%98%ea%b3%a0-%ec%9e%88%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2. 비밀번호를 평문으로 로깅하고 있었음
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -267,13 +266,13 @@ Rust에서 에이전트 로직을 다시 만들지 않았음.&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nx&#34;&gt;console&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Login attempt:&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;   &lt;span class=&#34;c1&#34;&gt;// ← 이게 남아 있었음
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;로그인이 왜 안 되는지 보려고 넣은 건데 안 지웠음.
+&lt;/div&gt;&lt;p&gt;로그인이 왜 안 되는지 보려고 넣은 건데 안 지웠다.
 Vercel 대시보드 로그에 관리자 비밀번호가 평문으로 쌓이고 있었던 것.&lt;/p&gt;
-&lt;p&gt;지웠음.&lt;/p&gt;
-&lt;h2 id=&#34;-3-업로드-엔드포인트에-인증이-아예-없었음&#34;&gt;
-    &lt;a href=&#34;#-3-%ec%97%85%eb%a1%9c%eb%93%9c-%ec%97%94%eb%93%9c%ed%8f%ac%ec%9d%b8%ed%8a%b8%ec%97%90-%ec%9d%b8%ec%a6%9d%ec%9d%b4-%ec%95%84%ec%98%88-%ec%97%86%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔴 3. 업로드 엔드포인트에 인증이 아예 없었음
-&lt;/h2&gt;&lt;p&gt;이게 제일 심각했음.&lt;/p&gt;
+&lt;p&gt;지웠다.&lt;/p&gt;
+&lt;h2 id=&#34;3-업로드-엔드포인트에-인증이-아예-없었음&#34;&gt;
+    &lt;a href=&#34;#3-%ec%97%85%eb%a1%9c%eb%93%9c-%ec%97%94%eb%93%9c%ed%8f%ac%ec%9d%b8%ed%8a%b8%ec%97%90-%ec%9d%b8%ec%a6%9d%ec%9d%b4-%ec%95%84%ec%98%88-%ec%97%86%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3. 업로드 엔드포인트에 인증이 아예 없었음
+&lt;/h2&gt;&lt;p&gt;이게 제일 심각했다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -282,8 +281,8 @@ Vercel 대시보드 로그에 관리자 비밀번호가 평문으로 쌓이고 �
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;POST&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;api&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;upload&lt;/span&gt;   &lt;span class=&#34;err&#34;&gt;←&lt;/span&gt;  &lt;span class=&#34;err&#34;&gt;아무&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;검증&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;없음&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 메뉴 API엔 &lt;code&gt;verifyToken&lt;/code&gt; 을 붙였는데 &lt;strong&gt;업로드만 빼먹었음.&lt;/strong&gt;
-누구나 내 Blob 스토리지에 파일을 올릴 수 있는 상태였음. 용량은 내가 내고.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 메뉴 API엔 &lt;code&gt;verifyToken&lt;/code&gt; 을 붙였는데 &lt;strong&gt;업로드만 빼먹었다.&lt;/strong&gt;
+누구나 내 Blob 스토리지에 파일을 올릴 수 있는 상태였다. 용량은 내가 내고.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -294,12 +293,12 @@ Vercel 대시보드 로그에 관리자 비밀번호가 평문으로 쌓이고 �
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;user&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;NextResponse&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;json&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;({&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;error&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;Unauthorized&amp;#39;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;},&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;401&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;관리자 화면에서 이미지 올릴 때 &lt;code&gt;Authorization&lt;/code&gt; 헤더를 안 보내고 있어서 그것도 같이 고침.&lt;/p&gt;
-&lt;h2 id=&#34;-4-메뉴가-잠깐-비는-레이스-컨디션&#34;&gt;
-    &lt;a href=&#34;#-4-%eb%a9%94%eb%89%b4%ea%b0%80-%ec%9e%a0%ea%b9%90-%eb%b9%84%eb%8a%94-%eb%a0%88%ec%9d%b4%ec%8a%a4-%ec%bb%a8%eb%94%94%ec%85%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🟠 4. 메뉴가 잠깐 비는 레이스 컨디션
-&lt;/h2&gt;&lt;p&gt;이건 보안은 아닌데 더 무서웠음.&lt;/p&gt;
-&lt;p&gt;저장 로직이 이랬음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;관리자 화면에서 이미지 올릴 때 &lt;code&gt;Authorization&lt;/code&gt; 헤더를 안 보내고 있어서 그것도 같이 고친다.&lt;/p&gt;
+&lt;h2 id=&#34;4-메뉴가-잠깐-비는-레이스-컨디션&#34;&gt;
+    &lt;a href=&#34;#4-%eb%a9%94%eb%89%b4%ea%b0%80-%ec%9e%a0%ea%b9%90-%eb%b9%84%eb%8a%94-%eb%a0%88%ec%9d%b4%ec%8a%a4-%ec%bb%a8%eb%94%94%ec%85%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    4. 메뉴가 잠깐 비는 레이스 컨디션
+&lt;/h2&gt;&lt;p&gt;이건 보안은 아닌데 더 무서웠다.&lt;/p&gt;
+&lt;p&gt;저장 로직이 이랬다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -308,9 +307,9 @@ Vercel 대시보드 로그에 관리자 비밀번호가 평문으로 쌓이고 �
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;list  →  del(기존 파일)  →  put(새 파일)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;지우고 나서 올리는 사이에 메뉴가 빈 채로 응답되는 창이 있었음.&lt;/strong&gt;
-손님이 하필 그 0.x초에 들어오면 메뉴판이 텅 비어 보임. 에러도 아니고 그냥 빈 메뉴라 아무도 신고를 안 해줌.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;del&lt;/code&gt; 단계를 아예 없애고 &lt;strong&gt;같은 이름에 덮어쓰기&lt;/strong&gt;로 바꿨음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;지우고 나서 올리는 사이에 메뉴가 빈 채로 응답되는 창이 있었다.&lt;/strong&gt;
+손님이 하필 그 0.x초에 들어오면 메뉴판이 텅 비어 보다. 에러도 아니고 그냥 빈 메뉴라 아무도 신고를 안 해준다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;del&lt;/code&gt; 단계를 아예 없애고 &lt;strong&gt;같은 이름에 덮어쓰기&lt;/strong&gt;로 바꿨다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -329,23 +328,23 @@ Vercel 대시보드 로그에 관리자 비밀번호가 평문으로 쌓이고 �
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;addRandomSuffix: false&lt;/code&gt; 를 줘야 랜덤 접미사 없이 같은 경로를 씀. 그래야 덮어쓰기가 됨.&lt;/p&gt;
-&lt;p&gt;덤으로 ko/en 저장을 &lt;code&gt;Promise.all&lt;/code&gt; 로 묶어서 왕복을 반으로 줄였음.
-응답도 전부 &lt;code&gt;NextResponse.json&lt;/code&gt; 으로 통일함. 원래는 &lt;code&gt;new Response(JSON.stringify(...))&lt;/code&gt; 랑 섞여 있었음.&lt;/p&gt;
-&lt;h2 id=&#34;-같은-날-잡은-버그-8개&#34;&gt;
-    &lt;a href=&#34;#-%ea%b0%99%ec%9d%80-%eb%82%a0-%ec%9e%a1%ec%9d%80-%eb%b2%84%ea%b7%b8-8%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🐛 같은 날 잡은 버그 8개
-&lt;/h2&gt;&lt;p&gt;보안 말고 커밋 하나 더 있음.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;mergeLocalizedMenuData&lt;/code&gt; 가 EN만 기준으로 합치고 있었음.&lt;/strong&gt;
-한국어에만 있는 카테고리는 관리자 화면에 아예 안 뜸. 합집합으로 바꿈.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;편집 중에 배경 갱신이 폼을 덮어씀.&lt;/strong&gt;
-&lt;code&gt;editItem&lt;/code&gt; 이펙트 의존성에 &lt;code&gt;menuData&lt;/code&gt; 가 들어 있어서, 백그라운드 리페치가 오면 &lt;strong&gt;저장 안 한 입력이 날아감.&lt;/strong&gt; 의존성에서 뺐음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;addRandomSuffix: false&lt;/code&gt; 를 줘야 랜덤 접미사 없이 같은 경로를 쓴다. 그래야 덮어쓰기가 된다.&lt;/p&gt;
+&lt;p&gt;덤으로 ko/en 저장을 &lt;code&gt;Promise.all&lt;/code&gt; 로 묶어서 왕복을 반으로 줄였다.
+응답도 전부 &lt;code&gt;NextResponse.json&lt;/code&gt; 으로 통일한다. 원래는 &lt;code&gt;new Response(JSON.stringify(...))&lt;/code&gt; 랑 섞여 있었다.&lt;/p&gt;
+&lt;h2 id=&#34;같은-날-잡은-버그-8개&#34;&gt;
+    &lt;a href=&#34;#%ea%b0%99%ec%9d%80-%eb%82%a0-%ec%9e%a1%ec%9d%80-%eb%b2%84%ea%b7%b8-8%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    같은 날 잡은 버그 8개
+&lt;/h2&gt;&lt;p&gt;보안 말고 커밋 하나 더 있다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;mergeLocalizedMenuData&lt;/code&gt; 가 EN만 기준으로 합치고 있었다.&lt;/strong&gt;
+한국어에만 있는 카테고리는 관리자 화면에 아예 안 뜬다. 합집합으로 바꾼다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;편집 중에 배경 갱신이 폼을 덮어쓴다.&lt;/strong&gt;
+&lt;code&gt;editItem&lt;/code&gt; 이펙트 의존성에 &lt;code&gt;menuData&lt;/code&gt; 가 들어 있어서, 백그라운드 리페치가 오면 &lt;strong&gt;저장 안 한 입력이 날아간다.&lt;/strong&gt; 의존성에서 뺐다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;GLightbox 메모리 누수.&lt;/strong&gt;
-언어를 바꿀 때마다 라이트박스를 새로 만드는데 기존 걸 안 없앴음. 언어 토글을 왔다갔다 하면 인스턴스가 계속 쌓임.
-ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&lt;/code&gt; 하고, 언마운트 때도 정리하게 함.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;첫 화면에서 언어가 깜빡였음.&lt;/strong&gt;
-영어 사용자가 들어오면 한국어가 한 프레임 보였다가 영어로 바뀜. &lt;code&gt;localStorage&lt;/code&gt; 를 &lt;code&gt;useEffect&lt;/code&gt; 에서 읽어서 생긴 일.
-&lt;code&gt;useState&lt;/code&gt; 의 &lt;strong&gt;lazy initializer&lt;/strong&gt; 로 옮겨서 첫 렌더 전에 동기적으로 읽게 함.&lt;/p&gt;
+언어를 바꿀 때마다 라이트박스를 새로 만드는데 기존 걸 안 없앴다. 언어 토글을 왔다갔다 하면 인스턴스가 계속 쌓이다.
+ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&lt;/code&gt; 하고, 언마운트 때도 정리하게 한다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;첫 화면에서 언어가 깜빡였다.&lt;/strong&gt;
+영어 사용자가 들어오면 한국어가 한 프레다 보였다가 영어로 바뀐다. &lt;code&gt;localStorage&lt;/code&gt; 를 &lt;code&gt;useEffect&lt;/code&gt; 에서 읽어서 생긴 일.
+&lt;code&gt;useState&lt;/code&gt; 의 &lt;strong&gt;lazy initializer&lt;/strong&gt; 로 옮겨서 첫 렌더 전에 동기적으로 읽게 한다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -365,16 +364,15 @@ ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&l
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;나머지는 중복 가드 제거, 쓸모없는 별칭 제거, 디버그 &lt;code&gt;console.log&lt;/code&gt; 청소.
-&lt;code&gt;html lang&lt;/code&gt; 속성이 언어 따라 안 바뀌던 것도 고쳤음.&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;네 개 중 세 개가 &amp;ldquo;디버깅용으로 넣었다가 안 지운 것&amp;quot;이거나 &amp;ldquo;일단 되게 하려고 건너뛴 것&amp;quot;이었음.&lt;/strong&gt;
-시크릿 하드코딩, 평문 로깅, 업로드 인증 누락. 셋 다 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 하루에 1045줄 쏟아낼 때 생긴 것들임.&lt;/p&gt;
-&lt;p&gt;빨리 만드는 건 좋은데, &lt;strong&gt;&amp;ldquo;나중에 고칠 것&amp;rdquo; 목록을 어딘가에 안 적어두면 나중이 두 달 뒤가 됨.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;그리고 4번 레이스 컨디션은 아무도 신고를 안 해줌. 에러가 안 나고 그냥 빈 화면이라서.
+&lt;code&gt;html lang&lt;/code&gt; 속성이 언어 따라 안 바뀌던 것도 고쳤다.&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;네 개 중 세 개가 &amp;ldquo;디버깅용으로 넣었다가 안 지운 것&amp;quot;이거나 &amp;ldquo;일단 되게 하려고 건너뛴 것&amp;quot;이었다.&lt;/strong&gt;
+시크릿 하드코딩, 평문 로깅, 업로드 인증 누락. 셋 다 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 하루에 1045줄 쏟아낼 때 생긴 것들이다.&lt;/p&gt;
+&lt;p&gt;빨리 만드는 건 좋은데, &lt;strong&gt;&amp;ldquo;나중에 고칠 것&amp;rdquo; 목록을 어딘가에 안 적어두면 나중이 두 달 뒤가 된다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;그리고 4번 레이스 컨디션은 아무도 신고를 안 해준다. 에러가 안 나고 그냥 빈 화면이라서.
 &lt;strong&gt;조용히 실패하는 버그가 제일 오래 살아남는 듯.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;#정담 #보안 #JWT #레이스컨디션 #리팩터링&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -386,11 +384,11 @@ ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&l
         <description>&lt;h1 id=&#34;abide-개발-일지-4---토큰을-sharedpreferences에서-꺼냈음&#34;&gt;
     &lt;a href=&#34;#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-4---%ed%86%a0%ed%81%b0%ec%9d%84-sharedpreferences%ec%97%90%ec%84%9c-%ea%ba%bc%eb%83%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     ABIDE 개발 일지 #4 - 토큰을 SharedPreferences에서 꺼냈음
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;까지 오면 대화는 되는데, &lt;strong&gt;누가 쓰는지를 모름.&lt;/strong&gt;
-3월 15일~21일은 인증이랑 세션을 붙인 기간임.&lt;/p&gt;
-&lt;h2 id=&#34;-google--apple-로그인&#34;&gt;
-    &lt;a href=&#34;#-google--apple-%eb%a1%9c%ea%b7%b8%ec%9d%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔑 Google / Apple 로그인
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;까지 오면 대화는 되는데, &lt;strong&gt;누가 쓰는지를 모른다.&lt;/strong&gt;
+3월 15일~21일은 인증이랑 세션을 붙인 기간이다.&lt;/p&gt;
+&lt;h2 id=&#34;google--apple-로그인&#34;&gt;
+    &lt;a href=&#34;#google--apple-%eb%a1%9c%ea%b7%b8%ec%9d%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    Google / Apple 로그인
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -399,9 +397,9 @@ ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&l
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: integrate Google Sign-In with serverClientId and handle new user flow
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;serverClientId&lt;/code&gt; 가 핵심임. 이걸 안 넘기면 클라이언트용 토큰만 나와서 &lt;strong&gt;서버가 검증을 못 함.&lt;/strong&gt;
-서버에서 구글에 물어보려면 서버 클라이언트 ID로 발급된 ID 토큰이 필요함.&lt;/p&gt;
-&lt;p&gt;그리고 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;의 Core 서버에 플래그 하나를 추가했음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;serverClientId&lt;/code&gt; 가 핵심이다. 이걸 안 넘기면 클라이언트용 토큰만 나와서 &lt;strong&gt;서버가 검증을 못 한다.&lt;/strong&gt;
+서버에서 구글에 물어보려면 서버 클라이언트 ID로 발급된 ID 토큰이 필요하다.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;의 Core 서버에 플래그 하나를 추가했다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -410,13 +408,13 @@ ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&l
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Add is_new_user flag to AuthTokenResponse and include oauth_provider in UserProfileResponse
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;처음 가입한 사람이면 &lt;strong&gt;프로필 설정 화면으로&lt;/strong&gt; 보내고, 기존 유저면 바로 홈으로 보내야 함.
-앱이 그걸 알 방법이 없어서 로그인 응답에 &lt;code&gt;is_new_user&lt;/code&gt; 를 얹었음.&lt;/p&gt;
-&lt;p&gt;클라이언트가 &amp;ldquo;유저 정보를 한 번 더 조회해서 프로필이 비었는지 보는&amp;rdquo; 식으로 짜면 왕복이 한 번 더 생기고, 그 사이에 화면이 깜빡임.&lt;/p&gt;
-&lt;h2 id=&#34;-토큰을-secure-storage로-옮김&#34;&gt;
-    &lt;a href=&#34;#-%ed%86%a0%ed%81%b0%ec%9d%84-secure-storage%eb%a1%9c-%ec%98%ae%ea%b9%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔒 토큰을 secure storage로 옮김
-&lt;/h2&gt;&lt;p&gt;15일 마지막 커밋이 이거임.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;처음 가입한 사람이면 &lt;strong&gt;프로필 설정 화면으로&lt;/strong&gt; 보내고, 기존 유저면 바로 홈으로 보내야 한다.
+앱이 그걸 알 방법이 없어서 로그인 응답에 &lt;code&gt;is_new_user&lt;/code&gt; 를 얹었다.&lt;/p&gt;
+&lt;p&gt;클라이언트가 &amp;ldquo;유저 정보를 한 번 더 조회해서 프로필이 비었는지 보는&amp;rdquo; 식으로 짜면 왕복이 한 번 더 생기고, 그 사이에 화면이 깜빡이다.&lt;/p&gt;
+&lt;h2 id=&#34;토큰을-secure-storage로-옮김&#34;&gt;
+    &lt;a href=&#34;#%ed%86%a0%ed%81%b0%ec%9d%84-secure-storage%eb%a1%9c-%ec%98%ae%ea%b9%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    토큰을 secure storage로 옮김
+&lt;/h2&gt;&lt;p&gt;15일 마지막 커밋이 이거다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -425,15 +423,15 @@ ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&l
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: Phase 4-A migrate authentication tokens to secure storage and refactor related logic
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;처음엔 JWT를 &lt;code&gt;SharedPreferences&lt;/code&gt; 에 넣었음. 쉽고 빠르니까.&lt;/p&gt;
-&lt;p&gt;근데 &lt;code&gt;SharedPreferences&lt;/code&gt; 는 &lt;strong&gt;그냥 평문 파일&lt;/strong&gt;임. 안드로이드는 XML, iOS는 plist.
-루팅/탈옥된 기기나 백업 파일에서 그대로 읽힘.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;flutter_secure_storage&lt;/code&gt; 로 옮겼음. 안드로이드는 Keystore, iOS는 Keychain에 들어감.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;wallet&lt;/a&gt; 때도 그랬는데 — &lt;strong&gt;&amp;ldquo;일단 되게&amp;rdquo; 하려고 고른 저장소는 거의 항상 나중에 옮기게 됨.&lt;/strong&gt;
-처음부터 secure storage를 썼어도 코드량 차이는 거의 없었음.&lt;/p&gt;
-&lt;h2 id=&#34;-fcm-푸시&#34;&gt;
-    &lt;a href=&#34;#-fcm-%ed%91%b8%ec%8b%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📬 FCM 푸시
+&lt;/div&gt;&lt;p&gt;처음엔 JWT를 &lt;code&gt;SharedPreferences&lt;/code&gt; 에 넣었다. 쉽고 빠르니까.&lt;/p&gt;
+&lt;p&gt;근데 &lt;code&gt;SharedPreferences&lt;/code&gt; 는 &lt;strong&gt;그냥 평문 파일&lt;/strong&gt;이다. 안드로이드는 XML, iOS는 plist.
+루팅/탈옥된 기기나 백업 파일에서 그대로 읽힌다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;flutter_secure_storage&lt;/code&gt; 로 옮겼다. 안드로이드는 Keystore, iOS는 Keychain에 들어간다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;wallet&lt;/a&gt; 때도 그랬는데. &lt;strong&gt;&amp;ldquo;일단 되게&amp;rdquo; 하려고 고른 저장소는 거의 항상 나중에 옮기게 된다.&lt;/strong&gt;
+처음부터 secure storage를 썼어도 코드량 차이는 거의 없었다.&lt;/p&gt;
+&lt;h2 id=&#34;fcm-푸시&#34;&gt;
+    &lt;a href=&#34;#fcm-%ed%91%b8%ec%8b%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    FCM 푸시
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -442,8 +440,8 @@ ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&l
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: Phase 3-E implement FCM service for push notifications and enhance notification settings
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;묵상 앱은 &lt;strong&gt;안 열면 안 쓰게 됨.&lt;/strong&gt; 매일 알림이 리텐션의 거의 전부임.&lt;/p&gt;
-&lt;p&gt;Core 서버에도 FCM 클라이언트를 붙였음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;묵상 앱은 &lt;strong&gt;안 열면 안 쓰게 된다.&lt;/strong&gt; 매일 알림이 리텐션의 거의 전부다.&lt;/p&gt;
+&lt;p&gt;Core 서버에도 FCM 클라이언트를 붙였다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -454,13 +452,13 @@ ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&l
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;AppConfig의 민감 정보 마스킹, .env 파일 수정 및 .gitignore 업데이트
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;이 커밋에 세 가지가 같이 들어갔는데 전부 운영 준비임.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;이 커밋에 세 가지가 같이 들어갔는데 전부 운영 준비다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Rate Limiter&lt;/strong&gt; — 인증 엔드포인트가 무방비였음&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;민감 정보 마스킹&lt;/strong&gt; — 설정을 로그에 찍을 때 키가 그대로 나오고 있었음&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;.gitignore&lt;/code&gt;&lt;/strong&gt; — &lt;code&gt;.env&lt;/code&gt; 랑 firebase 서비스 계정 키&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Rate Limiter&lt;/strong&gt;. 인증 엔드포인트가 무방비였다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;민감 정보 마스킹&lt;/strong&gt;. 설정을 로그에 찍을 때 키가 그대로 나오고 있었다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;.gitignore&lt;/code&gt;&lt;/strong&gt;. &lt;code&gt;.env&lt;/code&gt; 랑 firebase 서비스 계정 키&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;마지막 게 제일 급했음. 26일에 한 번 더 손봄.&lt;/p&gt;
+&lt;p&gt;마지막 게 제일 급했다. 26일에 한 번 더 손본다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -469,11 +467,11 @@ ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&l
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chore: ignore .env and firebase service account key
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;정담&lt;/a&gt;에서 배운 걸 또 반복했음.&lt;/strong&gt; 개발 초반에 &amp;ldquo;일단 돌아가게&amp;rdquo; 넣은 파일들이 저장소에 들어가 있었음.&lt;/p&gt;
-&lt;h2 id=&#34;-세션을-db에-스냅샷으로&#34;&gt;
-    &lt;a href=&#34;#-%ec%84%b8%ec%85%98%ec%9d%84-db%ec%97%90-%ec%8a%a4%eb%83%85%ec%83%b7%ec%9c%bc%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    💾 세션을 DB에 스냅샷으로
-&lt;/h2&gt;&lt;p&gt;21일 커밋이 이 시리즈에서 제일 중요한 것 중 하나임.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;정담&lt;/a&gt;에서 배운 걸 또 반복했다.&lt;/strong&gt; 개발 초반에 &amp;ldquo;일단 돌아가게&amp;rdquo; 넣은 파일들이 저장소에 들어가 있었다.&lt;/p&gt;
+&lt;h2 id=&#34;세션을-db에-스냅샷으로&#34;&gt;
+    &lt;a href=&#34;#%ec%84%b8%ec%85%98%ec%9d%84-db%ec%97%90-%ec%8a%a4%eb%83%85%ec%83%b7%ec%9c%bc%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    세션을 DB에 스냅샷으로
+&lt;/h2&gt;&lt;p&gt;21일 커밋이 이 시리즈에서 제일 중요한 것 중 하나다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -486,22 +484,22 @@ ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&l
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;(infra) ai_sessions 테이블에 세션 상태 스냅샷 컬럼 및 인덱스 추가
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;서브모듈 셋이 &lt;strong&gt;같은 시각에 같이 움직임.&lt;/strong&gt; 하나의 기능이 세 레포에 걸쳐 있음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;서브모듈 셋이 &lt;strong&gt;같은 시각에 같이 움직이다.&lt;/strong&gt; 하나의 기능이 세 레포에 걸쳐 있다.&lt;/p&gt;
 &lt;h3 id=&#34;왜-스냅샷이-필요했나&#34;&gt;
     &lt;a href=&#34;#%ec%99%9c-%ec%8a%a4%eb%83%85%ec%83%b7%ec%9d%b4-%ed%95%84%ec%9a%94%ed%96%88%eb%82%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     왜 스냅샷이 필요했나
-&lt;/h3&gt;&lt;p&gt;묵상 대화는 &lt;strong&gt;길고, 중간에 끊김.&lt;/strong&gt; 지하철에서 하다가 내리고, 저녁에 다시 열음.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 LangGraph 상태(지금 어느 노드인지, 깊이 점수가 얼만지, 어떤 구절을 보고 있는지)가 메모리에만 있으면 &lt;strong&gt;서버가 재시작되는 순간 날아감.&lt;/strong&gt;
-사용자는 처음부터 다시 해야 함.&lt;/p&gt;
-&lt;p&gt;그래서 상태를 통째로 DB 컬럼에 넣고, 이어서 열면 복원하게 했음.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-7/&#34; &gt;seam&lt;/a&gt;의 세션 영속이랑 같은 문제인데, 여기는 &lt;strong&gt;모바일이라 훨씬 자주 끊김.&lt;/strong&gt;&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;묵상 대화는 &lt;strong&gt;길고, 중간에 끊긴다.&lt;/strong&gt; 지하철에서 하다가 내리고, 저녁에 다시 열는다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 LangGraph 상태(지금 어느 노드인지, 깊이 점수가 얼만지, 어떤 구절을 보고 있는지)가 메모리에만 있으면 &lt;strong&gt;서버가 재시작되는 순간 날아간다.&lt;/strong&gt;
+사용자는 처음부터 다시 해야 한다.&lt;/p&gt;
+&lt;p&gt;그래서 상태를 통째로 DB 컬럼에 넣고, 이어서 열면 복원하게 했다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-7/&#34; &gt;seam&lt;/a&gt;의 세션 영속이랑 같은 문제인데, 여기는 &lt;strong&gt;모바일이라 훨씬 자주 끊긴다.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;versefinder&#34;&gt;
     &lt;a href=&#34;#versefinder&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     VerseFinder
-&lt;/h3&gt;&lt;p&gt;&lt;code&gt;session_type&lt;/code&gt; 이랑 &lt;code&gt;initial_query&lt;/code&gt; 가 같이 들어간 이유임.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;요즘 불안한데 읽을 구절 있을까&amp;rdquo; 같은 요청은 묵상 대화가 아니라 &lt;strong&gt;구절 찾기&lt;/strong&gt;임.
-같은 그래프인데 진입점이 다름. 세션 타입으로 갈래를 나눴음.&lt;/p&gt;
-&lt;p&gt;다음 날 이걸 한 번 더 손봄.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;session_type&lt;/code&gt; 이랑 &lt;code&gt;initial_query&lt;/code&gt; 가 같이 들어간 이유다.&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;요즘 불안한데 읽을 구절 있을까&amp;rdquo; 같은 요청은 묵상 대화가 아니라 &lt;strong&gt;구절 찾기&lt;/strong&gt;이다.
+같은 그래프인데 진입점이 다르다. 세션 타입으로 갈래를 나눴다.&lt;/p&gt;
+&lt;p&gt;다음 날 이걸 한 번 더 손본다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -510,17 +508,16 @@ ref로 인스턴스를 들고 있다가 재생성 전에 &lt;code&gt;destroy()&l
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;세션 생성 시 verse_finder 타입을 meditation으로 변환하여 DB에 저장
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;타입이 두 개인 건 진입 시점뿐&lt;/strong&gt;이고, 구절을 찾고 나면 그냥 묵상으로 이어짐.
-DB에는 &lt;code&gt;meditation&lt;/code&gt; 으로 통일해서 저장하게 바꿨음. 안 그러면 Journey 통계에서 같은 활동이 둘로 갈라짐.&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;일단 되게&amp;rdquo; 저장소는 반드시 다시 옮기게 됨.&lt;/strong&gt; SharedPreferences → secure storage, &lt;code&gt;.env&lt;/code&gt; 커밋 → gitignore.
-둘 다 처음부터 제대로 했어도 드는 시간이 비슷했음.&lt;/p&gt;
-&lt;p&gt;그리고 21일의 3-레포 동시 커밋이 서브모레포의 실제 모습이었음.
-기능 하나가 Flutter·Core·AI·infra를 다 건드리는데, &lt;strong&gt;커밋은 네 군데에 따로 남음.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;에서 적은 포인터 관리 비용이 여기서 체감됨.&lt;/p&gt;
-&lt;p&gt;다음은 어드민임.&lt;/p&gt;
-&lt;p&gt;#ABIDE #Flutter #인증 #OAuth #FCM #보안&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;타입이 두 개인 건 진입 시점뿐&lt;/strong&gt;이고, 구절을 찾고 나면 그냥 묵상으로 이어진다.
+DB에는 &lt;code&gt;meditation&lt;/code&gt; 으로 통일해서 저장하게 바꿨다. 안 그러면 Journey 통계에서 같은 활동이 둘로 갈라진다.&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;일단 되게&amp;rdquo; 저장소는 반드시 다시 옮기게 된다.&lt;/strong&gt; SharedPreferences → secure storage, &lt;code&gt;.env&lt;/code&gt; 커밋 → gitignore.
+둘 다 처음부터 제대로 했어도 드는 시간이 비슷했다.&lt;/p&gt;
+&lt;p&gt;그리고 21일의 3-레포 동시 커밋이 서브모레포의 실제 모습이었다.
+기능 하나가 Flutter·Core·AI·infra를 다 건드리는데, &lt;strong&gt;커밋은 네 군데에 따로 남는다.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;에서 적은 포인터 관리 비용이 여기서 체감된다.&lt;/p&gt;
+&lt;p&gt;다음은 어드민이다.&lt;/p&gt;
 </description>
         </item>
         

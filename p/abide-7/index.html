@@ -292,12 +292,12 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-먼저-토큰-단위-스트리밍">🌊 먼저 토큰 단위 스트리밍</a></li>
-    <li><a href="#-observer가-너무-후했음">📏 Observer가 너무 후했음</a></li>
-    <li><a href="#-아니요-했는데-또-묻는-버그">🙅 &ldquo;아니요&rdquo; 했는데 또 묻는 버그</a></li>
-    <li><a href="#-묵상-노트를-별도-이벤트로">📝 묵상 노트를 별도 이벤트로</a></li>
-    <li><a href="#-deeplens를-미리-계산해둠">⚡ DeepLens를 미리 계산해둠</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#먼저-토큰-단위-스트리밍">먼저 토큰 단위 스트리밍</a></li>
+    <li><a href="#observer가-너무-후했음">Observer가 너무 후했음</a></li>
+    <li><a href="#아니요-했는데-또-묻는-버그">&ldquo;아니요&rdquo; 했는데 또 묻는 버그</a></li>
+    <li><a href="#묵상-노트를-별도-이벤트로">묵상 노트를 별도 이벤트로</a></li>
+    <li><a href="#deeplens를-미리-계산해둠">DeepLens를 미리 계산해둠</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -384,11 +384,11 @@
     <h1 id="abide-개발-일지-7---ai가-너무-빨리-깊어졌다고-판단했음">
     <a href="#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-7---ai%ea%b0%80-%eb%84%88%eb%ac%b4-%eb%b9%a8%eb%a6%ac-%ea%b9%8a%ec%96%b4%ec%a1%8c%eb%8b%a4%ea%b3%a0-%ed%8c%90%eb%8b%a8%ed%96%88%ec%9d%8c" class="header-anchor">#</a>
     ABIDE 개발 일지 #7 - AI가 너무 빨리 &lsquo;깊어졌다&rsquo;고 판단했음
-</h1><p><a class="link" href="https://dn5772.github.io/p/abide-3/" >#3</a>에서 만든 Observer 노드를 이때 제대로 고쳤음.
-이 시리즈에서 제일 오래 붙든 부분임.</p>
-<h2 id="-먼저-토큰-단위-스트리밍">
-    <a href="#-%eb%a8%bc%ec%a0%80-%ed%86%a0%ed%81%b0-%eb%8b%a8%ec%9c%84-%ec%8a%a4%ed%8a%b8%eb%a6%ac%eb%b0%8d" class="header-anchor">#</a>
-    🌊 먼저 토큰 단위 스트리밍
+</h1><p><a class="link" href="https://dn5772.github.io/p/abide-3/" >#3</a>에서 만든 Observer 노드를 이때 제대로 고쳤다.
+이 시리즈에서 제일 오래 붙든 부분이다.</p>
+<h2 id="먼저-토큰-단위-스트리밍">
+    <a href="#%eb%a8%bc%ec%a0%80-%ed%86%a0%ed%81%b0-%eb%8b%a8%ec%9c%84-%ec%8a%a4%ed%8a%b8%eb%a6%ac%eb%b0%8d" class="header-anchor">#</a>
+    먼저 토큰 단위 스트리밍
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -397,10 +397,10 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">03-25 22:07  feat: 묵상 응답을 astream_events로 실시간 토큰 스트리밍
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>원래는 <strong>노드가 끝나야</strong> 응답이 나갔음. LangGraph가 Counselor 노드를 다 돌리고 나서 결과를 한 번에 보냄.</p>
-<p><a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 SSE를 깔아놨는데도 <strong>체감이 로딩 스피너랑 똑같았음.</strong>
-2~3초 멈춰 있다가 문단이 통째로 툭 나옴.</p>
-<p>LangGraph의 <code>astream_events</code> 로 바꿔서 <strong>LLM 토큰이 나오는 대로</strong> SSE로 흘려보냈음.</p>
+</div><p>원래는 <strong>노드가 끝나야</strong> 응답이 나갔다. LangGraph가 Counselor 노드를 다 돌리고 나서 결과를 한 번에 보낸다.</p>
+<p><a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 SSE를 깔아놨는데도 <strong>체감이 로딩 스피너랑 똑같았다.</strong>
+2~3초 멈춰 있다가 문단이 통째로 툭 나온다.</p>
+<p>LangGraph의 <code>astream_events</code> 로 바꿔서 <strong>LLM 토큰이 나오는 대로</strong> SSE로 흘려보냈다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -409,15 +409,15 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">LLM 토큰 → astream_events → SSE delta → Flutter SseClient → 화면
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>같은 응답인데 <strong>대화처럼 보이기 시작함.</strong> 코드는 노드 하나 바꾼 건데 인상이 완전히 달라졌음.</p>
-<h2 id="-observer가-너무-후했음">
-    <a href="#-observer%ea%b0%80-%eb%84%88%eb%ac%b4-%ed%9b%84%ed%96%88%ec%9d%8c" class="header-anchor">#</a>
-    📏 Observer가 너무 후했음
-</h2><p><a class="link" href="https://dn5772.github.io/p/abide-3/" >#3</a>에 적었듯 Observer가 &ldquo;지금 얼마나 깊이 들어왔나&quot;를 점수로 매기고, Supervisor가 그걸 보고 마무리할지 정함.</p>
-<p>문제는 <strong>두세 마디 만에 점수가 확 올라갔음.</strong></p>
-<p>사용자가 좀 성의 있게 답하면 Observer가 &ldquo;오 깊어졌네&rdquo; 하고 높은 점수를 줌.
-그러면 Supervisor가 마무리로 감. <strong>대화가 3턴 만에 끝남.</strong></p>
-<p>묵상인데 3턴이면 묵상이 아님.</p>
+</div><p>같은 응답인데 <strong>대화처럼 보이기 시작한다.</strong> 코드는 노드 하나 바꾼 건데 인상이 완전히 달라졌다.</p>
+<h2 id="observer가-너무-후했음">
+    <a href="#observer%ea%b0%80-%eb%84%88%eb%ac%b4-%ed%9b%84%ed%96%88%ec%9d%8c" class="header-anchor">#</a>
+    Observer가 너무 후했음
+</h2><p><a class="link" href="https://dn5772.github.io/p/abide-3/" >#3</a>에 적었듯 Observer가 &ldquo;지금 얼마나 깊이 들어왔나&quot;를 점수로 매기고, Supervisor가 그걸 보고 마무리할지 정한다.</p>
+<p>문제는 <strong>두세 마디 만에 점수가 확 올라갔다.</strong></p>
+<p>사용자가 좀 성의 있게 답하면 Observer가 &ldquo;오 깊어졌네&rdquo; 하고 높은 점수를 준다.
+그러면 Supervisor가 마무리로 간다. <strong>대화가 3턴 만에 끝난다.</strong></p>
+<p>묵상인데 3턴이면 묵상이 아니다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -430,18 +430,18 @@
 </span></span><span class="line"><span class="cl"><span class="mi">03</span><span class="o">-</span><span class="mi">28</span> <span class="mi">19</span><span class="p">:</span><span class="mi">35</span>  <span class="n">fix</span><span class="p">:</span> <span class="n">observer</span> <span class="n">depth</span> <span class="n">non</span><span class="o">-</span><span class="n">decreasing</span> <span class="n">invariant</span> <span class="o">+</span> <span class="n">accurate</span> <span class="n">comment</span> <span class="o">+</span> <span class="n">more</span> <span class="n">tests</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>세 커밋에 걸쳐 고쳤음.</p>
-<p><strong>1. 턴 수를 알려줌.</strong> Observer가 자기가 몇 번째 턴인지 모르고 있었음. 지금 대화 내용만 보고 점수를 매김.
-한 마디만 보면 그럴듯한데, <strong>2턴째에 만점이 나올 수는 없음.</strong> 턴 수에 따라 점수 상한을 걸었음.</p>
-<p><strong>2. 한 번에 뛸 수 있는 폭을 제한.</strong> 상한만으로는 부족했음. 3→8처럼 한 턴에 확 뛰면 상한 안이어도 이상함.
-<strong>델타 캡</strong>을 걸어서 한 턴에 올라갈 수 있는 폭을 묶었음.</p>
-<p><strong>3. 깊이는 줄어들지 않게.</strong> 이게 마지막에 발견한 건데, 점수가 <strong>내려가는</strong> 경우가 있었음.
-사용자가 짧게 답하면 Observer가 이전보다 낮게 줌. 그러면 마무리로 가다가 다시 되묻기로 돌아옴.</p>
-<p>깊이는 <strong>누적 개념</strong>이라 줄어들면 안 됨. 한 번 8까지 간 대화가 7로 내려갈 수는 없음.
-<code>max(이전, 이번)</code> 으로 단조 증가를 강제하고 테스트를 붙였음.</p>
-<h2 id="-아니요-했는데-또-묻는-버그">
-    <a href="#-%ec%95%84%eb%8b%88%ec%9a%94-%ed%96%88%eb%8a%94%eb%8d%b0-%eb%98%90-%eb%ac%bb%eb%8a%94-%eb%b2%84%ea%b7%b8" class="header-anchor">#</a>
-    🙅 &ldquo;아니요&rdquo; 했는데 또 묻는 버그
+</div><p>세 커밋에 걸쳐 고쳤다.</p>
+<p><strong>1. 턴 수를 알려준다.</strong> Observer가 자기가 몇 번째 턴인지 모르고 있었다. 지금 대화 내용만 보고 점수를 매긴다.
+한 마디만 보면 그럴듯한데, <strong>2턴째에 만점이 나올 수는 없다.</strong> 턴 수에 따라 점수 상한을 걸었다.</p>
+<p><strong>2. 한 번에 뛸 수 있는 폭을 제한.</strong> 상한만으로는 부족했다. 3→8처럼 한 턴에 확 뛰면 상한 안이어도 이상한다.
+<strong>델타 캡</strong>을 걸어서 한 턴에 올라갈 수 있는 폭을 묶었다.</p>
+<p><strong>3. 깊이는 줄어들지 않게.</strong> 이게 마지막에 발견한 건데, 점수가 <strong>내려가는</strong> 경우가 있었다.
+사용자가 짧게 답하면 Observer가 이전보다 낮게 준다. 그러면 마무리로 가다가 다시 되묻기로 돌아온다.</p>
+<p>깊이는 <strong>누적 개념</strong>이라 줄어들면 안 된다. 한 번 8까지 간 대화가 7로 내려갈 수는 없다.
+<code>max(이전, 이번)</code> 으로 단조 증가를 강제하고 테스트를 붙였다.</p>
+<h2 id="아니요-했는데-또-묻는-버그">
+    <a href="#%ec%95%84%eb%8b%88%ec%9a%94-%ed%96%88%eb%8a%94%eb%8d%b0-%eb%98%90-%eb%ac%bb%eb%8a%94-%eb%b2%84%ea%b7%b8" class="header-anchor">#</a>
+    &ldquo;아니요&rdquo; 했는데 또 묻는 버그
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -452,15 +452,15 @@
 </span></span><span class="line"><span class="cl">03-28 19:44  fix: turn_count&gt;=8 confirm_end also respects depth_end_declined guard
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>ConfirmEnd 노드가 &ldquo;이제 마무리할까요?&ldquo;라고 묻는데, 사용자가 &ldquo;아니요&quot;라고 하면 <strong>다음 턴에 또 물었음.</strong></p>
-<p>깊이 점수는 이미 높은 상태니까 Supervisor가 계속 ConfirmEnd를 고름. 사용자는 두 턴마다 &ldquo;그만할까요?&ldquo;를 들음.</p>
-<p><code>depth_end_declined</code> 플래그를 상태에 넣어서, 한 번 거절하면 <strong>깊이 기반 종료 제안을 더 안 하게</strong> 막았음.</p>
-<p>19:44 커밋이 6분 뒤인데, <strong>종료 제안 경로가 두 개</strong>였음.
-깊이 기반 말고 <code>turn_count &gt;= 8</code> 로도 들어가는 길이 있었는데 거기는 가드를 안 봄. 같은 가드를 붙였음.</p>
-<p><strong>조건을 막을 땐 그 조건으로 들어오는 경로가 몇 개인지 세야</strong> 함.</p>
-<h2 id="-묵상-노트를-별도-이벤트로">
-    <a href="#-%eb%ac%b5%ec%83%81-%eb%85%b8%ed%8a%b8%eb%a5%bc-%eb%b3%84%eb%8f%84-%ec%9d%b4%eb%b2%a4%ed%8a%b8%eb%a1%9c" class="header-anchor">#</a>
-    📝 묵상 노트를 별도 이벤트로
+</div><p>ConfirmEnd 노드가 &ldquo;이제 마무리할까요?&ldquo;라고 묻는데, 사용자가 &ldquo;아니요&quot;라고 하면 <strong>다음 턴에 또 물었다.</strong></p>
+<p>깊이 점수는 이미 높은 상태니까 Supervisor가 계속 ConfirmEnd를 고른다. 사용자는 두 턴마다 &ldquo;그만할까요?&ldquo;를 들는다.</p>
+<p><code>depth_end_declined</code> 플래그를 상태에 넣어서, 한 번 거절하면 <strong>깊이 기반 종료 제안을 더 안 하게</strong> 막았다.</p>
+<p>19:44 커밋이 6분 뒤인데, <strong>종료 제안 경로가 두 개</strong>였다.
+깊이 기반 말고 <code>turn_count &gt;= 8</code> 로도 들어가는 길이 있었는데 거기는 가드를 안 봄. 같은 가드를 붙였다.</p>
+<p><strong>조건을 막을 땐 그 조건으로 들어오는 경로가 몇 개인지 세야</strong> 한다.</p>
+<h2 id="묵상-노트를-별도-이벤트로">
+    <a href="#%eb%ac%b5%ec%83%81-%eb%85%b8%ed%8a%b8%eb%a5%bc-%eb%b3%84%eb%8f%84-%ec%9d%b4%eb%b2%a4%ed%8a%b8%eb%a1%9c" class="header-anchor">#</a>
+    묵상 노트를 별도 이벤트로
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -477,9 +477,9 @@
 </span></span><span class="line"><span class="cl"><span class="mi">03</span><span class="o">-</span><span class="mi">28</span> <span class="mi">20</span><span class="p">:</span><span class="mi">38</span>  <span class="p">(</span><span class="n">flutter</span><span class="p">)</span> <span class="n">feat</span><span class="p">:</span> <span class="n">parse</span> <span class="n">meditation_note</span> <span class="n">SSE</span> <span class="n">event</span><span class="p">;</span> <span class="n">fix</span> <span class="n">message</span> <span class="n">handler</span> <span class="k">for</span> <span class="n">non</span><span class="o">-</span><span class="n">streamed</span> <span class="n">content</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>원래 Scribe가 묵상 노트를 <strong>채팅 메시지로</strong> 보냈음. 대화 말풍선 안에 정리 노트가 통째로 들어감.</p>
-<p>이게 이상했던 게, 노트는 <strong>대화가 아니라 결과물</strong>임. 저장하고 나중에 볼 거라 말풍선에 있으면 안 됨.</p>
-<p>그래서 갈랐음.</p>
+</div><p>원래 Scribe가 묵상 노트를 <strong>채팅 메시지로</strong> 보냈다. 대화 말풍선 안에 정리 노트가 통째로 들어간다.</p>
+<p>이게 이상했던 게, 노트는 <strong>대화가 아니라 결과물</strong>이다. 저장하고 나중에 볼 거라 말풍선에 있으면 안 된다.</p>
+<p>그래서 갈랐다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -490,13 +490,13 @@
 </span></span><span class="line"><span class="cl">        →  묵상 노트 전문          → meditation_note SSE 이벤트
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Flutter 쪽도 같이 고쳤음. 이 이벤트를 받아서 <strong>노트 화면으로</strong> 넘김.</p>
-<p>20:33 커밋이 자잘한데 중요함. <code>meditation_start</code> 의 done 이벤트에만 <code>is_final</code> 이 없었음.
-<strong>같은 의미의 필드가 엔드포인트마다 다르면</strong> 클라이언트가 분기를 두 벌 짜야 함.</p>
-<h2 id="-deeplens를-미리-계산해둠">
-    <a href="#-deeplens%eb%a5%bc-%eb%af%b8%eb%a6%ac-%ea%b3%84%ec%82%b0%ed%95%b4%eb%91%a0" class="header-anchor">#</a>
-    ⚡ DeepLens를 미리 계산해둠
-</h2><p>같은 기간에 DeepLens 쪽도 크게 바뀌었음.</p>
+</div><p>Flutter 쪽도 같이 고쳤다. 이 이벤트를 받아서 <strong>노트 화면으로</strong> 넘긴다.</p>
+<p>20:33 커밋이 자잘한데 중요하다. <code>meditation_start</code> 의 done 이벤트에만 <code>is_final</code> 이 없었다.
+<strong>같은 의미의 필드가 엔드포인트마다 다르면</strong> 클라이언트가 분기를 두 벌 짜야 한다.</p>
+<h2 id="deeplens를-미리-계산해둠">
+    <a href="#deeplens%eb%a5%bc-%eb%af%b8%eb%a6%ac-%ea%b3%84%ec%82%b0%ed%95%b4%eb%91%a0" class="header-anchor">#</a>
+    DeepLens를 미리 계산해둠
+</h2><p>같은 기간에 DeepLens 쪽도 크게 바뀌었다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -509,11 +509,11 @@
 </span></span><span class="line"><span class="cl">03-27 17:01  (core) 딥렌즈 분석 요청 기능 개선: DB 캐시 우선 조회 추가 및 캐시 미스 시 AI 서버로 폴백
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>DeepLens는 구절 하나의 원어·배경·상호참조를 분석하는 기능인데, <strong>매번 LLM을 부르면 느리고 비쌈.</strong></p>
-<p>그런데 성경 구절은 <strong>개수가 정해져 있음.</strong> 사용자가 뭘 고를지 몰라도 <strong>전부 미리 계산해둘 수 있음.</strong></p>
-<p>결국 <strong>62,189개 구절(KRV+NIV)을 사전 계산</strong>해서 DB에 넣었음.
-시드 스크립트를 병렬 청크 처리로 다시 쓴 게 27일 새벽 커밋임. 순차로 돌리면 며칠 걸림.</p>
-<p>Core 서버는 이제 <strong>DB를 먼저 보고</strong>, 없을 때만 AI 서버로 감.</p>
+</div><p>DeepLens는 구절 하나의 원어·배경·상호참조를 분석하는 기능인데, <strong>매번 LLM을 부르면 느리고 비싼다.</strong></p>
+<p>그런데 성경 구절은 <strong>개수가 정해져 있다.</strong> 사용자가 뭘 고를지 몰라도 <strong>전부 미리 계산해둘 수 있다.</strong></p>
+<p>결국 <strong>62,189개 구절(KRV+NIV)을 사전 계산</strong>해서 DB에 넣었다.
+시드 스크립트를 병렬 청크 처리로 다시 쓴 게 27일 새벽 커밋이다. 순차로 돌리면 며칠 걸린다.</p>
+<p>Core 서버는 이제 <strong>DB를 먼저 보고</strong>, 없을 때만 AI 서버로 간다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -524,18 +524,17 @@
 </span></span><span class="line"><span class="cl">                                      → 없으면 AI 서버 폴백
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><a class="link" href="https://dn5772.github.io/p/abide-3/" >#3</a>에서 200회로 잡았던 쿼터를 이때 올렸음. 캐시 히트면 비용이 거의 0이라서.</p>
-<p><strong>&ldquo;매번 생성&quot;을 &ldquo;미리 다 만들어둠&quot;으로 바꾼 것</strong>인데, 입력 공간이 유한할 때만 되는 방법임. 여기선 딱 맞았음.</p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p><strong>LLM한테 숫자를 매기게 하면 캘리브레이션이 안 됨.</strong></p>
-<p>Observer가 &ldquo;깊이 점수&quot;를 주는데, LLM은 절대 기준이 없음. 지금 보는 텍스트 안에서만 판단함.
-그래서 턴 수를 알려주고, 상한을 걸고, 델타를 묶고, 단조성을 강제하는 <strong>네 겹의 가드</strong>가 필요했음.</p>
-<p>결국 <strong>판정은 LLM이 하고 제약은 코드가 건다</strong>는 형태로 정리됐음. <a class="link" href="https://dn5772.github.io/p/abide-3/" >#3</a>에서 wrap_up 무한 반복을 카운터로 막은 거랑 같은 결론임.</p>
-<p>그리고 <code>depth_end_declined</code> 가드를 두 경로에 따로 붙여야 했던 게 기억에 남음.
-<strong>상태 플래그를 추가할 땐 그걸 읽어야 하는 곳을 전부 찾아야</strong> 하는데, 그래프 구조에서는 그게 눈에 잘 안 보임.</p>
-<p>#ABIDE #LangGraph #SSE #스트리밍 #AI에이전트</p>
+</div><p><a class="link" href="https://dn5772.github.io/p/abide-3/" >#3</a>에서 200회로 잡았던 쿼터를 이때 올렸다. 캐시 히트면 비용이 거의 0이라서.</p>
+<p><strong>&ldquo;매번 생성&quot;을 &ldquo;미리 다 만들어둠&quot;으로 바꾼 것</strong>인데, 입력 공간이 유한할 때만 되는 방법이다. 여기선 딱 맞았다.</p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p><strong>LLM한테 숫자를 매기게 하면 캘리브레이션이 안 된다.</strong></p>
+<p>Observer가 &ldquo;깊이 점수&quot;를 주는데, LLM은 절대 기준이 없다. 지금 보는 텍스트 안에서만 판단한다.
+그래서 턴 수를 알려주고, 상한을 걸고, 델타를 묶고, 단조성을 강제하는 <strong>네 겹의 가드</strong>가 필요했다.</p>
+<p>결국 <strong>판정은 LLM이 하고 제약은 코드가 건다</strong>는 형태로 정리됐다. <a class="link" href="https://dn5772.github.io/p/abide-3/" >#3</a>에서 wrap_up 무한 반복을 카운터로 막은 거랑 같은 결론이다.</p>
+<p>그리고 <code>depth_end_declined</code> 가드를 두 경로에 따로 붙여야 했던 게 기억에 남는다.
+<strong>상태 플래그를 추가할 땐 그걸 읽어야 하는 곳을 전부 찾아야</strong> 하는데, 그래프 구조에서는 그게 눈에 잘 안 보다.</p>
 
 </section>
 

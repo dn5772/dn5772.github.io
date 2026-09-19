@@ -292,12 +292,12 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-에셋을-권-단위로-쪼갬">📖 에셋을 권 단위로 쪼갬</a></li>
-    <li><a href="#-버전-하나-추가에-파일-여섯-개">🔗 버전 하나 추가에 파일 여섯 개</a></li>
-    <li><a href="#-설정-시트">⚙️ 설정 시트</a></li>
-    <li><a href="#-그리고-버그가-줄줄이">🐛 그리고 버그가 줄줄이</a></li>
-    <li><a href="#-이모지를-아이콘으로-바꿈">🎨 이모지를 아이콘으로 바꿈</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#에셋을-권-단위로-쪼갬">에셋을 권 단위로 쪼갬</a></li>
+    <li><a href="#버전-하나-추가에-파일-여섯-개">버전 하나 추가에 파일 여섯 개</a></li>
+    <li><a href="#설정-시트">설정 시트</a></li>
+    <li><a href="#그리고-버그가-줄줄이">그리고 버그가 줄줄이</a></li>
+    <li><a href="#이모지를-아이콘으로-바꿈">이모지를 아이콘으로 바꿈</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -384,12 +384,12 @@
     <h1 id="abide-개발-일지-6---성경-버전을-늘리니-ui가-줄줄이-깨졌음">
     <a href="#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-6---%ec%84%b1%ea%b2%bd-%eb%b2%84%ec%a0%84%ec%9d%84-%eb%8a%98%eb%a6%ac%eb%8b%88-ui%ea%b0%80-%ec%a4%84%ec%a4%84%ec%9d%b4-%ea%b9%a8%ec%a1%8c%ec%9d%8c" class="header-anchor">#</a>
     ABIDE 개발 일지 #6 - 성경 버전을 늘리니 UI가 줄줄이 깨졌음
-</h1><p><a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 성경 본문을 <strong>로컬 에셋</strong>으로 넣었음. 개역한글 하나만.
-영어 사용자를 생각하면 버전이 여러 개여야 함.</p>
-<p>3월 23일 새벽에 이걸 붙였는데, <strong>한 시간 동안 커밋 15개</strong>가 나왔음. 대부분 버그 수정임.</p>
-<h2 id="-에셋을-권-단위로-쪼갬">
-    <a href="#-%ec%97%90%ec%85%8b%ec%9d%84-%ea%b6%8c-%eb%8b%a8%ec%9c%84%eb%a1%9c-%ec%aa%bc%ea%b0%ac" class="header-anchor">#</a>
-    📖 에셋을 권 단위로 쪼갬
+</h1><p><a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 성경 본문을 <strong>로컬 에셋</strong>으로 넣었다. 개역한글 하나만.
+영어 사용자를 생각하면 버전이 여러 개여야 한다.</p>
+<p>3월 23일 새벽에 이걸 붙였는데, <strong>한 시간 동안 커밋 15개</strong>가 나왔다. 대부분 버그 수정이다.</p>
+<h2 id="에셋을-권-단위로-쪼갬">
+    <a href="#%ec%97%90%ec%85%8b%ec%9d%84-%ea%b6%8c-%eb%8b%a8%ec%9c%84%eb%a1%9c-%ec%aa%bc%ea%b0%ac" class="header-anchor">#</a>
+    에셋을 권 단위로 쪼갬
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -400,8 +400,8 @@
 </span></span><span class="line"><span class="cl">01:20  feat: reorganize bible assets into version folders (NKRV)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>원래 성경 전체가 파일 하나였음. 버전이 셋이 되면 그게 셋이 됨.</p>
-<p><strong>권 단위로 쪼갰음.</strong></p>
+</div><p>원래 성경 전체가 파일 하나였다. 버전이 셋이 되면 그게 셋이 된다.</p>
+<p><strong>권 단위로 쪼갰다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -414,9 +414,9 @@
 </span></span><span class="line"><span class="cl">assets/bible/ASV/genesis.json
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>창세기를 읽는데 요한계시록까지 메모리에 올릴 이유가 없음.
-<a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 만든 로컬 파서가 권 단위 인덱싱을 하고 있어서 쪼개는 건 어렵지 않았음.</p>
-<p>루트 레포에도 스크립트를 넣었음.</p>
+</div><p>창세기를 읽는데 요한계시록까지 메모리에 올릴 이유가 없다.
+<a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 만든 로컬 파서가 권 단위 인덱싱을 하고 있어서 쪼개는 건 어렵지 않았다.</p>
+<p>루트 레포에도 스크립트를 넣었다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -425,10 +425,10 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">feat: add Bible split script and KJV/KRV/ASV per-book assets
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="-버전-하나-추가에-파일-여섯-개">
-    <a href="#-%eb%b2%84%ec%a0%84-%ed%95%98%eb%82%98-%ec%b6%94%ea%b0%80%ec%97%90-%ed%8c%8c%ec%9d%bc-%ec%97%ac%ec%84%af-%ea%b0%9c" class="header-anchor">#</a>
-    🔗 버전 하나 추가에 파일 여섯 개
-</h2><p>여기서부터가 진짜임. <code>BibleVersion</code> 이라는 값 하나가 생기니까 <strong>계층을 전부 통과해야 했음.</strong></p>
+</div><h2 id="버전-하나-추가에-파일-여섯-개">
+    <a href="#%eb%b2%84%ec%a0%84-%ed%95%98%eb%82%98-%ec%b6%94%ea%b0%80%ec%97%90-%ed%8c%8c%ec%9d%bc-%ec%97%ac%ec%84%af-%ea%b0%9c" class="header-anchor">#</a>
+    버전 하나 추가에 파일 여섯 개
+</h2><p>여기서부터가 진짜다. <code>BibleVersion</code> 이라는 값 하나가 생기니까 <strong>계층을 전부 통과해야 했다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -457,12 +457,12 @@
 </span></span><span class="line"><span class="cl">      (presentation)            (data)              (data)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 3레이어로 가른 대가임. <strong>파라미터 하나가 레이어를 다 뚫고 내려가야 함.</strong></p>
-<p>커밋 두 개(<code>01:37</code>, <code>01:41</code>)가 연달아 &ldquo;인자 안 넘김&quot;을 고치는 건데, 컴파일은 되는데 기본값으로 동작해서 화면에서만 티가 났음.</p>
-<p>솔직히 이 부분은 레이어를 나눈 게 손해였음. 근데 <strong>책 이름 영문 필드</strong>(<code>01:26</code>)처럼 도메인 엔티티만 고치면 되는 건 또 깔끔했음. 반반임.</p>
-<h2 id="-설정-시트">
-    <a href="#-%ec%84%a4%ec%a0%95-%ec%8b%9c%ed%8a%b8" class="header-anchor">#</a>
-    ⚙️ 설정 시트
+</div><p><a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 3레이어로 가른 대가다. <strong>파라미터 하나가 레이어를 다 뚫고 내려가야 한다.</strong></p>
+<p>커밋 두 개(<code>01:37</code>, <code>01:41</code>)가 연달아 &ldquo;인자 안 넘김&quot;을 고치는 건데, 컴파일은 되는데 기본값으로 동작해서 화면에서만 티가 났다.</p>
+<p>솔직히 이 부분은 레이어를 나눈 게 손해였다. 근데 <strong>책 이름 영문 필드</strong>(<code>01:26</code>)처럼 도메인 엔티티만 고치면 되는 건 또 깔끔했다. 반반이다.</p>
+<h2 id="설정-시트">
+    <a href="#%ec%84%a4%ec%a0%95-%ec%8b%9c%ed%8a%b8" class="header-anchor">#</a>
+    설정 시트
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -475,13 +475,13 @@
 </span></span><span class="line"><span class="cl">01:47  feat: add settings button and sequential listing to BibleIndexScreen
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>버전·글꼴 크기·본문 스타일을 바꾸는 바텀시트임.</p>
-<p><code>01:44</code> 커밋이 <a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 디자인 시스템을 먼저 깐 값어치임.
-처음엔 색을 직접 박았다가 <strong>토큰으로 바꿈.</strong> 다크 모드에서 안 맞았음.</p>
-<h2 id="-그리고-버그가-줄줄이">
-    <a href="#-%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%b2%84%ea%b7%b8%ea%b0%80-%ec%a4%84%ec%a4%84%ec%9d%b4" class="header-anchor">#</a>
-    🐛 그리고 버그가 줄줄이
-</h2><p>여기서부터 나흘 동안 UI 버그만 잡았음.</p>
+</div><p>버전·글꼴 크기·본문 스타일을 바꾸는 바텀시트다.</p>
+<p><code>01:44</code> 커밋이 <a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 디자인 시스템을 먼저 깐 값어치다.
+처음엔 색을 직접 박았다가 <strong>토큰으로 바꾼다.</strong> 다크 모드에서 안 맞았다.</p>
+<h2 id="그리고-버그가-줄줄이">
+    <a href="#%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%b2%84%ea%b7%b8%ea%b0%80-%ec%a4%84%ec%a4%84%ec%9d%b4" class="header-anchor">#</a>
+    그리고 버그가 줄줄이
+</h2><p>여기서부터 나흘 동안 UI 버그만 잡았다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -510,20 +510,20 @@
 </span></span><span class="line"><span class="cl">03-27 17:47  fix: 성경 설정 시트 폰트 크기 확대 시 bottom overflow 수정
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>11개 중 7개가 설정 시트 하나에서 나왔음.</strong></p>
-<p>패턴이 보임.</p>
-<p><strong>1. 오버레이 겹침.</strong> 묵상 화면에서 구절 미리보기를 띄우면 <strong>키보드가 올라올 때 입력창을 가림.</strong>
-모바일에서 오버레이 + 키보드는 거의 항상 문제가 됨. 화면 높이가 실시간으로 바뀌는데 오버레이는 그걸 모름.</p>
-<p><strong>2. 터치 차단.</strong> 투명한 오버레이가 <strong>보이지도 않으면서 터치를 먹고 있었음.</strong>
-화면은 정상인데 버튼이 안 눌림. 제일 찾기 어려운 종류임.</p>
-<p><strong>3. 글자 크기가 반영이 안 됨.</strong> 설정에서 키우면 값은 바뀌는데 <strong>본문에 안 닿음.</strong>
-프로바이더까지는 갔는데 위젯이 그 값을 구독하지 않고 있었음.</p>
-<p><strong>4. 크기를 키우면 오버플로우.</strong> 반영되게 고쳤더니 이번엔 시트가 터짐.
-<code>01:44</code> 에서 고정 높이로 잡아둔 게 원인. 스크롤 가능하게 바꿈.</p>
-<h2 id="-이모지를-아이콘으로-바꿈">
-    <a href="#-%ec%9d%b4%eb%aa%a8%ec%a7%80%eb%a5%bc-%ec%95%84%ec%9d%b4%ec%bd%98%ec%9c%bc%eb%a1%9c-%eb%b0%94%ea%bf%88" class="header-anchor">#</a>
-    🎨 이모지를 아이콘으로 바꿈
-</h2><p>25일에 이걸 했음.</p>
+</div><p><strong>11개 중 7개가 설정 시트 하나에서 나왔다.</strong></p>
+<p>패턴이 보다.</p>
+<p><strong>1. 오버레이 겹친다.</strong> 묵상 화면에서 구절 미리보기를 띄우면 <strong>키보드가 올라올 때 입력창을 가린다.</strong>
+모바일에서 오버레이 + 키보드는 거의 항상 문제가 된다. 화면 높이가 실시간으로 바뀌는데 오버레이는 그걸 모른다.</p>
+<p><strong>2. 터치 차단.</strong> 투명한 오버레이가 <strong>보이지도 않으면서 터치를 먹고 있었다.</strong>
+화면은 정상인데 버튼이 안 눌린다. 제일 찾기 어려운 종류다.</p>
+<p><strong>3. 글자 크기가 반영이 안 된다.</strong> 설정에서 키우면 값은 바뀌는데 <strong>본문에 안 닿는다.</strong>
+프로바이더까지는 갔는데 위젯이 그 값을 구독하지 않고 있었다.</p>
+<p><strong>4. 크기를 키우면 오버플로우.</strong> 반영되게 고쳤더니 이번엔 시트가 터진다.
+<code>01:44</code> 에서 고정 높이로 잡아둔 게 원인. 스크롤 가능하게 바꾼다.</p>
+<h2 id="이모지를-아이콘으로-바꿈">
+    <a href="#%ec%9d%b4%eb%aa%a8%ec%a7%80%eb%a5%bc-%ec%95%84%ec%9d%b4%ec%bd%98%ec%9c%bc%eb%a1%9c-%eb%b0%94%ea%bf%88" class="header-anchor">#</a>
+    이모지를 아이콘으로 바꿈
+</h2><p>25일에 이걸 했다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -532,11 +532,11 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">refactor: replace emoji with Material Design icons throughout UI
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>무드 선택이나 빠른 진입 버튼에 이모지를 쓰고 있었음.</p>
-<p>이모지는 <strong>기기·OS 버전마다 그림이 다름.</strong> 같은 유니코드인데 안드로이드랑 iOS가 완전히 다르게 그림.
-디자인을 맞출 수가 없고, 폰트가 없으면 두부(□)가 나옴.</p>
-<p>실제로 <code>03-26 13:40</code> 에 &ldquo;감사 무드 이모지 누락&quot;이 있음. 아이콘으로 바꾼 뒤에도 한 군데가 남아 있었던 것.</p>
-<p>같은 날 이것도 같이 고침.</p>
+</div><p>무드 선택이나 빠른 진입 버튼에 이모지를 쓰고 있었다.</p>
+<p>이모지는 <strong>기기·OS 버전마다 그림이 다르다.</strong> 같은 유니코드인데 안드로이드랑 iOS가 완전히 다르게 그림.
+디자인을 맞출 수가 없고, 폰트가 없으면 두부(□)가 나온다.</p>
+<p>실제로 <code>03-26 13:40</code> 에 &ldquo;감사 무드 이모지 누락&quot;이 있다. 아이콘으로 바꾼 뒤에도 한 군데가 남아 있었던 것.</p>
+<p>같은 날 이것도 같이 고친다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -545,17 +545,16 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">fix: restrict debug logging to debug builds, fix quota API and notification settings parsing
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>디버그 로그가 릴리즈 빌드에도 찍히고 있었음.</strong> 토큰이나 응답 본문이 로그에 남음.
-<a class="link" href="https://dn5772.github.io/p/abide-4/" >#4</a>에서 민감 정보 마스킹한 거랑 같은 줄기인데, 이번엔 클라이언트 쪽이었음.</p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p><strong>&ldquo;버전 하나 추가&quot;가 UI 버그 11개를 불렀음.</strong></p>
-<p>기능 자체는 반나절이면 되는데, 그게 건드리는 화면이 성경 인덱스·본문·설정 시트·묵상 화면·홈 카드까지 퍼져 있었음.
-<strong>옵션이 하나 늘면 조합이 곱으로 늘어난다</strong>는 걸 몸으로 배웠음.</p>
-<p>그리고 모바일에서 <strong>오버레이랑 키보드는 항상 의심</strong>해야 함. 11개 중 3개가 그거였음.</p>
-<p>다음은 스트리밍이랑 Observer 깊이 판정임. 이 시리즈에서 제일 오래 붙든 부분.</p>
-<p>#ABIDE #Flutter #UI #버그 #모바일</p>
+</div><p><strong>디버그 로그가 릴리즈 빌드에도 찍히고 있었다.</strong> 토큰이나 응답 본문이 로그에 남는다.
+<a class="link" href="https://dn5772.github.io/p/abide-4/" >#4</a>에서 민감 정보 마스킹한 거랑 같은 줄기인데, 이번엔 클라이언트 쪽이었다.</p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p><strong>&ldquo;버전 하나 추가&quot;가 UI 버그 11개를 불렀다.</strong></p>
+<p>기능 자체는 반나절이면 되는데, 그게 건드리는 화면이 성경 인덱스·본문·설정 시트·묵상 화면·홈 카드까지 퍼져 있었다.
+<strong>옵션이 하나 늘면 조합이 곱으로 늘어난다</strong>는 걸 몸으로 배웠다.</p>
+<p>그리고 모바일에서 <strong>오버레이랑 키보드는 항상 의심</strong>해야 한다. 11개 중 3개가 그거였다.</p>
+<p>다음은 스트리밍이랑 Observer 깊이 판정이다. 이 시리즈에서 제일 오래 붙든 부분.</p>
 
 </section>
 

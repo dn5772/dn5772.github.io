@@ -15,17 +15,17 @@
         <description>&lt;h1 id=&#34;seam-개발-일지-4---17분-만에-만든-코딩-에이전트&#34;&gt;
     &lt;a href=&#34;#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-4---17%eb%b6%84-%eb%a7%8c%ec%97%90-%eb%a7%8c%eb%93%a0-%ec%bd%94%eb%94%a9-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     seam 개발 일지 #4 - 17분 만에 만든 코딩 에이전트
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt;에서 런타임은 만들었는데, &lt;strong&gt;그 위에서 돌 앱이 없었음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;seam.yaml&lt;/code&gt; 에 &lt;code&gt;type: native&lt;/code&gt; 툴을 적을 수 있게 해놨지만 정작 띄울 게 없음.
-플랫폼만 있고 앱이 없는 상태라 아무것도 증명이 안 됨.&lt;/p&gt;
-&lt;p&gt;그래서 첫 공식 앱을 만들었음. &lt;strong&gt;seam-code&lt;/strong&gt; — 터미널 코딩 에이전트.&lt;/p&gt;
-&lt;h2 id=&#34;-왜-python인가&#34;&gt;
-    &lt;a href=&#34;#-%ec%99%9c-python%ec%9d%b8%ea%b0%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🐍 왜 Python인가
-&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt;에서 Rust를 고른 이유가 &amp;ldquo;단일 바이너리&amp;quot;였는데, 여기선 정반대로 갔음.&lt;/p&gt;
-&lt;p&gt;에이전트 쪽은 &lt;strong&gt;생태계가 전부 Python&lt;/strong&gt;임. LangChain, 각종 LLM SDK, TUI 라이브러리까지.
-deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다시 짤 이유가 없었음.&lt;/p&gt;
-&lt;p&gt;그래서 &lt;strong&gt;듀얼 프로젝트&lt;/strong&gt;가 됨.&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt;에서 런타임은 만들었는데, &lt;strong&gt;그 위에서 돌 앱이 없었다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;seam.yaml&lt;/code&gt; 에 &lt;code&gt;type: native&lt;/code&gt; 툴을 적을 수 있게 해놨지만 정작 띄울 게 없다.
+플랫폼만 있고 앱이 없는 상태라 아무것도 증명이 안 된다.&lt;/p&gt;
+&lt;p&gt;그래서 첫 공식 앱을 만들었다. &lt;strong&gt;seam-code&lt;/strong&gt;. 터미널 코딩 에이전트.&lt;/p&gt;
+&lt;h2 id=&#34;왜-python인가&#34;&gt;
+    &lt;a href=&#34;#%ec%99%9c-python%ec%9d%b8%ea%b0%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    왜 Python인가
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt;에서 Rust를 고른 이유가 &amp;ldquo;단일 바이너리&amp;quot;였는데, 여기선 정반대로 갔다.&lt;/p&gt;
+&lt;p&gt;에이전트 쪽은 &lt;strong&gt;생태계가 전부 Python&lt;/strong&gt;이다. LangChain, 각종 LLM SDK, TUI 라이브러리까지.
+deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다시 짤 이유가 없었다.&lt;/p&gt;
+&lt;p&gt;그래서 &lt;strong&gt;듀얼 프로젝트&lt;/strong&gt;가 된다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -36,10 +36,10 @@ deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다�
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam-code  (Python)  코딩 에이전트 · TUI
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;역할이 갈림. &lt;strong&gt;seam-cli가 모델 라우팅이랑 메모리를 맡고, seam-code는 툴 실행이랑 UX에 집중함.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-09491006-커밋-13개&#34;&gt;
-    &lt;a href=&#34;#-09491006-%ec%bb%a4%eb%b0%8b-13%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    ⏱️ 09:49~10:06, 커밋 13개
+&lt;/div&gt;&lt;p&gt;역할이 갈린다. &lt;strong&gt;seam-cli가 모델 라우팅이랑 메모리를 맡고, seam-code는 툴 실행이랑 UX에 집중한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;09491006-커밋-13개&#34;&gt;
+    &lt;a href=&#34;#09491006-%ec%bb%a4%eb%b0%8b-13%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    09:49~10:06, 커밋 13개
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -66,11 +66,11 @@ deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다�
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;06&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;seam&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;yaml&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;definition&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;system&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;prompt&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;17분임.&lt;/strong&gt; 스캐폴드부터 TUI까지.&lt;/p&gt;
-&lt;h2 id=&#34;-툴-8개&#34;&gt;
-    &lt;a href=&#34;#-%ed%88%b4-8%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔧 툴 8개
-&lt;/h2&gt;&lt;p&gt;에이전트가 쓸 수 있는 도구를 로컬에 뒀음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;17분이다.&lt;/strong&gt; 스캐폴드부터 TUI까지.&lt;/p&gt;
+&lt;h2 id=&#34;툴-8개&#34;&gt;
+    &lt;a href=&#34;#%ed%88%b4-8%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    툴 8개
+&lt;/h2&gt;&lt;p&gt;에이전트가 쓸 수 있는 도구를 로컬에 뒀다.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -101,18 +101,18 @@ deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다�
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;code&gt;memory_save&lt;/code&gt; 만 IPC로 seam-cli에 넘어감. 나머지는 전부 로컬에서 처리.
-&lt;strong&gt;메모리만 공유하고 파일 작업은 각자 하는 구조&lt;/strong&gt;임.&lt;/p&gt;
-&lt;p&gt;10:01 커밋이 툴 두 개를 고치는데 둘 다 같은 종류임.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;memory_save&lt;/code&gt; 만 IPC로 seam-cli에 넘어간다. 나머지는 전부 로컬에서 처리.
+&lt;strong&gt;메모리만 공유하고 파일 작업은 각자 하는 구조&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;10:01 커밋이 툴 두 개를 고치는데 둘 다 같은 종류다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;execute&lt;/code&gt; 가 &lt;strong&gt;종료 코드가 0이 아닌데 성공으로 반환&lt;/strong&gt;하고 있었음. 에이전트가 &amp;ldquo;명령이 잘 됐구나&amp;rdquo; 하고 다음 단계로 감&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;grep_files&lt;/code&gt; 가 &lt;strong&gt;순서가 매번 달랐음.&lt;/strong&gt; 파일시스템 순회 순서 그대로라서 같은 요청에 다른 결과가 나옴&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;execute&lt;/code&gt; 가 &lt;strong&gt;종료 코드가 0이 아닌데 성공으로 반환&lt;/strong&gt;하고 있었다. 에이전트가 &amp;ldquo;명령이 잘 됐구나&amp;rdquo; 하고 다음 단계로 간다&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;grep_files&lt;/code&gt; 가 &lt;strong&gt;순서가 매번 달랐다.&lt;/strong&gt; 파일시스템 순회 순서 그대로라서 같은 요청에 다른 결과가 나온다&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;두 번째는 특히 에이전트한테 나쁨. &lt;strong&gt;같은 상황에서 다르게 행동하면 디버깅이 불가능해짐.&lt;/strong&gt; 정렬해서 반환하게 바꿈.&lt;/p&gt;
-&lt;h2 id=&#34;-에이전트-루프&#34;&gt;
-    &lt;a href=&#34;#-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8-%eb%a3%a8%ed%94%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔁 에이전트 루프
-&lt;/h2&gt;&lt;p&gt;핵심은 이거 하나임.&lt;/p&gt;
+&lt;p&gt;두 번째는 특히 에이전트한테 나쁜다. &lt;strong&gt;같은 상황에서 다르게 행동하면 디버깅이 불가능해진다.&lt;/strong&gt; 정렬해서 반환하게 바꾼다.&lt;/p&gt;
+&lt;h2 id=&#34;에이전트-루프&#34;&gt;
+    &lt;a href=&#34;#%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8-%eb%a3%a8%ed%94%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    에이전트 루프
+&lt;/h2&gt;&lt;p&gt;핵심은 이거 하나다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -131,14 +131,14 @@ deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다�
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  → 툴 호출이 없으면 종료
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;무한 루프가 될 수 있어서 &lt;code&gt;MAX_TOOL_LOOPS&lt;/code&gt; 로 상한을 뒀음.&lt;/p&gt;
-&lt;p&gt;10:04 커밋이 그 상한에 걸렸을 때를 고침. 원래는 &lt;strong&gt;그냥 조용히 빠져나갔음.&lt;/strong&gt;
-사용자 입장에선 에이전트가 아무 말 없이 멈춘 것처럼 보임. 히스토리에 &amp;ldquo;한도에 걸려서 멈췄다&amp;quot;는 메시지를 넣고 나가게 바꿈.&lt;/p&gt;
-&lt;p&gt;에이전트가 실패할 때 &lt;strong&gt;왜 실패했는지 말하게 하는 건&lt;/strong&gt; 생각보다 중요한 것 같음.&lt;/p&gt;
-&lt;h2 id=&#34;-모드-두-개&#34;&gt;
-    &lt;a href=&#34;#-%eb%aa%a8%eb%93%9c-%eb%91%90-%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🖥️ 모드 두 개
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;headless&lt;/strong&gt; — 단발 실행.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;무한 루프가 될 수 있어서 &lt;code&gt;MAX_TOOL_LOOPS&lt;/code&gt; 로 상한을 뒀다.&lt;/p&gt;
+&lt;p&gt;10:04 커밋이 그 상한에 걸렸을 때를 고친다. 원래는 &lt;strong&gt;그냥 조용히 빠져나갔다.&lt;/strong&gt;
+사용자 입장에선 에이전트가 아무 말 없이 멈춘 것처럼 보다. 히스토리에 &amp;ldquo;한도에 걸려서 멈췄다&amp;quot;는 메시지를 넣고 나가게 바꾼다.&lt;/p&gt;
+&lt;p&gt;에이전트가 실패할 때 &lt;strong&gt;왜 실패했는지 말하게 하는 건&lt;/strong&gt; 생각보다 중요한 것 같다.&lt;/p&gt;
+&lt;h2 id=&#34;모드-두-개&#34;&gt;
+    &lt;a href=&#34;#%eb%aa%a8%eb%93%9c-%eb%91%90-%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    모드 두 개
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;headless&lt;/strong&gt;. 단발 실행.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -147,7 +147,7 @@ deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다�
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam code &lt;span class=&#34;s2&#34;&gt;&amp;#34;이 코드베이스 설명해줘&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;TUI&lt;/strong&gt; — Textual로 만든 대화형 화면.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;TUI&lt;/strong&gt;. Textual로 만든 대화형 화면.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -156,12 +156,12 @@ deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다�
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam code
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;headless를 먼저 만들었음. 스크립트에서 부르기 쉽고, &lt;strong&gt;TUI 없이도 에이전트 루프를 테스트할 수 있어서&lt;/strong&gt;임.
+&lt;/div&gt;&lt;p&gt;headless를 먼저 만들었다. 스크립트에서 부르기 쉽고, &lt;strong&gt;TUI 없이도 에이전트 루프를 테스트할 수 있어서&lt;/strong&gt;이다.
 TUI를 먼저 만들었으면 화면이랑 로직이 엉켜서 테스트가 어려웠을 것.&lt;/p&gt;
-&lt;h2 id=&#34;-seam-code가-다른-에이전트랑-다른-점&#34;&gt;
-    &lt;a href=&#34;#-seam-code%ea%b0%80-%eb%8b%a4%eb%a5%b8-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8%eb%9e%91-%eb%8b%a4%eb%a5%b8-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 seam-code가 다른 에이전트랑 다른 점
-&lt;/h2&gt;&lt;p&gt;문서에 비교표를 적어놨는데, 결국 전부 &lt;strong&gt;seam 위에 있다&lt;/strong&gt;는 데서 나옴.&lt;/p&gt;
+&lt;h2 id=&#34;seam-code가-다른-에이전트랑-다른-점&#34;&gt;
+    &lt;a href=&#34;#seam-code%ea%b0%80-%eb%8b%a4%eb%a5%b8-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8%eb%9e%91-%eb%8b%a4%eb%a5%b8-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    seam-code가 다른 에이전트랑 다른 점
+&lt;/h2&gt;&lt;p&gt;문서에 비교표를 적어놨는데, 결국 전부 &lt;strong&gt;seam 위에 있다&lt;/strong&gt;는 데서 나온다.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -193,15 +193,14 @@ TUI를 먼저 만들었으면 화면이랑 로직이 엉켜서 테스트가 어�
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;시니어가 쓰던 프롬프트랑 스킬 세팅을 새 팀원이 &lt;strong&gt;한 줄로 받아 쓰는 것&lt;/strong&gt; — 이게 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-2/&#34; &gt;#2&lt;/a&gt;에서 피벗한 이유 그 자체임.
-플랫폼 혼자서는 못 보여주는 걸 앱이 하나 생기니까 보여줄 수 있게 됨.&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
-&lt;/h2&gt;&lt;p&gt;Rust로 다 통일하고 싶은 마음이 있었는데, &lt;strong&gt;언어를 갈라놓은 게 맞았음.&lt;/strong&gt;
-런타임은 단일 바이너리여야 하고 에이전트는 생태계를 타야 함. 요구사항이 정반대라 억지로 한쪽에 맞췄으면 둘 다 나빠졌을 것.&lt;/p&gt;
-&lt;p&gt;대신 &lt;strong&gt;두 프로세스가 대화할 방법&lt;/strong&gt;이 필요해짐. 그게 다음 글임.&lt;/p&gt;
-&lt;p&gt;#seam #Python #에이전트 #Textual #TUI&lt;/p&gt;
+&lt;p&gt;시니어가 쓰던 프롬프트랑 스킬 세팅을 새 팀원이 &lt;strong&gt;한 줄로 받아 쓰는 것&lt;/strong&gt;. 이게 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-2/&#34; &gt;#2&lt;/a&gt;에서 피벗한 이유 그 자체다.
+플랫폼 혼자서는 못 보여주는 걸 앱이 하나 생기니까 보여줄 수 있게 된다.&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
+&lt;/h2&gt;&lt;p&gt;Rust로 다 통일하고 싶은 마음이 있었는데, &lt;strong&gt;언어를 갈라놓은 게 맞았다.&lt;/strong&gt;
+런타임은 단일 바이너리여야 하고 에이전트는 생태계를 타야 한다. 요구사항이 정반대라 억지로 한쪽에 맞췄으면 둘 다 나빠졌을 것.&lt;/p&gt;
+&lt;p&gt;대신 &lt;strong&gt;두 프로세스가 대화할 방법&lt;/strong&gt;이 필요해진다. 그게 다음 글이다.&lt;/p&gt;
 </description>
         </item>
         

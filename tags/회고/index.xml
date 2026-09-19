@@ -15,11 +15,11 @@
         <description>&lt;h1 id=&#34;정담-개발-일지-9---마지막-버그-하나-그리고-넉-달-회고&#34;&gt;
     &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-9---%eb%a7%88%ec%a7%80%eb%a7%89-%eb%b2%84%ea%b7%b8-%ed%95%98%eb%82%98-%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%84%89-%eb%8b%ac-%ed%9a%8c%ea%b3%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     정담 개발 일지 #9 - 마지막 버그 하나, 그리고 넉 달 회고
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;#8&lt;/a&gt; 이후 두 달 동안 조용했음. 잘 돌아갔으니까.&lt;/p&gt;
-&lt;p&gt;그러다 5월에 &lt;strong&gt;메뉴 저장이 갑자기 안 되기 시작함.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-3월에-고친-게-5월에-다시-터짐&#34;&gt;
-    &lt;a href=&#34;#-3%ec%9b%94%ec%97%90-%ea%b3%a0%ec%b9%9c-%ea%b2%8c-5%ec%9b%94%ec%97%90-%eb%8b%a4%ec%8b%9c-%ed%84%b0%ec%a7%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🐛 3월에 고친 게 5월에 다시 터짐
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;#8&lt;/a&gt; 이후 두 달 동안 조용했다. 잘 돌아갔으니까.&lt;/p&gt;
+&lt;p&gt;그러다 5월에 &lt;strong&gt;메뉴 저장이 갑자기 안 되기 시작한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;3월에-고친-게-5월에-다시-터짐&#34;&gt;
+    &lt;a href=&#34;#3%ec%9b%94%ec%97%90-%ea%b3%a0%ec%b9%9c-%ea%b2%8c-5%ec%9b%94%ec%97%90-%eb%8b%a4%ec%8b%9c-%ed%84%b0%ec%a7%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3월에 고친 게 5월에 다시 터짐
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -28,7 +28,7 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: add allowOverwrite to Vercel Blob put to fix menu save failures
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;에서 레이스 컨디션 고칠 때 &lt;code&gt;list → del → put&lt;/code&gt; 을 &lt;strong&gt;같은 경로 덮어쓰기&lt;/strong&gt;로 바꿨었음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;에서 레이스 컨디션 고칠 때 &lt;code&gt;list → del → put&lt;/code&gt; 을 &lt;strong&gt;같은 경로 덮어쓰기&lt;/strong&gt;로 바꿨었다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -37,8 +37,8 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kr&#34;&gt;await&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;menuData-ko.json&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;body&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;addRandomSuffix&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;false&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;그 사이에 Blob SDK 메이저 버전이 올라갔음.
-그리고 &lt;strong&gt;같은 경로에 덮어쓰려면 &lt;code&gt;allowOverwrite&lt;/code&gt; 를 명시적으로 줘야&lt;/strong&gt; 하게 바뀜. 안 주면 에러.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;그 사이에 Blob SDK 메이저 버전이 올라갔다.
+그리고 &lt;strong&gt;같은 경로에 덮어쓰려면 &lt;code&gt;allowOverwrite&lt;/code&gt; 를 명시적으로 줘야&lt;/strong&gt; 하게 바뀐다. 안 주면 에러.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -53,12 +53,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;한 줄 추가로 끝났음.&lt;/p&gt;
-&lt;p&gt;근데 이게 좀 재밌는 게, &lt;strong&gt;덮어쓰기를 실수로 하는 걸 막으려고 SDK가 막아둔 거임.&lt;/strong&gt; 나는 일부러 덮어쓰는 건데.
-3월에 &lt;code&gt;del&lt;/code&gt; 을 없앤 그 결정이 5월에 손이 한 번 더 간 셈인데, 그래도 메뉴가 잠깐 비는 것보단 나음.&lt;/p&gt;
-&lt;h2 id=&#34;-넉-달-커밋-39개&#34;&gt;
-    &lt;a href=&#34;#-%eb%84%89-%eb%8b%ac-%ec%bb%a4%eb%b0%8b-39%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📊 넉 달, 커밋 39개
+&lt;/div&gt;&lt;p&gt;한 줄 추가로 끝났다.&lt;/p&gt;
+&lt;p&gt;근데 이게 좀 재밌는 게, &lt;strong&gt;덮어쓰기를 실수로 하는 걸 막으려고 SDK가 막아둔 거다.&lt;/strong&gt; 나는 일부러 덮어쓰는 건데.
+3월에 &lt;code&gt;del&lt;/code&gt; 을 없앤 그 결정이 5월에 손이 한 번 더 간 셈인데, 그래도 메뉴가 잠깐 비는 것보단 낫다.&lt;/p&gt;
+&lt;h2 id=&#34;넉-달-커밋-39개&#34;&gt;
+    &lt;a href=&#34;#%eb%84%89-%eb%8b%ac-%ec%bb%a4%eb%b0%8b-39%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    넉 달, 커밋 39개
 &lt;/h2&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -127,26 +127,26 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;DB 없음
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;-넉-달-동안-배운-것-4개&#34;&gt;
-    &lt;a href=&#34;#-%eb%84%89-%eb%8b%ac-%eb%8f%99%ec%95%88-%eb%b0%b0%ec%9a%b4-%ea%b2%83-4%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    💭 넉 달 동안 배운 것 4개
+&lt;/div&gt;&lt;h2 id=&#34;넉-달-동안-배운-것-4개&#34;&gt;
+    &lt;a href=&#34;#%eb%84%89-%eb%8b%ac-%eb%8f%99%ec%95%88-%eb%b0%b0%ec%9a%b4-%ea%b2%83-4%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    넉 달 동안 배운 것 4개
 &lt;/h2&gt;&lt;h3 id=&#34;1-로컬에서-되는데요가-제일-무서움&#34;&gt;
     &lt;a href=&#34;#1-%eb%a1%9c%ec%bb%ac%ec%97%90%ec%84%9c-%eb%90%98%eb%8a%94%eb%8d%b0%ec%9a%94%ea%b0%80-%ec%a0%9c%ec%9d%bc-%eb%ac%b4%ec%84%9c%ec%9b%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     1. &amp;ldquo;로컬에서 되는데요&amp;quot;가 제일 무서움
-&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 파일 쓰기가 로컬에선 100% 돌아갔음. 배포 환경이 다르다는 걸 코드가 알려주지 않음.
-그리고 메모리로 바꾼 것도 &lt;strong&gt;똑같은 착각을 다른 방식으로 반복한 것&lt;/strong&gt;이었음 — &amp;ldquo;이 프로세스가 계속 살아 있다&amp;quot;는 전제.&lt;/p&gt;
-&lt;p&gt;진짜 고쳐야 했던 건 저장 위치가 아니라 그 전제였음.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 파일 쓰기가 로컬에선 100% 돌아갔다. 배포 환경이 다르다는 걸 코드가 알려주지 않는다.
+그리고 메모리로 바꾼 것도 &lt;strong&gt;똑같은 착각을 다른 방식으로 반복한 것&lt;/strong&gt;이었다. &amp;ldquo;이 프로세스가 계속 살아 있다&amp;quot;는 전제.&lt;/p&gt;
+&lt;p&gt;진짜 고쳐야 했던 건 저장 위치가 아니라 그 전제였다.&lt;/p&gt;
 &lt;h3 id=&#34;2-db-없이도-되는-게-꽤-많음&#34;&gt;
     &lt;a href=&#34;#2-db-%ec%97%86%ec%9d%b4%eb%8f%84-%eb%90%98%eb%8a%94-%ea%b2%8c-%ea%bd%a4-%eb%a7%8e%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     2. DB 없이도 되는 게 꽤 많음
-&lt;/h3&gt;&lt;p&gt;메뉴판처럼 &lt;strong&gt;작고, 자주 안 바뀌고, 동시 수정이 없는&lt;/strong&gt; 데이터는 JSON 두 장으로 충분했음.
-스키마 마이그레이션이 없으니 넉 달 동안 데이터 구조 바꾸는 게 파일 고치는 일이었음.&lt;/p&gt;
-&lt;p&gt;다만 이건 &amp;ldquo;DB는 오버엔지니어링&amp;quot;이라는 얘기가 아님. 조건이 맞아서 된 것.
-동시에 수정하는 사람이 둘만 됐어도 이 구조는 바로 깨짐.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;메뉴판처럼 &lt;strong&gt;작고, 자주 안 바뀌고, 동시 수정이 없는&lt;/strong&gt; 데이터는 JSON 두 장으로 충분했다.
+스키마 마이그레이션이 없으니 넉 달 동안 데이터 구조 바꾸는 게 파일 고치는 일이었다.&lt;/p&gt;
+&lt;p&gt;다만 이건 &amp;ldquo;DB는 오버엔지니어링&amp;quot;이라는 얘기가 아니다. 조건이 맞아서 된 것.
+동시에 수정하는 사람이 둘만 됐어도 이 구조는 바로 깨진다.&lt;/p&gt;
 &lt;h3 id=&#34;3-저장-형식이랑-편집-형식은-달라도-됨&#34;&gt;
     &lt;a href=&#34;#3-%ec%a0%80%ec%9e%a5-%ed%98%95%ec%8b%9d%ec%9d%b4%eb%9e%91-%ed%8e%b8%ec%a7%91-%ed%98%95%ec%8b%9d%ec%9d%80-%eb%8b%ac%eb%9d%bc%eb%8f%84-%eb%90%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     3. 저장 형식이랑 편집 형식은 달라도 됨
-&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;의 결론인데 제일 오래 남을 것 같음.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;의 결론인데 제일 오래 남을 것 같다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -159,31 +159,30 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;경계:    저장할 때만 쪼갬
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;조회가 압도적으로 많고 수정은 거의 없는 화면이라 가능한 선택이었음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;조회가 압도적으로 많고 수정은 거의 없는 화면이라 가능한 선택이었다.&lt;/p&gt;
 &lt;h3 id=&#34;4-조용히-실패하는-버그가-제일-오래-삶&#34;&gt;
     &lt;a href=&#34;#4-%ec%a1%b0%ec%9a%a9%ed%9e%88-%ec%8b%a4%ed%8c%a8%ed%95%98%eb%8a%94-%eb%b2%84%ea%b7%b8%ea%b0%80-%ec%a0%9c%ec%9d%bc-%ec%98%a4%eb%9e%98-%ec%82%b6&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     4. 조용히 실패하는 버그가 제일 오래 삶
-&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;의 레이스 컨디션은 &lt;strong&gt;에러를 안 냄.&lt;/strong&gt; 그냥 메뉴가 잠깐 비어 보임.
-아무도 신고 안 해주고 로그에도 안 남음. 두 달을 살아남았음.&lt;/p&gt;
-&lt;p&gt;인증 없던 업로드 엔드포인트도 마찬가지임. 잘 작동했음 — 너무 잘 작동해서 아무나 쓸 수 있었던 것.&lt;/p&gt;
-&lt;h2 id=&#34;-다시-한다면&#34;&gt;
-    &lt;a href=&#34;#-%eb%8b%a4%ec%8b%9c-%ed%95%9c%eb%8b%a4%eb%a9%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    😬 다시 한다면
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;의 레이스 컨디션은 &lt;strong&gt;에러를 안 낸다.&lt;/strong&gt; 그냥 메뉴가 잠깐 비어 보다.
+아무도 신고 안 해주고 로그에도 안 남는다. 두 달을 살아남았다.&lt;/p&gt;
+&lt;p&gt;인증 없던 업로드 엔드포인트도 마찬가지다. 잘 작동했다. 너무 잘 작동해서 아무나 쓸 수 있었던 것.&lt;/p&gt;
+&lt;h2 id=&#34;다시-한다면&#34;&gt;
+    &lt;a href=&#34;#%eb%8b%a4%ec%8b%9c-%ed%95%9c%eb%8b%a4%eb%a9%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    다시 한다면
 &lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;나중에 고칠 것&amp;quot;을 어딘가 적어뒀을 것.&lt;/strong&gt;
-&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 하루에 1045줄을 쏟아낼 때, 시크릿 하드코딩이랑 디버그 로깅이랑 업로드 인증 누락이 전부 그때 생겼음.
-그때는 &amp;ldquo;일단 되게 하고 나중에&amp;quot;라고 생각했는데 &lt;strong&gt;나중이 두 달 뒤&lt;/strong&gt;였음. TODO 주석 하나만 남겼어도 달랐을 듯.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Analytics를 첫날 붙였을 것.&lt;/strong&gt; 한 줄인데, 내 추측이랑 실제 손님 행동을 구분해줌.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 하루에 1045줄을 쏟아낼 때, 시크릿 하드코딩이랑 디버그 로깅이랑 업로드 인증 누락이 전부 그때 생겼다.
+그때는 &amp;ldquo;일단 되게 하고 나중에&amp;quot;라고 생각했는데 &lt;strong&gt;나중이 두 달 뒤&lt;/strong&gt;였다. TODO 주석 하나만 남겼어도 달랐을 듯.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Analytics를 첫날 붙였을 것.&lt;/strong&gt; 한 줄인데, 내 추측이랑 실제 손님 행동을 구분해준다.
 방문자 대부분이 모바일인 걸 알고 있었으면 관리자 화면을 처음부터 모바일로 만들었을 것.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;설계 문서를 더 일찍 썼을 것.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;·&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;#8&lt;/a&gt;처럼 문서 먼저 쓴 작업은 배포하고 뒤집은 적이 한 번도 없음.
-&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;처럼 바로 코드부터 친 날은 하루에 세 번 갈아엎었음.&lt;/p&gt;
-&lt;h2 id=&#34;-지금&#34;&gt;
-    &lt;a href=&#34;#-%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 지금
-&lt;/h2&gt;&lt;p&gt;사이트는 잘 돌아가고 있음. &lt;a class=&#34;link&#34; href=&#34;https://jung-dam.vercel.app&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+&lt;p&gt;&lt;strong&gt;설계 문서를 더 일찍 썼을 것.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-5/&#34; &gt;#5&lt;/a&gt;·&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-8/&#34; &gt;#8&lt;/a&gt;처럼 문서 먼저 쓴 작업은 배포하고 뒤집은 적이 한 번도 없다.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;처럼 바로 코드부터 친 날은 하루에 세 번 갈아엎었다.&lt;/p&gt;
+&lt;h2 id=&#34;지금&#34;&gt;
+    &lt;a href=&#34;#%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    지금
+&lt;/h2&gt;&lt;p&gt;사이트는 잘 돌아가고 있다. &lt;a class=&#34;link&#34; href=&#34;https://jung-dam.vercel.app&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;https://jung-dam.vercel.app&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;메뉴가 바뀌면 사장님이 폰으로 들어가서 고침. 내가 하는 일은 없음.
-&lt;strong&gt;그게 이 프로젝트의 목표였으니까 된 것 같음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;#정담 #웹개발 #VercelBlob #회고 #NextJS&lt;/p&gt;
+&lt;p&gt;메뉴가 바뀌면 사장님이 폰으로 들어가서 고친다. 내가 하는 일은 없다.
+&lt;strong&gt;그게 이 프로젝트의 목표였으니까 된 것 같다.&lt;/strong&gt;&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -195,14 +194,14 @@
         <description>&lt;h1 id=&#34;abide-개발-일지-8---ai가-생성하는-말은-번역이-안-됨&#34;&gt;
     &lt;a href=&#34;#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-8---ai%ea%b0%80-%ec%83%9d%ec%84%b1%ed%95%98%eb%8a%94-%eb%a7%90%ec%9d%80-%eb%b2%88%ec%97%ad%ec%9d%b4-%ec%95%88-%eb%90%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     ABIDE 개발 일지 #8 - AI가 생성하는 말은 번역이 안 됨
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt; 첫날에 한국어/영어 문자열 맵을 깔아뒀음. 나중에 고생 안 하려고.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;절반만 맞았음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;버튼이랑 라벨은 그걸로 됐는데, 이 앱에서 사용자가 보는 텍스트의 대부분은 &lt;strong&gt;AI가 그 자리에서 만들어내는 것&lt;/strong&gt;임.
-묵상 질문, 딥렌즈 분석, 묵상 노트, 에러 메시지, 무드 문구. 문자열 맵에 있을 리가 없음.&lt;/p&gt;
-&lt;p&gt;4월 10일 하루에 이걸 전부 뚫었음.&lt;/p&gt;
-&lt;h2 id=&#34;-언어가-통과해야-하는-경로&#34;&gt;
-    &lt;a href=&#34;#-%ec%96%b8%ec%96%b4%ea%b0%80-%ed%86%b5%ea%b3%bc%ed%95%b4%ec%95%bc-%ed%95%98%eb%8a%94-%ea%b2%bd%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🧵 언어가 통과해야 하는 경로
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt; 첫날에 한국어/영어 문자열 맵을 깔아뒀다. 나중에 고생 안 하려고.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;절반만 맞았다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;버튼이랑 라벨은 그걸로 됐는데, 이 앱에서 사용자가 보는 텍스트의 대부분은 &lt;strong&gt;AI가 그 자리에서 만들어내는 것&lt;/strong&gt;이다.
+묵상 질문, 딥렌즈 분석, 묵상 노트, 에러 메시지, 무드 문구. 문자열 맵에 있을 리가 없다.&lt;/p&gt;
+&lt;p&gt;4월 10일 하루에 이걸 전부 뚫었다.&lt;/p&gt;
+&lt;h2 id=&#34;언어가-통과해야-하는-경로&#34;&gt;
+    &lt;a href=&#34;#%ec%96%b8%ec%96%b4%ea%b0%80-%ed%86%b5%ea%b3%bc%ed%95%b4%ec%95%bc-%ed%95%98%eb%8a%94-%ea%b2%bd%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    언어가 통과해야 하는 경로
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -223,7 +222,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            → 생성된 텍스트
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;커밋이 이 순서 그대로임.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;커밋이 이 순서 그대로다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -250,13 +249,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;19:21  (core)   fix(core): include verse_text in DeepLens cache hit response
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;서브모듈 네 개를 한 번에 건드림.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;의 세션 스냅샷 때랑 같은 모양인데, 이번엔 더 넓음.&lt;/p&gt;
-&lt;h2 id=&#34;-캐시가-언어를-몰랐음&#34;&gt;
-    &lt;a href=&#34;#-%ec%ba%90%ec%8b%9c%ea%b0%80-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%aa%b0%eb%9e%90%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🗄️ 캐시가 언어를 몰랐음
-&lt;/h2&gt;&lt;p&gt;02:25 커밋이 이 작업에서 제일 아팠음.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 DeepLens 구절 &lt;strong&gt;62,189개를 미리 계산해서&lt;/strong&gt; DB에 박아뒀음.
-그 캐시 키에 &lt;strong&gt;언어가 없었음.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;서브모듈 네 개를 한 번에 건드린다.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;의 세션 스냅샷 때랑 같은 모양인데, 이번엔 더 넓다.&lt;/p&gt;
+&lt;h2 id=&#34;캐시가-언어를-몰랐음&#34;&gt;
+    &lt;a href=&#34;#%ec%ba%90%ec%8b%9c%ea%b0%80-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%aa%b0%eb%9e%90%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    캐시가 언어를 몰랐음
+&lt;/h2&gt;&lt;p&gt;02:25 커밋이 이 작업에서 제일 아팠다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 DeepLens 구절 &lt;strong&gt;62,189개를 미리 계산해서&lt;/strong&gt; DB에 박아뒀다.
+그 캐시 키에 &lt;strong&gt;언어가 없었다.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -267,13 +266,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;후:  verse_ref + language       → 분석 결과
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;영어 사용자가 구절을 열면 &lt;strong&gt;한국어 분석이 그대로 나옴.&lt;/strong&gt; 캐시는 히트하니까 에러도 안 남.&lt;/p&gt;
-&lt;p&gt;인프라에 컬럼을 추가하고(&lt;code&gt;00:02&lt;/code&gt;) 조회 키를 바꿨음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 자랑했던 사전 계산이 &lt;strong&gt;언어 하나 늘자 절반만 쓸모 있게&lt;/strong&gt; 된 셈임.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;캐시 키는 &amp;ldquo;결과가 달라지는 모든 입력&amp;quot;을 담아야&lt;/strong&gt; 하는데, 그때는 언어가 입력인 줄 몰랐음.&lt;/p&gt;
-&lt;h2 id=&#34;-하드코딩된-한국어가-계속-나왔음&#34;&gt;
-    &lt;a href=&#34;#-%ed%95%98%eb%93%9c%ec%bd%94%eb%94%a9%eb%90%9c-%ed%95%9c%ea%b5%ad%ec%96%b4%ea%b0%80-%ea%b3%84%ec%86%8d-%eb%82%98%ec%99%94%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🇰🇷 하드코딩된 한국어가 계속 나왔음
-&lt;/h2&gt;&lt;p&gt;01:50에 에러 메시지·무드 문구·노트 제목을 이중화했는데, 그날 저녁에 이게 또 나옴.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;영어 사용자가 구절을 열면 &lt;strong&gt;한국어 분석이 그대로 나온다.&lt;/strong&gt; 캐시는 히트하니까 에러도 안 난다.&lt;/p&gt;
+&lt;p&gt;인프라에 컬럼을 추가하고(&lt;code&gt;00:02&lt;/code&gt;) 조회 키를 바꿨다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 자랑했던 사전 계산이 &lt;strong&gt;언어 하나 늘자 절반만 쓸모 있게&lt;/strong&gt; 된 셈이다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;캐시 키는 &amp;ldquo;결과가 달라지는 모든 입력&amp;quot;을 담아야&lt;/strong&gt; 하는데, 그때는 언어가 입력인 줄 몰랐다.&lt;/p&gt;
+&lt;h2 id=&#34;하드코딩된-한국어가-계속-나왔음&#34;&gt;
+    &lt;a href=&#34;#%ed%95%98%eb%93%9c%ec%bd%94%eb%94%a9%eb%90%9c-%ed%95%9c%ea%b5%ad%ec%96%b4%ea%b0%80-%ea%b3%84%ec%86%8d-%eb%82%98%ec%99%94%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    하드코딩된 한국어가 계속 나왔음
+&lt;/h2&gt;&lt;p&gt;01:50에 에러 메시지·무드 문구·노트 제목을 이중화했는데, 그날 저녁에 이게 또 나온다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -282,13 +281,13 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;18:57  fix(ai): remove remaining hardcoded Korean strings
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;17시간 뒤에 &lt;strong&gt;남은 게 또 발견됨.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;노드가 일곱 개고(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;) 각각이 폴백 문구, 기본 제목, 예외 메시지를 들고 있음.
-한 군데씩 찾아서 고치는 방식이라 &lt;strong&gt;놓친 게 있는지 알 방법이 없었음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;문자열 맵을 처음부터 서버에도 뒀으면 &amp;ldquo;맵에 없는 리터럴&amp;quot;을 린트로 잡을 수 있었을 텐데, 사후에 하려니까 눈으로 찾는 수밖에 없었음.&lt;/p&gt;
-&lt;h2 id=&#34;-프롬프트도-언어별로&#34;&gt;
-    &lt;a href=&#34;#-%ed%94%84%eb%a1%ac%ed%94%84%ed%8a%b8%eb%8f%84-%ec%96%b8%ec%96%b4%eb%b3%84%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔤 프롬프트도 언어별로
+&lt;/div&gt;&lt;p&gt;17시간 뒤에 &lt;strong&gt;남은 게 또 발견된다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;노드가 일곱 개고(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;) 각각이 폴백 문구, 기본 제목, 예외 메시지를 들고 있다.
+한 군데씩 찾아서 고치는 방식이라 &lt;strong&gt;놓친 게 있는지 알 방법이 없었다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;문자열 맵을 처음부터 서버에도 뒀으면 &amp;ldquo;맵에 없는 리터럴&amp;quot;을 린트로 잡을 수 있었을 텐데, 사후에 하려니까 눈으로 찾는 수밖에 없었다.&lt;/p&gt;
+&lt;h2 id=&#34;프롬프트도-언어별로&#34;&gt;
+    &lt;a href=&#34;#%ed%94%84%eb%a1%ac%ed%94%84%ed%8a%b8%eb%8f%84-%ec%96%b8%ec%96%b4%eb%b3%84%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    프롬프트도 언어별로
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -299,13 +298,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;04-10 01:52  feat(ai): use language-aware prompt helpers for ask and deep-lens
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;영어로 답해줘&amp;quot;를 프롬프트에 한 줄 붙이는 걸로는 안 됐음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;딥렌즈는 원어(히브리어/헬라어) 분석이 들어가는데, 한국어 독자용 설명이랑 영어 독자용 설명이 &lt;strong&gt;내용 자체가 달라야&lt;/strong&gt; 함.
-한국어 성경 번역 관습을 설명하는 부분이 영어 사용자한테는 의미가 없음.&lt;/p&gt;
-&lt;p&gt;그래서 프롬프트를 통째로 따로 만들고, 언어에 따라 고르는 헬퍼를 씀.&lt;/p&gt;
-&lt;h2 id=&#34;-한-달-커밋-181개&#34;&gt;
-    &lt;a href=&#34;#-%ed%95%9c-%eb%8b%ac-%ec%bb%a4%eb%b0%8b-181%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📊 한 달, 커밋 181개
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;영어로 답해줘&amp;quot;를 프롬프트에 한 줄 붙이는 걸로는 안 됐다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;딥렌즈는 원어(히브리어/헬라어) 분석이 들어가는데, 한국어 독자용 설명이랑 영어 독자용 설명이 &lt;strong&gt;내용 자체가 달라야&lt;/strong&gt; 한다.
+한국어 성경 번역 관습을 설명하는 부분이 영어 사용자한테는 의미가 없다.&lt;/p&gt;
+&lt;p&gt;그래서 프롬프트를 통째로 따로 만들고, 언어에 따라 고르는 헬퍼를 쓴다.&lt;/p&gt;
+&lt;h2 id=&#34;한-달-커밋-181개&#34;&gt;
+    &lt;a href=&#34;#%ed%95%9c-%eb%8b%ac-%ec%bb%a4%eb%b0%8b-181%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    한 달, 커밋 181개
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -330,48 +329,47 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                181커밋   3/10 ~ 4/10
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;루트 37커밋 중 &lt;strong&gt;15개가 &amp;ldquo;Sync all submodules&amp;rdquo;&lt;/strong&gt; 임.&lt;/p&gt;
-&lt;h2 id=&#34;-배운-것&#34;&gt;
-    &lt;a href=&#34;#-%eb%b0%b0%ec%9a%b4-%ea%b2%83&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    💭 배운 것
+&lt;/div&gt;&lt;p&gt;루트 37커밋 중 &lt;strong&gt;15개가 &amp;ldquo;Sync all submodules&amp;rdquo;&lt;/strong&gt; 이다.&lt;/p&gt;
+&lt;h2 id=&#34;배운-것&#34;&gt;
+    &lt;a href=&#34;#%eb%b0%b0%ec%9a%b4-%ea%b2%83&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    배운 것
 &lt;/h2&gt;&lt;h3 id=&#34;다국어는-ui-문자열이-아니라-데이터-파이프라인임&#34;&gt;
     &lt;a href=&#34;#%eb%8b%a4%ea%b5%ad%ec%96%b4%eb%8a%94-ui-%eb%ac%b8%ec%9e%90%ec%97%b4%ec%9d%b4-%ec%95%84%eb%8b%88%eb%9d%bc-%eb%8d%b0%ec%9d%b4%ed%84%b0-%ed%8c%8c%ec%9d%b4%ed%94%84%eb%9d%bc%ec%9d%b8%ec%9e%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     다국어는 UI 문자열이 아니라 데이터 파이프라인임
-&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 문자열 맵을 먼저 깐 건 잘한 건데, &lt;strong&gt;그게 다국어의 10%였음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;나머지 90%는 언어 값이 Flutter → Core → AI → 그래프 상태 → 프롬프트 → 캐시 키까지 &lt;strong&gt;끊기지 않고 흘러가게&lt;/strong&gt; 만드는 일이었음.
-중간에 한 군데만 빠져도 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;의 캐시처럼 조용히 틀린 결과가 나옴.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 문자열 맵을 먼저 깐 건 잘한 건데, &lt;strong&gt;그게 다국어의 10%였다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;나머지 90%는 언어 값이 Flutter → Core → AI → 그래프 상태 → 프롬프트 → 캐시 키까지 &lt;strong&gt;끊기지 않고 흘러가게&lt;/strong&gt; 만드는 일이었다.
+중간에 한 군데만 빠져도 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;의 캐시처럼 조용히 틀린 결과가 나온다.&lt;/p&gt;
 &lt;p&gt;다시 한다면 &lt;strong&gt;요청 스키마에 &lt;code&gt;language&lt;/code&gt; 를 첫날에 넣었을 것.&lt;/strong&gt; 값이 하나뿐이더라도.&lt;/p&gt;
 &lt;h3 id=&#34;llm-판정에는-코드-가드가-붙어야-함&#34;&gt;
     &lt;a href=&#34;#llm-%ed%8c%90%ec%a0%95%ec%97%90%eb%8a%94-%ec%bd%94%eb%93%9c-%ea%b0%80%eb%93%9c%ea%b0%80-%eb%b6%99%ec%96%b4%ec%95%bc-%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     LLM 판정에는 코드 가드가 붙어야 함
 &lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 wrap_up 무한 반복 카운터, &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;의 Observer 상한·델타 캡·단조성·거절 가드.
-전부 같은 얘기임. &lt;strong&gt;흐름은 LLM이 잡아도 &amp;ldquo;그만&amp;quot;과 &amp;ldquo;한계&amp;quot;는 코드가 세야 함.&lt;/strong&gt;&lt;/p&gt;
+전부 같은 얘기다. &lt;strong&gt;흐름은 LLM이 잡아도 &amp;ldquo;그만&amp;quot;과 &amp;ldquo;한계&amp;quot;는 코드가 세야 한다.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;일단-되게는-반드시-다시-옴&#34;&gt;
     &lt;a href=&#34;#%ec%9d%bc%eb%8b%a8-%eb%90%98%ea%b2%8c%eb%8a%94-%eb%b0%98%eb%93%9c%ec%8b%9c-%eb%8b%a4%ec%8b%9c-%ec%98%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     &amp;ldquo;일단 되게&amp;quot;는 반드시 다시 옴
 &lt;/h3&gt;&lt;p&gt;SharedPreferences → secure storage(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;), &lt;code&gt;.env&lt;/code&gt; 커밋 → gitignore, 릴리즈 빌드 디버그 로그(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;).
-&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;정담&lt;/a&gt; 때랑 완전히 같은 패턴이 다른 프로젝트에서 또 나왔음.&lt;/p&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;정담&lt;/a&gt; 때랑 완전히 같은 패턴이 다른 프로젝트에서 또 나왔다.&lt;/p&gt;
 &lt;h3 id=&#34;옵션-하나가-조합을-곱으로-늘림&#34;&gt;
     &lt;a href=&#34;#%ec%98%b5%ec%85%98-%ed%95%98%eb%82%98%ea%b0%80-%ec%a1%b0%ed%95%a9%ec%9d%84-%ea%b3%b1%ec%9c%bc%eb%a1%9c-%eb%8a%98%eb%a6%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     옵션 하나가 조합을 곱으로 늘림
-&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;의 성경 버전 추가가 UI 버그 11개를, 여기 언어 추가가 캐시 재설계를 불렀음.
-&lt;strong&gt;기능 추가 비용은 그 기능이 아니라 기존 것과의 곱에서 나옴.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-안-끝낸-것들&#34;&gt;
-    &lt;a href=&#34;#-%ec%95%88-%eb%81%9d%eb%82%b8-%ea%b2%83%eb%93%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🕳️ 안 끝낸 것들
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;의 성경 버전 추가가 UI 버그 11개를, 여기 언어 추가가 캐시 재설계를 불렀다.
+&lt;strong&gt;기능 추가 비용은 그 기능이 아니라 기존 것과의 곱에서 나온다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;안-끝낸-것들&#34;&gt;
+    &lt;a href=&#34;#%ec%95%88-%eb%81%9d%eb%82%b8-%ea%b2%83%eb%93%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    안 끝낸 것들
 &lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;신학 RAG 시딩 미완료.&lt;/strong&gt; 청크 129개는 만들었는데 &lt;code&gt;seed_theology_vectors.py&lt;/code&gt; 를 안 씀. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 RAG가 반쪽임&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DeepLens 사전 계산이 KRV+NIV 2개 버전&lt;/strong&gt;뿐. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;에서 KJV/ASV를 넣었는데 캐시는 안 따라감&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;신학 RAG 시딩 미완료.&lt;/strong&gt; 청크 129개는 만들었는데 &lt;code&gt;seed_theology_vectors.py&lt;/code&gt; 를 안 쓴다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 RAG가 반쪽이다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DeepLens 사전 계산이 KRV+NIV 2개 버전&lt;/strong&gt;뿐. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;에서 KJV/ASV를 넣었는데 캐시는 안 따라간다&lt;/li&gt;
 &lt;li&gt;스크린샷이 README에 아직 &amp;ldquo;Coming soon&amp;rdquo;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;-지금&#34;&gt;
-    &lt;a href=&#34;#-%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 지금
-&lt;/h2&gt;&lt;p&gt;4월 10일 이후로 멈춰 있음.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-8/&#34; &gt;seam&lt;/a&gt;이 사흘 몰아치고 멈춘 거였다면, 이건 한 달을 붙들고 &lt;strong&gt;실제로 돌아가는 데까지&lt;/strong&gt; 갔음.
-앱이 있고, 서버 네 개가 뜨고, 62,189개 구절이 DB에 들어 있고, 로그인해서 묵상을 할 수 있음.&lt;/p&gt;
-&lt;p&gt;돌아온다면 신학 RAG 시딩부터 할 것 같음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에서 만들다 만 게 제일 걸림.&lt;/p&gt;
-&lt;p&gt;#ABIDE #다국어 #i18n #회고 #LangGraph&lt;/p&gt;
+&lt;h2 id=&#34;지금&#34;&gt;
+    &lt;a href=&#34;#%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    지금
+&lt;/h2&gt;&lt;p&gt;4월 10일 이후로 멈춰 있다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-8/&#34; &gt;seam&lt;/a&gt;이 사흘 몰아치고 멈춘 거였다면, 이건 한 달을 붙들고 &lt;strong&gt;실제로 돌아가는 데까지&lt;/strong&gt; 갔다.
+앱이 있고, 서버 네 개가 뜨고, 62,189개 구절이 DB에 들어 있고, 로그인해서 묵상을 할 수 있다.&lt;/p&gt;
+&lt;p&gt;돌아온다면 신학 RAG 시딩부터 할 것 같다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에서 만들다 만 게 제일 걸린다.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -383,11 +381,11 @@
         <description>&lt;h1 id=&#34;seam-개발-일지-8---데몬-설치-마법사-그리고-멈춘-자리&#34;&gt;
     &lt;a href=&#34;#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-8---%eb%8d%b0%eb%aa%ac-%ec%84%a4%ec%b9%98-%eb%a7%88%eb%b2%95%ec%82%ac-%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%a9%88%ec%b6%98-%ec%9e%90%eb%a6%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     seam 개발 일지 #8 - 데몬, 설치 마법사, 그리고 멈춘 자리
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-7/&#34; &gt;#7&lt;/a&gt;까지 오면 기능은 다 있음. 근데 &lt;strong&gt;쓸 수 있는 물건은 아니었음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;데몬을 어떻게 띄우는지, 재부팅하면 어떻게 되는지, 처음 설치한 사람이 뭘 해야 하는지가 비어 있었음.&lt;/p&gt;
-&lt;h2 id=&#34;-0043--start--stop--restart&#34;&gt;
-    &lt;a href=&#34;#-0043--start--stop--restart&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔁 00:43 — start / stop / restart
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-7/&#34; &gt;#7&lt;/a&gt;까지 오면 기능은 다 있다. 근데 &lt;strong&gt;쓸 수 있는 물건은 아니었다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;데몬을 어떻게 띄우는지, 재부팅하면 어떻게 되는지, 처음 설치한 사람이 뭘 해야 하는지가 비어 있었다.&lt;/p&gt;
+&lt;h2 id=&#34;0043--start--stop--restart&#34;&gt;
+    &lt;a href=&#34;#0043--start--stop--restart&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    00:43 — start / stop / restart
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -396,8 +394,8 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;00:43  feat: seam start/stop/restart + seam service install/uninstall
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam start&lt;/code&gt; 가 데몬을 띄움. 게이트웨이(&lt;code&gt;:11400&lt;/code&gt;)랑 IPC 소켓(&lt;code&gt;daemon.sock&lt;/code&gt;)이 같이 올라감.&lt;/p&gt;
-&lt;p&gt;구조가 좀 특이한데, &lt;strong&gt;바이너리가 자기 자신을 다시 실행함.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam start&lt;/code&gt; 가 데몬을 띄운다. 게이트웨이(&lt;code&gt;:11400&lt;/code&gt;)랑 IPC 소켓(&lt;code&gt;daemon.sock&lt;/code&gt;)이 같이 올라간다.&lt;/p&gt;
+&lt;p&gt;구조가 좀 특이한데, &lt;strong&gt;바이너리가 자기 자신을 다시 실행한다.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -408,10 +406,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam run    →  seam __daemon --env-yaml &amp;lt;path&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;__gateway&lt;/code&gt;, &lt;code&gt;__daemon&lt;/code&gt;, &lt;code&gt;__agent&lt;/code&gt; 는 clap에서 &lt;code&gt;hide = true&lt;/code&gt; 로 숨겨둔 커맨드임.
-&lt;code&gt;seam --help&lt;/code&gt; 에는 안 나오는데 내부적으로 자기를 부를 때 씀.&lt;/p&gt;
-&lt;p&gt;이렇게 한 이유는 &lt;strong&gt;단일 바이너리를 지키려고&lt;/strong&gt;임. 데몬 실행 파일을 따로 두면 설치할 게 두 개가 됨.
-&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt;에서 Rust를 고른 이유가 &amp;ldquo;&lt;code&gt;curl | sh&lt;/code&gt; 한 줄&amp;quot;이었는데, 그걸 끝까지 밀려면 파일이 하나여야 함.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;__gateway&lt;/code&gt;, &lt;code&gt;__daemon&lt;/code&gt;, &lt;code&gt;__agent&lt;/code&gt; 는 clap에서 &lt;code&gt;hide = true&lt;/code&gt; 로 숨겨둔 커맨드다.
+&lt;code&gt;seam --help&lt;/code&gt; 에는 안 나오는데 내부적으로 자기를 부를 때 쓴다.&lt;/p&gt;
+&lt;p&gt;이렇게 한 이유는 &lt;strong&gt;단일 바이너리를 지키려고&lt;/strong&gt;이다. 데몬 실행 파일을 따로 두면 설치할 게 두 개가 된다.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt;에서 Rust를 고른 이유가 &amp;ldquo;&lt;code&gt;curl | sh&lt;/code&gt; 한 줄&amp;quot;이었는데, 그걸 끝까지 밀려면 파일이 하나여야 한다.&lt;/p&gt;
 &lt;h3 id=&#34;재부팅해도-살아-있게&#34;&gt;
     &lt;a href=&#34;#%ec%9e%ac%eb%b6%80%ed%8c%85%ed%95%b4%eb%8f%84-%ec%82%b4%ec%95%84-%ec%9e%88%ea%b2%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     재부팅해도 살아 있게
@@ -425,11 +423,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam service uninstall
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;프록시라서 &lt;strong&gt;항상 떠 있어야 의미가 있음.&lt;/strong&gt; 로그인할 때마다 &lt;code&gt;seam start&lt;/code&gt; 를 쳐야 하면 아무도 안 씀.&lt;/p&gt;
-&lt;p&gt;macOS만 구현했고 Linux systemd는 안 했음. 지금도 안 되어 있음.&lt;/p&gt;
-&lt;h2 id=&#34;-0126--이름-하나-빠져서-안-뜨던-데몬&#34;&gt;
-    &lt;a href=&#34;#-0126--%ec%9d%b4%eb%a6%84-%ed%95%98%eb%82%98-%eb%b9%a0%ec%a0%b8%ec%84%9c-%ec%95%88-%eb%9c%a8%eb%8d%98-%eb%8d%b0%eb%aa%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🐛 01:26 — 이름 하나 빠져서 안 뜨던 데몬
+&lt;/div&gt;&lt;p&gt;프록시라서 &lt;strong&gt;항상 떠 있어야 의미가 있다.&lt;/strong&gt; 로그인할 때마다 &lt;code&gt;seam start&lt;/code&gt; 를 쳐야 하면 아무도 안 쓴다.&lt;/p&gt;
+&lt;p&gt;macOS만 구현했고 Linux systemd는 안 했다. 지금도 안 되어 있다.&lt;/p&gt;
+&lt;h2 id=&#34;0126--이름-하나-빠져서-안-뜨던-데몬&#34;&gt;
+    &lt;a href=&#34;#0126--%ec%9d%b4%eb%a6%84-%ed%95%98%eb%82%98-%eb%b9%a0%ec%a0%b8%ec%84%9c-%ec%95%88-%eb%9c%a8%eb%8d%98-%eb%8d%b0%eb%aa%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    01:26 — 이름 하나 빠져서 안 뜨던 데몬
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -438,13 +436,13 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:26  fix: __gateway 이름 누락 + config.toml 하위 호환 파싱
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;__gateway&lt;/code&gt; 를 clap enum에 정의는 했는데 &lt;strong&gt;디스패치에서 빠져 있었음.&lt;/strong&gt; &lt;code&gt;seam start&lt;/code&gt; 가 조용히 아무것도 안 함.&lt;/p&gt;
-&lt;p&gt;같이 고친 게 설정 파일 하위 호환임. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-6/&#34; &gt;#6&lt;/a&gt;에서 &lt;code&gt;router_slider&lt;/code&gt;, &lt;code&gt;ollama_base_url&lt;/code&gt;, &lt;code&gt;classifier_model&lt;/code&gt; 을 추가했는데,
-&lt;strong&gt;그 전에 만들어진 &lt;code&gt;config.toml&lt;/code&gt; 에는 그 필드가 없음.&lt;/strong&gt; 파싱이 통째로 실패해서 설정이 날아감.&lt;/p&gt;
-&lt;p&gt;없으면 기본값을 쓰게 바꿨음. 설정 파일은 한 번 만들어지면 사용자 기계에 계속 남으니까, &lt;strong&gt;새 필드는 항상 옵셔널이어야 함.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-0152--설치하고-처음-켰을-때&#34;&gt;
-    &lt;a href=&#34;#-0152--%ec%84%a4%ec%b9%98%ed%95%98%ea%b3%a0-%ec%b2%98%ec%9d%8c-%ec%bc%b0%ec%9d%84-%eb%95%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🧙 01:52 — 설치하고 처음 켰을 때
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;__gateway&lt;/code&gt; 를 clap enum에 정의는 했는데 &lt;strong&gt;디스패치에서 빠져 있었다.&lt;/strong&gt; &lt;code&gt;seam start&lt;/code&gt; 가 조용히 아무것도 안 한다.&lt;/p&gt;
+&lt;p&gt;같이 고친 게 설정 파일 하위 호환이다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-6/&#34; &gt;#6&lt;/a&gt;에서 &lt;code&gt;router_slider&lt;/code&gt;, &lt;code&gt;ollama_base_url&lt;/code&gt;, &lt;code&gt;classifier_model&lt;/code&gt; 을 추가했는데,
+&lt;strong&gt;그 전에 만들어진 &lt;code&gt;config.toml&lt;/code&gt; 에는 그 필드가 없다.&lt;/strong&gt; 파싱이 통째로 실패해서 설정이 날아간다.&lt;/p&gt;
+&lt;p&gt;없으면 기본값을 쓰게 바꿨다. 설정 파일은 한 번 만들어지면 사용자 기계에 계속 남으니까, &lt;strong&gt;새 필드는 항상 옵셔널이어야 한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;0152--설치하고-처음-켰을-때&#34;&gt;
+    &lt;a href=&#34;#0152--%ec%84%a4%ec%b9%98%ed%95%98%ea%b3%a0-%ec%b2%98%ec%9d%8c-%ec%bc%b0%ec%9d%84-%eb%95%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    01:52 — 설치하고 처음 켰을 때
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -453,18 +451,18 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:52  feat: seam setup — 대화형 초기 설정 마법사
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam start&lt;/code&gt; 를 처음 치면 setup이 자동으로 뜸. &lt;code&gt;first_run&lt;/code&gt; 을 감지해서.&lt;/p&gt;
-&lt;p&gt;물어보는 건 이런 것들임.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;seam start&lt;/code&gt; 를 처음 치면 setup이 자동으로 뜬다. &lt;code&gt;first_run&lt;/code&gt; 을 감지해서.&lt;/p&gt;
+&lt;p&gt;물어보는 건 이런 것들이다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;API 키 (anthropic / openai / google / github) → &lt;strong&gt;OS 키체인에 저장&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-6/&#34; &gt;라우팅 슬라이더&lt;/a&gt; 0~9&lt;/li&gt;
 &lt;li&gt;Ollama 쓸 건지, 주소는 어딘지&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;dialoguer&lt;/code&gt; 로 만들었음. 설정 파일 포맷을 문서에서 찾아 읽게 하는 것보다 이게 나음.
-특히 &lt;strong&gt;API 키를 어디다 둬야 하는지&lt;/strong&gt;는 물어보는 게 맞음. 안 그러면 다들 환경변수에 평문으로 둠.&lt;/p&gt;
-&lt;h2 id=&#34;-1411--마지막-커밋&#34;&gt;
-    &lt;a href=&#34;#-1411--%eb%a7%88%ec%a7%80%eb%a7%89-%ec%bb%a4%eb%b0%8b&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🌏 14:11 — 마지막 커밋
+&lt;p&gt;&lt;code&gt;dialoguer&lt;/code&gt; 로 만들었다. 설정 파일 포맷을 문서에서 찾아 읽게 하는 것보다 이게 낫다.
+특히 &lt;strong&gt;API 키를 어디다 둬야 하는지&lt;/strong&gt;는 물어보는 게 맞다. 안 그러면 다들 환경변수에 평문으로 둔다.&lt;/p&gt;
+&lt;h2 id=&#34;1411--마지막-커밋&#34;&gt;
+    &lt;a href=&#34;#1411--%eb%a7%88%ec%a7%80%eb%a7%89-%ec%bb%a4%eb%b0%8b&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    14:11 — 마지막 커밋
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -473,11 +471,11 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;14:11  feat: setup wizard 언어 선택 + EN/KO 완전 이중 언어화
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;setup 첫 질문이 언어 선택이고, CLI 출력 전체를 영어/한국어로 갈랐음.&lt;/p&gt;
-&lt;p&gt;그리고 이게 &lt;strong&gt;마지막 커밋임.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-사흘-커밋-73개&#34;&gt;
-    &lt;a href=&#34;#-%ec%82%ac%ed%9d%98-%ec%bb%a4%eb%b0%8b-73%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📊 사흘, 커밋 73개
+&lt;/div&gt;&lt;p&gt;setup 첫 질문이 언어 선택이고, CLI 출력 전체를 영어/한국어로 갈랐다.&lt;/p&gt;
+&lt;p&gt;그리고 이게 &lt;strong&gt;마지막 커밋이다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;사흘-커밋-73개&#34;&gt;
+    &lt;a href=&#34;#%ec%82%ac%ed%9d%98-%ec%bb%a4%eb%b0%8b-73%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    사흘, 커밋 73개
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -535,7 +533,7 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;론칭 계획 문서에 적어둔 일정은 이랬음.&lt;/p&gt;
+&lt;p&gt;론칭 계획 문서에 적어둔 일정은 이랬다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -552,64 +550,63 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;M+3  Week 9     Task 12    README, install.sh, 내부 테스트
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;3개월 계획을 사흘에 했음.&lt;/strong&gt; Task 1~9가 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt;의 2시간 25분에 다 들어가 있음.&lt;/p&gt;
-&lt;h2 id=&#34;-안-만든-것들&#34;&gt;
-    &lt;a href=&#34;#-%ec%95%88-%eb%a7%8c%eb%93%a0-%ea%b2%83%eb%93%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🕳️ 안 만든 것들
-&lt;/h2&gt;&lt;p&gt;정직하게 적으면 이만큼 비어 있음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;3개월 계획을 사흘에 했다.&lt;/strong&gt; Task 1~9가 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt;의 2시간 25분에 다 들어가 있다.&lt;/p&gt;
+&lt;h2 id=&#34;안-만든-것들&#34;&gt;
+    &lt;a href=&#34;#%ec%95%88-%eb%a7%8c%eb%93%a0-%ea%b2%83%eb%93%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    안 만든 것들
+&lt;/h2&gt;&lt;p&gt;정직하게 적으면 이만큼 비어 있다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;seam journal&lt;/code&gt; / &lt;code&gt;seam budget&lt;/code&gt; — &lt;strong&gt;stub만 있음.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;의 킬 메시지가 &amp;ldquo;AI 활동 영수증&amp;quot;이었는데 그게 비어 있음&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;seam journal&lt;/code&gt; / &lt;code&gt;seam budget&lt;/code&gt;. &lt;strong&gt;stub만 있다.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;의 킬 메시지가 &amp;ldquo;AI 활동 영수증&amp;quot;이었는데 그게 비어 있다&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;journal.rs&lt;/code&gt; 는 작성됐는데 &lt;strong&gt;프록시에서 호출을 안 함&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;seam logs --follow&lt;/code&gt; — 미구현&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;seam service&lt;/code&gt; — macOS만. Linux systemd 없음&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Trust Sandbox&lt;/strong&gt; (Layer 2) — 통째로 없음&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Lazy Skill Router&lt;/strong&gt; (Layer 3) — &lt;code&gt;seam.yaml&lt;/code&gt; 에 필드만 있고 구현 없음&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;에이전트 통신 버스&lt;/strong&gt; — 없음&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Semantic Memory&lt;/strong&gt; — 없음. Episodic + Shared만&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;hub.seam.dev&lt;/code&gt; — 레지스트리는 GitHub 레포로 대체&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;seam logs --follow&lt;/code&gt;. 미구현&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;seam service&lt;/code&gt;. macOS만. Linux systemd 없다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Trust Sandbox&lt;/strong&gt; (Layer 2). 통째로 없다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lazy Skill Router&lt;/strong&gt; (Layer 3). &lt;code&gt;seam.yaml&lt;/code&gt; 에 필드만 있고 구현 없다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;에이전트 통신 버스&lt;/strong&gt;. 없다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Semantic Memory&lt;/strong&gt;. 없다. Episodic + Shared만&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hub.seam.dev&lt;/code&gt;. 레지스트리는 GitHub 레포로 대체&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;에서 적었던 6레이어 중 &lt;strong&gt;실제로 만든 건 Layer 0, 1, 4 세 개&lt;/strong&gt;임.&lt;/p&gt;
-&lt;h2 id=&#34;-배운-것&#34;&gt;
-    &lt;a href=&#34;#-%eb%b0%b0%ec%9a%b4-%ea%b2%83&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    💭 배운 것
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;에서 적었던 6레이어 중 &lt;strong&gt;실제로 만든 건 Layer 0, 1, 4 세 개&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;h2 id=&#34;배운-것&#34;&gt;
+    &lt;a href=&#34;#%eb%b0%b0%ec%9a%b4-%ea%b2%83&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    배운 것
 &lt;/h2&gt;&lt;h3 id=&#34;설계를-먼저-쓰면-싸게-버릴-수-있음&#34;&gt;
     &lt;a href=&#34;#%ec%84%a4%ea%b3%84%eb%a5%bc-%eb%a8%bc%ec%a0%80-%ec%93%b0%eb%a9%b4-%ec%8b%b8%ea%b2%8c-%eb%b2%84%eb%a6%b4-%ec%88%98-%ec%9e%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     설계를 먼저 쓰면 싸게 버릴 수 있음
-&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-2/&#34; &gt;#2&lt;/a&gt;에서 일주일 만에 방향을 통째로 갈아엎었는데, &lt;strong&gt;코드가 한 줄도 없는 상태&lt;/strong&gt;였음.
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-2/&#34; &gt;#2&lt;/a&gt;에서 일주일 만에 방향을 통째로 갈아엎었는데, &lt;strong&gt;코드가 한 줄도 없는 상태&lt;/strong&gt;였다.
 Sprint 1~7을 반쯤 짜고 알았으면 훨씬 아팠을 것.&lt;/p&gt;
-&lt;p&gt;문서 쓰는 게 느려 보여도, 버릴 때 손해가 작음.&lt;/p&gt;
+&lt;p&gt;문서 쓰는 게 느려 보여도, 버릴 때 손해가 작다.&lt;/p&gt;
 &lt;h3 id=&#34;안-보이는-제품은-설명이-안-됨&#34;&gt;
     &lt;a href=&#34;#%ec%95%88-%eb%b3%b4%ec%9d%b4%eb%8a%94-%ec%a0%9c%ed%92%88%ec%9d%80-%ec%84%a4%eb%aa%85%ec%9d%b4-%ec%95%88-%eb%90%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     &amp;ldquo;안 보이는 제품&amp;quot;은 설명이 안 됨
-&lt;/h3&gt;&lt;p&gt;v0.4는 &amp;ldquo;백그라운드에서 메모리를 주입하는 투명한 레이어&amp;quot;였음. 기능은 같은데 설명이 안 됐음.
-&lt;code&gt;seam.yaml&lt;/code&gt; 이라는 &lt;strong&gt;파일 하나&lt;/strong&gt;를 중심에 두니까 한 문장으로 끝남 — &amp;ldquo;Docker처럼 AI 환경을 공유함&amp;rdquo;.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;v0.4는 &amp;ldquo;백그라운드에서 메모리를 주입하는 투명한 레이어&amp;quot;였다. 기능은 같은데 설명이 안 됐다.
+&lt;code&gt;seam.yaml&lt;/code&gt; 이라는 &lt;strong&gt;파일 하나&lt;/strong&gt;를 중심에 두니까 한 문장으로 끝남. &amp;ldquo;Docker처럼 AI 환경을 공유함&amp;rdquo;.&lt;/p&gt;
 &lt;h3 id=&#34;조용한-실패가-제일-위험함&#34;&gt;
     &lt;a href=&#34;#%ec%a1%b0%ec%9a%a9%ed%95%9c-%ec%8b%a4%ed%8c%a8%ea%b0%80-%ec%a0%9c%ec%9d%bc-%ec%9c%84%ed%97%98%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     조용한 실패가 제일 위험함
 &lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt; — HTTP 4xx/5xx를 안 보고 지나감&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-4/&#34; &gt;#4&lt;/a&gt; — 종료 코드 0이 아닌데 성공 반환, 루프 상한에서 말없이 종료&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-5/&#34; &gt;#5&lt;/a&gt; — accept 루프가 통째로 죽음&lt;/li&gt;
-&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-7/&#34; &gt;#7&lt;/a&gt; — 라우터 응답이 비면 기본값으로 조용히 넘어감&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-3/&#34; &gt;#3&lt;/a&gt;. HTTP 4xx/5xx를 안 보고 지나간다&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-4/&#34; &gt;#4&lt;/a&gt;. 종료 코드 0이 아닌데 성공 반환, 루프 상한에서 말없이 종료&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-5/&#34; &gt;#5&lt;/a&gt;. accept 루프가 통째로 죽음&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-7/&#34; &gt;#7&lt;/a&gt;. 라우터 응답이 비면 기본값으로 조용히 넘어간다&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;전부 다른 날 다른 언어에서 나왔는데 같은 모양임. &lt;strong&gt;에러를 안 내고 &amp;ldquo;그럴듯하게&amp;rdquo; 계속 가는 코드.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;전부 다른 날 다른 언어에서 나왔는데 같은 모양이다. &lt;strong&gt;에러를 안 내고 &amp;ldquo;그럴듯하게&amp;rdquo; 계속 가는 코드.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;빠른-게-마냥-좋진-않았음&#34;&gt;
     &lt;a href=&#34;#%eb%b9%a0%eb%a5%b8-%ea%b2%8c-%eb%a7%88%eb%83%a5-%ec%a2%8b%ec%a7%84-%ec%95%8a%ec%95%98%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     빠른 게 마냥 좋진 않았음
-&lt;/h3&gt;&lt;p&gt;3개월 계획을 사흘에 밀어넣은 건 기분이 좋았는데, 결과를 보면 &lt;strong&gt;넓고 얕음.&lt;/strong&gt;
+&lt;/h3&gt;&lt;p&gt;3개월 계획을 사흘에 밀어넣은 건 기분이 좋았는데, 결과를 보면 &lt;strong&gt;넓고 얕는다.&lt;/strong&gt;
 레이어 6개 중 3개, 킬 기능인 journal/budget은 stub, Linux는 미지원.&lt;/p&gt;
-&lt;p&gt;돌이켜보면 &lt;strong&gt;Phase 1만 제대로 끝냈으면 쓸 수 있는 물건이 됐을 것 같음.&lt;/strong&gt;
-&amp;ldquo;설치만 하면 AI가 나를 기억함 + 오늘 AI가 쓴 돈&amp;rdquo; 딱 여기까지. 그게 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;에서 정한 MVP 범위이기도 했음.&lt;/p&gt;
-&lt;p&gt;기능을 넓히는 속도가 붙으니까 &lt;strong&gt;범위를 지키는 쪽이 오히려 어려웠음.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-지금&#34;&gt;
-    &lt;a href=&#34;#-%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 지금
-&lt;/h2&gt;&lt;p&gt;3/27 이후로 멈춰 있음.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;docs/superpowers/plans/2026-03-27-seam-phase-a-routing-memory.md&lt;/code&gt; 가 다음 계획인데 실행을 안 했음.
-CLAUDE.md의 &amp;ldquo;다음 단계&amp;quot;에도 &lt;code&gt;Task 10-11&lt;/code&gt;, &lt;code&gt;hub.seam.dev&lt;/code&gt; 가 그대로 남아 있음.&lt;/p&gt;
-&lt;p&gt;버린 프로젝트는 아니고, 멈춘 자리가 명확하다는 정도임.
-돌아온다면 &lt;strong&gt;새 기능이 아니라 journal이랑 budget부터&lt;/strong&gt; 할 것 같음. 그게 원래 제일 처음에 보여주기로 한 거였음.&lt;/p&gt;
-&lt;p&gt;#seam #Rust #데몬 #회고 #CLI&lt;/p&gt;
+&lt;p&gt;돌이켜보면 &lt;strong&gt;Phase 1만 제대로 끝냈으면 쓸 수 있는 물건이 됐을 것 같다.&lt;/strong&gt;
+&amp;ldquo;설치만 하면 AI가 나를 기억한다 + 오늘 AI가 쓴 돈&amp;rdquo; 딱 여기까지. 그게 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;에서 정한 MVP 범위이기도 했다.&lt;/p&gt;
+&lt;p&gt;기능을 넓히는 속도가 붙으니까 &lt;strong&gt;범위를 지키는 쪽이 오히려 어려웠다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;지금&#34;&gt;
+    &lt;a href=&#34;#%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    지금
+&lt;/h2&gt;&lt;p&gt;3/27 이후로 멈춰 있다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;docs/superpowers/plans/2026-03-27-seam-phase-a-routing-memory.md&lt;/code&gt; 가 다음 계획인데 실행을 안 했다.
+CLAUDE.md의 &amp;ldquo;다음 단계&amp;quot;에도 &lt;code&gt;Task 10-11&lt;/code&gt;, &lt;code&gt;hub.seam.dev&lt;/code&gt; 가 그대로 남아 있다.&lt;/p&gt;
+&lt;p&gt;버린 프로젝트는 아니고, 멈춘 자리가 명확하다는 정도다.
+돌아온다면 &lt;strong&gt;새 기능이 아니라 journal이랑 budget부터&lt;/strong&gt; 할 것 같다. 그게 원래 제일 처음에 보여주기로 한 거였다.&lt;/p&gt;
 </description>
         </item>
         

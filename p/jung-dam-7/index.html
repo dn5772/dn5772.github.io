@@ -292,12 +292,12 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-1-시크릿이-코드에-박혀-있었음">🔴 1. 시크릿이 코드에 박혀 있었음</a></li>
-    <li><a href="#-2-비밀번호를-평문으로-로깅하고-있었음">🔴 2. 비밀번호를 평문으로 로깅하고 있었음</a></li>
-    <li><a href="#-3-업로드-엔드포인트에-인증이-아예-없었음">🔴 3. 업로드 엔드포인트에 인증이 아예 없었음</a></li>
-    <li><a href="#-4-메뉴가-잠깐-비는-레이스-컨디션">🟠 4. 메뉴가 잠깐 비는 레이스 컨디션</a></li>
-    <li><a href="#-같은-날-잡은-버그-8개">🐛 같은 날 잡은 버그 8개</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#1-시크릿이-코드에-박혀-있었음">1. 시크릿이 코드에 박혀 있었음</a></li>
+    <li><a href="#2-비밀번호를-평문으로-로깅하고-있었음">2. 비밀번호를 평문으로 로깅하고 있었음</a></li>
+    <li><a href="#3-업로드-엔드포인트에-인증이-아예-없었음">3. 업로드 엔드포인트에 인증이 아예 없었음</a></li>
+    <li><a href="#4-메뉴가-잠깐-비는-레이스-컨디션">4. 메뉴가 잠깐 비는 레이스 컨디션</a></li>
+    <li><a href="#같은-날-잡은-버그-8개">같은 날 잡은 버그 8개</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -384,8 +384,8 @@
     <h1 id="정담-개발-일지-7---두-달-만에-보안-구멍-네-개를-찾았음">
     <a href="#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-7---%eb%91%90-%eb%8b%ac-%eb%a7%8c%ec%97%90-%eb%b3%b4%ec%95%88-%ea%b5%ac%eb%a9%8d-%eb%84%a4-%ea%b0%9c%eb%a5%bc-%ec%b0%be%ec%95%98%ec%9d%8c" class="header-anchor">#</a>
     정담 개발 일지 #7 - 두 달 만에 보안 구멍 네 개를 찾았음
-</h1><p>두 달 만에 코드를 다시 열었음. <a class="link" href="https://dn5772.github.io/p/jung-dam-3/" >#3</a>에서 하루에 1045줄 쏟아낸 그 관리자 API를 차분히 읽어봤는데,
-<strong>볼수록 등이 서늘해졌음.</strong></p>
+</h1><p>두 달 만에 코드를 다시 열었다. <a class="link" href="https://dn5772.github.io/p/jung-dam-3/" >#3</a>에서 하루에 1045줄 쏟아낸 그 관리자 API를 차분히 읽어봤는데,
+<strong>볼수록 등이 서늘해졌다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -402,14 +402,14 @@
 </span></span><span class="line"><span class="cl"> <span class="mi">3</span> <span class="n">files</span> <span class="n">changed</span><span class="p">,</span> <span class="mi">74</span> <span class="n">insertions</span><span class="p">(</span><span class="o">+</span><span class="p">),</span> <span class="mi">141</span> <span class="n">deletions</span><span class="p">(</span><span class="o">-</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>141줄 지우고 74줄 넣음. <strong>고치면서 코드가 줄어든 게 좀 웃김.</strong></p>
-<h2 id="-1-시크릿이-코드에-박혀-있었음">
-    <a href="#-1-%ec%8b%9c%ed%81%ac%eb%a6%bf%ec%9d%b4-%ec%bd%94%eb%93%9c%ec%97%90-%eb%b0%95%ed%98%80-%ec%9e%88%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
-    🔴 1. 시크릿이 코드에 박혀 있었음
-</h2><p>로그인 라우트에 <strong>JWT 시크릿이랑 bcrypt 해시가 그대로</strong> 들어 있었음.</p>
+</div><p>141줄 지우고 74줄 넣는다. <strong>고치면서 코드가 줄어든 게 좀 웃긴다.</strong></p>
+<h2 id="1-시크릿이-코드에-박혀-있었음">
+    <a href="#1-%ec%8b%9c%ed%81%ac%eb%a6%bf%ec%9d%b4-%ec%bd%94%eb%93%9c%ec%97%90-%eb%b0%95%ed%98%80-%ec%9e%88%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
+    1. 시크릿이 코드에 박혀 있었음
+</h2><p>로그인 라우트에 <strong>JWT 시크릿이랑 bcrypt 해시가 그대로</strong> 들어 있었다.</p>
 <p><code>.env</code> 를 만들기 전에 &ldquo;일단 되게&rdquo; 하려고 상수로 박아놓고, 동작하니까 그대로 넘어간 것.
-공개 저장소라 그대로 올라가 있었음.</p>
-<p>전부 환경변수로 뺐음.</p>
+공개 저장소라 그대로 올라가 있었다.</p>
+<p>전부 환경변수로 뺐다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -422,9 +422,9 @@
 </span></span><span class="line"><span class="cl">BLOB_READ_WRITE_TOKEN
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="-2-비밀번호를-평문으로-로깅하고-있었음">
-    <a href="#-2-%eb%b9%84%eb%b0%80%eb%b2%88%ed%98%b8%eb%a5%bc-%ed%8f%89%eb%ac%b8%ec%9c%bc%eb%a1%9c-%eb%a1%9c%ea%b9%85%ed%95%98%ea%b3%a0-%ec%9e%88%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
-    🔴 2. 비밀번호를 평문으로 로깅하고 있었음
+</div><h2 id="2-비밀번호를-평문으로-로깅하고-있었음">
+    <a href="#2-%eb%b9%84%eb%b0%80%eb%b2%88%ed%98%b8%eb%a5%bc-%ed%8f%89%eb%ac%b8%ec%9c%bc%eb%a1%9c-%eb%a1%9c%ea%b9%85%ed%95%98%ea%b3%a0-%ec%9e%88%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
+    2. 비밀번호를 평문으로 로깅하고 있었음
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -433,13 +433,13 @@
 <pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Login attempt:&#39;</span><span class="p">,</span> <span class="nx">password</span><span class="p">);</span>   <span class="c1">// ← 이게 남아 있었음
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>로그인이 왜 안 되는지 보려고 넣은 건데 안 지웠음.
+</div><p>로그인이 왜 안 되는지 보려고 넣은 건데 안 지웠다.
 Vercel 대시보드 로그에 관리자 비밀번호가 평문으로 쌓이고 있었던 것.</p>
-<p>지웠음.</p>
-<h2 id="-3-업로드-엔드포인트에-인증이-아예-없었음">
-    <a href="#-3-%ec%97%85%eb%a1%9c%eb%93%9c-%ec%97%94%eb%93%9c%ed%8f%ac%ec%9d%b8%ed%8a%b8%ec%97%90-%ec%9d%b8%ec%a6%9d%ec%9d%b4-%ec%95%84%ec%98%88-%ec%97%86%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
-    🔴 3. 업로드 엔드포인트에 인증이 아예 없었음
-</h2><p>이게 제일 심각했음.</p>
+<p>지웠다.</p>
+<h2 id="3-업로드-엔드포인트에-인증이-아예-없었음">
+    <a href="#3-%ec%97%85%eb%a1%9c%eb%93%9c-%ec%97%94%eb%93%9c%ed%8f%ac%ec%9d%b8%ed%8a%b8%ec%97%90-%ec%9d%b8%ec%a6%9d%ec%9d%b4-%ec%95%84%ec%98%88-%ec%97%86%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
+    3. 업로드 엔드포인트에 인증이 아예 없었음
+</h2><p>이게 제일 심각했다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -448,8 +448,8 @@ Vercel 대시보드 로그에 관리자 비밀번호가 평문으로 쌓이고 �
 <pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">upload</span>   <span class="err">←</span>  <span class="err">아무</span> <span class="err">검증</span> <span class="err">없음</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><a class="link" href="https://dn5772.github.io/p/jung-dam-3/" >#3</a>에서 메뉴 API엔 <code>verifyToken</code> 을 붙였는데 <strong>업로드만 빼먹었음.</strong>
-누구나 내 Blob 스토리지에 파일을 올릴 수 있는 상태였음. 용량은 내가 내고.</p>
+</div><p><a class="link" href="https://dn5772.github.io/p/jung-dam-3/" >#3</a>에서 메뉴 API엔 <code>verifyToken</code> 을 붙였는데 <strong>업로드만 빼먹었다.</strong>
+누구나 내 Blob 스토리지에 파일을 올릴 수 있는 상태였다. 용량은 내가 내고.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -460,12 +460,12 @@ Vercel 대시보드 로그에 관리자 비밀번호가 평문으로 쌓이고 �
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">user</span><span class="p">)</span> <span class="k">return</span> <span class="nx">NextResponse</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span> <span class="nx">error</span><span class="o">:</span> <span class="s1">&#39;Unauthorized&#39;</span> <span class="p">},</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">401</span> <span class="p">});</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>관리자 화면에서 이미지 올릴 때 <code>Authorization</code> 헤더를 안 보내고 있어서 그것도 같이 고침.</p>
-<h2 id="-4-메뉴가-잠깐-비는-레이스-컨디션">
-    <a href="#-4-%eb%a9%94%eb%89%b4%ea%b0%80-%ec%9e%a0%ea%b9%90-%eb%b9%84%eb%8a%94-%eb%a0%88%ec%9d%b4%ec%8a%a4-%ec%bb%a8%eb%94%94%ec%85%98" class="header-anchor">#</a>
-    🟠 4. 메뉴가 잠깐 비는 레이스 컨디션
-</h2><p>이건 보안은 아닌데 더 무서웠음.</p>
-<p>저장 로직이 이랬음.</p>
+</div><p>관리자 화면에서 이미지 올릴 때 <code>Authorization</code> 헤더를 안 보내고 있어서 그것도 같이 고친다.</p>
+<h2 id="4-메뉴가-잠깐-비는-레이스-컨디션">
+    <a href="#4-%eb%a9%94%eb%89%b4%ea%b0%80-%ec%9e%a0%ea%b9%90-%eb%b9%84%eb%8a%94-%eb%a0%88%ec%9d%b4%ec%8a%a4-%ec%bb%a8%eb%94%94%ec%85%98" class="header-anchor">#</a>
+    4. 메뉴가 잠깐 비는 레이스 컨디션
+</h2><p>이건 보안은 아닌데 더 무서웠다.</p>
+<p>저장 로직이 이랬다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -474,9 +474,9 @@ Vercel 대시보드 로그에 관리자 비밀번호가 평문으로 쌓이고 �
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">list  →  del(기존 파일)  →  put(새 파일)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>지우고 나서 올리는 사이에 메뉴가 빈 채로 응답되는 창이 있었음.</strong>
-손님이 하필 그 0.x초에 들어오면 메뉴판이 텅 비어 보임. 에러도 아니고 그냥 빈 메뉴라 아무도 신고를 안 해줌.</p>
-<p><code>del</code> 단계를 아예 없애고 <strong>같은 이름에 덮어쓰기</strong>로 바꿨음.</p>
+</div><p><strong>지우고 나서 올리는 사이에 메뉴가 빈 채로 응답되는 창이 있었다.</strong>
+손님이 하필 그 0.x초에 들어오면 메뉴판이 텅 비어 보다. 에러도 아니고 그냥 빈 메뉴라 아무도 신고를 안 해준다.</p>
+<p><code>del</code> 단계를 아예 없애고 <strong>같은 이름에 덮어쓰기</strong>로 바꿨다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -495,23 +495,23 @@ Vercel 대시보드 로그에 관리자 비밀번호가 평문으로 쌓이고 �
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">});</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>addRandomSuffix: false</code> 를 줘야 랜덤 접미사 없이 같은 경로를 씀. 그래야 덮어쓰기가 됨.</p>
-<p>덤으로 ko/en 저장을 <code>Promise.all</code> 로 묶어서 왕복을 반으로 줄였음.
-응답도 전부 <code>NextResponse.json</code> 으로 통일함. 원래는 <code>new Response(JSON.stringify(...))</code> 랑 섞여 있었음.</p>
-<h2 id="-같은-날-잡은-버그-8개">
-    <a href="#-%ea%b0%99%ec%9d%80-%eb%82%a0-%ec%9e%a1%ec%9d%80-%eb%b2%84%ea%b7%b8-8%ea%b0%9c" class="header-anchor">#</a>
-    🐛 같은 날 잡은 버그 8개
-</h2><p>보안 말고 커밋 하나 더 있음.</p>
-<p><strong><code>mergeLocalizedMenuData</code> 가 EN만 기준으로 합치고 있었음.</strong>
-한국어에만 있는 카테고리는 관리자 화면에 아예 안 뜸. 합집합으로 바꿈.</p>
-<p><strong>편집 중에 배경 갱신이 폼을 덮어씀.</strong>
-<code>editItem</code> 이펙트 의존성에 <code>menuData</code> 가 들어 있어서, 백그라운드 리페치가 오면 <strong>저장 안 한 입력이 날아감.</strong> 의존성에서 뺐음.</p>
+</div><p><code>addRandomSuffix: false</code> 를 줘야 랜덤 접미사 없이 같은 경로를 쓴다. 그래야 덮어쓰기가 된다.</p>
+<p>덤으로 ko/en 저장을 <code>Promise.all</code> 로 묶어서 왕복을 반으로 줄였다.
+응답도 전부 <code>NextResponse.json</code> 으로 통일한다. 원래는 <code>new Response(JSON.stringify(...))</code> 랑 섞여 있었다.</p>
+<h2 id="같은-날-잡은-버그-8개">
+    <a href="#%ea%b0%99%ec%9d%80-%eb%82%a0-%ec%9e%a1%ec%9d%80-%eb%b2%84%ea%b7%b8-8%ea%b0%9c" class="header-anchor">#</a>
+    같은 날 잡은 버그 8개
+</h2><p>보안 말고 커밋 하나 더 있다.</p>
+<p><strong><code>mergeLocalizedMenuData</code> 가 EN만 기준으로 합치고 있었다.</strong>
+한국어에만 있는 카테고리는 관리자 화면에 아예 안 뜬다. 합집합으로 바꾼다.</p>
+<p><strong>편집 중에 배경 갱신이 폼을 덮어쓴다.</strong>
+<code>editItem</code> 이펙트 의존성에 <code>menuData</code> 가 들어 있어서, 백그라운드 리페치가 오면 <strong>저장 안 한 입력이 날아간다.</strong> 의존성에서 뺐다.</p>
 <p><strong>GLightbox 메모리 누수.</strong>
-언어를 바꿀 때마다 라이트박스를 새로 만드는데 기존 걸 안 없앴음. 언어 토글을 왔다갔다 하면 인스턴스가 계속 쌓임.
-ref로 인스턴스를 들고 있다가 재생성 전에 <code>destroy()</code> 하고, 언마운트 때도 정리하게 함.</p>
-<p><strong>첫 화면에서 언어가 깜빡였음.</strong>
-영어 사용자가 들어오면 한국어가 한 프레임 보였다가 영어로 바뀜. <code>localStorage</code> 를 <code>useEffect</code> 에서 읽어서 생긴 일.
-<code>useState</code> 의 <strong>lazy initializer</strong> 로 옮겨서 첫 렌더 전에 동기적으로 읽게 함.</p>
+언어를 바꿀 때마다 라이트박스를 새로 만드는데 기존 걸 안 없앴다. 언어 토글을 왔다갔다 하면 인스턴스가 계속 쌓이다.
+ref로 인스턴스를 들고 있다가 재생성 전에 <code>destroy()</code> 하고, 언마운트 때도 정리하게 한다.</p>
+<p><strong>첫 화면에서 언어가 깜빡였다.</strong>
+영어 사용자가 들어오면 한국어가 한 프레다 보였다가 영어로 바뀐다. <code>localStorage</code> 를 <code>useEffect</code> 에서 읽어서 생긴 일.
+<code>useState</code> 의 <strong>lazy initializer</strong> 로 옮겨서 첫 렌더 전에 동기적으로 읽게 한다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -531,16 +531,15 @@ ref로 인스턴스를 들고 있다가 재생성 전에 <code>destroy()</code> 
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>나머지는 중복 가드 제거, 쓸모없는 별칭 제거, 디버그 <code>console.log</code> 청소.
-<code>html lang</code> 속성이 언어 따라 안 바뀌던 것도 고쳤음.</p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p><strong>네 개 중 세 개가 &ldquo;디버깅용으로 넣었다가 안 지운 것&quot;이거나 &ldquo;일단 되게 하려고 건너뛴 것&quot;이었음.</strong>
-시크릿 하드코딩, 평문 로깅, 업로드 인증 누락. 셋 다 <a class="link" href="https://dn5772.github.io/p/jung-dam-3/" >#3</a>에서 하루에 1045줄 쏟아낼 때 생긴 것들임.</p>
-<p>빨리 만드는 건 좋은데, <strong>&ldquo;나중에 고칠 것&rdquo; 목록을 어딘가에 안 적어두면 나중이 두 달 뒤가 됨.</strong></p>
-<p>그리고 4번 레이스 컨디션은 아무도 신고를 안 해줌. 에러가 안 나고 그냥 빈 화면이라서.
+<code>html lang</code> 속성이 언어 따라 안 바뀌던 것도 고쳤다.</p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p><strong>네 개 중 세 개가 &ldquo;디버깅용으로 넣었다가 안 지운 것&quot;이거나 &ldquo;일단 되게 하려고 건너뛴 것&quot;이었다.</strong>
+시크릿 하드코딩, 평문 로깅, 업로드 인증 누락. 셋 다 <a class="link" href="https://dn5772.github.io/p/jung-dam-3/" >#3</a>에서 하루에 1045줄 쏟아낼 때 생긴 것들이다.</p>
+<p>빨리 만드는 건 좋은데, <strong>&ldquo;나중에 고칠 것&rdquo; 목록을 어딘가에 안 적어두면 나중이 두 달 뒤가 된다.</strong></p>
+<p>그리고 4번 레이스 컨디션은 아무도 신고를 안 해준다. 에러가 안 나고 그냥 빈 화면이라서.
 <strong>조용히 실패하는 버그가 제일 오래 살아남는 듯.</strong></p>
-<p>#정담 #보안 #JWT #레이스컨디션 #리팩터링</p>
 
 </section>
 

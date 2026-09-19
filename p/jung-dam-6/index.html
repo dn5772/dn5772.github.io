@@ -292,12 +292,12 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-api에-locale-붙이기">🔌 API에 locale 붙이기</a></li>
-    <li><a href="#-languagecontext">🌐 LanguageContext</a></li>
-    <li><a href="#-관리자는-두-언어를-동시에">✏️ 관리자는 두 언어를 동시에</a></li>
-    <li><a href="#-vercel-analytics">📊 Vercel Analytics</a></li>
-    <li><a href="#-브랜치를-나눠서-작업함">🌿 브랜치를 나눠서 작업함</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#api에-locale-붙이기">API에 locale 붙이기</a></li>
+    <li><a href="#languagecontext">LanguageContext</a></li>
+    <li><a href="#관리자는-두-언어를-동시에">관리자는 두 언어를 동시에</a></li>
+    <li><a href="#vercel-analytics">Vercel Analytics</a></li>
+    <li><a href="#브랜치를-나눠서-작업함">브랜치를 나눠서 작업함</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -384,11 +384,11 @@
     <h1 id="정담-개발-일지-6---다국어-구현이랑-analytics">
     <a href="#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-6---%eb%8b%a4%ea%b5%ad%ec%96%b4-%ea%b5%ac%ed%98%84%ec%9d%b4%eb%9e%91-analytics" class="header-anchor">#</a>
     정담 개발 일지 #6 - 다국어 구현이랑 Analytics
-</h1><p><a class="link" href="https://dn5772.github.io/p/jung-dam-5/" >#5</a>에서 정한 설계대로 구현함. 2월 2~4일 커밋 9개.</p>
-<h2 id="-api에-locale-붙이기">
-    <a href="#-api%ec%97%90-locale-%eb%b6%99%ec%9d%b4%ea%b8%b0" class="header-anchor">#</a>
-    🔌 API에 locale 붙이기
-</h2><p><code>GET</code> 은 쿼리 파라미터 하나 추가하면 끝임.</p>
+</h1><p><a class="link" href="https://dn5772.github.io/p/jung-dam-5/" >#5</a>에서 정한 설계대로 구현한다. 2월 2~4일 커밋 9개.</p>
+<h2 id="api에-locale-붙이기">
+    <a href="#api%ec%97%90-locale-%eb%b6%99%ec%9d%b4%ea%b8%b0" class="header-anchor">#</a>
+    API에 locale 붙이기
+</h2><p><code>GET</code> 은 쿼리 파라미터 하나 추가하면 끝이다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -403,8 +403,8 @@
 </span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">fileName</span> <span class="o">=</span> <span class="sb">`menuData-</span><span class="si">${</span><span class="nx">safeLocale</span><span class="si">}</span><span class="sb">.json`</span><span class="p">;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>허용 목록으로 검증하는 게 중요함.</strong> 이게 파일명에 그대로 들어가니까, 검증 없으면 <code>?locale=../../something</code> 같은 게 들어올 수 있음.</p>
-<p>캐시 헤더도 같이 달았음.</p>
+</div><p><strong>허용 목록으로 검증하는 게 중요하다.</strong> 이게 파일명에 그대로 들어가니까, 검증 없으면 <code>?locale=../../something</code> 같은 게 들어올 수 있다.</p>
+<p>캐시 헤더도 같이 달았다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -413,12 +413,12 @@
 <pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="s1">&#39;Cache-Control&#39;</span><span class="o">:</span> <span class="s1">&#39;public, s-maxage=60, stale-while-revalidate=300&#39;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>메뉴는 한 달에 몇 번 바뀌는데 조회는 계속 일어남. CDN이 60초 캐시하고, 만료돼도 5분 동안은 <strong>일단 옛날 걸 주면서 뒤에서 갱신</strong>함.
-사장님이 메뉴를 고치면 최대 1분 늦게 반영되는데, 그 정도는 괜찮다고 봄.</p>
-<h2 id="-languagecontext">
-    <a href="#-languagecontext" class="header-anchor">#</a>
-    🌐 LanguageContext
-</h2><p>언어 상태는 컨텍스트 하나로 관리함.</p>
+</div><p>메뉴는 한 달에 몇 번 바뀌는데 조회는 계속 일어난다. CDN이 60초 캐시하고, 만료돼도 5분 동안은 <strong>일단 옛날 걸 주면서 뒤에서 갱신</strong>한다.
+사장님이 메뉴를 고치면 최대 1분 늦게 반영되는데, 그 정도는 괜찮다고 본다.</p>
+<h2 id="languagecontext">
+    <a href="#languagecontext" class="header-anchor">#</a>
+    LanguageContext
+</h2><p>언어 상태는 컨텍스트 하나로 관리한다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -428,9 +428,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>저장된 선택이 있으면 그거, 없으면 브라우저 언어, 그것도 아니면 한국어.
-<strong>기본을 영어가 아니라 한국어로 둔 건 손님 대부분이 한국인이라서임.</strong></p>
-<p><code>MenuSection</code> 은 <code>/api/menu?locale=&lt;locale&gt;</code> 을 부르고, 언어가 바뀌면 다시 가져옴.</p>
-<p>한 가지 좋았던 게, API가 이미 단일 언어 데이터를 주니까 <strong>화면 코드에서 언어 분기가 통째로 사라졌음.</strong></p>
+<strong>기본을 영어가 아니라 한국어로 둔 건 손님 대부분이 한국인이라서다.</strong></p>
+<p><code>MenuSection</code> 은 <code>/api/menu?locale=&lt;locale&gt;</code> 을 부르고, 언어가 바뀌면 다시 가져온다.</p>
+<p>한 가지 좋았던 게, API가 이미 단일 언어 데이터를 주니까 <strong>화면 코드에서 언어 분기가 통째로 사라졌다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -447,11 +447,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">&lt;</span><span class="nt">h4</span><span class="p">&gt;{</span><span class="nx">item</span><span class="p">.</span><span class="nx">title</span><span class="p">}&lt;/</span><span class="nt">h4</span><span class="p">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><a class="link" href="https://dn5772.github.io/p/jung-dam-5/" >#5</a>에서 파일을 쪼개기로 한 이득이 여기서 나옴.</p>
-<h2 id="-관리자는-두-언어를-동시에">
-    <a href="#-%ea%b4%80%eb%a6%ac%ec%9e%90%eb%8a%94-%eb%91%90-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%8f%99%ec%8b%9c%ec%97%90" class="header-anchor">#</a>
-    ✏️ 관리자는 두 언어를 동시에
-</h2><p>관리자 화면에선 반대로 합쳐서 다룸. 서버에서 받은 ko/en 두 파일을 하나로 병합해서 편집하고, 저장할 때 다시 쪼갬.</p>
+</div><p><a class="link" href="https://dn5772.github.io/p/jung-dam-5/" >#5</a>에서 파일을 쪼개기로 한 이득이 여기서 나온다.</p>
+<h2 id="관리자는-두-언어를-동시에">
+    <a href="#%ea%b4%80%eb%a6%ac%ec%9e%90%eb%8a%94-%eb%91%90-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%8f%99%ec%8b%9c%ec%97%90" class="header-anchor">#</a>
+    관리자는 두 언어를 동시에
+</h2><p>관리자 화면에선 반대로 합쳐서 다룬다. 서버에서 받은 ko/en 두 파일을 하나로 병합해서 편집하고, 저장할 때 다시 쪼갠다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -462,7 +462,7 @@
 </span></span><span class="line"><span class="cl">저장:      { title: { ko, en }, ... }            →  { ko: {...}, en: {...} }
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>PATCH</code> 도 양쪽 언어를 같이 받게 바꿨음.</p>
+</div><p><code>PATCH</code> 도 양쪽 언어를 같이 받게 바꿨다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -485,10 +485,10 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>한쪽만 보내는 경로를 안 만들었으니 어긋날 수가 없음.</strong> 설계 때 정한 그대로임.</p>
-<h2 id="-vercel-analytics">
-    <a href="#-vercel-analytics" class="header-anchor">#</a>
-    📊 Vercel Analytics
+</div><p><strong>한쪽만 보내는 경로를 안 만들었으니 어긋날 수가 없다.</strong> 설계 때 정한 그대로다.</p>
+<h2 id="vercel-analytics">
+    <a href="#vercel-analytics" class="header-anchor">#</a>
+    Vercel Analytics
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -499,14 +499,14 @@
 </span></span><span class="line"><span class="cl">feat: add @vercel/analytics dependency
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>&lt;Analytics /&gt;</code> 한 줄 넣으면 끝임. 설정 없음.</p>
-<p>이거 붙이고 나서 처음으로 <strong>사람들이 실제로 뭘 보는지</strong> 알게 됐음.
-대부분 모바일이고, 메뉴 섹션에 제일 오래 머무름. <a class="link" href="https://dn5772.github.io/p/jung-dam-2/" >#2</a>에서 만든 &ldquo;메뉴로 바로 가기&rdquo; 버튼이 괜히 만든 게 아니었음.</p>
-<p>이 관찰이 나중에 <a class="link" href="https://dn5772.github.io/p/jung-dam-8/" >#8</a>에서 관리자 화면을 모바일 우선으로 갈아엎는 근거가 됨.</p>
-<h2 id="-브랜치를-나눠서-작업함">
-    <a href="#-%eb%b8%8c%eb%9e%9c%ec%b9%98%eb%a5%bc-%eb%82%98%eb%88%a0%ec%84%9c-%ec%9e%91%ec%97%85%ed%95%a8" class="header-anchor">#</a>
-    🌿 브랜치를 나눠서 작업함
-</h2><p>이번엔 PR을 세 개 만들었음.</p>
+</div><p><code>&lt;Analytics /&gt;</code> 한 줄 넣으면 끝이다. 설정 없다.</p>
+<p>이거 붙이고 나서 처음으로 <strong>사람들이 실제로 뭘 보는지</strong> 알게 됐다.
+대부분 모바일이고, 메뉴 섹션에 제일 오래 머무른다. <a class="link" href="https://dn5772.github.io/p/jung-dam-2/" >#2</a>에서 만든 &ldquo;메뉴로 바로 가기&rdquo; 버튼이 괜히 만든 게 아니었다.</p>
+<p>이 관찰이 나중에 <a class="link" href="https://dn5772.github.io/p/jung-dam-8/" >#8</a>에서 관리자 화면을 모바일 우선으로 갈아엎는 근거가 된다.</p>
+<h2 id="브랜치를-나눠서-작업함">
+    <a href="#%eb%b8%8c%eb%9e%9c%ec%b9%98%eb%a5%bc-%eb%82%98%eb%88%a0%ec%84%9c-%ec%9e%91%ec%97%85%ed%95%a8" class="header-anchor">#</a>
+    브랜치를 나눠서 작업함
+</h2><p>이번엔 PR을 세 개 만들었다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -519,15 +519,14 @@
 </span></span><span class="line"><span class="cl">Merge pull request #3 from dn5772/devlop
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>혼자 하는 프로젝트라 브랜치가 의미 있나 싶었는데, <strong>다국어 작업 중에 메뉴가 깨지면 손님한테 바로 보임.</strong>
-<code>main</code> 에 바로 밀지 않고 Preview 배포에서 확인하고 머지하니까 마음이 편했음.</p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p><strong>설계를 먼저 해두니까 구현이 그냥 받아쓰기였음.</strong> Phase 2~4가 문서에 적힌 순서대로 끝남.
-<a class="link" href="https://dn5772.github.io/p/jung-dam-4/" >#4</a>처럼 배포하고 나서 뒤집는 일이 한 번도 없었음.</p>
-<p>Analytics는 진작 붙일 걸 그랬음. 한 줄인데 &ldquo;내 추측&quot;이랑 &ldquo;실제 손님 행동&quot;을 구분해줌.</p>
-<p>#정담 #다국어 #i18n #React #Analytics #Vercel</p>
+</div><p>혼자 하는 프로젝트라 브랜치가 의미 있나 싶었는데, <strong>다국어 작업 중에 메뉴가 깨지면 손님한테 바로 보다.</strong>
+<code>main</code> 에 바로 밀지 않고 Preview 배포에서 확인하고 머지하니까 마음이 편했다.</p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p><strong>설계를 먼저 해두니까 구현이 그냥 받아쓰기였다.</strong> Phase 2~4가 문서에 적힌 순서대로 끝난다.
+<a class="link" href="https://dn5772.github.io/p/jung-dam-4/" >#4</a>처럼 배포하고 나서 뒤집는 일이 한 번도 없었다.</p>
+<p>Analytics는 진작 붙일 걸 그랬다. 한 줄인데 &ldquo;내 추측&quot;이랑 &ldquo;실제 손님 행동&quot;을 구분해준다.</p>
 
 </section>
 

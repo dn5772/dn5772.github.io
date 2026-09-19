@@ -15,14 +15,14 @@
         <description>&lt;h1 id=&#34;tap-smith-개발-일지-5---일지에서-빼먹은-것&#34;&gt;
     &lt;a href=&#34;#tap-smith-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-5---%ec%9d%bc%ec%a7%80%ec%97%90%ec%84%9c-%eb%b9%bc%eb%a8%b9%ec%9d%80-%ea%b2%83&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     Tap Smith 개발 일지 #5 - 일지에서 빼먹은 것
-&lt;/h1&gt;&lt;p&gt;지난 네 편이 API → 인증 → DB 테스트 → 일일 미션 순서로 갔는데, 정작 &lt;strong&gt;제일 먼저 만들어둔 것들&lt;/strong&gt;을 건너뛰었음.
-1월 31일 ~ 2월 1일에 해둔 배포 구성이랑 다국어. 오늘 몰아서 정리함.&lt;/p&gt;
-&lt;h2 id=&#34;-왜-처음부터-docker였나&#34;&gt;
-    &lt;a href=&#34;#-%ec%99%9c-%ec%b2%98%ec%9d%8c%eb%b6%80%ed%84%b0-docker%ec%98%80%eb%82%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🐳 왜 처음부터 Docker였나
-&lt;/h2&gt;&lt;p&gt;로컬에 MySQL 깔기가 싫었음. 그게 다임.&lt;/p&gt;
-&lt;p&gt;Node 버전도 팀마다 다를 거고, MySQL 8.4를 로컬에 깔면 나중에 지우기도 귀찮음. 그래서 처음부터 &lt;code&gt;docker-compose up -d&lt;/code&gt; 한 방으로 끝나게 만들어둠.&lt;/p&gt;
-&lt;p&gt;컨테이너 3개임.&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;지난 네 편이 API → 인증 → DB 테스트 → 일일 미션 순서로 갔는데, 정작 &lt;strong&gt;제일 먼저 만들어둔 것들&lt;/strong&gt;을 건너뛰었다.
+1월 31일 ~ 2월 1일에 해둔 배포 구성이랑 다국어. 오늘 몰아서 정리한다.&lt;/p&gt;
+&lt;h2 id=&#34;왜-처음부터-docker였나&#34;&gt;
+    &lt;a href=&#34;#%ec%99%9c-%ec%b2%98%ec%9d%8c%eb%b6%80%ed%84%b0-docker%ec%98%80%eb%82%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    왜 처음부터 Docker였나
+&lt;/h2&gt;&lt;p&gt;로컬에 MySQL 깔기가 싫었다. 그게 다다.&lt;/p&gt;
+&lt;p&gt;Node 버전도 팀마다 다를 거고, MySQL 8.4를 로컬에 깔면 나중에 지우기도 귀찮다. 그래서 처음부터 &lt;code&gt;docker-compose up -d&lt;/code&gt; 한 방으로 끝나게 만들어뒀다.&lt;/p&gt;
+&lt;p&gt;컨테이너 3개다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -31,9 +31,9 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nginx (80)  ──▶  app (3000, 내부만)  ──▶  db (MySQL 8.4)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;-dockerfile---멀티스테이지--비루트&#34;&gt;
-    &lt;a href=&#34;#-dockerfile---%eb%a9%80%ed%8b%b0%ec%8a%a4%ed%85%8c%ec%9d%b4%ec%a7%80--%eb%b9%84%eb%a3%a8%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📦 Dockerfile - 멀티스테이지 + 비루트
+&lt;/div&gt;&lt;h2 id=&#34;dockerfile---멀티스테이지--비루트&#34;&gt;
+    &lt;a href=&#34;#dockerfile---%eb%a9%80%ed%8b%b0%ec%8a%a4%ed%85%8c%ec%9d%b4%ec%a7%80--%eb%b9%84%eb%a3%a8%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    Dockerfile - 멀티스테이지 + 비루트
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -91,16 +91,16 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;신경 쓴 거 세 가지.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1. &lt;code&gt;dumb-init&lt;/code&gt;.&lt;/strong&gt; Node를 PID 1로 띄우면 시그널 처리가 제대로 안 됨.
-&lt;code&gt;docker-compose down&lt;/code&gt; 할 때 SIGTERM이 안 먹어서 10초 기다렸다가 강제 종료되는 그 현상. &lt;code&gt;dumb-init&lt;/code&gt; 을 ENTRYPOINT에 끼우면 깔끔하게 내려감.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2. 비루트 유저.&lt;/strong&gt; 컨테이너 안에서 root로 돌 이유가 없음. &lt;code&gt;nodejs&lt;/code&gt; 유저 만들어서 그걸로 실행.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3. HEALTHCHECK.&lt;/strong&gt; 이게 다음 항목이랑 연결됨.&lt;/p&gt;
-&lt;h2 id=&#34;-db가-준비될-때까지-기다리게-하기&#34;&gt;
-    &lt;a href=&#34;#-db%ea%b0%80-%ec%a4%80%eb%b9%84%eb%90%a0-%eb%95%8c%ea%b9%8c%ec%a7%80-%ea%b8%b0%eb%8b%a4%eb%a6%ac%ea%b2%8c-%ed%95%98%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    ⏳ DB가 준비될 때까지 기다리게 하기
-&lt;/h2&gt;&lt;p&gt;처음에 &lt;code&gt;depends_on: - db&lt;/code&gt; 만 걸었더니 API가 계속 죽었음.
-&lt;strong&gt;&lt;code&gt;depends_on&lt;/code&gt; 은 컨테이너가 &amp;ldquo;시작&amp;quot;되기만 기다리지, MySQL이 실제로 쿼리를 받을 준비가 됐는지는 안 봄.&lt;/strong&gt; MySQL은 첫 부팅에 초기화를 하느라 수십 초가 걸림.&lt;/p&gt;
-&lt;p&gt;그래서 헬스체크를 걸고 &lt;code&gt;service_healthy&lt;/code&gt; 를 조건으로 줌.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. &lt;code&gt;dumb-init&lt;/code&gt;.&lt;/strong&gt; Node를 PID 1로 띄우면 시그널 처리가 제대로 안 된다.
+&lt;code&gt;docker-compose down&lt;/code&gt; 할 때 SIGTERM이 안 먹어서 10초 기다렸다가 강제 종료되는 그 현상. &lt;code&gt;dumb-init&lt;/code&gt; 을 ENTRYPOINT에 끼우면 깔끔하게 내려간다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 비루트 유저.&lt;/strong&gt; 컨테이너 안에서 root로 돌 이유가 없다. &lt;code&gt;nodejs&lt;/code&gt; 유저 만들어서 그걸로 실행.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. HEALTHCHECK.&lt;/strong&gt; 이게 다음 항목이랑 연결된다.&lt;/p&gt;
+&lt;h2 id=&#34;db가-준비될-때까지-기다리게-하기&#34;&gt;
+    &lt;a href=&#34;#db%ea%b0%80-%ec%a4%80%eb%b9%84%eb%90%a0-%eb%95%8c%ea%b9%8c%ec%a7%80-%ea%b8%b0%eb%8b%a4%eb%a6%ac%ea%b2%8c-%ed%95%98%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    DB가 준비될 때까지 기다리게 하기
+&lt;/h2&gt;&lt;p&gt;처음에 &lt;code&gt;depends_on: - db&lt;/code&gt; 만 걸었더니 API가 계속 죽었다.
+&lt;strong&gt;&lt;code&gt;depends_on&lt;/code&gt; 은 컨테이너가 &amp;ldquo;시작&amp;quot;되기만 기다리지, MySQL이 실제로 쿼리를 받을 준비가 됐는지는 안 본다.&lt;/strong&gt; MySQL은 첫 부팅에 초기화를 하느라 수십 초가 걸린다.&lt;/p&gt;
+&lt;p&gt;그래서 헬스체크를 걸고 &lt;code&gt;service_healthy&lt;/code&gt; 를 조건으로 준다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -129,11 +129,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;retries&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;이거 하고 나서 &lt;code&gt;docker-compose up&lt;/code&gt; 한 번에 깔끔하게 뜸. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%233-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%97%B0%EB%8F%99-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%99%84%EB%A3%8C/&#34; &gt;#3편&lt;/a&gt;에서 &amp;ldquo;스키마 자동 생성도 깔끔하게 끝남&amp;quot;이라고 썼던 게 사실 이 구성 덕분이었음.&lt;/p&gt;
-&lt;h2 id=&#34;-nginx---굳이-왜-끼웠나&#34;&gt;
-    &lt;a href=&#34;#-nginx---%ea%b5%b3%ec%9d%b4-%ec%99%9c-%eb%81%bc%ec%9b%a0%eb%82%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔀 nginx - 굳이 왜 끼웠나
-&lt;/h2&gt;&lt;p&gt;API 하나 띄우는데 리버스 프록시까지 필요한가 싶었는데, 넣어두니까 편한 게 꽤 있었음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;이거 하고 나서 &lt;code&gt;docker-compose up&lt;/code&gt; 한 번에 깔끔하게 뜬다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%233-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%97%B0%EB%8F%99-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%99%84%EB%A3%8C/&#34; &gt;#3편&lt;/a&gt;에서 &amp;ldquo;스키마 자동 생성도 깔끔하게 끝남&amp;quot;이라고 썼던 게 사실 이 구성 덕분이었다.&lt;/p&gt;
+&lt;h2 id=&#34;nginx---굳이-왜-끼웠나&#34;&gt;
+    &lt;a href=&#34;#nginx---%ea%b5%b3%ec%9d%b4-%ec%99%9c-%eb%81%bc%ec%9b%a0%eb%82%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    nginx - 굳이 왜 끼웠나
+&lt;/h2&gt;&lt;p&gt;API 하나 띄우는데 리버스 프록시까지 필요한가 싶었는데, 넣어두니까 편한 게 꽤 있었다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -193,17 +193,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;app을 외부에 노출 안 함.&lt;/strong&gt; &lt;code&gt;ports&lt;/code&gt; 가 아니라 &lt;code&gt;expose&lt;/code&gt; 라서 3000번은 컨테이너 네트워크 안에서만 열림. 밖에서 닿는 건 nginx의 80뿐임.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;보안 헤더를 앱 코드에서 뺄 수 있음.&lt;/strong&gt; Fastify에서 매번 붙이는 것보다 여기 한 번 적는 게 나음.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Gzip이랑 keepalive.&lt;/strong&gt; &lt;code&gt;proxy_http_version 1.1&lt;/code&gt; + &lt;code&gt;Connection &amp;quot;&amp;quot;&lt;/code&gt; 조합으로 업스트림 커넥션을 재사용함.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;/health&lt;/code&gt; 는 access_log 끔.&lt;/strong&gt; 30초마다 찍히는 헬스체크 로그로 access.log가 도배되는 걸 막음.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;app을 외부에 노출 안 한다.&lt;/strong&gt; &lt;code&gt;ports&lt;/code&gt; 가 아니라 &lt;code&gt;expose&lt;/code&gt; 라서 3000번은 컨테이너 네트워크 안에서만 열린다. 밖에서 닿는 건 nginx의 80뿐이다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;보안 헤더를 앱 코드에서 뺄 수 있다.&lt;/strong&gt; Fastify에서 매번 붙이는 것보다 여기 한 번 적는 게 낫다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Gzip이랑 keepalive.&lt;/strong&gt; &lt;code&gt;proxy_http_version 1.1&lt;/code&gt; + &lt;code&gt;Connection &amp;quot;&amp;quot;&lt;/code&gt; 조합으로 업스트림 커넥션을 재사용한다.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;/health&lt;/code&gt; 는 access_log 끈다.&lt;/strong&gt; 30초마다 찍히는 헬스체크 로그로 access.log가 도배되는 걸 막는다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;나중에 HTTPS 붙일 때도 앱은 안 건드리고 nginx만 고치면 됨.&lt;/p&gt;
-&lt;h2 id=&#34;-프론트-다국어&#34;&gt;
-    &lt;a href=&#34;#-%ed%94%84%eb%a1%a0%ed%8a%b8-%eb%8b%a4%ea%b5%ad%ec%96%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🌏 프론트 다국어
-&lt;/h2&gt;&lt;p&gt;게임 UI 문자열은 &lt;code&gt;front/locales/ko.json&lt;/code&gt;, &lt;code&gt;en.json&lt;/code&gt; 로 분리함.
-키는 화면 단위로 네임스페이스를 줬음.&lt;/p&gt;
+&lt;p&gt;나중에 HTTPS 붙일 때도 앱은 안 건드리고 nginx만 고치면 된다.&lt;/p&gt;
+&lt;h2 id=&#34;프론트-다국어&#34;&gt;
+    &lt;a href=&#34;#%ed%94%84%eb%a1%a0%ed%8a%b8-%eb%8b%a4%ea%b5%ad%ec%96%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    프론트 다국어
+&lt;/h2&gt;&lt;p&gt;게다 UI 문자열은 &lt;code&gt;front/locales/ko.json&lt;/code&gt;, &lt;code&gt;en.json&lt;/code&gt; 로 분리한다.
+키는 화면 단위로 네임스페이스를 줬다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -226,17 +226,16 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;missions.checkinHint&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;Once per day&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;i18n.js&lt;/code&gt; 안에 &lt;strong&gt;fallback 딕셔너리를 통째로 들고 있음.&lt;/strong&gt; 로케일 JSON을 못 불러와도 UI가 빈 칸으로 뜨지 않게 하려고.
-Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 수 있어서 이렇게 둠.&lt;/p&gt;
-&lt;p&gt;Telegram은 &lt;code&gt;initDataUnsafe.user.language_code&lt;/code&gt; 로 유저 언어를 알려주니까, 첫 접속 때 그걸로 기본 언어를 정함.&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;i18n.js&lt;/code&gt; 안에 &lt;strong&gt;fallback 딕셔너리를 통째로 들고 있다.&lt;/strong&gt; 로케일 JSON을 못 불러와도 UI가 빈 칸으로 뜨지 않게 하려고.
+Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 수 있어서 이렇게 둔다.&lt;/p&gt;
+&lt;p&gt;Telegram은 &lt;code&gt;initDataUnsafe.user.language_code&lt;/code&gt; 로 유저 언어를 알려주니까, 첫 접속 때 그걸로 기본 언어를 정한다.&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
 &lt;/h2&gt;&lt;p&gt;배포 구성은 만들 땐 지루한데 나중에 제일 고마운 부분인 듯.
-&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%233-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%97%B0%EB%8F%99-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%99%84%EB%A3%8C/&#34; &gt;#3편&lt;/a&gt;에서 DB 테스트 10개가 655ms만에 다 통과한 것도, 사실 그 전에 &lt;code&gt;docker-compose up&lt;/code&gt; 한 방으로 MySQL이 스키마랑 더미 데이터까지 들고 뜨게 해둔 덕분이었음.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;depends_on&lt;/code&gt; 이 &amp;ldquo;준비됨&amp;quot;을 보장 안 한다는 건 이번에 제대로 알았음. healthcheck랑 &lt;code&gt;service_healthy&lt;/code&gt; 세트로 기억해둬야 할 듯.&lt;/p&gt;
-&lt;p&gt;다음엔 Telegram Mini App 실제 배포하면서 겪은 것들 써보겠음!&lt;/p&gt;
-&lt;p&gt;#TapSmith #Docker #nginx #MySQL #다국어 #배포&lt;/p&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%233-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%97%B0%EB%8F%99-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%99%84%EB%A3%8C/&#34; &gt;#3편&lt;/a&gt;에서 DB 테스트 10개가 655ms만에 다 통과한 것도, 사실 그 전에 &lt;code&gt;docker-compose up&lt;/code&gt; 한 방으로 MySQL이 스키마랑 더미 데이터까지 들고 뜨게 해둔 덕분이었다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;depends_on&lt;/code&gt; 이 &amp;ldquo;준비됨&amp;quot;을 보장 안 한다는 건 이번에 제대로 알았다. healthcheck랑 &lt;code&gt;service_healthy&lt;/code&gt; 세트로 기억해둬야 할 듯.&lt;/p&gt;
+&lt;p&gt;다음엔 Telegram Mini App 실제 배포하면서 겪은 것들 써보겠다!&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -248,8 +247,8 @@ Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 
         <description>&lt;h1 id=&#34;정담-개발-일지-4---저장소를-하루에-세-번-갈아엎었음&#34;&gt;
     &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-4---%ec%a0%80%ec%9e%a5%ec%86%8c%eb%a5%bc-%ed%95%98%eb%a3%a8%ec%97%90-%ec%84%b8-%eb%b2%88-%ea%b0%88%ec%95%84%ec%97%8e%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     정담 개발 일지 #4 - 저장소를 하루에 세 번 갈아엎었음
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 관리자 페이지 만들고 배포했음.
-그리고 저녁 내내 저장소를 세 번 바꿨음. 커밋 시간까지 붙여서 남겨둠.&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 관리자 페이지 만들고 배포했다.
+그리고 저녁 내내 저장소를 세 번 바꿨다. 커밋 시간까지 붙여서 남겨둔다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -262,11 +261,11 @@ Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;18&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;10&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;integrate&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Vercel&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Blob&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;menu&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;storage&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;uploads&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;16:57 → 16:59, 2분.&lt;/strong&gt; 이 2분이 이 글의 하이라이트임.&lt;/p&gt;
-&lt;h2 id=&#34;1-1차---파일에-쓰기-로컬에선-완벽&#34;&gt;
-    &lt;a href=&#34;#1-1%ec%b0%a8---%ed%8c%8c%ec%9d%bc%ec%97%90-%ec%93%b0%ea%b8%b0-%eb%a1%9c%ec%bb%ac%ec%97%90%ec%84%a0-%ec%99%84%eb%b2%bd&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    1️⃣ 1차 - 파일에 쓰기 (로컬에선 완벽)
-&lt;/h2&gt;&lt;p&gt;처음엔 &lt;code&gt;src/data/menuData.json&lt;/code&gt; 을 &lt;code&gt;fs&lt;/code&gt; 로 직접 읽고 씀.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;16:57 → 16:59, 2분.&lt;/strong&gt; 이 2분이 이 글의 하이라이트다.&lt;/p&gt;
+&lt;h2 id=&#34;1차---파일에-쓰기-로컬에선-완벽&#34;&gt;
+    &lt;a href=&#34;#1%ec%b0%a8---%ed%8c%8c%ec%9d%bc%ec%97%90-%ec%93%b0%ea%b8%b0-%eb%a1%9c%ec%bb%ac%ec%97%90%ec%84%a0-%ec%99%84%eb%b2%bd&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    1차 - 파일에 쓰기 (로컬에선 완벽)
+&lt;/h2&gt;&lt;p&gt;처음엔 &lt;code&gt;src/data/menuData.json&lt;/code&gt; 을 &lt;code&gt;fs&lt;/code&gt; 로 직접 읽고 쓴다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -279,15 +278,15 @@ Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;fs&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;writeFileSync&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;MENU_PATH&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;JSON&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;stringify&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;data&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;null&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;));&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;로컬에서 완벽하게 잘 됨. 관리자에서 메뉴 고치면 바로 반영되고, 새로고침해도 남아 있음.&lt;/p&gt;
-&lt;p&gt;배포하니까 &lt;strong&gt;저장 버튼을 눌러도 아무 일이 안 일어남.&lt;/strong&gt;
-에러도 안 뜸. 성공 응답이 오는데 새로고침하면 그대로임.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Vercel 서버리스 함수의 파일시스템은 읽기 전용임.&lt;/strong&gt; (&lt;code&gt;/tmp&lt;/code&gt; 빼고)
-머리로는 알고 있었는데 내 코드가 그걸로 죽는 걸 본 건 처음이었음.&lt;/p&gt;
-&lt;h2 id=&#34;2-2차---메모리에-올리기-2분-만에-철회&#34;&gt;
-    &lt;a href=&#34;#2-2%ec%b0%a8---%eb%a9%94%eb%aa%a8%eb%a6%ac%ec%97%90-%ec%98%ac%eb%a6%ac%ea%b8%b0-2%eb%b6%84-%eb%a7%8c%ec%97%90-%ec%b2%a0%ed%9a%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    2️⃣ 2차 - 메모리에 올리기 (2분 만에 철회)
-&lt;/h2&gt;&lt;p&gt;그래서 프로세스 메모리에 올려두고 거기서 읽고 쓰게 바꿈.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;로컬에서 완벽하게 잘 된다. 관리자에서 메뉴 고치면 바로 반영되고, 새로고침해도 남아 있다.&lt;/p&gt;
+&lt;p&gt;배포하니까 &lt;strong&gt;저장 버튼을 눌러도 아무 일이 안 일어난다.&lt;/strong&gt;
+에러도 안 뜬다. 성공 응답이 오는데 새로고침하면 그대로다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Vercel 서버리스 함수의 파일시스템은 읽기 전용이다.&lt;/strong&gt; (&lt;code&gt;/tmp&lt;/code&gt; 빼고)
+머리로는 알고 있었는데 내 코드가 그걸로 죽는 걸 본 건 처음이었다.&lt;/p&gt;
+&lt;h2 id=&#34;2차---메모리에-올리기-2분-만에-철회&#34;&gt;
+    &lt;a href=&#34;#2%ec%b0%a8---%eb%a9%94%eb%aa%a8%eb%a6%ac%ec%97%90-%ec%98%ac%eb%a6%ac%ea%b8%b0-2%eb%b6%84-%eb%a7%8c%ec%97%90-%ec%b2%a0%ed%9a%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2차 - 메모리에 올리기 (2분 만에 철회)
+&lt;/h2&gt;&lt;p&gt;그래서 프로세스 메모리에 올려두고 거기서 읽고 쓰게 바꾼다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -298,11 +297,11 @@ Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;!&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;menuCache&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;menuCache&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;loadInitialData&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;배포하니까 &lt;strong&gt;저장은 됨.&lt;/strong&gt; 오 되네 하고 좋아함.&lt;/p&gt;
-&lt;p&gt;그리고 좀 있다가 새로고침하니까 원래대로 돌아가 있음.&lt;/p&gt;
-&lt;p&gt;당연한 일이었음. 람다는 요청 없으면 죽고, 죽으면 메모리가 날아감. 인스턴스가 여러 개면 저장한 인스턴스랑 읽는 인스턴스가 다를 수도 있음.
-&lt;strong&gt;&amp;ldquo;서버가 계속 살아 있다&amp;quot;를 전제로 한 설계였음.&lt;/strong&gt; 서버리스에선 그 전제가 틀림.&lt;/p&gt;
-&lt;p&gt;2분 만에 되돌렸음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;배포하니까 &lt;strong&gt;저장은 된다.&lt;/strong&gt; 오 되네 하고 좋아한다.&lt;/p&gt;
+&lt;p&gt;그리고 좀 있다가 새로고침하니까 원래대로 돌아가 있다.&lt;/p&gt;
+&lt;p&gt;당연한 일이었다. 람다는 요청 없으면 죽고, 죽으면 메모리가 날아간다. 인스턴스가 여러 개면 저장한 인스턴스랑 읽는 인스턴스가 다를 수도 있다.
+&lt;strong&gt;&amp;ldquo;서버가 계속 살아 있다&amp;quot;를 전제로 한 설계였다.&lt;/strong&gt; 서버리스에선 그 전제가 틀린다.&lt;/p&gt;
+&lt;p&gt;2분 만에 되돌렸다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -313,10 +312,10 @@ Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;a8fee7f  +17  −76   메모리 저장소 제거
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;3-3차---vercel-blob-한-시간-걸림&#34;&gt;
-    &lt;a href=&#34;#3-3%ec%b0%a8---vercel-blob-%ed%95%9c-%ec%8b%9c%ea%b0%84-%ea%b1%b8%eb%a6%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    3️⃣ 3차 - Vercel Blob (한 시간 걸림)
-&lt;/h2&gt;&lt;p&gt;결국 메뉴 데이터를 &lt;strong&gt;Blob에 JSON 파일로&lt;/strong&gt; 올림.&lt;/p&gt;
+&lt;/div&gt;&lt;h2 id=&#34;3차---vercel-blob-한-시간-걸림&#34;&gt;
+    &lt;a href=&#34;#3%ec%b0%a8---vercel-blob-%ed%95%9c-%ec%8b%9c%ea%b0%84-%ea%b1%b8%eb%a6%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3차 - Vercel Blob (한 시간 걸림)
+&lt;/h2&gt;&lt;p&gt;결국 메뉴 데이터를 &lt;strong&gt;Blob에 JSON 파일로&lt;/strong&gt; 올린다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -325,14 +324,14 @@ Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;menuData.json     ← 나중에 ko/en 으로 쪼개짐
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;DB를 안 쓴 이유는 이럼.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;DB를 안 쓴 이유는 이런다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;메뉴 항목이 수십 개임. 테이블 만들 규모가 아님&lt;/li&gt;
-&lt;li&gt;하루에 몇 번 바뀔까 말까임. 동시성 걱정이 없음&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;이미지는 어차피 Blob에 올려야 함.&lt;/strong&gt; 저장소를 둘로 나눌 이유가 없음&lt;/li&gt;
-&lt;li&gt;스키마 마이그레이션이 없음&lt;/li&gt;
+&lt;li&gt;메뉴 항목이 수십 개다. 테이블 만들 규모가 아니다&lt;/li&gt;
+&lt;li&gt;하루에 몇 번 바뀔까 말까다. 동시성 걱정이 없다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;이미지는 어차피 Blob에 올려야 한다.&lt;/strong&gt; 저장소를 둘로 나눌 이유가 없다&lt;/li&gt;
+&lt;li&gt;스키마 마이그레이션이 없다&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;code&gt;GET&lt;/code&gt; 은 Blob에서 파일을 찾아 URL로 받아오고, &lt;code&gt;POST&lt;/code&gt;/&lt;code&gt;PATCH&lt;/code&gt; 는 수정해서 다시 올림.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;GET&lt;/code&gt; 은 Blob에서 파일을 찾아 URL로 받아오고, &lt;code&gt;POST&lt;/code&gt;/&lt;code&gt;PATCH&lt;/code&gt; 는 수정해서 다시 올린다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -349,11 +348,11 @@ Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 
 &lt;p&gt;이때 짠 저장 로직(&lt;code&gt;list → del → put&lt;/code&gt;)에 &lt;strong&gt;레이스 컨디션&lt;/strong&gt;이 있었는데,
 두 달 뒤에야 발견함. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;#7&lt;/a&gt;에서 다룸.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;-덤으로-낙관적-업데이트&#34;&gt;
-    &lt;a href=&#34;#-%eb%8d%a4%ec%9c%bc%eb%a1%9c-%eb%82%99%ea%b4%80%ec%a0%81-%ec%97%85%eb%8d%b0%ec%9d%b4%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    ⚡ 덤으로 낙관적 업데이트
-&lt;/h2&gt;&lt;p&gt;Blob 왕복이 로컬 파일보다 확실히 느림. 메뉴 하나 고칠 때마다 스피너가 돌면 답답함.&lt;/p&gt;
-&lt;p&gt;그래서 &lt;strong&gt;화면을 먼저 바꾸고 요청을 뒤에 보내게&lt;/strong&gt; 함. 실패하면 되돌리고 에러를 띄움.&lt;/p&gt;
+&lt;h2 id=&#34;덤으로-낙관적-업데이트&#34;&gt;
+    &lt;a href=&#34;#%eb%8d%a4%ec%9c%bc%eb%a1%9c-%eb%82%99%ea%b4%80%ec%a0%81-%ec%97%85%eb%8d%b0%ec%9d%b4%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    덤으로 낙관적 업데이트
+&lt;/h2&gt;&lt;p&gt;Blob 왕복이 로컬 파일보다 확실히 느리다. 메뉴 하나 고칠 때마다 스피너가 돌면 답답한다.&lt;/p&gt;
+&lt;p&gt;그래서 &lt;strong&gt;화면을 먼저 바꾸고 요청을 뒤에 보내게&lt;/strong&gt; 한다. 실패하면 되돌리고 에러를 띄운다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -362,10 +361,10 @@ Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;클릭 → 화면 즉시 반영 → 요청 전송 → 실패 시 롤백 + 에러
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;메뉴판 편집은 실패할 일이 거의 없는 작업임. 성공을 기본으로 깔고 가는 게 맞음.&lt;/p&gt;
-&lt;h2 id=&#34;-그리고-readme&#34;&gt;
-    &lt;a href=&#34;#-%ea%b7%b8%eb%a6%ac%ea%b3%a0-readme&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📄 그리고 README
+&lt;/div&gt;&lt;p&gt;메뉴판 편집은 실패할 일이 거의 없는 작업이다. 성공을 기본으로 깔고 가는 게 맞다.&lt;/p&gt;
+&lt;h2 id=&#34;그리고-readme&#34;&gt;
+    &lt;a href=&#34;#%ea%b7%b8%eb%a6%ac%ea%b3%a0-readme&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    그리고 README
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -374,15 +373,14 @@ Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docs: update README.md with project features, setup instructions, and API endpoints
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;오늘 하도 갈아엎어서, 지금 구조를 안 적어두면 일주일 뒤에 나도 까먹을 것 같았음.&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;로컬에서 되는데요&amp;quot;가 제일 무서운 말임.&lt;/strong&gt; 파일 쓰기는 로컬에서 100% 돌아감. 배포 환경이 다르다는 걸 코드가 알려주지 않음.&lt;/p&gt;
-&lt;p&gt;그리고 2차(메모리)는 &lt;strong&gt;1차랑 똑같은 착각을 다른 방식으로 반복한 것&lt;/strong&gt;이었음.
-&amp;ldquo;이 프로세스가 계속 살아 있다&amp;quot;를 전제했다는 점에서 파일이나 메모리나 같음. 진짜 고쳐야 했던 건 저장 위치가 아니라 그 전제였음.&lt;/p&gt;
-&lt;p&gt;2분 만에 철회한 커밋이 남아 있는 게 좀 민망한데, 그래도 지우진 않을 거임. 이게 그날 실제로 있었던 일이니까.&lt;/p&gt;
-&lt;p&gt;#정담 #VercelBlob #서버리스 #배포 #NextJS&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;오늘 하도 갈아엎어서, 지금 구조를 안 적어두면 일주일 뒤에 나도 까먹을 것 같았다.&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;로컬에서 되는데요&amp;quot;가 제일 무서운 말이다.&lt;/strong&gt; 파일 쓰기는 로컬에서 100% 돌아간다. 배포 환경이 다르다는 걸 코드가 알려주지 않는다.&lt;/p&gt;
+&lt;p&gt;그리고 2차(메모리)는 &lt;strong&gt;1차랑 똑같은 착각을 다른 방식으로 반복한 것&lt;/strong&gt;이었다.
+&amp;ldquo;이 프로세스가 계속 살아 있다&amp;quot;를 전제했다는 점에서 파일이나 메모리나 같다. 진짜 고쳐야 했던 건 저장 위치가 아니라 그 전제였다.&lt;/p&gt;
+&lt;p&gt;2분 만에 철회한 커밋이 남아 있는 게 좀 민망한데, 그래도 지우진 않을 거다. 이게 그날 실제로 있었던 일이니까.&lt;/p&gt;
 </description>
         </item>
         

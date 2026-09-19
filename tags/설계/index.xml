@@ -15,16 +15,16 @@
         <description>&lt;h1 id=&#34;seam-개발-일지-2---설계를-일주일-만에-갈아엎었음&#34;&gt;
     &lt;a href=&#34;#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-2---%ec%84%a4%ea%b3%84%eb%a5%bc-%ec%9d%bc%ec%a3%bc%ec%9d%bc-%eb%a7%8c%ec%97%90-%ea%b0%88%ec%95%84%ec%97%8e%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     seam 개발 일지 #2 - 설계를 일주일 만에 갈아엎었음
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;에서 6레이어 아키텍처랑 2티어 전략을 짜고, 다음 날 Phase 1 MVP 구현 계획(Sprint 1~7)까지 세웠음.&lt;/p&gt;
-&lt;p&gt;그리고 일주일 뒤에 그걸 전부 버렸음.&lt;/p&gt;
-&lt;p&gt;피벗 문서 맨 위에 이렇게 적었음.&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;에서 6레이어 아키텍처랑 2티어 전략을 짜고, 다음 날 Phase 1 MVP 구현 계획(Sprint 1~7)까지 세웠다.&lt;/p&gt;
+&lt;p&gt;그리고 일주일 뒤에 그걸 전부 버렸다.&lt;/p&gt;
+&lt;p&gt;피벗 문서 맨 위에 이렇게 적었다.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;기존 구현 계획&lt;/strong&gt;: &lt;code&gt;2026-03-17-seam-mvp-launch-design.md&lt;/code&gt; — 본 문서로 &lt;strong&gt;전면 대체&lt;/strong&gt;됨.
 기존 Sprint 1–7은 취소되고 아래 로드맵으로 재수립.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;-뭐가-바뀌었나&#34;&gt;
-    &lt;a href=&#34;#-%eb%ad%90%ea%b0%80-%eb%b0%94%eb%80%8c%ec%97%88%eb%82%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔄 뭐가 바뀌었나
+&lt;h2 id=&#34;뭐가-바뀌었나&#34;&gt;
+    &lt;a href=&#34;#%eb%ad%90%ea%b0%80-%eb%b0%94%eb%80%8c%ec%97%88%eb%82%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    뭐가 바뀌었나
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -36,15 +36,15 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;strong&gt;seam = AI 실행 환경의 Docker.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;투명하게 끼어드는 레이어가 아니라, &lt;strong&gt;환경을 정의하고 패키징해서 공유하는 런타임&lt;/strong&gt;으로 바꿨음.&lt;/p&gt;
-&lt;h2 id=&#34;-왜-바꿨나&#34;&gt;
-    &lt;a href=&#34;#-%ec%99%9c-%eb%b0%94%ea%bf%a8%eb%82%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🤔 왜 바꿨나
-&lt;/h2&gt;&lt;p&gt;v0.4의 핵심 가치는 &amp;ldquo;설치만 하면 AI가 나를 기억함&amp;quot;이었음.
-좋은데, &lt;strong&gt;사용자가 그걸 말로 설명하기가 어려움.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;백그라운드에서 돌면서 메모리를 주입해주는 프록시&amp;quot;를 누구한테 설명해보면, 듣는 사람 표정이 애매해짐.
-안 보이는 게 핵심인 제품은 자랑하기가 어려움.&lt;/p&gt;
-&lt;p&gt;반면 이런 문제들은 말하자마자 통함.&lt;/p&gt;
+&lt;p&gt;투명하게 끼어드는 레이어가 아니라, &lt;strong&gt;환경을 정의하고 패키징해서 공유하는 런타임&lt;/strong&gt;으로 바꿨다.&lt;/p&gt;
+&lt;h2 id=&#34;왜-바꿨나&#34;&gt;
+    &lt;a href=&#34;#%ec%99%9c-%eb%b0%94%ea%bf%a8%eb%82%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    왜 바꿨나
+&lt;/h2&gt;&lt;p&gt;v0.4의 핵심 가치는 &amp;ldquo;설치만 하면 AI가 나를 기억함&amp;quot;이었다.
+좋은데, &lt;strong&gt;사용자가 그걸 말로 설명하기가 어렵다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;백그라운드에서 돌면서 메모리를 주입해주는 프록시&amp;quot;를 누구한테 설명해보면, 듣는 사람 표정이 애매해진다.
+안 보이는 게 핵심인 제품은 자랑하기가 어렵다.&lt;/p&gt;
+&lt;p&gt;반면 이런 문제들은 말하자마자 통한다.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -71,11 +71,11 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;&amp;ldquo;Docker처럼 AI 환경을 통째로 공유한다&amp;rdquo;&lt;/strong&gt; 는 한 문장으로 끝남.&lt;/p&gt;
-&lt;h2 id=&#34;-seamyaml&#34;&gt;
-    &lt;a href=&#34;#-seamyaml&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📄 seam.yaml
-&lt;/h2&gt;&lt;p&gt;Docker Compose의 &lt;code&gt;docker-compose.yaml&lt;/code&gt; 에 해당하는 파일임. AI 환경 전체를 선언함.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;Docker처럼 AI 환경을 통째로 공유한다&amp;rdquo;&lt;/strong&gt; 는 한 문장으로 끝난다.&lt;/p&gt;
+&lt;h2 id=&#34;seamyaml&#34;&gt;
+    &lt;a href=&#34;#seamyaml&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    seam.yaml
+&lt;/h2&gt;&lt;p&gt;Docker Compose의 &lt;code&gt;docker-compose.yaml&lt;/code&gt; 에 해당하는 파일이다. AI 환경 전체를 선언한다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -141,17 +141,17 @@
 &lt;/div&gt;&lt;h3 id=&#34;native-vs-external&#34;&gt;
     &lt;a href=&#34;#native-vs-external&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     native vs external
-&lt;/h3&gt;&lt;p&gt;이 구분이 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;의 2티어를 &lt;strong&gt;yaml 안으로 끌고 들어온 것&lt;/strong&gt;임.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;이 구분이 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-1/&#34; &gt;#1&lt;/a&gt;의 2티어를 &lt;strong&gt;yaml 안으로 끌고 들어온 것&lt;/strong&gt;이다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;native&lt;/strong&gt;: seam 바이너리가 서브프로세스로 직접 실행함. 스킬·라우팅 전부 적용됨&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;external&lt;/strong&gt;: Cursor 같은 기존 앱. seam이 실행하진 않고, 환경변수 오버라이드로 Gateway에 연결만 함. 메모리 주입만 받음&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;native&lt;/strong&gt;: seam 바이너리가 서브프로세스로 직접 실행한다. 스킬·라우팅 전부 적용된다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;external&lt;/strong&gt;: Cursor 같은 기존 앱. seam이 실행하진 않고, 환경변수 오버라이드로 Gateway에 연결만 한다. 메모리 주입만 받는다&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Tier 1/Tier 2가 &amp;ldquo;사용자가 어느 단계에 있나&amp;quot;였는데, 이제는 &lt;strong&gt;&amp;ldquo;한 환경 안에서 툴마다 다름&amp;rdquo;&lt;/strong&gt; 이 됐음.
-Cursor랑 native 에이전트를 같은 &lt;code&gt;seam.yaml&lt;/code&gt; 에 적고 같이 띄울 수 있음.&lt;/p&gt;
-&lt;h2 id=&#34;-이미지랑-레지스트리&#34;&gt;
-    &lt;a href=&#34;#-%ec%9d%b4%eb%af%b8%ec%a7%80%eb%9e%91-%eb%a0%88%ec%a7%80%ec%8a%a4%ed%8a%b8%eb%a6%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📦 이미지랑 레지스트리
-&lt;/h2&gt;&lt;p&gt;Docker 비유를 끝까지 밀었음.&lt;/p&gt;
+&lt;p&gt;Tier 1/Tier 2가 &amp;ldquo;사용자가 어느 단계에 있나&amp;quot;였는데, 이제는 &lt;strong&gt;&amp;ldquo;한 환경 안에서 툴마다 다름&amp;rdquo;&lt;/strong&gt; 이 됐다.
+Cursor랑 native 에이전트를 같은 &lt;code&gt;seam.yaml&lt;/code&gt; 에 적고 같이 띄울 수 있다.&lt;/p&gt;
+&lt;h2 id=&#34;이미지랑-레지스트리&#34;&gt;
+    &lt;a href=&#34;#%ec%9d%b4%eb%af%b8%ec%a7%80%eb%9e%91-%eb%a0%88%ec%a7%80%ec%8a%a4%ed%8a%b8%eb%a6%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    이미지랑 레지스트리
+&lt;/h2&gt;&lt;p&gt;Docker 비유를 끝까지 밀었다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -166,30 +166,29 @@ Cursor랑 native 에이전트를 같은 &lt;code&gt;seam.yaml&lt;/code&gt; 에 �
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;seam run                &lt;span class=&#34;c1&#34;&gt;# 실행&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;레지스트리는 &lt;strong&gt;GitHub 레포를 그대로 씀.&lt;/strong&gt; &lt;code&gt;seam-envs&lt;/code&gt; 라는 레포에 Contents API로 파일을 올리고 내림.
-자체 서버를 안 만든 이유는 단순함 — 지금 단계에서 서버 운영은 과함. 인증도 GitHub 토큰 하나면 끝남.&lt;/p&gt;
-&lt;h2 id=&#34;-버린-것들&#34;&gt;
-    &lt;a href=&#34;#-%eb%b2%84%eb%a6%b0-%ea%b2%83%eb%93%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🗑️ 버린 것들
-&lt;/h2&gt;&lt;p&gt;피벗하면서 v0.4 설계의 상당 부분이 뒤로 밀렸음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;레지스트리는 &lt;strong&gt;GitHub 레포를 그대로 쓴다.&lt;/strong&gt; &lt;code&gt;seam-envs&lt;/code&gt; 라는 레포에 Contents API로 파일을 올리고 내린다.
+자체 서버를 안 만든 이유는 단순하다. 지금 단계에서 서버 운영은 과한다. 인증도 GitHub 토큰 하나면 끝난다.&lt;/p&gt;
+&lt;h2 id=&#34;버린-것들&#34;&gt;
+    &lt;a href=&#34;#%eb%b2%84%eb%a6%b0-%ea%b2%83%eb%93%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    버린 것들
+&lt;/h2&gt;&lt;p&gt;피벗하면서 v0.4 설계의 상당 부분이 뒤로 밀렸다.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Trust Sandbox&lt;/strong&gt; (Layer 2) — eBPF로 시스템 콜 감시하겠다는 계획. Phase 4로&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;에이전트 통신 버스&lt;/strong&gt; — 에이전트끼리 메시지 주고받기. 뒤로&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Lazy Skill Router&lt;/strong&gt; — 스킬 지연 로딩. &lt;code&gt;seam.yaml&lt;/code&gt; 에 필드만 남기고 구현은 뒤로&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Semantic Memory&lt;/strong&gt; — 3레이어 메모리 중 하나. Episodic만 먼저&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Trust Sandbox&lt;/strong&gt; (Layer 2). eBPF로 시스템 콜 감시하겠다는 계획. Phase 4로&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;에이전트 통신 버스&lt;/strong&gt;. 에이전트끼리 메시지 주고받기. 뒤로&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Lazy Skill Router&lt;/strong&gt;. 스킬 지연 로딩. &lt;code&gt;seam.yaml&lt;/code&gt; 에 필드만 남기고 구현은 뒤로&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Semantic Memory&lt;/strong&gt;. 3레이어 메모리 중 하나. Episodic만 먼저&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;설계 문서는 안 지웠음. &lt;code&gt;docs/archive/&lt;/code&gt; 에 &lt;code&gt;ai-os-v0_3.md&lt;/code&gt;, &lt;code&gt;seam-v0_4.md&lt;/code&gt; 로 넣어뒀음.
-&lt;strong&gt;나중에 돌아올 수도 있고, 왜 이렇게 됐는지 알려면 이전 버전이 있어야 함.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
-&lt;/h2&gt;&lt;p&gt;일주일 만에 갈아엎는 게 좀 허탈하긴 했는데, &lt;strong&gt;코드를 한 줄도 안 쓴 상태에서 갈아엎은 게 다행&lt;/strong&gt;이었음.
+&lt;p&gt;설계 문서는 안 지웠다. &lt;code&gt;docs/archive/&lt;/code&gt; 에 &lt;code&gt;ai-os-v0_3.md&lt;/code&gt;, &lt;code&gt;seam-v0_4.md&lt;/code&gt; 로 넣어뒀다.
+&lt;strong&gt;나중에 돌아올 수도 있고, 왜 이렇게 됐는지 알려면 이전 버전이 있어야 한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
+&lt;/h2&gt;&lt;p&gt;일주일 만에 갈아엎는 게 좀 허탈하긴 했는데, &lt;strong&gt;코드를 한 줄도 안 쓴 상태에서 갈아엎은 게 다행&lt;/strong&gt;이었다.
 Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/p&gt;
-&lt;p&gt;설계 문서를 먼저 쓰는 게 느려 보이는데, &lt;strong&gt;버릴 때 싸게 버릴 수 있음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;그리고 &amp;ldquo;안 보이는 게 핵심인 제품&amp;quot;은 만들기도 어렵고 설명하기도 어렵다는 걸 배웠음.
-같은 기능이라도 &lt;code&gt;seam.yaml&lt;/code&gt; 이라는 &lt;strong&gt;눈에 보이는 파일 하나&lt;/strong&gt;를 중심에 두니까 설명이 통함.&lt;/p&gt;
-&lt;p&gt;이제 진짜 코드 칠 차례임.&lt;/p&gt;
-&lt;p&gt;#seam #설계 #피벗 #Docker #YAML&lt;/p&gt;
+&lt;p&gt;설계 문서를 먼저 쓰는 게 느려 보이는데, &lt;strong&gt;버릴 때 싸게 버릴 수 있다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;그리고 &amp;ldquo;안 보이는 게 핵심인 제품&amp;quot;은 만들기도 어렵고 설명하기도 어렵다는 걸 배웠다.
+같은 기능이라도 &lt;code&gt;seam.yaml&lt;/code&gt; 이라는 &lt;strong&gt;눈에 보이는 파일 하나&lt;/strong&gt;를 중심에 두니까 설명이 통한다.&lt;/p&gt;
+&lt;p&gt;이제 진짜 코드 칠 차례다.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -201,14 +200,14 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
         <description>&lt;h1 id=&#34;seam-개발-일지-1---ai-도구들이-각자의-섬이라서&#34;&gt;
     &lt;a href=&#34;#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-1---ai-%eb%8f%84%ea%b5%ac%eb%93%a4%ec%9d%b4-%ea%b0%81%ec%9e%90%ec%9d%98-%ec%84%ac%ec%9d%b4%eb%9d%bc%ec%84%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     seam 개발 일지 #1 - AI 도구들이 각자의 섬이라서
-&lt;/h1&gt;&lt;p&gt;AI 도구를 여러 개 쓰다 보면 계속 걸리는 게 있음.&lt;/p&gt;
-&lt;p&gt;Cursor에서 인증 API를 만들다가 Claude Desktop을 열면, &lt;strong&gt;맥락을 처음부터 다시 설명해야 함.&lt;/strong&gt;
-어제 AI랑 한 작업을 오늘 AI는 모름. 같은 컴퓨터, 같은 사람인데.&lt;/p&gt;
-&lt;p&gt;이걸 해결하는 걸 만들어보기로 했음. 오늘은 코드 한 줄도 안 쓰고 설계 문서만 10개 썼음.&lt;/p&gt;
-&lt;h2 id=&#34;-문제-목록을-먼저-적었음&#34;&gt;
-    &lt;a href=&#34;#-%eb%ac%b8%ec%a0%9c-%eb%aa%a9%eb%a1%9d%ec%9d%84-%eb%a8%bc%ec%a0%80-%ec%a0%81%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🏝️ 문제 목록을 먼저 적었음
-&lt;/h2&gt;&lt;p&gt;불편한 걸 표로 쭉 적어봤음.&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;AI 도구를 여러 개 쓰다 보면 계속 걸리는 게 있다.&lt;/p&gt;
+&lt;p&gt;Cursor에서 인증 API를 만들다가 Claude Desktop을 열면, &lt;strong&gt;맥락을 처음부터 다시 설명해야 한다.&lt;/strong&gt;
+어제 AI랑 한 작업을 오늘 AI는 모른다. 같은 컴퓨터, 같은 사람인데.&lt;/p&gt;
+&lt;p&gt;이걸 해결하는 걸 만들어보기로 했다. 오늘은 코드 한 줄도 안 쓰고 설계 문서만 10개 썼다.&lt;/p&gt;
+&lt;h2 id=&#34;문제-목록을-먼저-적었음&#34;&gt;
+    &lt;a href=&#34;#%eb%ac%b8%ec%a0%9c-%eb%aa%a9%eb%a1%9d%ec%9d%84-%eb%a8%bc%ec%a0%80-%ec%a0%81%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    문제 목록을 먼저 적었음
+&lt;/h2&gt;&lt;p&gt;불편한 걸 표로 쭉 적어봤다.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -247,15 +246,15 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;적어놓고 보니 &lt;strong&gt;근원이 하나였음.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;적어놓고 보니 &lt;strong&gt;근원이 하나였다.&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;AI 도구들이 각자의 섬이다.
 같은 사용자, 같은 하드웨어인데 — 서로 모르고, 맥락을 공유하지 않고, 자원을 나누지 않는다.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&#34;-이름은-seam&#34;&gt;
-    &lt;a href=&#34;#-%ec%9d%b4%eb%a6%84%ec%9d%80-seam&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🧵 이름은 seam
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;seam&lt;/strong&gt; — 이음새, 솔기.
+&lt;h2 id=&#34;이름은-seam&#34;&gt;
+    &lt;a href=&#34;#%ec%9d%b4%eb%a6%84%ec%9d%80-seam&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    이름은 seam
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;seam&lt;/strong&gt;. 이음새, 솔기.
 천을 꿰매는 실처럼 AI 앱들 사이에 투명하게 존재하면서 연결한다는 뜻.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -269,12 +268,12 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   ollama | claude api | openai api | gemini | ...
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;seamless&lt;/strong&gt; 에서 따온 것도 있음. 사용자가 이음새의 존재를 못 느끼는 게 목표라서.&lt;/p&gt;
-&lt;p&gt;처음엔 &amp;ldquo;AI OS&amp;quot;라는 이름으로 기획했었는데(v0.1~v0.3), OS라고 하니까 너무 거창하고 실제로 하는 일이랑도 안 맞았음.
-커널이나 스케줄러를 만드는 게 아니라 &lt;strong&gt;그냥 중간에 끼는 레이어&lt;/strong&gt;임.&lt;/p&gt;
-&lt;h2 id=&#34;-핵심-아이디어-5개&#34;&gt;
-    &lt;a href=&#34;#-%ed%95%b5%ec%8b%ac-%ec%95%84%ec%9d%b4%eb%94%94%ec%96%b4-5%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    💡 핵심 아이디어 5개
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;seamless&lt;/strong&gt; 에서 따온 것도 있다. 사용자가 이음새의 존재를 못 느끼는 게 목표라서.&lt;/p&gt;
+&lt;p&gt;처음엔 &amp;ldquo;AI OS&amp;quot;라는 이름으로 기획했었는데(v0.1~v0.3), OS라고 하니까 너무 거창하고 실제로 하는 일이랑도 안 맞았다.
+커널이나 스케줄러를 만드는 게 아니라 &lt;strong&gt;그냥 중간에 끼는 레이어&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;h2 id=&#34;핵심-아이디어-5개&#34;&gt;
+    &lt;a href=&#34;#%ed%95%b5%ec%8b%ac-%ec%95%84%ec%9d%b4%eb%94%94%ec%96%b4-5%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    핵심 아이디어 5개
 &lt;/h2&gt;&lt;h3 id=&#34;1-통합-메모리--모든-ai가-나를-기억함&#34;&gt;
     &lt;a href=&#34;#1-%ed%86%b5%ed%95%a9-%eb%a9%94%eb%aa%a8%eb%a6%ac--%eb%aa%a8%eb%93%a0-ai%ea%b0%80-%eb%82%98%eb%a5%bc-%ea%b8%b0%ec%96%b5%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     1. 통합 메모리 — 모든 AI가 나를 기억함
@@ -296,7 +295,7 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/div&gt;&lt;h3 id=&#34;2-llm-추상화--모델을-몰라도-됨&#34;&gt;
     &lt;a href=&#34;#2-llm-%ec%b6%94%ec%83%81%ed%99%94--%eb%aa%a8%eb%8d%b8%ec%9d%84-%eb%aa%b0%eb%9d%bc%eb%8f%84-%eb%90%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     2. LLM 추상화 — 모델을 몰라도 됨
-&lt;/h3&gt;&lt;p&gt;요청의 복잡도랑 도메인 보고 seam이 고름.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;요청의 복잡도랑 도메인 보고 seam이 고른다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -312,7 +311,7 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/div&gt;&lt;h3 id=&#34;3-스킬-지연-로딩--필요할-때만-적재&#34;&gt;
     &lt;a href=&#34;#3-%ec%8a%a4%ed%82%ac-%ec%a7%80%ec%97%b0-%eb%a1%9c%eb%94%a9--%ed%95%84%ec%9a%94%ed%95%a0-%eb%95%8c%eb%a7%8c-%ec%a0%81%ec%9e%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     3. 스킬 지연 로딩 — 필요할 때만 적재
-&lt;/h3&gt;&lt;p&gt;40개 깔아도 대화 시작할 때 토큰을 안 씀. 요청 보고 필요한 것만 그 순간에 로드.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;40개 깔아도 대화 시작할 때 토큰을 안 쓴다. 요청 보고 필요한 것만 그 순간에 로드.&lt;/p&gt;
 &lt;h3 id=&#34;4-에이전트-통신--ai들끼리-협업&#34;&gt;
     &lt;a href=&#34;#4-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8-%ed%86%b5%ec%8b%a0--ai%eb%93%a4%eb%81%bc%eb%a6%ac-%ed%98%91%ec%97%85&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     4. 에이전트 통신 — AI들끼리 협업
@@ -326,14 +325,14 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                                 →→→  deploy agent
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;내가 중계자가 될 필요가 없어짐.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;내가 중계자가 될 필요가 없어진다.&lt;/p&gt;
 &lt;h3 id=&#34;5-메모리-자동-업데이트&#34;&gt;
     &lt;a href=&#34;#5-%eb%a9%94%eb%aa%a8%eb%a6%ac-%ec%9e%90%eb%8f%99-%ec%97%85%eb%8d%b0%ec%9d%b4%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     5. 메모리 자동 업데이트
 &lt;/h3&gt;&lt;p&gt;대화 끝날 때 &amp;ldquo;이 대화에서 기억해야 할 게 뭔지&amp;rdquo; seam이 판단해서 저장.&lt;/p&gt;
-&lt;h2 id=&#34;-6레이어로-쌓았음&#34;&gt;
-    &lt;a href=&#34;#-6%eb%a0%88%ec%9d%b4%ec%96%b4%eb%a1%9c-%ec%8c%93%ec%95%98%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🏗️ 6레이어로 쌓았음
+&lt;h2 id=&#34;6레이어로-쌓았음&#34;&gt;
+    &lt;a href=&#34;#6%eb%a0%88%ec%9d%b4%ec%96%b4%eb%a1%9c-%ec%8c%93%ec%95%98%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    6레이어로 쌓았음
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -352,7 +351,7 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Layer 0 · Gateway        OpenAI/Anthropic/Ollama 호환 프록시
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Layer 0이 제일 중요함.&lt;/strong&gt; 기존 앱들이 seam을 거치게 만드는 게 여기서 결정됨.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Layer 0이 제일 중요하다.&lt;/strong&gt; 기존 앱들이 seam을 거치게 만드는 게 여기서 결정된다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -365,14 +364,14 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;OLLAMA_HOST&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;http://localhost:11400/ollama
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;환경변수만 바꾸면 &lt;strong&gt;앱은 자기가 프록시를 거치는지도 모름.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-2티어--tier-1은-미끼-tier-2가-본체&#34;&gt;
-    &lt;a href=&#34;#-2%ed%8b%b0%ec%96%b4--tier-1%ec%9d%80-%eb%af%b8%eb%81%bc-tier-2%ea%b0%80-%eb%b3%b8%ec%b2%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎣 2티어 — Tier 1은 미끼, Tier 2가 본체
-&lt;/h2&gt;&lt;p&gt;이게 채택 전략의 핵심임.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Tier 1 (프록시)&lt;/strong&gt;: 쓰던 앱 그대로 씀. seam이 사이에 껴서 메모리 주입하고 기록함.
-가입 저항이 0임. 설치하고 환경변수만 바뀌면 끝.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Tier 2 (네이티브)&lt;/strong&gt;: &lt;code&gt;seam &amp;quot;요청&amp;quot;&lt;/code&gt; 으로 직접 씀. 전체 파이프라인을 다 씀.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;환경변수만 바꾸면 &lt;strong&gt;앱은 자기가 프록시를 거치는지도 모른다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;2티어--tier-1은-미끼-tier-2가-본체&#34;&gt;
+    &lt;a href=&#34;#2%ed%8b%b0%ec%96%b4--tier-1%ec%9d%80-%eb%af%b8%eb%81%bc-tier-2%ea%b0%80-%eb%b3%b8%ec%b2%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    2티어 — Tier 1은 미끼, Tier 2가 본체
+&lt;/h2&gt;&lt;p&gt;이게 채택 전략의 핵심이다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tier 1 (프록시)&lt;/strong&gt;: 쓰던 앱 그대로 쓴다. seam이 사이에 껴서 메모리 주입하고 기록한다.
+가입 저항이 0이다. 설치하고 환경변수만 바뀌면 끝.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Tier 2 (네이티브)&lt;/strong&gt;: &lt;code&gt;seam &amp;quot;요청&amp;quot;&lt;/code&gt; 으로 직접 쓴다. 전체 파이프라인을 다 쓴다.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -423,13 +422,13 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Phase 4: 신뢰 + 자동화        → 정착
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;-seam이-죽어도-앱은-돌아가야-함&#34;&gt;
-    &lt;a href=&#34;#-seam%ec%9d%b4-%ec%a3%bd%ec%96%b4%eb%8f%84-%ec%95%b1%ec%9d%80-%eb%8f%8c%ec%95%84%ea%b0%80%ec%95%bc-%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🛡️ seam이 죽어도 앱은 돌아가야 함
-&lt;/h2&gt;&lt;p&gt;설계하면서 제일 신경 쓴 부분임.&lt;/p&gt;
-&lt;p&gt;모든 AI 요청이 seam을 거치게 만들면, &lt;strong&gt;seam이 단일 장애점&lt;/strong&gt;이 됨.
-게이트웨이가 죽으면 Cursor도 못 쓰고 Claude Code도 못 씀. 그건 최악임.&lt;/p&gt;
-&lt;p&gt;그래서 passthrough 폴백을 설계에 박아뒀음.&lt;/p&gt;
+&lt;/div&gt;&lt;h2 id=&#34;seam이-죽어도-앱은-돌아가야-함&#34;&gt;
+    &lt;a href=&#34;#seam%ec%9d%b4-%ec%a3%bd%ec%96%b4%eb%8f%84-%ec%95%b1%ec%9d%80-%eb%8f%8c%ec%95%84%ea%b0%80%ec%95%bc-%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    seam이 죽어도 앱은 돌아가야 함
+&lt;/h2&gt;&lt;p&gt;설계하면서 제일 신경 쓴 부분이다.&lt;/p&gt;
+&lt;p&gt;모든 AI 요청이 seam을 거치게 만들면, &lt;strong&gt;seam이 단일 장애점&lt;/strong&gt;이 된다.
+게이트웨이가 죽으면 Cursor도 못 쓰고 Claude Code도 못 쓴다. 그건 최악이다.&lt;/p&gt;
+&lt;p&gt;그래서 passthrough 폴백을 설계에 박아뒀다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -444,26 +443,25 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;              seam 재시작 시 자동 복귀
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;사용자한테 보장하는 건 한 줄임. &lt;strong&gt;&amp;ldquo;seam이 죽어도 AI 앱은 동작한다.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-열린-질문을-같이-적었음&#34;&gt;
-    &lt;a href=&#34;#-%ec%97%b4%eb%a6%b0-%ec%a7%88%eb%ac%b8%ec%9d%84-%ea%b0%99%ec%9d%b4-%ec%a0%81%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    ❓ 열린 질문을 같이 적었음
-&lt;/h2&gt;&lt;p&gt;모르는 걸 모른다고 적어두는 게 나중에 도움이 될 것 같았음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;사용자한테 보장하는 건 한 줄이다. &lt;strong&gt;&amp;ldquo;seam이 죽어도 AI 앱은 동작한다.&amp;rdquo;&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;열린-질문을-같이-적었음&#34;&gt;
+    &lt;a href=&#34;#%ec%97%b4%eb%a6%b0-%ec%a7%88%eb%ac%b8%ec%9d%84-%ea%b0%99%ec%9d%b4-%ec%a0%81%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    열린 질문을 같이 적었음
+&lt;/h2&gt;&lt;p&gt;모르는 걸 모른다고 적어두는 게 나중에 도움이 될 것 같았다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Gateway 장애 시 passthrough 폴백을 &lt;strong&gt;구체적으로 어떻게&lt;/strong&gt; 구현하나 (iptables? 로컬 캐시?)&lt;/li&gt;
 &lt;li&gt;복잡도 분류: 규칙 기반 vs 경량 분류 모델 vs 하이브리드&lt;/li&gt;
-&lt;li&gt;메모리 주입 threshold 0.75 — 낮으면 노이즈, 높으면 누락&lt;/li&gt;
+&lt;li&gt;메모리 주입 threshold 0.75. 낮으면 노이즈, 높으면 누락&lt;/li&gt;
 &lt;li&gt;에이전트 버스 프로토콜: 자체 설계 vs 기존 메시지 브로커&lt;/li&gt;
 &lt;li&gt;오픈소스 전략: 코어 OSS + 클라우드 메모리 동기화 유료?&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
-&lt;/h2&gt;&lt;p&gt;하루 종일 문서만 10개 썼는데 코드보다 이게 더 힘들었음.&lt;/p&gt;
-&lt;p&gt;제일 오래 붙든 건 &lt;strong&gt;&amp;ldquo;이걸 왜 쓰지?&amp;rdquo;&lt;/strong&gt; 였음.
-기능을 나열하는 건 쉬운데, 사용자가 설치할 이유 하나를 만드는 게 어려웠음. Tier 1을 미끼로 두는 구조가 그 답이었음.&lt;/p&gt;
-&lt;p&gt;근데 이 설계가 일주일 뒤에 &lt;strong&gt;통째로 갈아엎힘.&lt;/strong&gt; 다음 글에서.&lt;/p&gt;
-&lt;p&gt;#seam #AI #설계 #아키텍처 #LLM&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
+&lt;/h2&gt;&lt;p&gt;하루 종일 문서만 10개 썼는데 코드보다 이게 더 힘들었다.&lt;/p&gt;
+&lt;p&gt;제일 오래 붙든 건 &lt;strong&gt;&amp;ldquo;이걸 왜 쓰지?&amp;rdquo;&lt;/strong&gt; 였다.
+기능을 나열하는 건 쉬운데, 사용자가 설치할 이유 하나를 만드는 게 어려웠다. Tier 1을 미끼로 두는 구조가 그 답이었다.&lt;/p&gt;
+&lt;p&gt;근데 이 설계가 일주일 뒤에 &lt;strong&gt;통째로 갈아엎힌다.&lt;/strong&gt; 다음 글에서.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -475,9 +473,9 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
         <description>&lt;h1 id=&#34;정담-개발-일지-5---다국어를-어떻게-저장할지-먼저-정했음&#34;&gt;
     &lt;a href=&#34;#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-5---%eb%8b%a4%ea%b5%ad%ec%96%b4%eb%a5%bc-%ec%96%b4%eb%96%bb%ea%b2%8c-%ec%a0%80%ec%9e%a5%ed%95%a0%ec%a7%80-%eb%a8%bc%ec%a0%80-%ec%a0%95%ed%96%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     정담 개발 일지 #5 - 다국어를 어떻게 저장할지 먼저 정했음
-&lt;/h1&gt;&lt;p&gt;외국인 손님이 꽤 온다고 해서 &lt;strong&gt;영어 메뉴&lt;/strong&gt;를 붙이기로 했음.&lt;/p&gt;
-&lt;p&gt;근데 이번엔 바로 코드를 안 쳤음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 하루에 세 번 갈아엎고 나니까, 저장 구조를 잘못 잡으면 얼마나 피곤한지 알게 됐음.
-그래서 설계 문서를 먼저 썼음.&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;외국인 손님이 꽤 온다고 해서 &lt;strong&gt;영어 메뉴&lt;/strong&gt;를 붙이기로 했다.&lt;/p&gt;
+&lt;p&gt;근데 이번엔 바로 코드를 안 쳤다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 하루에 세 번 갈아엎고 나니까, 저장 구조를 잘못 잡으면 얼마나 피곤한지 알게 됐다.
+그래서 설계 문서를 먼저 썼다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -488,9 +486,9 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docs/menu-implementation-process.md ← Phase 1~6 작업 계획
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;-두-가지-선택지&#34;&gt;
-    &lt;a href=&#34;#-%eb%91%90-%ea%b0%80%ec%a7%80-%ec%84%a0%ed%83%9d%ec%a7%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🤔 두 가지 선택지
+&lt;/div&gt;&lt;h2 id=&#34;두-가지-선택지&#34;&gt;
+    &lt;a href=&#34;#%eb%91%90-%ea%b0%80%ec%a7%80-%ec%84%a0%ed%83%9d%ec%a7%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    두 가지 선택지
 &lt;/h2&gt;&lt;h3 id=&#34;방법-a-필드-안에-언어를-넣기&#34;&gt;
     &lt;a href=&#34;#%eb%b0%a9%eb%b2%95-a-%ed%95%84%eb%93%9c-%ec%95%88%ec%97%90-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%84%a3%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     방법 A. 필드 안에 언어를 넣기
@@ -510,8 +508,8 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;파일 하나로 끝남. 관리자에서 양쪽 언어를 같이 편집하기도 편함.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;근데 손님한테 나가는 페이로드가 두 배임.&lt;/strong&gt; 한국어로 보는 손님이 영어 메뉴까지 통째로 받아감.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;파일 하나로 끝난다. 관리자에서 양쪽 언어를 같이 편집하기도 편하다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;근데 손님한테 나가는 페이로드가 두 배다.&lt;/strong&gt; 한국어로 보는 손님이 영어 메뉴까지 통째로 받아간다.&lt;/p&gt;
 &lt;h3 id=&#34;방법-b-로케일별로-파일을-쪼개기&#34;&gt;
     &lt;a href=&#34;#%eb%b0%a9%eb%b2%95-b-%eb%a1%9c%ec%bc%80%ec%9d%bc%eb%b3%84%eb%a1%9c-%ed%8c%8c%ec%9d%bc%ec%9d%84-%ec%aa%bc%ea%b0%9c%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     방법 B. 로케일별로 파일을 쪼개기
@@ -533,15 +531,15 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;간장마늘치킨&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;ingredients&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;닭, 마늘, 간장&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;&amp;#34;price&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;$18&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;손님은 자기 언어 파일 하나만 받음. 항목 구조도 단순해짐.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;대신 두 파일이 어긋날 수 있음.&lt;/strong&gt; 한쪽에만 항목이 추가되면 순서가 밀려서 엉뚱한 재료가 붙음.&lt;/p&gt;
-&lt;h2 id=&#34;-b로-감&#34;&gt;
-    &lt;a href=&#34;#-b%eb%a1%9c-%ea%b0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    ✅ B로 감
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;조회가 압도적으로 많고 수정은 거의 없는 화면&lt;/strong&gt;이라서임.&lt;/p&gt;
-&lt;p&gt;메뉴 조회는 손님이 올 때마다 일어나고, 메뉴 수정은 한 달에 몇 번임.
-그럼 &lt;strong&gt;조회 쪽을 가볍게 하고, 어긋날 위험은 쓰기 쪽에서 막는 게&lt;/strong&gt; 맞다고 봤음.&lt;/p&gt;
-&lt;p&gt;공통 필드는 두 파일에 똑같이 복제함.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;손님은 자기 언어 파일 하나만 받는다. 항목 구조도 단순해진다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;대신 두 파일이 어긋날 수 있다.&lt;/strong&gt; 한쪽에만 항목이 추가되면 순서가 밀려서 엉뚱한 재료가 붙는다.&lt;/p&gt;
+&lt;h2 id=&#34;b로-감&#34;&gt;
+    &lt;a href=&#34;#b%eb%a1%9c-%ea%b0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    B로 감
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;조회가 압도적으로 많고 수정은 거의 없는 화면&lt;/strong&gt;이라서다.&lt;/p&gt;
+&lt;p&gt;메뉴 조회는 손님이 올 때마다 일어나고, 메뉴 수정은 한 달에 몇 번이다.
+그럼 &lt;strong&gt;조회 쪽을 가볍게 하고, 어긋날 위험은 쓰기 쪽에서 막는 게&lt;/strong&gt; 맞다고 봤다.&lt;/p&gt;
+&lt;p&gt;공통 필드는 두 파일에 똑같이 복제한다.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -583,12 +581,12 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;code&gt;price&lt;/code&gt; 랑 &lt;code&gt;image&lt;/code&gt; 는 언어랑 상관없으니 그대로 복제. 중복이 생기지만 파일이 두 장뿐이라 감당할 만함.&lt;/p&gt;
-&lt;h2 id=&#34;-어긋남을-막는-장치-3개&#34;&gt;
-    &lt;a href=&#34;#-%ec%96%b4%ea%b8%8b%eb%82%a8%ec%9d%84-%eb%a7%89%eb%8a%94-%ec%9e%a5%ec%b9%98-3%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🛡️ 어긋남을 막는 장치 3개
-&lt;/h2&gt;&lt;p&gt;B의 유일한 약점이 데이터 불일치라서, 그걸 막는 걸 설계에 넣었음.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1. 저장은 항상 양쪽 동시에.&lt;/strong&gt; API가 한쪽만 받는 걸 허용하지 않음.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;price&lt;/code&gt; 랑 &lt;code&gt;image&lt;/code&gt; 는 언어랑 상관없으니 그대로 복제. 중복이 생기지만 파일이 두 장뿐이라 감당할 만한다.&lt;/p&gt;
+&lt;h2 id=&#34;어긋남을-막는-장치-3개&#34;&gt;
+    &lt;a href=&#34;#%ec%96%b4%ea%b8%8b%eb%82%a8%ec%9d%84-%eb%a7%89%eb%8a%94-%ec%9e%a5%ec%b9%98-3%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    어긋남을 막는 장치 3개
+&lt;/h2&gt;&lt;p&gt;B의 유일한 약점이 데이터 불일치라서, 그걸 막는 걸 설계에 넣었다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 저장은 항상 양쪽 동시에.&lt;/strong&gt; API가 한쪽만 받는 걸 허용하지 않는다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -597,7 +595,7 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;POST /api/menu   ←  { en: {...}, ko: {...} }
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;한쪽만 고치는 경로를 아예 안 만들면 어긋날 수가 없음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;한쪽만 고치는 경로를 아예 안 만들면 어긋날 수가 없다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2. 검증 스크립트.&lt;/strong&gt; 두 파일의 &lt;code&gt;categoryId&lt;/code&gt;, 항목 개수, 순서, &lt;code&gt;image&lt;/code&gt;, &lt;code&gt;price&lt;/code&gt; 가 같은지 확인.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
@@ -623,7 +621,7 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;3. 관리자 UI에선 합쳐서 다룸.&lt;/strong&gt; 화면에서는 &lt;code&gt;{ ko, en }&lt;/code&gt; 객체로 들고 있다가 &lt;strong&gt;저장할 때만&lt;/strong&gt; 두 로케일로 쪼갬.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;3. 관리자 UI에선 합쳐서 다룬다.&lt;/strong&gt; 화면에서는 &lt;code&gt;{ ko, en }&lt;/code&gt; 객체로 들고 있다가 &lt;strong&gt;저장할 때만&lt;/strong&gt; 두 로케일로 쪼갠다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -638,11 +636,11 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;});&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;저장 형식이랑 편집 형식을 분리한 게 핵심임.&lt;/strong&gt; 손님은 쪼개진 걸 받고, 관리자는 합쳐진 걸 편집함.&lt;/p&gt;
-&lt;h2 id=&#34;-phase-16&#34;&gt;
-    &lt;a href=&#34;#-phase-16&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📋 Phase 1~6
-&lt;/h2&gt;&lt;p&gt;작업 계획도 같이 적었음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;저장 형식이랑 편집 형식을 분리한 게 핵심이다.&lt;/strong&gt; 손님은 쪼개진 걸 받고, 관리자는 합쳐진 걸 편집한다.&lt;/p&gt;
+&lt;h2 id=&#34;phase-16&#34;&gt;
+    &lt;a href=&#34;#phase-16&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    Phase 1~6
+&lt;/h2&gt;&lt;p&gt;작업 계획도 같이 적었다.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -689,7 +687,7 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;오늘 한 건 Phase 1임. 기존 데이터를 백업하고 &lt;code&gt;menuData-ko.json&lt;/code&gt; 을 만들어서 번역을 채워 넣음.&lt;/p&gt;
+&lt;p&gt;오늘 한 건 Phase 1이다. 기존 데이터를 백업하고 &lt;code&gt;menuData-ko.json&lt;/code&gt; 을 만들어서 번역을 채워 넣는다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -698,28 +696,27 @@ Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.&lt;/
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;add: Phase 1: 데이터 준비 및 마이그레이션
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;기존 Blob 데이터를 먼저 &lt;code&gt;backup/&lt;/code&gt; 에 내려받아 뒀음.&lt;/strong&gt; 마이그레이션 중에 날리면 메뉴판이 통째로 사라짐.&lt;/p&gt;
-&lt;h2 id=&#34;-위험-요소를-미리-적어둠&#34;&gt;
-    &lt;a href=&#34;#-%ec%9c%84%ed%97%98-%ec%9a%94%ec%86%8c%eb%a5%bc-%eb%af%b8%eb%a6%ac-%ec%a0%81%ec%96%b4%eb%91%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    ⚠️ 위험 요소를 미리 적어둠
-&lt;/h2&gt;&lt;p&gt;설계 문서 끝에 이런 걸 적었음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;기존 Blob 데이터를 먼저 &lt;code&gt;backup/&lt;/code&gt; 에 내려받아 뒀다.&lt;/strong&gt; 마이그레이션 중에 날리면 메뉴판이 통째로 사라진다.&lt;/p&gt;
+&lt;h2 id=&#34;위험-요소를-미리-적어둠&#34;&gt;
+    &lt;a href=&#34;#%ec%9c%84%ed%97%98-%ec%9a%94%ec%86%8c%eb%a5%bc-%eb%af%b8%eb%a6%ac-%ec%a0%81%ec%96%b4%eb%91%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    위험 요소를 미리 적어둠
+&lt;/h2&gt;&lt;p&gt;설계 문서 끝에 이런 걸 적었다.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;데이터 불일치&lt;/strong&gt; → 저장 시 검증, 정기 체크&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;번역 누락&lt;/strong&gt; → 한쪽만 입력됐을 때 경고&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;배포 중 장애&lt;/strong&gt; → Preview에서 검증, Blob 백업, &lt;code&gt;git revert&lt;/code&gt; 준비&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;보안&lt;/strong&gt; → JWT 만료 시간, HTTPS 강제, 관리자 활동 로그&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;마지막 항목을 적어놓고 정작 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 만든 구멍은 못 봤음.
-두 달 뒤에 발견함..&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
+&lt;p&gt;마지막 항목을 적어놓고 정작 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;#3&lt;/a&gt;에서 만든 구멍은 못 봤다.
+두 달 뒤에 발견한다..&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
 &lt;/h2&gt;&lt;p&gt;&lt;strong&gt;저장 형식이랑 편집 형식이 같을 필요가 없다&lt;/strong&gt;는 게 이번에 제일 크게 배운 것.
-화면에선 합쳐서 쓰고 저장은 쪼개서 하면, 편함이랑 성능을 둘 다 가져갈 수 있음.&lt;/p&gt;
-&lt;p&gt;그리고 문서를 먼저 쓰니까 &amp;ldquo;필드 안에 넣을까 파일 쪼갤까&amp;quot;를 코드로 시험해보지 않고 결정할 수 있었음.
-&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 두 시간 걸린 걸 오늘은 안 겪었음.&lt;/p&gt;
+화면에선 합쳐서 쓰고 저장은 쪼개서 하면, 편함이랑 성능을 둘 다 가져갈 수 있다.&lt;/p&gt;
+&lt;p&gt;그리고 문서를 먼저 쓰니까 &amp;ldquo;필드 안에 넣을까 파일 쪼갤까&amp;quot;를 코드로 시험해보지 않고 결정할 수 있었다.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-4/&#34; &gt;#4&lt;/a&gt;에서 두 시간 걸린 걸 오늘은 안 겪었다.&lt;/p&gt;
 &lt;p&gt;다음 글에서 Phase 2~6 구현.&lt;/p&gt;
-&lt;p&gt;#정담 #다국어 #i18n #설계 #VercelBlob&lt;/p&gt;
 </description>
         </item>
         

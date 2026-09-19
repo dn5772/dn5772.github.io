@@ -292,13 +292,13 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-왜-python인가">🐍 왜 Python인가</a></li>
-    <li><a href="#-09491006-커밋-13개">⏱️ 09:49~10:06, 커밋 13개</a></li>
-    <li><a href="#-툴-8개">🔧 툴 8개</a></li>
-    <li><a href="#-에이전트-루프">🔁 에이전트 루프</a></li>
-    <li><a href="#-모드-두-개">🖥️ 모드 두 개</a></li>
-    <li><a href="#-seam-code가-다른-에이전트랑-다른-점">🎯 seam-code가 다른 에이전트랑 다른 점</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#왜-python인가">왜 Python인가</a></li>
+    <li><a href="#09491006-커밋-13개">09:49~10:06, 커밋 13개</a></li>
+    <li><a href="#툴-8개">툴 8개</a></li>
+    <li><a href="#에이전트-루프">에이전트 루프</a></li>
+    <li><a href="#모드-두-개">모드 두 개</a></li>
+    <li><a href="#seam-code가-다른-에이전트랑-다른-점">seam-code가 다른 에이전트랑 다른 점</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -385,17 +385,17 @@
     <h1 id="seam-개발-일지-4---17분-만에-만든-코딩-에이전트">
     <a href="#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-4---17%eb%b6%84-%eb%a7%8c%ec%97%90-%eb%a7%8c%eb%93%a0-%ec%bd%94%eb%94%a9-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8" class="header-anchor">#</a>
     seam 개발 일지 #4 - 17분 만에 만든 코딩 에이전트
-</h1><p><a class="link" href="https://dn5772.github.io/p/seam-3/" >#3</a>에서 런타임은 만들었는데, <strong>그 위에서 돌 앱이 없었음.</strong></p>
-<p><code>seam.yaml</code> 에 <code>type: native</code> 툴을 적을 수 있게 해놨지만 정작 띄울 게 없음.
-플랫폼만 있고 앱이 없는 상태라 아무것도 증명이 안 됨.</p>
-<p>그래서 첫 공식 앱을 만들었음. <strong>seam-code</strong> — 터미널 코딩 에이전트.</p>
-<h2 id="-왜-python인가">
-    <a href="#-%ec%99%9c-python%ec%9d%b8%ea%b0%80" class="header-anchor">#</a>
-    🐍 왜 Python인가
-</h2><p><a class="link" href="https://dn5772.github.io/p/seam-3/" >#3</a>에서 Rust를 고른 이유가 &ldquo;단일 바이너리&quot;였는데, 여기선 정반대로 갔음.</p>
-<p>에이전트 쪽은 <strong>생태계가 전부 Python</strong>임. LangChain, 각종 LLM SDK, TUI 라이브러리까지.
-deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다시 짤 이유가 없었음.</p>
-<p>그래서 <strong>듀얼 프로젝트</strong>가 됨.</p>
+</h1><p><a class="link" href="https://dn5772.github.io/p/seam-3/" >#3</a>에서 런타임은 만들었는데, <strong>그 위에서 돌 앱이 없었다.</strong></p>
+<p><code>seam.yaml</code> 에 <code>type: native</code> 툴을 적을 수 있게 해놨지만 정작 띄울 게 없다.
+플랫폼만 있고 앱이 없는 상태라 아무것도 증명이 안 된다.</p>
+<p>그래서 첫 공식 앱을 만들었다. <strong>seam-code</strong>. 터미널 코딩 에이전트.</p>
+<h2 id="왜-python인가">
+    <a href="#%ec%99%9c-python%ec%9d%b8%ea%b0%80" class="header-anchor">#</a>
+    왜 Python인가
+</h2><p><a class="link" href="https://dn5772.github.io/p/seam-3/" >#3</a>에서 Rust를 고른 이유가 &ldquo;단일 바이너리&quot;였는데, 여기선 정반대로 갔다.</p>
+<p>에이전트 쪽은 <strong>생태계가 전부 Python</strong>이다. LangChain, 각종 LLM SDK, TUI 라이브러리까지.
+deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다시 짤 이유가 없었다.</p>
+<p>그래서 <strong>듀얼 프로젝트</strong>가 된다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -406,10 +406,10 @@ deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다�
 </span></span><span class="line"><span class="cl">seam-code  (Python)  코딩 에이전트 · TUI
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>역할이 갈림. <strong>seam-cli가 모델 라우팅이랑 메모리를 맡고, seam-code는 툴 실행이랑 UX에 집중함.</strong></p>
-<h2 id="-09491006-커밋-13개">
-    <a href="#-09491006-%ec%bb%a4%eb%b0%8b-13%ea%b0%9c" class="header-anchor">#</a>
-    ⏱️ 09:49~10:06, 커밋 13개
+</div><p>역할이 갈린다. <strong>seam-cli가 모델 라우팅이랑 메모리를 맡고, seam-code는 툴 실행이랑 UX에 집중한다.</strong></p>
+<h2 id="09491006-커밋-13개">
+    <a href="#09491006-%ec%bb%a4%eb%b0%8b-13%ea%b0%9c" class="header-anchor">#</a>
+    09:49~10:06, 커밋 13개
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -436,11 +436,11 @@ deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다�
 </span></span><span class="line"><span class="cl"><span class="mi">10</span><span class="p">:</span><span class="mi">06</span>  <span class="n">feat</span><span class="p">:</span> <span class="n">add</span> <span class="n">seam</span><span class="o">.</span><span class="n">yaml</span> <span class="n">image</span> <span class="n">definition</span> <span class="ow">and</span> <span class="n">default</span> <span class="n">system</span> <span class="n">prompt</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>17분임.</strong> 스캐폴드부터 TUI까지.</p>
-<h2 id="-툴-8개">
-    <a href="#-%ed%88%b4-8%ea%b0%9c" class="header-anchor">#</a>
-    🔧 툴 8개
-</h2><p>에이전트가 쓸 수 있는 도구를 로컬에 뒀음.</p>
+</div><p><strong>17분이다.</strong> 스캐폴드부터 TUI까지.</p>
+<h2 id="툴-8개">
+    <a href="#%ed%88%b4-8%ea%b0%9c" class="header-anchor">#</a>
+    툴 8개
+</h2><p>에이전트가 쓸 수 있는 도구를 로컬에 뒀다.</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -471,18 +471,18 @@ deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다�
 </tr>
 </tbody>
 </table></div>
-<p><code>memory_save</code> 만 IPC로 seam-cli에 넘어감. 나머지는 전부 로컬에서 처리.
-<strong>메모리만 공유하고 파일 작업은 각자 하는 구조</strong>임.</p>
-<p>10:01 커밋이 툴 두 개를 고치는데 둘 다 같은 종류임.</p>
+<p><code>memory_save</code> 만 IPC로 seam-cli에 넘어간다. 나머지는 전부 로컬에서 처리.
+<strong>메모리만 공유하고 파일 작업은 각자 하는 구조</strong>이다.</p>
+<p>10:01 커밋이 툴 두 개를 고치는데 둘 다 같은 종류다.</p>
 <ul>
-<li><code>execute</code> 가 <strong>종료 코드가 0이 아닌데 성공으로 반환</strong>하고 있었음. 에이전트가 &ldquo;명령이 잘 됐구나&rdquo; 하고 다음 단계로 감</li>
-<li><code>grep_files</code> 가 <strong>순서가 매번 달랐음.</strong> 파일시스템 순회 순서 그대로라서 같은 요청에 다른 결과가 나옴</li>
+<li><code>execute</code> 가 <strong>종료 코드가 0이 아닌데 성공으로 반환</strong>하고 있었다. 에이전트가 &ldquo;명령이 잘 됐구나&rdquo; 하고 다음 단계로 간다</li>
+<li><code>grep_files</code> 가 <strong>순서가 매번 달랐다.</strong> 파일시스템 순회 순서 그대로라서 같은 요청에 다른 결과가 나온다</li>
 </ul>
-<p>두 번째는 특히 에이전트한테 나쁨. <strong>같은 상황에서 다르게 행동하면 디버깅이 불가능해짐.</strong> 정렬해서 반환하게 바꿈.</p>
-<h2 id="-에이전트-루프">
-    <a href="#-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8-%eb%a3%a8%ed%94%84" class="header-anchor">#</a>
-    🔁 에이전트 루프
-</h2><p>핵심은 이거 하나임.</p>
+<p>두 번째는 특히 에이전트한테 나쁜다. <strong>같은 상황에서 다르게 행동하면 디버깅이 불가능해진다.</strong> 정렬해서 반환하게 바꾼다.</p>
+<h2 id="에이전트-루프">
+    <a href="#%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8-%eb%a3%a8%ed%94%84" class="header-anchor">#</a>
+    에이전트 루프
+</h2><p>핵심은 이거 하나다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -501,14 +501,14 @@ deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다�
 </span></span><span class="line"><span class="cl">  → 툴 호출이 없으면 종료
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>무한 루프가 될 수 있어서 <code>MAX_TOOL_LOOPS</code> 로 상한을 뒀음.</p>
-<p>10:04 커밋이 그 상한에 걸렸을 때를 고침. 원래는 <strong>그냥 조용히 빠져나갔음.</strong>
-사용자 입장에선 에이전트가 아무 말 없이 멈춘 것처럼 보임. 히스토리에 &ldquo;한도에 걸려서 멈췄다&quot;는 메시지를 넣고 나가게 바꿈.</p>
-<p>에이전트가 실패할 때 <strong>왜 실패했는지 말하게 하는 건</strong> 생각보다 중요한 것 같음.</p>
-<h2 id="-모드-두-개">
-    <a href="#-%eb%aa%a8%eb%93%9c-%eb%91%90-%ea%b0%9c" class="header-anchor">#</a>
-    🖥️ 모드 두 개
-</h2><p><strong>headless</strong> — 단발 실행.</p>
+</div><p>무한 루프가 될 수 있어서 <code>MAX_TOOL_LOOPS</code> 로 상한을 뒀다.</p>
+<p>10:04 커밋이 그 상한에 걸렸을 때를 고친다. 원래는 <strong>그냥 조용히 빠져나갔다.</strong>
+사용자 입장에선 에이전트가 아무 말 없이 멈춘 것처럼 보다. 히스토리에 &ldquo;한도에 걸려서 멈췄다&quot;는 메시지를 넣고 나가게 바꾼다.</p>
+<p>에이전트가 실패할 때 <strong>왜 실패했는지 말하게 하는 건</strong> 생각보다 중요한 것 같다.</p>
+<h2 id="모드-두-개">
+    <a href="#%eb%aa%a8%eb%93%9c-%eb%91%90-%ea%b0%9c" class="header-anchor">#</a>
+    모드 두 개
+</h2><p><strong>headless</strong>. 단발 실행.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -517,7 +517,7 @@ deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다�
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">seam code <span class="s2">&#34;이 코드베이스 설명해줘&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>TUI</strong> — Textual로 만든 대화형 화면.</p>
+</div><p><strong>TUI</strong>. Textual로 만든 대화형 화면.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -526,12 +526,12 @@ deepagents(LangChain, MIT)를 포크해서 시작했는데, 이걸 Rust로 다�
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">seam code
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>headless를 먼저 만들었음. 스크립트에서 부르기 쉽고, <strong>TUI 없이도 에이전트 루프를 테스트할 수 있어서</strong>임.
+</div><p>headless를 먼저 만들었다. 스크립트에서 부르기 쉽고, <strong>TUI 없이도 에이전트 루프를 테스트할 수 있어서</strong>이다.
 TUI를 먼저 만들었으면 화면이랑 로직이 엉켜서 테스트가 어려웠을 것.</p>
-<h2 id="-seam-code가-다른-에이전트랑-다른-점">
-    <a href="#-seam-code%ea%b0%80-%eb%8b%a4%eb%a5%b8-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8%eb%9e%91-%eb%8b%a4%eb%a5%b8-%ec%a0%90" class="header-anchor">#</a>
-    🎯 seam-code가 다른 에이전트랑 다른 점
-</h2><p>문서에 비교표를 적어놨는데, 결국 전부 <strong>seam 위에 있다</strong>는 데서 나옴.</p>
+<h2 id="seam-code가-다른-에이전트랑-다른-점">
+    <a href="#seam-code%ea%b0%80-%eb%8b%a4%eb%a5%b8-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8%eb%9e%91-%eb%8b%a4%eb%a5%b8-%ec%a0%90" class="header-anchor">#</a>
+    seam-code가 다른 에이전트랑 다른 점
+</h2><p>문서에 비교표를 적어놨는데, 결국 전부 <strong>seam 위에 있다</strong>는 데서 나온다.</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -563,15 +563,14 @@ TUI를 먼저 만들었으면 화면이랑 로직이 엉켜서 테스트가 어�
 </tr>
 </tbody>
 </table></div>
-<p>시니어가 쓰던 프롬프트랑 스킬 세팅을 새 팀원이 <strong>한 줄로 받아 쓰는 것</strong> — 이게 <a class="link" href="https://dn5772.github.io/p/seam-2/" >#2</a>에서 피벗한 이유 그 자체임.
-플랫폼 혼자서는 못 보여주는 걸 앱이 하나 생기니까 보여줄 수 있게 됨.</p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p>Rust로 다 통일하고 싶은 마음이 있었는데, <strong>언어를 갈라놓은 게 맞았음.</strong>
-런타임은 단일 바이너리여야 하고 에이전트는 생태계를 타야 함. 요구사항이 정반대라 억지로 한쪽에 맞췄으면 둘 다 나빠졌을 것.</p>
-<p>대신 <strong>두 프로세스가 대화할 방법</strong>이 필요해짐. 그게 다음 글임.</p>
-<p>#seam #Python #에이전트 #Textual #TUI</p>
+<p>시니어가 쓰던 프롬프트랑 스킬 세팅을 새 팀원이 <strong>한 줄로 받아 쓰는 것</strong>. 이게 <a class="link" href="https://dn5772.github.io/p/seam-2/" >#2</a>에서 피벗한 이유 그 자체다.
+플랫폼 혼자서는 못 보여주는 걸 앱이 하나 생기니까 보여줄 수 있게 된다.</p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p>Rust로 다 통일하고 싶은 마음이 있었는데, <strong>언어를 갈라놓은 게 맞았다.</strong>
+런타임은 단일 바이너리여야 하고 에이전트는 생태계를 타야 한다. 요구사항이 정반대라 억지로 한쪽에 맞췄으면 둘 다 나빠졌을 것.</p>
+<p>대신 <strong>두 프로세스가 대화할 방법</strong>이 필요해진다. 그게 다음 글이다.</p>
 
 </section>
 

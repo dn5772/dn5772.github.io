@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="3개월 계획을 사흘에 밀어넣고 멈췄음. 커밋 73개 회고">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="3개월 계획을 사흘에 밀어넣고 멈췄다. 커밋 73개 회고">
 <title>seam 개발 일지 #8 - 데몬, 설치 마법사, 그리고 멈춘 자리</title>
 
 <link rel='canonical' href='https://dn5772.github.io/p/seam-8/'>
 
 <link rel="stylesheet" href="/scss/style.min.760e3dabc1e140d2e6abd27a8ca0aabb60e568829b29f67d2df12024136eff37.css"><meta property='og:title' content="seam 개발 일지 #8 - 데몬, 설치 마법사, 그리고 멈춘 자리">
-<meta property='og:description' content="3개월 계획을 사흘에 밀어넣고 멈췄음. 커밋 73개 회고">
+<meta property='og:description' content="3개월 계획을 사흘에 밀어넣고 멈췄다. 커밋 73개 회고">
 <meta property='og:url' content='https://dn5772.github.io/p/seam-8/'>
 <meta property='og:site_name' content='대니짱'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='seam' /><meta property='article:tag' content='Rust' /><meta property='article:tag' content='데몬' /><meta property='article:tag' content='LaunchAgent' /><meta property='article:tag' content='회고' /><meta property='article:tag' content='CLI' /><meta property='article:published_time' content='2026-03-27T14:11:00&#43;09:00'/><meta property='article:modified_time' content='2026-03-27T14:11:00&#43;09:00'/>
 <meta name="twitter:title" content="seam 개발 일지 #8 - 데몬, 설치 마법사, 그리고 멈춘 자리">
-<meta name="twitter:description" content="3개월 계획을 사흘에 밀어넣고 멈췄음. 커밋 73개 회고">
+<meta name="twitter:description" content="3개월 계획을 사흘에 밀어넣고 멈췄다. 커밋 73개 회고">
     <link rel="shortcut icon" href="/pokeball_icon.png" />
 
   
@@ -292,17 +292,17 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-0043--start--stop--restart">🔁 00:43 — start / stop / restart</a>
+    <li><a href="#0043--start--stop--restart">00:43 — start / stop / restart</a>
       <ol>
         <li><a href="#재부팅해도-살아-있게">재부팅해도 살아 있게</a></li>
       </ol>
     </li>
-    <li><a href="#-0126--이름-하나-빠져서-안-뜨던-데몬">🐛 01:26 — 이름 하나 빠져서 안 뜨던 데몬</a></li>
-    <li><a href="#-0152--설치하고-처음-켰을-때">🧙 01:52 — 설치하고 처음 켰을 때</a></li>
-    <li><a href="#-1411--마지막-커밋">🌏 14:11 — 마지막 커밋</a></li>
-    <li><a href="#-사흘-커밋-73개">📊 사흘, 커밋 73개</a></li>
-    <li><a href="#-안-만든-것들">🕳️ 안 만든 것들</a></li>
-    <li><a href="#-배운-것">💭 배운 것</a>
+    <li><a href="#0126--이름-하나-빠져서-안-뜨던-데몬">01:26 — 이름 하나 빠져서 안 뜨던 데몬</a></li>
+    <li><a href="#0152--설치하고-처음-켰을-때">01:52 — 설치하고 처음 켰을 때</a></li>
+    <li><a href="#1411--마지막-커밋">14:11 — 마지막 커밋</a></li>
+    <li><a href="#사흘-커밋-73개">사흘, 커밋 73개</a></li>
+    <li><a href="#안-만든-것들">안 만든 것들</a></li>
+    <li><a href="#배운-것">배운 것</a>
       <ol>
         <li><a href="#설계를-먼저-쓰면-싸게-버릴-수-있음">설계를 먼저 쓰면 싸게 버릴 수 있음</a></li>
         <li><a href="#안-보이는-제품은-설명이-안-됨">&ldquo;안 보이는 제품&quot;은 설명이 안 됨</a></li>
@@ -310,7 +310,7 @@
         <li><a href="#빠른-게-마냥-좋진-않았음">빠른 게 마냥 좋진 않았음</a></li>
       </ol>
     </li>
-    <li><a href="#-지금">🎯 지금</a></li>
+    <li><a href="#지금">지금</a></li>
   </ol>
 </nav>
         </div>
@@ -343,7 +343,7 @@
     
         
         <h3 class="article-subtitle">
-            3개월 계획을 사흘에 밀어넣고 멈췄음. 커밋 73개 회고
+            3개월 계획을 사흘에 밀어넣고 멈췄다. 커밋 73개 회고
         </h3>
         
     </div>
@@ -397,11 +397,11 @@
     <h1 id="seam-개발-일지-8---데몬-설치-마법사-그리고-멈춘-자리">
     <a href="#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-8---%eb%8d%b0%eb%aa%ac-%ec%84%a4%ec%b9%98-%eb%a7%88%eb%b2%95%ec%82%ac-%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%a9%88%ec%b6%98-%ec%9e%90%eb%a6%ac" class="header-anchor">#</a>
     seam 개발 일지 #8 - 데몬, 설치 마법사, 그리고 멈춘 자리
-</h1><p><a class="link" href="https://dn5772.github.io/p/seam-7/" >#7</a>까지 오면 기능은 다 있음. 근데 <strong>쓸 수 있는 물건은 아니었음.</strong></p>
-<p>데몬을 어떻게 띄우는지, 재부팅하면 어떻게 되는지, 처음 설치한 사람이 뭘 해야 하는지가 비어 있었음.</p>
-<h2 id="-0043--start--stop--restart">
-    <a href="#-0043--start--stop--restart" class="header-anchor">#</a>
-    🔁 00:43 — start / stop / restart
+</h1><p><a class="link" href="https://dn5772.github.io/p/seam-7/" >#7</a>까지 오면 기능은 다 있다. 근데 <strong>쓸 수 있는 물건은 아니었다.</strong></p>
+<p>데몬을 어떻게 띄우는지, 재부팅하면 어떻게 되는지, 처음 설치한 사람이 뭘 해야 하는지가 비어 있었다.</p>
+<h2 id="0043--start--stop--restart">
+    <a href="#0043--start--stop--restart" class="header-anchor">#</a>
+    00:43 — start / stop / restart
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -410,8 +410,8 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">00:43  feat: seam start/stop/restart + seam service install/uninstall
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>seam start</code> 가 데몬을 띄움. 게이트웨이(<code>:11400</code>)랑 IPC 소켓(<code>daemon.sock</code>)이 같이 올라감.</p>
-<p>구조가 좀 특이한데, <strong>바이너리가 자기 자신을 다시 실행함.</strong></p>
+</div><p><code>seam start</code> 가 데몬을 띄운다. 게이트웨이(<code>:11400</code>)랑 IPC 소켓(<code>daemon.sock</code>)이 같이 올라간다.</p>
+<p>구조가 좀 특이한데, <strong>바이너리가 자기 자신을 다시 실행한다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -422,10 +422,10 @@
 </span></span><span class="line"><span class="cl">seam run    →  seam __daemon --env-yaml &lt;path&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>__gateway</code>, <code>__daemon</code>, <code>__agent</code> 는 clap에서 <code>hide = true</code> 로 숨겨둔 커맨드임.
-<code>seam --help</code> 에는 안 나오는데 내부적으로 자기를 부를 때 씀.</p>
-<p>이렇게 한 이유는 <strong>단일 바이너리를 지키려고</strong>임. 데몬 실행 파일을 따로 두면 설치할 게 두 개가 됨.
-<a class="link" href="https://dn5772.github.io/p/seam-3/" >#3</a>에서 Rust를 고른 이유가 &ldquo;<code>curl | sh</code> 한 줄&quot;이었는데, 그걸 끝까지 밀려면 파일이 하나여야 함.</p>
+</div><p><code>__gateway</code>, <code>__daemon</code>, <code>__agent</code> 는 clap에서 <code>hide = true</code> 로 숨겨둔 커맨드다.
+<code>seam --help</code> 에는 안 나오는데 내부적으로 자기를 부를 때 쓴다.</p>
+<p>이렇게 한 이유는 <strong>단일 바이너리를 지키려고</strong>이다. 데몬 실행 파일을 따로 두면 설치할 게 두 개가 된다.
+<a class="link" href="https://dn5772.github.io/p/seam-3/" >#3</a>에서 Rust를 고른 이유가 &ldquo;<code>curl | sh</code> 한 줄&quot;이었는데, 그걸 끝까지 밀려면 파일이 하나여야 한다.</p>
 <h3 id="재부팅해도-살아-있게">
     <a href="#%ec%9e%ac%eb%b6%80%ed%8c%85%ed%95%b4%eb%8f%84-%ec%82%b4%ec%95%84-%ec%9e%88%ea%b2%8c" class="header-anchor">#</a>
     재부팅해도 살아 있게
@@ -439,11 +439,11 @@
 </span></span><span class="line"><span class="cl">seam service uninstall
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>프록시라서 <strong>항상 떠 있어야 의미가 있음.</strong> 로그인할 때마다 <code>seam start</code> 를 쳐야 하면 아무도 안 씀.</p>
-<p>macOS만 구현했고 Linux systemd는 안 했음. 지금도 안 되어 있음.</p>
-<h2 id="-0126--이름-하나-빠져서-안-뜨던-데몬">
-    <a href="#-0126--%ec%9d%b4%eb%a6%84-%ed%95%98%eb%82%98-%eb%b9%a0%ec%a0%b8%ec%84%9c-%ec%95%88-%eb%9c%a8%eb%8d%98-%eb%8d%b0%eb%aa%ac" class="header-anchor">#</a>
-    🐛 01:26 — 이름 하나 빠져서 안 뜨던 데몬
+</div><p>프록시라서 <strong>항상 떠 있어야 의미가 있다.</strong> 로그인할 때마다 <code>seam start</code> 를 쳐야 하면 아무도 안 쓴다.</p>
+<p>macOS만 구현했고 Linux systemd는 안 했다. 지금도 안 되어 있다.</p>
+<h2 id="0126--이름-하나-빠져서-안-뜨던-데몬">
+    <a href="#0126--%ec%9d%b4%eb%a6%84-%ed%95%98%eb%82%98-%eb%b9%a0%ec%a0%b8%ec%84%9c-%ec%95%88-%eb%9c%a8%eb%8d%98-%eb%8d%b0%eb%aa%ac" class="header-anchor">#</a>
+    01:26 — 이름 하나 빠져서 안 뜨던 데몬
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -452,13 +452,13 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01:26  fix: __gateway 이름 누락 + config.toml 하위 호환 파싱
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>__gateway</code> 를 clap enum에 정의는 했는데 <strong>디스패치에서 빠져 있었음.</strong> <code>seam start</code> 가 조용히 아무것도 안 함.</p>
-<p>같이 고친 게 설정 파일 하위 호환임. <a class="link" href="https://dn5772.github.io/p/seam-6/" >#6</a>에서 <code>router_slider</code>, <code>ollama_base_url</code>, <code>classifier_model</code> 을 추가했는데,
-<strong>그 전에 만들어진 <code>config.toml</code> 에는 그 필드가 없음.</strong> 파싱이 통째로 실패해서 설정이 날아감.</p>
-<p>없으면 기본값을 쓰게 바꿨음. 설정 파일은 한 번 만들어지면 사용자 기계에 계속 남으니까, <strong>새 필드는 항상 옵셔널이어야 함.</strong></p>
-<h2 id="-0152--설치하고-처음-켰을-때">
-    <a href="#-0152--%ec%84%a4%ec%b9%98%ed%95%98%ea%b3%a0-%ec%b2%98%ec%9d%8c-%ec%bc%b0%ec%9d%84-%eb%95%8c" class="header-anchor">#</a>
-    🧙 01:52 — 설치하고 처음 켰을 때
+</div><p><code>__gateway</code> 를 clap enum에 정의는 했는데 <strong>디스패치에서 빠져 있었다.</strong> <code>seam start</code> 가 조용히 아무것도 안 한다.</p>
+<p>같이 고친 게 설정 파일 하위 호환이다. <a class="link" href="https://dn5772.github.io/p/seam-6/" >#6</a>에서 <code>router_slider</code>, <code>ollama_base_url</code>, <code>classifier_model</code> 을 추가했는데,
+<strong>그 전에 만들어진 <code>config.toml</code> 에는 그 필드가 없다.</strong> 파싱이 통째로 실패해서 설정이 날아간다.</p>
+<p>없으면 기본값을 쓰게 바꿨다. 설정 파일은 한 번 만들어지면 사용자 기계에 계속 남으니까, <strong>새 필드는 항상 옵셔널이어야 한다.</strong></p>
+<h2 id="0152--설치하고-처음-켰을-때">
+    <a href="#0152--%ec%84%a4%ec%b9%98%ed%95%98%ea%b3%a0-%ec%b2%98%ec%9d%8c-%ec%bc%b0%ec%9d%84-%eb%95%8c" class="header-anchor">#</a>
+    01:52 — 설치하고 처음 켰을 때
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -467,18 +467,18 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01:52  feat: seam setup — 대화형 초기 설정 마법사
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>seam start</code> 를 처음 치면 setup이 자동으로 뜸. <code>first_run</code> 을 감지해서.</p>
-<p>물어보는 건 이런 것들임.</p>
+</div><p><code>seam start</code> 를 처음 치면 setup이 자동으로 뜬다. <code>first_run</code> 을 감지해서.</p>
+<p>물어보는 건 이런 것들이다.</p>
 <ul>
 <li>API 키 (anthropic / openai / google / github) → <strong>OS 키체인에 저장</strong></li>
 <li><a class="link" href="https://dn5772.github.io/p/seam-6/" >라우팅 슬라이더</a> 0~9</li>
 <li>Ollama 쓸 건지, 주소는 어딘지</li>
 </ul>
-<p><code>dialoguer</code> 로 만들었음. 설정 파일 포맷을 문서에서 찾아 읽게 하는 것보다 이게 나음.
-특히 <strong>API 키를 어디다 둬야 하는지</strong>는 물어보는 게 맞음. 안 그러면 다들 환경변수에 평문으로 둠.</p>
-<h2 id="-1411--마지막-커밋">
-    <a href="#-1411--%eb%a7%88%ec%a7%80%eb%a7%89-%ec%bb%a4%eb%b0%8b" class="header-anchor">#</a>
-    🌏 14:11 — 마지막 커밋
+<p><code>dialoguer</code> 로 만들었다. 설정 파일 포맷을 문서에서 찾아 읽게 하는 것보다 이게 낫다.
+특히 <strong>API 키를 어디다 둬야 하는지</strong>는 물어보는 게 맞다. 안 그러면 다들 환경변수에 평문으로 둔다.</p>
+<h2 id="1411--마지막-커밋">
+    <a href="#1411--%eb%a7%88%ec%a7%80%eb%a7%89-%ec%bb%a4%eb%b0%8b" class="header-anchor">#</a>
+    14:11 — 마지막 커밋
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -487,11 +487,11 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">14:11  feat: setup wizard 언어 선택 + EN/KO 완전 이중 언어화
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>setup 첫 질문이 언어 선택이고, CLI 출력 전체를 영어/한국어로 갈랐음.</p>
-<p>그리고 이게 <strong>마지막 커밋임.</strong></p>
-<h2 id="-사흘-커밋-73개">
-    <a href="#-%ec%82%ac%ed%9d%98-%ec%bb%a4%eb%b0%8b-73%ea%b0%9c" class="header-anchor">#</a>
-    📊 사흘, 커밋 73개
+</div><p>setup 첫 질문이 언어 선택이고, CLI 출력 전체를 영어/한국어로 갈랐다.</p>
+<p>그리고 이게 <strong>마지막 커밋이다.</strong></p>
+<h2 id="사흘-커밋-73개">
+    <a href="#%ec%82%ac%ed%9d%98-%ec%bb%a4%eb%b0%8b-73%ea%b0%9c" class="header-anchor">#</a>
+    사흘, 커밋 73개
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -549,7 +549,7 @@
 </tr>
 </tbody>
 </table></div>
-<p>론칭 계획 문서에 적어둔 일정은 이랬음.</p>
+<p>론칭 계획 문서에 적어둔 일정은 이랬다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -566,64 +566,63 @@
 </span></span><span class="line"><span class="cl">M+3  Week 9     Task 12    README, install.sh, 내부 테스트
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>3개월 계획을 사흘에 했음.</strong> Task 1~9가 <a class="link" href="https://dn5772.github.io/p/seam-3/" >#3</a>의 2시간 25분에 다 들어가 있음.</p>
-<h2 id="-안-만든-것들">
-    <a href="#-%ec%95%88-%eb%a7%8c%eb%93%a0-%ea%b2%83%eb%93%a4" class="header-anchor">#</a>
-    🕳️ 안 만든 것들
-</h2><p>정직하게 적으면 이만큼 비어 있음.</p>
+</div><p><strong>3개월 계획을 사흘에 했다.</strong> Task 1~9가 <a class="link" href="https://dn5772.github.io/p/seam-3/" >#3</a>의 2시간 25분에 다 들어가 있다.</p>
+<h2 id="안-만든-것들">
+    <a href="#%ec%95%88-%eb%a7%8c%eb%93%a0-%ea%b2%83%eb%93%a4" class="header-anchor">#</a>
+    안 만든 것들
+</h2><p>정직하게 적으면 이만큼 비어 있다.</p>
 <ul>
-<li><code>seam journal</code> / <code>seam budget</code> — <strong>stub만 있음.</strong> <a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>의 킬 메시지가 &ldquo;AI 활동 영수증&quot;이었는데 그게 비어 있음</li>
+<li><code>seam journal</code> / <code>seam budget</code>. <strong>stub만 있다.</strong> <a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>의 킬 메시지가 &ldquo;AI 활동 영수증&quot;이었는데 그게 비어 있다</li>
 <li><code>journal.rs</code> 는 작성됐는데 <strong>프록시에서 호출을 안 함</strong></li>
-<li><code>seam logs --follow</code> — 미구현</li>
-<li><code>seam service</code> — macOS만. Linux systemd 없음</li>
-<li><strong>Trust Sandbox</strong> (Layer 2) — 통째로 없음</li>
-<li><strong>Lazy Skill Router</strong> (Layer 3) — <code>seam.yaml</code> 에 필드만 있고 구현 없음</li>
-<li><strong>에이전트 통신 버스</strong> — 없음</li>
-<li><strong>Semantic Memory</strong> — 없음. Episodic + Shared만</li>
-<li><code>hub.seam.dev</code> — 레지스트리는 GitHub 레포로 대체</li>
+<li><code>seam logs --follow</code>. 미구현</li>
+<li><code>seam service</code>. macOS만. Linux systemd 없다</li>
+<li><strong>Trust Sandbox</strong> (Layer 2). 통째로 없다</li>
+<li><strong>Lazy Skill Router</strong> (Layer 3). <code>seam.yaml</code> 에 필드만 있고 구현 없다</li>
+<li><strong>에이전트 통신 버스</strong>. 없다</li>
+<li><strong>Semantic Memory</strong>. 없다. Episodic + Shared만</li>
+<li><code>hub.seam.dev</code>. 레지스트리는 GitHub 레포로 대체</li>
 </ul>
-<p><a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>에서 적었던 6레이어 중 <strong>실제로 만든 건 Layer 0, 1, 4 세 개</strong>임.</p>
-<h2 id="-배운-것">
-    <a href="#-%eb%b0%b0%ec%9a%b4-%ea%b2%83" class="header-anchor">#</a>
-    💭 배운 것
+<p><a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>에서 적었던 6레이어 중 <strong>실제로 만든 건 Layer 0, 1, 4 세 개</strong>이다.</p>
+<h2 id="배운-것">
+    <a href="#%eb%b0%b0%ec%9a%b4-%ea%b2%83" class="header-anchor">#</a>
+    배운 것
 </h2><h3 id="설계를-먼저-쓰면-싸게-버릴-수-있음">
     <a href="#%ec%84%a4%ea%b3%84%eb%a5%bc-%eb%a8%bc%ec%a0%80-%ec%93%b0%eb%a9%b4-%ec%8b%b8%ea%b2%8c-%eb%b2%84%eb%a6%b4-%ec%88%98-%ec%9e%88%ec%9d%8c" class="header-anchor">#</a>
     설계를 먼저 쓰면 싸게 버릴 수 있음
-</h3><p><a class="link" href="https://dn5772.github.io/p/seam-2/" >#2</a>에서 일주일 만에 방향을 통째로 갈아엎었는데, <strong>코드가 한 줄도 없는 상태</strong>였음.
+</h3><p><a class="link" href="https://dn5772.github.io/p/seam-2/" >#2</a>에서 일주일 만에 방향을 통째로 갈아엎었는데, <strong>코드가 한 줄도 없는 상태</strong>였다.
 Sprint 1~7을 반쯤 짜고 알았으면 훨씬 아팠을 것.</p>
-<p>문서 쓰는 게 느려 보여도, 버릴 때 손해가 작음.</p>
+<p>문서 쓰는 게 느려 보여도, 버릴 때 손해가 작다.</p>
 <h3 id="안-보이는-제품은-설명이-안-됨">
     <a href="#%ec%95%88-%eb%b3%b4%ec%9d%b4%eb%8a%94-%ec%a0%9c%ed%92%88%ec%9d%80-%ec%84%a4%eb%aa%85%ec%9d%b4-%ec%95%88-%eb%90%a8" class="header-anchor">#</a>
     &ldquo;안 보이는 제품&quot;은 설명이 안 됨
-</h3><p>v0.4는 &ldquo;백그라운드에서 메모리를 주입하는 투명한 레이어&quot;였음. 기능은 같은데 설명이 안 됐음.
-<code>seam.yaml</code> 이라는 <strong>파일 하나</strong>를 중심에 두니까 한 문장으로 끝남 — &ldquo;Docker처럼 AI 환경을 공유함&rdquo;.</p>
+</h3><p>v0.4는 &ldquo;백그라운드에서 메모리를 주입하는 투명한 레이어&quot;였다. 기능은 같은데 설명이 안 됐다.
+<code>seam.yaml</code> 이라는 <strong>파일 하나</strong>를 중심에 두니까 한 문장으로 끝남. &ldquo;Docker처럼 AI 환경을 공유함&rdquo;.</p>
 <h3 id="조용한-실패가-제일-위험함">
     <a href="#%ec%a1%b0%ec%9a%a9%ed%95%9c-%ec%8b%a4%ed%8c%a8%ea%b0%80-%ec%a0%9c%ec%9d%bc-%ec%9c%84%ed%97%98%ed%95%a8" class="header-anchor">#</a>
     조용한 실패가 제일 위험함
 </h3><ul>
-<li><a class="link" href="https://dn5772.github.io/p/seam-3/" >#3</a> — HTTP 4xx/5xx를 안 보고 지나감</li>
-<li><a class="link" href="https://dn5772.github.io/p/seam-4/" >#4</a> — 종료 코드 0이 아닌데 성공 반환, 루프 상한에서 말없이 종료</li>
-<li><a class="link" href="https://dn5772.github.io/p/seam-5/" >#5</a> — accept 루프가 통째로 죽음</li>
-<li><a class="link" href="https://dn5772.github.io/p/seam-7/" >#7</a> — 라우터 응답이 비면 기본값으로 조용히 넘어감</li>
+<li><a class="link" href="https://dn5772.github.io/p/seam-3/" >#3</a>. HTTP 4xx/5xx를 안 보고 지나간다</li>
+<li><a class="link" href="https://dn5772.github.io/p/seam-4/" >#4</a>. 종료 코드 0이 아닌데 성공 반환, 루프 상한에서 말없이 종료</li>
+<li><a class="link" href="https://dn5772.github.io/p/seam-5/" >#5</a>. accept 루프가 통째로 죽음</li>
+<li><a class="link" href="https://dn5772.github.io/p/seam-7/" >#7</a>. 라우터 응답이 비면 기본값으로 조용히 넘어간다</li>
 </ul>
-<p>전부 다른 날 다른 언어에서 나왔는데 같은 모양임. <strong>에러를 안 내고 &ldquo;그럴듯하게&rdquo; 계속 가는 코드.</strong></p>
+<p>전부 다른 날 다른 언어에서 나왔는데 같은 모양이다. <strong>에러를 안 내고 &ldquo;그럴듯하게&rdquo; 계속 가는 코드.</strong></p>
 <h3 id="빠른-게-마냥-좋진-않았음">
     <a href="#%eb%b9%a0%eb%a5%b8-%ea%b2%8c-%eb%a7%88%eb%83%a5-%ec%a2%8b%ec%a7%84-%ec%95%8a%ec%95%98%ec%9d%8c" class="header-anchor">#</a>
     빠른 게 마냥 좋진 않았음
-</h3><p>3개월 계획을 사흘에 밀어넣은 건 기분이 좋았는데, 결과를 보면 <strong>넓고 얕음.</strong>
+</h3><p>3개월 계획을 사흘에 밀어넣은 건 기분이 좋았는데, 결과를 보면 <strong>넓고 얕는다.</strong>
 레이어 6개 중 3개, 킬 기능인 journal/budget은 stub, Linux는 미지원.</p>
-<p>돌이켜보면 <strong>Phase 1만 제대로 끝냈으면 쓸 수 있는 물건이 됐을 것 같음.</strong>
-&ldquo;설치만 하면 AI가 나를 기억함 + 오늘 AI가 쓴 돈&rdquo; 딱 여기까지. 그게 <a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>에서 정한 MVP 범위이기도 했음.</p>
-<p>기능을 넓히는 속도가 붙으니까 <strong>범위를 지키는 쪽이 오히려 어려웠음.</strong></p>
-<h2 id="-지금">
-    <a href="#-%ec%a7%80%ea%b8%88" class="header-anchor">#</a>
-    🎯 지금
-</h2><p>3/27 이후로 멈춰 있음.</p>
-<p><code>docs/superpowers/plans/2026-03-27-seam-phase-a-routing-memory.md</code> 가 다음 계획인데 실행을 안 했음.
-CLAUDE.md의 &ldquo;다음 단계&quot;에도 <code>Task 10-11</code>, <code>hub.seam.dev</code> 가 그대로 남아 있음.</p>
-<p>버린 프로젝트는 아니고, 멈춘 자리가 명확하다는 정도임.
-돌아온다면 <strong>새 기능이 아니라 journal이랑 budget부터</strong> 할 것 같음. 그게 원래 제일 처음에 보여주기로 한 거였음.</p>
-<p>#seam #Rust #데몬 #회고 #CLI</p>
+<p>돌이켜보면 <strong>Phase 1만 제대로 끝냈으면 쓸 수 있는 물건이 됐을 것 같다.</strong>
+&ldquo;설치만 하면 AI가 나를 기억한다 + 오늘 AI가 쓴 돈&rdquo; 딱 여기까지. 그게 <a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>에서 정한 MVP 범위이기도 했다.</p>
+<p>기능을 넓히는 속도가 붙으니까 <strong>범위를 지키는 쪽이 오히려 어려웠다.</strong></p>
+<h2 id="지금">
+    <a href="#%ec%a7%80%ea%b8%88" class="header-anchor">#</a>
+    지금
+</h2><p>3/27 이후로 멈춰 있다.</p>
+<p><code>docs/superpowers/plans/2026-03-27-seam-phase-a-routing-memory.md</code> 가 다음 계획인데 실행을 안 했다.
+CLAUDE.md의 &ldquo;다음 단계&quot;에도 <code>Task 10-11</code>, <code>hub.seam.dev</code> 가 그대로 남아 있다.</p>
+<p>버린 프로젝트는 아니고, 멈춘 자리가 명확하다는 정도다.
+돌아온다면 <strong>새 기능이 아니라 journal이랑 budget부터</strong> 할 것 같다. 그게 원래 제일 처음에 보여주기로 한 거였다.</p>
 
 </section>
 

@@ -15,14 +15,14 @@
         <description>&lt;h1 id=&#34;abide-개발-일지-1---flutter-앱-뼈대를-한-번에-올렸음&#34;&gt;
     &lt;a href=&#34;#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-1---flutter-%ec%95%b1-%eb%bc%88%eb%8c%80%eb%a5%bc-%ed%95%9c-%eb%b2%88%ec%97%90-%ec%98%ac%eb%a0%b8%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     ABIDE 개발 일지 #1 - Flutter 앱 뼈대를 한 번에 올렸음
-&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;ABIDE(말씀 안에 거하다)&lt;/strong&gt; — AI랑 같이 성경을 묵상하는 앱을 만들기 시작했음.&lt;/p&gt;
-&lt;p&gt;요약을 던져주는 게 아니라 &lt;strong&gt;소크라테스식으로 되물으면서&lt;/strong&gt; 스스로 생각하게 만드는 게 목표임.
-&amp;ldquo;이 구절이 무슨 뜻이냐&amp;quot;를 알려주는 앱은 이미 많은데, &amp;ldquo;당신한테 이게 왜 걸리냐&amp;quot;를 묻는 건 없었음.&lt;/p&gt;
-&lt;p&gt;첫날에 Flutter 앱 뼈대를 통째로 올렸음. 커밋 48개가 전부 &lt;code&gt;22:09~22:10&lt;/code&gt; 에 찍혀 있음.&lt;/p&gt;
-&lt;h2 id=&#34;-3레이어로-갈랐음&#34;&gt;
-    &lt;a href=&#34;#-3%eb%a0%88%ec%9d%b4%ec%96%b4%eb%a1%9c-%ea%b0%88%eb%9e%90%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🧱 3레이어로 갈랐음
-&lt;/h2&gt;&lt;p&gt;Clean Architecture 그대로 감.&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;ABIDE(말씀 안에 거하다)&lt;/strong&gt;. AI랑 같이 성경을 묵상하는 앱을 만들기 시작했다.&lt;/p&gt;
+&lt;p&gt;요약을 던져주는 게 아니라 &lt;strong&gt;소크라테스식으로 되물으면서&lt;/strong&gt; 스스로 생각하게 만드는 게 목표다.
+&amp;ldquo;이 구절이 무슨 뜻이냐&amp;quot;를 알려주는 앱은 이미 많은데, &amp;ldquo;당신한테 이게 왜 걸리냐&amp;quot;를 묻는 건 없었다.&lt;/p&gt;
+&lt;p&gt;첫날에 Flutter 앱 뼈대를 통째로 올렸다. 커밋 48개가 전부 &lt;code&gt;22:09~22:10&lt;/code&gt; 에 찍혀 있다.&lt;/p&gt;
+&lt;h2 id=&#34;3레이어로-갈랐음&#34;&gt;
+    &lt;a href=&#34;#3%eb%a0%88%ec%9d%b4%ec%96%b4%eb%a1%9c-%ea%b0%88%eb%9e%90%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    3레이어로 갈랐음
+&lt;/h2&gt;&lt;p&gt;Clean Architecture 그대로 간다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -39,10 +39,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└── presentation/   Riverpod 프로바이더 + 화면
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;의존 방향이 한쪽임.&lt;/strong&gt; &lt;code&gt;presentation → domain ← data&lt;/code&gt;.
-&lt;code&gt;domain&lt;/code&gt; 은 Flutter도 모르고 HTTP도 모름. 순수 다트 객체랑 인터페이스만 있음.&lt;/p&gt;
-&lt;p&gt;이렇게 한 이유가 있음. 이 앱은 성경 본문을 &lt;strong&gt;로컬 에셋에서&lt;/strong&gt; 읽고, 묵상 대화는 &lt;strong&gt;서버 SSE에서&lt;/strong&gt; 받음.
-두 데이터소스의 성격이 완전히 다른데, 화면이 그걸 다 알고 있으면 나중에 못 바꿈.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;의존 방향이 한쪽이다.&lt;/strong&gt; &lt;code&gt;presentation → domain ← data&lt;/code&gt;.
+&lt;code&gt;domain&lt;/code&gt; 은 Flutter도 모르고 HTTP도 모른다. 순수 다트 객체랑 인터페이스만 있다.&lt;/p&gt;
+&lt;p&gt;이렇게 한 이유가 있다. 이 앱은 성경 본문을 &lt;strong&gt;로컬 에셋에서&lt;/strong&gt; 읽고, 묵상 대화는 &lt;strong&gt;서버 SSE에서&lt;/strong&gt; 받는다.
+두 데이터소스의 성격이 완전히 다른데, 화면이 그걸 다 알고 있으면 나중에 못 바꾼다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -55,11 +55,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;data/datasources/local/bible_parser.dart       ← JSON 파싱 + 인덱싱
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;화면은 &lt;code&gt;BibleRepository&lt;/code&gt; 만 알면 됨. 나중에 본문을 서버에서 받기로 해도 화면은 안 바뀜.&lt;/p&gt;
-&lt;h2 id=&#34;-디자인-시스템부터-깔았음&#34;&gt;
-    &lt;a href=&#34;#-%eb%94%94%ec%9e%90%ec%9d%b8-%ec%8b%9c%ec%8a%a4%ed%85%9c%eb%b6%80%ed%84%b0-%ea%b9%94%ec%95%98%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎨 디자인 시스템부터 깔았음
-&lt;/h2&gt;&lt;p&gt;화면보다 테마를 먼저 만들었음. 커밋 순서가 그럼.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;화면은 &lt;code&gt;BibleRepository&lt;/code&gt; 만 알면 된다. 나중에 본문을 서버에서 받기로 해도 화면은 안 바뀐다.&lt;/p&gt;
+&lt;h2 id=&#34;디자인-시스템부터-깔았음&#34;&gt;
+    &lt;a href=&#34;#%eb%94%94%ec%9e%90%ec%9d%b8-%ec%8b%9c%ec%8a%a4%ed%85%9c%eb%b6%80%ed%84%b0-%ea%b9%94%ec%95%98%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    디자인 시스템부터 깔았음
+&lt;/h2&gt;&lt;p&gt;화면보다 테마를 먼저 만들었다. 커밋 순서가 그런다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -74,13 +74,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat(core/widgets): add shared UI components (glassmorphism cards, tactile buttons, logo)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Deep Forest + 글래스모피즘&lt;/strong&gt;으로 잡음. 묵상 앱이라 차분해야 하는데, 그렇다고 밋밋하면 안 씀.
-짙은 녹색 계열에 반투명 카드를 얹는 식으로 갔음.&lt;/p&gt;
-&lt;p&gt;색 → 타이포 → ThemeData → 공용 위젯 순서로 쌓은 게 나중에 편했음.
-&lt;strong&gt;화면마다 색을 직접 쓰는 일이 없어서&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;에서 설정 시트 같은 걸 추가할 때 토큰만 가져다 쓰면 됐음.&lt;/p&gt;
-&lt;h2 id=&#34;-화면-14개&#34;&gt;
-    &lt;a href=&#34;#-%ed%99%94%eb%a9%b4-14%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📱 화면 14개
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Deep Forest + 글래스모피즘&lt;/strong&gt;으로 잡는다. 묵상 앱이라 차분해야 하는데, 그렇다고 밋밋하면 안 쓴다.
+짙은 녹색 계열에 반투명 카드를 얹는 식으로 갔다.&lt;/p&gt;
+&lt;p&gt;색 → 타이포 → ThemeData → 공용 위젯 순서로 쌓은 게 나중에 편했다.
+&lt;strong&gt;화면마다 색을 직접 쓰는 일이 없어서&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;에서 설정 시트 같은 걸 추가할 때 토큰만 가져다 쓰면 됐다.&lt;/p&gt;
+&lt;h2 id=&#34;화면-14개&#34;&gt;
+    &lt;a href=&#34;#%ed%99%94%eb%a9%b4-14%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    화면 14개
 &lt;/h2&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -124,9 +124,9 @@
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;여기에 스플래시 · 온보딩 · 로그인 · 프로필 설정 · 하단 탭 셸까지.&lt;/p&gt;
-&lt;h2 id=&#34;-sse-클라이언트를-처음부터-넣었음&#34;&gt;
-    &lt;a href=&#34;#-sse-%ed%81%b4%eb%9d%bc%ec%9d%b4%ec%96%b8%ed%8a%b8%eb%a5%bc-%ec%b2%98%ec%9d%8c%eb%b6%80%ed%84%b0-%eb%84%a3%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🌊 SSE 클라이언트를 처음부터 넣었음
+&lt;h2 id=&#34;sse-클라이언트를-처음부터-넣었음&#34;&gt;
+    &lt;a href=&#34;#sse-%ed%81%b4%eb%9d%bc%ec%9d%b4%ec%96%b8%ed%8a%b8%eb%a5%bc-%ec%b2%98%ec%9d%8c%eb%b6%80%ed%84%b0-%eb%84%a3%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    SSE 클라이언트를 처음부터 넣었음
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -137,13 +137,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat(presentation): add meditation session provider (SSE stream lifecycle management)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;묵상 대화가 이 앱의 핵심인데, &lt;strong&gt;한 번에 답이 다 나오면 안 됨.&lt;/strong&gt;
-AI가 생각하는 동안 화면이 멈춰 있으면 대화가 아니라 로딩임.&lt;/p&gt;
-&lt;p&gt;그래서 처음부터 Server-Sent Events로 잡았음. Dio 기반으로 직접 만들었고, 스트림 생명주기(구독·취소·에러·재연결)는 Riverpod 프로바이더가 들고 있게 함.&lt;/p&gt;
-&lt;p&gt;이게 나중에 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 크게 확장됨.&lt;/p&gt;
-&lt;h2 id=&#34;-로컬라이제이션도-첫날에&#34;&gt;
-    &lt;a href=&#34;#-%eb%a1%9c%ec%bb%ac%eb%9d%bc%ec%9d%b4%ec%a0%9c%ec%9d%b4%ec%85%98%eb%8f%84-%ec%b2%ab%eb%82%a0%ec%97%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🌏 로컬라이제이션도 첫날에
+&lt;/div&gt;&lt;p&gt;묵상 대화가 이 앱의 핵심인데, &lt;strong&gt;한 번에 답이 다 나오면 안 된다.&lt;/strong&gt;
+AI가 생각하는 동안 화면이 멈춰 있으면 대화가 아니라 로딩이다.&lt;/p&gt;
+&lt;p&gt;그래서 처음부터 Server-Sent Events로 잡았다. Dio 기반으로 직접 만들었고, 스트림 생명주기(구독·취소·에러·재연결)는 Riverpod 프로바이더가 들고 있게 한다.&lt;/p&gt;
+&lt;p&gt;이게 나중에 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 크게 확장된다.&lt;/p&gt;
+&lt;h2 id=&#34;로컬라이제이션도-첫날에&#34;&gt;
+    &lt;a href=&#34;#%eb%a1%9c%ec%bb%ac%eb%9d%bc%ec%9d%b4%ec%a0%9c%ec%9d%b4%ec%85%98%eb%8f%84-%ec%b2%ab%eb%82%a0%ec%97%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    로컬라이제이션도 첫날에
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -152,13 +152,13 @@ AI가 생각하는 동안 화면이 멈춰 있으면 대화가 아니라 로딩�
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat(core): add Korean/English localisation string maps and locale provider
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;한국어가 1차인데 영어 문자열 맵을 같이 깔아뒀음.
-나중에 붙이려면 화면 14개를 다 뒤져야 하니까, 비어 있더라도 구조는 먼저 만들어두는 게 나음.&lt;/p&gt;
-&lt;p&gt;…라고 생각했는데 &lt;strong&gt;이게 절반만 맞았음.&lt;/strong&gt; 앱 UI는 이걸로 됐는데, &lt;strong&gt;AI가 생성하는 텍스트&lt;/strong&gt;는 전혀 대비가 안 돼 있었음.
-그 대가를 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-8/&#34; &gt;#8&lt;/a&gt;에서 치름.&lt;/p&gt;
-&lt;h2 id=&#34;-전역-에러-바운더리&#34;&gt;
-    &lt;a href=&#34;#-%ec%a0%84%ec%97%ad-%ec%97%90%eb%9f%ac-%eb%b0%94%ec%9a%b4%eb%8d%94%eb%a6%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🛡️ 전역 에러 바운더리
+&lt;/div&gt;&lt;p&gt;한국어가 1차인데 영어 문자열 맵을 같이 깔아뒀다.
+나중에 붙이려면 화면 14개를 다 뒤져야 하니까, 비어 있더라도 구조는 먼저 만들어두는 게 낫다.&lt;/p&gt;
+&lt;p&gt;…라고 생각했는데 &lt;strong&gt;이게 절반만 맞았다.&lt;/strong&gt; 앱 UI는 이걸로 됐는데, &lt;strong&gt;AI가 생성하는 텍스트&lt;/strong&gt;는 전혀 대비가 안 돼 있었다.
+그 대가를 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-8/&#34; &gt;#8&lt;/a&gt;에서 치른다.&lt;/p&gt;
+&lt;h2 id=&#34;전역-에러-바운더리&#34;&gt;
+    &lt;a href=&#34;#%ec%a0%84%ec%97%ad-%ec%97%90%eb%9f%ac-%eb%b0%94%ec%9a%b4%eb%8d%94%eb%a6%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    전역 에러 바운더리
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -170,16 +170,15 @@ AI가 생각하는 동안 화면이 멈춰 있으면 대화가 아니라 로딩�
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;&lt;code&gt;main.dart&lt;/code&gt; 에서 에러를 한 군데로 모음. 네트워크 실패든 파싱 실패든 사용자한테 보이는 건 한 형식.&lt;/p&gt;
-&lt;p&gt;묵상 중에 빨간 Flutter 에러 화면이 뜨면 그날 묵상은 끝임. 이건 기능이 아니라 &lt;strong&gt;분위기 문제&lt;/strong&gt;라서 처음부터 넣었음.&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
-&lt;/h2&gt;&lt;p&gt;48커밋을 한 번에 올린 건데, &lt;strong&gt;커밋을 잘게 쪼갠 게 나중에 읽기 좋았음.&lt;/strong&gt;
-&lt;code&gt;feat(core/theme)&lt;/code&gt;, &lt;code&gt;feat(domain)&lt;/code&gt;, &lt;code&gt;feat(data)&lt;/code&gt;, &lt;code&gt;feat(ui)&lt;/code&gt; 로 레이어를 접두사에 박아두니까 나중에 &amp;ldquo;이때 뭘 깔았지&amp;quot;가 로그만 봐도 보임.&lt;/p&gt;
-&lt;p&gt;그리고 &lt;strong&gt;화면보다 테마랑 라우터를 먼저 만든 순서&lt;/strong&gt;가 맞았음.
+&lt;p&gt;묵상 중에 빨간 Flutter 에러 화면이 뜨면 그날 묵상은 끝이다. 이건 기능이 아니라 &lt;strong&gt;분위기 문제&lt;/strong&gt;라서 처음부터 넣었다.&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
+&lt;/h2&gt;&lt;p&gt;48커밋을 한 번에 올린 건데, &lt;strong&gt;커밋을 잘게 쪼갠 게 나중에 읽기 좋았다.&lt;/strong&gt;
+&lt;code&gt;feat(core/theme)&lt;/code&gt;, &lt;code&gt;feat(domain)&lt;/code&gt;, &lt;code&gt;feat(data)&lt;/code&gt;, &lt;code&gt;feat(ui)&lt;/code&gt; 로 레이어를 접두사에 박아두니까 나중에 &amp;ldquo;이때 뭘 깔았지&amp;quot;가 로그만 봐도 보다.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;strong&gt;화면보다 테마랑 라우터를 먼저 만든 순서&lt;/strong&gt;가 맞았다.
 반대로 갔으면 화면 14개에 색이랑 네비게이션이 제각각 박혔을 것.&lt;/p&gt;
-&lt;p&gt;다음은 서버임. 앱은 있는데 부를 데가 없음.&lt;/p&gt;
-&lt;p&gt;#ABIDE #Flutter #CleanArchitecture #Riverpod #앱개발&lt;/p&gt;
+&lt;p&gt;다음은 서버다. 앱은 있는데 부를 데가 없다.&lt;/p&gt;
 </description>
         </item>
         

@@ -292,13 +292,13 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-노드-일곱-개">🕸️ 노드 일곱 개</a></li>
-    <li><a href="#-무한-루프를-막은-카운터">🔁 무한 루프를 막은 카운터</a></li>
-    <li><a href="#-llm-호출을-빼서-빨라짐">⚡ LLM 호출을 빼서 빨라짐</a></li>
-    <li><a href="#-rag는-pgvector로">📚 RAG는 pgvector로</a></li>
-    <li><a href="#-쿼터를-db에-박았음">🎟️ 쿼터를 DB에 박았음</a></li>
-    <li><a href="#-프롬프트는-커밋-안-함">🔐 프롬프트는 커밋 안 함</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#노드-일곱-개">노드 일곱 개</a></li>
+    <li><a href="#무한-루프를-막은-카운터">무한 루프를 막은 카운터</a></li>
+    <li><a href="#llm-호출을-빼서-빨라짐">LLM 호출을 빼서 빨라짐</a></li>
+    <li><a href="#rag는-pgvector로">RAG는 pgvector로</a></li>
+    <li><a href="#쿼터를-db에-박았음">쿼터를 DB에 박았음</a></li>
+    <li><a href="#프롬프트는-커밋-안-함">프롬프트는 커밋 안 함</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -385,15 +385,15 @@
     <h1 id="abide-개발-일지-3---답을-주지-않는-ai를-만들기">
     <a href="#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-3---%eb%8b%b5%ec%9d%84-%ec%a3%bc%ec%a7%80-%ec%95%8a%eb%8a%94-ai%eb%a5%bc-%eb%a7%8c%eb%93%a4%ea%b8%b0" class="header-anchor">#</a>
     ABIDE 개발 일지 #3 - 답을 주지 않는 AI를 만들기
-</h1><p><a class="link" href="https://dn5772.github.io/p/abide-2/" >#2</a>에서 만든 AI 서버의 본체임.</p>
-<p>이 앱의 어려운 점은 <strong>AI가 답을 잘 해주면 안 된다</strong>는 거임.</p>
-<p>&ldquo;이 구절 무슨 뜻이야?&rdquo; 에 바로 해설을 주면 그건 묵상이 아니라 검색임.
-되물어야 하는데, 끝없이 되물으면 사람이 지침. <strong>언제 되묻고 언제 정리할지</strong>를 판단해야 함.</p>
-<p>그래서 노드를 여러 개로 쪼갰음.</p>
-<h2 id="-노드-일곱-개">
-    <a href="#-%eb%85%b8%eb%93%9c-%ec%9d%bc%ea%b3%b1-%ea%b0%9c" class="header-anchor">#</a>
-    🕸️ 노드 일곱 개
-</h2><p>LangGraph로 Supervisor → Worker 패턴을 짰음.</p>
+</h1><p><a class="link" href="https://dn5772.github.io/p/abide-2/" >#2</a>에서 만든 AI 서버의 본체다.</p>
+<p>이 앱의 어려운 점은 <strong>AI가 답을 잘 해주면 안 된다</strong>는 거다.</p>
+<p>&ldquo;이 구절 무슨 뜻이야?&rdquo; 에 바로 해설을 주면 그건 묵상이 아니라 검색이다.
+되물어야 하는데, 끝없이 되물으면 사람이 지친다. <strong>언제 되묻고 언제 정리할지</strong>를 판단해야 한다.</p>
+<p>그래서 노드를 여러 개로 쪼갰다.</p>
+<h2 id="노드-일곱-개">
+    <a href="#%eb%85%b8%eb%93%9c-%ec%9d%bc%ea%b3%b1-%ea%b0%9c" class="header-anchor">#</a>
+    노드 일곱 개
+</h2><p>LangGraph로 Supervisor → Worker 패턴을 짰다.</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -432,14 +432,14 @@
 </tr>
 </tbody>
 </table></div>
-<p>핵심은 <strong>Observer랑 Supervisor의 관계</strong>임.</p>
-<p>Counselor가 계속 되묻기만 하면 대화가 안 끝남. Observer가 &ldquo;지금 깊이가 어느 정도인지&quot;를 점수로 매기고,
-Supervisor가 그 점수를 보고 <strong>더 파고들지 / 마무리로 갈지</strong>를 정함.</p>
-<p>이 판정 로직을 <a class="link" href="https://dn5772.github.io/p/abide-7/" >#7</a>에서 한참 고치게 됨. 첫 버전은 너무 빨리 &ldquo;깊어졌다&quot;고 판단했음.</p>
-<h2 id="-무한-루프를-막은-카운터">
-    <a href="#-%eb%ac%b4%ed%95%9c-%eb%a3%a8%ed%94%84%eb%a5%bc-%eb%a7%89%ec%9d%80-%ec%b9%b4%ec%9a%b4%ed%84%b0" class="header-anchor">#</a>
-    🔁 무한 루프를 막은 카운터
-</h2><p>15일 커밋에 이게 있음.</p>
+<p>핵심은 <strong>Observer랑 Supervisor의 관계</strong>이다.</p>
+<p>Counselor가 계속 되묻기만 하면 대화가 안 끝난다. Observer가 &ldquo;지금 깊이가 어느 정도인지&quot;를 점수로 매기고,
+Supervisor가 그 점수를 보고 <strong>더 파고들지 / 마무리로 갈지</strong>를 정한다.</p>
+<p>이 판정 로직을 <a class="link" href="https://dn5772.github.io/p/abide-7/" >#7</a>에서 한참 고치게 된다. 첫 버전은 너무 빨리 &ldquo;깊어졌다&quot;고 판단했다.</p>
+<h2 id="무한-루프를-막은-카운터">
+    <a href="#%eb%ac%b4%ed%95%9c-%eb%a3%a8%ed%94%84%eb%a5%bc-%eb%a7%89%ec%9d%80-%ec%b9%b4%ec%9a%b4%ed%84%b0" class="header-anchor">#</a>
+    무한 루프를 막은 카운터
+</h2><p>15일 커밋에 이게 있다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -448,14 +448,14 @@ Supervisor가 그 점수를 보고 <strong>더 파고들지 / 마무리로 갈�
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">feat: 노트 요청 처리 개선 및 wrap_up 반복 방지 카운터 추가; LLM 호출 시 HumanMessage로 변경
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>WrapUp</code> 이 <strong>자기 자신으로 다시 돌아가는</strong> 경우가 있었음.
-정리를 하고 끝내야 하는데 그래프가 다시 WrapUp을 고름. 사용자 입장에선 같은 마무리 인사를 두 번 세 번 받음.</p>
-<p>LLM 판단에만 맡기면 이런 게 생김. <strong>반복 횟수를 세는 카운터</strong>를 상태에 넣어서 끊었음.</p>
-<p>에이전트 그래프에서 LLM이 라우팅을 하면 편한데, <strong>종료 조건만큼은 코드로 박아야</strong> 하는 것 같음.</p>
-<h2 id="-llm-호출을-빼서-빨라짐">
-    <a href="#-llm-%ed%98%b8%ec%b6%9c%ec%9d%84-%eb%b9%bc%ec%84%9c-%eb%b9%a8%eb%9d%bc%ec%a7%90" class="header-anchor">#</a>
-    ⚡ LLM 호출을 빼서 빨라짐
-</h2><p>14일 첫 커밋이 이거임.</p>
+</div><p><code>WrapUp</code> 이 <strong>자기 자신으로 다시 돌아가는</strong> 경우가 있었다.
+정리를 하고 끝내야 하는데 그래프가 다시 WrapUp을 고른다. 사용자 입장에선 같은 마무리 인사를 두 번 세 번 받는다.</p>
+<p>LLM 판단에만 맡기면 이런 게 생긴다. <strong>반복 횟수를 세는 카운터</strong>를 상태에 넣어서 끊었다.</p>
+<p>에이전트 그래프에서 LLM이 라우팅을 하면 편한데, <strong>종료 조건만큼은 코드로 박아야</strong> 하는 것 같다.</p>
+<h2 id="llm-호출을-빼서-빨라짐">
+    <a href="#llm-%ed%98%b8%ec%b6%9c%ec%9d%84-%eb%b9%bc%ec%84%9c-%eb%b9%a8%eb%9d%bc%ec%a7%90" class="header-anchor">#</a>
+    LLM 호출을 빼서 빨라짐
+</h2><p>14일 첫 커밋이 이거다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -466,14 +466,14 @@ Supervisor가 그 점수를 보고 <strong>더 파고들지 / 마무리로 갈�
 </span></span><span class="line"><span class="cl">상태 관리 개선 및 API 키 검증 미들웨어 추가
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>LLM을 부르던 자리를 템플릿으로 바꿨음.</strong></p>
-<p>전부 LLM에 맡기면 코드는 단순한데 느리고 비쌈. 그런데 실제로 보면 <strong>LLM이 필요 없는 자리가 꽤 있었음.</strong>
-인사말, 상태 전이 안내, 고정 문구 같은 건 템플릿이면 충분함. 매번 생성할 이유가 없음.</p>
-<p><a class="link" href="https://dn5772.github.io/p/seam-6/" >seam</a>에서 복잡도 분류를 로컬 모델로 돌린 거랑 같은 얘기임.
-<strong>&ldquo;이 자리에 진짜 추론이 필요한가&rdquo;</strong> 를 매번 따지는 게 비용에서 제일 크게 먹힘.</p>
-<h2 id="-rag는-pgvector로">
-    <a href="#-rag%eb%8a%94-pgvector%eb%a1%9c" class="header-anchor">#</a>
-    📚 RAG는 pgvector로
+</div><p><strong>LLM을 부르던 자리를 템플릿으로 바꿨다.</strong></p>
+<p>전부 LLM에 맡기면 코드는 단순한데 느리고 비싼다. 그런데 실제로 보면 <strong>LLM이 필요 없는 자리가 꽤 있었다.</strong>
+인사말, 상태 전이 안내, 고정 문구 같은 건 템플릿이면 충분하다. 매번 생성할 이유가 없다.</p>
+<p><a class="link" href="https://dn5772.github.io/p/seam-6/" >seam</a>에서 복잡도 분류를 로컬 모델로 돌린 거랑 같은 얘기다.
+<strong>&ldquo;이 자리에 진짜 추론이 필요한가&rdquo;</strong> 를 매번 따지는 게 비용에서 제일 크게 먹힌다.</p>
+<h2 id="rag는-pgvector로">
+    <a href="#rag%eb%8a%94-pgvector%eb%a1%9c" class="header-anchor">#</a>
+    RAG는 pgvector로
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -482,14 +482,14 @@ Supervisor가 그 점수를 보고 <strong>더 파고들지 / 마무리로 갈�
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">feat: Implement Meditation Agent Nodes and RAG Service
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>신학 자료를 청크로 쪼개서 임베딩하고, 묵상 중에 관련 내용을 끌어옴.
-<a class="link" href="https://dn5772.github.io/p/abide-2/" >#2</a>에서 적었듯 별도 벡터 DB 없이 <strong>Postgres + pgvector</strong> 하나로 감.</p>
-<p>솔직하게 적으면 이 부분은 <strong>끝까지 완성 못 했음.</strong>
-신학 RAG 청크 129개는 만들어뒀는데, <code>theology_vectors</code> DB 시딩 스크립트를 안 썼음. CLAUDE.md에 그대로 &ldquo;미완료&quot;로 남아 있음.</p>
-<h2 id="-쿼터를-db에-박았음">
-    <a href="#-%ec%bf%bc%ed%84%b0%eb%a5%bc-db%ec%97%90-%eb%b0%95%ec%95%98%ec%9d%8c" class="header-anchor">#</a>
-    🎟️ 쿼터를 DB에 박았음
-</h2><p>AI 호출은 돈이 듦. 그래서 <a class="link" href="https://dn5772.github.io/p/abide-2/" >#2</a>의 Core 서버가 관문 역할을 하는데, 그 근거 테이블을 infra에 만들었음.</p>
+</div><p>신학 자료를 청크로 쪼개서 임베딩하고, 묵상 중에 관련 내용을 끌어온다.
+<a class="link" href="https://dn5772.github.io/p/abide-2/" >#2</a>에서 적었듯 별도 벡터 DB 없이 <strong>Postgres + pgvector</strong> 하나로 간다.</p>
+<p>솔직하게 적으면 이 부분은 <strong>끝까지 완성 못 했다.</strong>
+신학 RAG 청크 129개는 만들어뒀는데, <code>theology_vectors</code> DB 시딩 스크립트를 안 썼다. CLAUDE.md에 그대로 &ldquo;미완료&quot;로 남아 있다.</p>
+<h2 id="쿼터를-db에-박았음">
+    <a href="#%ec%bf%bc%ed%84%b0%eb%a5%bc-db%ec%97%90-%eb%b0%95%ec%95%98%ec%9d%8c" class="header-anchor">#</a>
+    쿼터를 DB에 박았음
+</h2><p>AI 호출은 돈이 듦. 그래서 <a class="link" href="https://dn5772.github.io/p/abide-2/" >#2</a>의 Core 서버가 관문 역할을 하는데, 그 근거 테이블을 infra에 만들었다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -498,12 +498,12 @@ Supervisor가 그 점수를 보고 <strong>더 파고들지 / 마무리로 갈�
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Add user quotas system and performance indexes for optimization
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>쿼터를 <strong>Redis가 아니라 Postgres에</strong> 뒀음. 정확도가 더 중요해서임.
-Redis가 재시작되면 쿼터가 초기화되는데, 그건 &ldquo;무제한 무료&quot;랑 같은 말임.</p>
-<p>DeepLens 쿼터는 30일에 200회로 잡았음. 나중에 <a class="link" href="https://dn5772.github.io/p/abide-7/" >#7</a> 즈음에 DB 캐시를 붙이면서 <strong>올렸음</strong> — 사전 계산된 걸 꺼내 쓰는 거면 호출 비용이 거의 안 드니까.</p>
-<h2 id="-프롬프트는-커밋-안-함">
-    <a href="#-%ed%94%84%eb%a1%ac%ed%94%84%ed%8a%b8%eb%8a%94-%ec%bb%a4%eb%b0%8b-%ec%95%88-%ed%95%a8" class="header-anchor">#</a>
-    🔐 프롬프트는 커밋 안 함
+</div><p>쿼터를 <strong>Redis가 아니라 Postgres에</strong> 뒀다. 정확도가 더 중요해서다.
+Redis가 재시작되면 쿼터가 초기화되는데, 그건 &ldquo;무제한 무료&quot;랑 같은 말이다.</p>
+<p>DeepLens 쿼터는 30일에 200회로 잡았다. 나중에 <a class="link" href="https://dn5772.github.io/p/abide-7/" >#7</a> 즈음에 DB 캐시를 붙이면서 <strong>올렸음</strong>. 사전 계산된 걸 꺼내 쓰는 거면 호출 비용이 거의 안 드니까.</p>
+<h2 id="프롬프트는-커밋-안-함">
+    <a href="#%ed%94%84%eb%a1%ac%ed%94%84%ed%8a%b8%eb%8a%94-%ec%bb%a4%eb%b0%8b-%ec%95%88-%ed%95%a8" class="header-anchor">#</a>
+    프롬프트는 커밋 안 함
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -514,19 +514,18 @@ Redis가 재시작되면 쿼터가 초기화되는데, 그건 &ldquo;무제한 �
 </span></span><span class="line"><span class="cl">servers/ai/app/private/     ← gitignored
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>프롬프트랑 일부 노드 구현을 저장소에서 뺐음.</p>
-<p>공개 레포는 아니지만 <strong>프롬프트가 이 앱의 실질적인 자산</strong>이라서 분리해뒀음.
-코드 구조는 공유해도 되는데 &ldquo;어떻게 되묻는지&quot;는 다름.</p>
-<p>CLAUDE.md에도 굵게 적어뒀음 — <em>never commit these.</em></p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p><strong>&ldquo;AI가 답을 안 하게 만드는 것&quot;이 답하게 만드는 것보다 훨씬 어려웠음.</strong></p>
-<p>되묻기만 하면 짜증나고, 답을 주면 묵상이 아님. 그 사이를 판단하는 게 Observer인데, 이게 이 프로젝트에서 제일 오래 붙든 부분이 됨.</p>
-<p>그리고 <strong>에이전트 그래프에서 종료 조건은 LLM한테 맡기면 안 됨.</strong>
-wrap_up 무한 반복이 그 증거였음. 흐름은 LLM이 잡아도 <strong>&ldquo;그만&quot;은 코드가 세야</strong> 함.</p>
-<p>다음은 로그인이랑 푸시임.</p>
-<p>#ABIDE #LangGraph #AI에이전트 #RAG #pgvector</p>
+</div><p>프롬프트랑 일부 노드 구현을 저장소에서 뺐다.</p>
+<p>공개 레포는 아니지만 <strong>프롬프트가 이 앱의 실질적인 자산</strong>이라서 분리해뒀다.
+코드 구조는 공유해도 되는데 &ldquo;어떻게 되묻는지&quot;는 다르다.</p>
+<p>CLAUDE.md에도 굵게 적어뒀다. <em>never commit these.</em></p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p><strong>&ldquo;AI가 답을 안 하게 만드는 것&quot;이 답하게 만드는 것보다 훨씬 어려웠다.</strong></p>
+<p>되묻기만 하면 짜증나고, 답을 주면 묵상이 아니다. 그 사이를 판단하는 게 Observer인데, 이게 이 프로젝트에서 제일 오래 붙든 부분이 된다.</p>
+<p>그리고 <strong>에이전트 그래프에서 종료 조건은 LLM한테 맡기면 안 된다.</strong>
+wrap_up 무한 반복이 그 증거였다. 흐름은 LLM이 잡아도 <strong>&ldquo;그만&quot;은 코드가 세야</strong> 한다.</p>
+<p>다음은 로그인이랑 푸시다.</p>
 
 </section>
 

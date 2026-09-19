@@ -292,12 +292,12 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-0에서-9까지">🎚️ 0에서 9까지</a></li>
-    <li><a href="#-복잡도는-누가-판정하나">🧠 복잡도는 누가 판정하나</a></li>
-    <li><a href="#-프로바이더-4개">🔀 프로바이더 4개</a></li>
-    <li><a href="#-메모리를-두-겹으로-나눴음">🧩 메모리를 두 겹으로 나눴음</a></li>
-    <li><a href="#-키체인-조회-두-번">🔑 키체인 조회 두 번</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#0에서-9까지">0에서 9까지</a></li>
+    <li><a href="#복잡도는-누가-판정하나">복잡도는 누가 판정하나</a></li>
+    <li><a href="#프로바이더-4개">프로바이더 4개</a></li>
+    <li><a href="#메모리를-두-겹으로-나눴음">메모리를 두 겹으로 나눴음</a></li>
+    <li><a href="#키체인-조회-두-번">키체인 조회 두 번</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -384,13 +384,13 @@
     <h1 id="seam-개발-일지-6---비용과-품질을-슬라이더-하나로">
     <a href="#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-6---%eb%b9%84%ec%9a%a9%ea%b3%bc-%ed%92%88%ec%a7%88%ec%9d%84-%ec%8a%ac%eb%9d%bc%ec%9d%b4%eb%8d%94-%ed%95%98%eb%82%98%eb%a1%9c" class="header-anchor">#</a>
     seam 개발 일지 #6 - 비용과 품질을 슬라이더 하나로
-</h1><p><a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>의 핵심 아이디어 5개 중 두 번째가 <strong>&ldquo;LLM 추상화 — 사용자는 모델을 몰라도 된다&rdquo;</strong> 였음.</p>
-<p>말은 좋은데 막상 구현하려니까 문제가 있음. <strong>사용자가 모델을 모르면, 비싼 모델을 써도 모름.</strong>
-알아서 골라주는 게 좋다가도, 청구서를 보면 얘기가 달라짐.</p>
-<p>그래서 <strong>슬라이더 하나</strong>로 풀었음.</p>
-<h2 id="-0에서-9까지">
-    <a href="#-0%ec%97%90%ec%84%9c-9%ea%b9%8c%ec%a7%80" class="header-anchor">#</a>
-    🎚️ 0에서 9까지
+</h1><p><a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>의 핵심 아이디어 5개 중 두 번째가 <strong>&ldquo;LLM 추상화. 사용자는 모델을 몰라도 된다&rdquo;</strong> 였다.</p>
+<p>말은 좋은데 막상 구현하려니까 문제가 있다. <strong>사용자가 모델을 모르면, 비싼 모델을 써도 모른다.</strong>
+알아서 골라주는 게 좋다가도, 청구서를 보면 얘기가 달라진다.</p>
+<p>그래서 <strong>슬라이더 하나</strong>로 풀었다.</p>
+<h2 id="0에서-9까지">
+    <a href="#0%ec%97%90%ec%84%9c-9%ea%b9%8c%ec%a7%80" class="header-anchor">#</a>
+    0에서 9까지
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -425,9 +425,9 @@
 </tr>
 </tbody>
 </table></div>
-<p>&ldquo;어떤 모델 쓸래?&rdquo; 대신 <strong>&ldquo;돈이랑 품질 중에 어디에 가까울래?&rdquo;</strong> 를 물음.
-모델 이름은 계속 몰라도 되는데, 비용 방향은 내가 쥐고 있음.</p>
-<p>값은 <code>~/.seam/config.toml</code> 에 들어가고, 범위를 벗어나면 0~9로 잘라냄.</p>
+<p>&ldquo;어떤 모델 쓸래?&rdquo; 대신 <strong>&ldquo;돈이랑 품질 중에 어디에 가까울래?&rdquo;</strong> 를 묻는다.
+모델 이름은 계속 몰라도 되는데, 비용 방향은 내가 쥐고 있다.</p>
+<p>값은 <code>~/.seam/config.toml</code> 에 들어가고, 범위를 벗어나면 0~9로 잘라낸다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -436,13 +436,13 @@
 <pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="mi">22</span><span class="p">:</span><span class="mi">29</span>  <span class="n">fix</span><span class="p">:</span> <span class="n">add</span> <span class="n">Clone</span> <span class="n">to</span> <span class="n">SeamAppConfig</span><span class="p">,</span> <span class="nb">clamp</span> <span class="n">router_slider</span> <span class="n">to</span> <span class="mi">0</span><span class="o">-</span><span class="mi">9</span> <span class="n">on</span> <span class="nb">load</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>설정 파일은 사람이 손으로 고칠 수 있으니까 <code>router_slider = 42</code> 가 들어올 수 있음. 읽을 때 캡핑함.</p>
-<h2 id="-복잡도는-누가-판정하나">
-    <a href="#-%eb%b3%b5%ec%9e%a1%eb%8f%84%eb%8a%94-%eb%88%84%ea%b0%80-%ed%8c%90%ec%a0%95%ed%95%98%eb%82%98" class="header-anchor">#</a>
-    🧠 복잡도는 누가 판정하나
-</h2><p>슬라이더만으론 부족함. &ldquo;이 요청이 간단한가 복잡한가&quot;를 알아야 3~8 구간에서 갈래를 탈 수 있음.</p>
-<p>근데 <strong>복잡도를 판정하려고 GPT-4를 부르면 본말전도</strong>임. 판정 비용이 실행 비용보다 비쌀 수 있음.</p>
-<p>그래서 <strong>로컬 Ollama 소형 모델</strong>한테 시킴.</p>
+</div><p>설정 파일은 사람이 손으로 고칠 수 있으니까 <code>router_slider = 42</code> 가 들어올 수 있다. 읽을 때 캡핑한다.</p>
+<h2 id="복잡도는-누가-판정하나">
+    <a href="#%eb%b3%b5%ec%9e%a1%eb%8f%84%eb%8a%94-%eb%88%84%ea%b0%80-%ed%8c%90%ec%a0%95%ed%95%98%eb%82%98" class="header-anchor">#</a>
+    복잡도는 누가 판정하나
+</h2><p>슬라이더만으론 부족하다. &ldquo;이 요청이 간단한가 복잡한가&quot;를 알아야 3~8 구간에서 갈래를 탈 수 있다.</p>
+<p>근데 <strong>복잡도를 판정하려고 GPT-4를 부르면 본말전도</strong>이다. 판정 비용이 실행 비용보다 비쌀 수 있다.</p>
+<p>그래서 <strong>로컬 Ollama 소형 모델</strong>한테 시킨다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -455,7 +455,7 @@
 </span></span><span class="line"><span class="cl">타임아웃: 5초
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Ollama가 안 떠 있거나 느리면 <strong>휴리스틱으로 폴백</strong>함. 텍스트 길이 기준.</p>
+</div><p>Ollama가 안 떠 있거나 느리면 <strong>휴리스틱으로 폴백</strong>한다. 텍스트 길이 기준.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -464,12 +464,12 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">22:20  feat: implement Ollama complexity classifier with heuristic fallback
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>이 폴백이 꼭 필요했던 게, <strong>분류기가 전체 파이프라인의 단일 장애점이 되면 안 되기 때문</strong>임.
-Ollama를 안 깐 사람도 seam을 쓸 수 있어야 함. 라우팅 품질만 떨어지고 동작은 해야 함.</p>
-<p><a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>에서 &ldquo;Gateway가 죽어도 앱은 돌아가야 한다&quot;고 적었던 거랑 같은 원칙임.</p>
-<h2 id="-프로바이더-4개">
-    <a href="#-%ed%94%84%eb%a1%9c%eb%b0%94%ec%9d%b4%eb%8d%94-4%ea%b0%9c" class="header-anchor">#</a>
-    🔀 프로바이더 4개
+</div><p>이 폴백이 꼭 필요했던 게, <strong>분류기가 전체 파이프라인의 단일 장애점이 되면 안 되기 때문</strong>이다.
+Ollama를 안 깐 사람도 seam을 쓸 수 있어야 한다. 라우팅 품질만 떨어지고 동작은 해야 한다.</p>
+<p><a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>에서 &ldquo;Gateway가 죽어도 앱은 돌아가야 한다&quot;고 적었던 거랑 같은 원칙이다.</p>
+<h2 id="프로바이더-4개">
+    <a href="#%ed%94%84%eb%a1%9c%eb%b0%94%ec%9d%b4%eb%8d%94-4%ea%b0%9c" class="header-anchor">#</a>
+    프로바이더 4개
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -478,7 +478,7 @@ Ollama를 안 깐 사람도 seam을 쓸 수 있어야 함. 라우팅 품질만 �
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Anthropic · OpenAI · Google · Ollama
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>라우팅 표가 (복잡도 × 슬라이더) → 프로바이더 + 모델로 가는데, <strong>선택된 프로바이더에 키가 없으면</strong> 다음으로 넘어감.</p>
+</div><p>라우팅 표가 (복잡도 × 슬라이더) → 프로바이더 + 모델로 가는데, <strong>선택된 프로바이더에 키가 없으면</strong> 다음으로 넘어간다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -493,12 +493,12 @@ Ollama를 안 깐 사람도 seam을 쓸 수 있어야 함. 라우팅 품질만 �
 </span></span><span class="line"><span class="cl">03-27 01:44  feat: proxy_handler — router 연동, 4개 프로바이더, shared memory 주입
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>Google을 나중에 끼워넣었는데, <code>medium</code> 등급 모델이 비어 있어서 폴백 체인이 중간에 끊겼음.
-<strong>세 단계(simple/medium/complex)를 프로바이더마다 다 채워야</strong> 표가 완성됨.</p>
-<h2 id="-메모리를-두-겹으로-나눴음">
-    <a href="#-%eb%a9%94%eb%aa%a8%eb%a6%ac%eb%a5%bc-%eb%91%90-%ea%b2%b9%ec%9c%bc%eb%a1%9c-%eb%82%98%eb%88%b4%ec%9d%8c" class="header-anchor">#</a>
-    🧩 메모리를 두 겹으로 나눴음
-</h2><p>같은 날 밤에 메모리도 갈랐음.</p>
+</div><p>Google을 나중에 끼워넣었는데, <code>medium</code> 등급 모델이 비어 있어서 폴백 체인이 중간에 끊겼다.
+<strong>세 단계(simple/medium/complex)를 프로바이더마다 다 채워야</strong> 표가 완성된다.</p>
+<h2 id="메모리를-두-겹으로-나눴음">
+    <a href="#%eb%a9%94%eb%aa%a8%eb%a6%ac%eb%a5%bc-%eb%91%90-%ea%b2%b9%ec%9c%bc%eb%a1%9c-%eb%82%98%eb%88%b4%ec%9d%8c" class="header-anchor">#</a>
+    메모리를 두 겹으로 나눴음
+</h2><p>같은 날 밤에 메모리도 갈랐다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -509,9 +509,9 @@ Ollama를 안 깐 사람도 seam을 쓸 수 있어야 함. 라우팅 품질만 �
 </span></span><span class="line"><span class="cl">shared.jsonl     shared   — 글로벌. &#34;툴들이 같이 아는 것&#34;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>에서 &ldquo;code editor에서 한 작업을 planner가 안다&quot;고 했던 게 이 <code>shared</code> 레이어임.
-그냥 다 공유하면 될 것 같은데 그러면 안 되는 게, <strong>환경마다 관련 없는 맥락이 섞임.</strong></p>
-<p>백엔드 환경에서 한 작업이 영상 편집 환경 프롬프트에 끼어들면 노이즈임. 토큰도 낭비고.</p>
+</div><p><a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>에서 &ldquo;code editor에서 한 작업을 planner가 안다&quot;고 했던 게 이 <code>shared</code> 레이어다.
+그냥 다 공유하면 될 것 같은데 그러면 안 되는 게, <strong>환경마다 관련 없는 맥락이 섞이다.</strong></p>
+<p>백엔드 환경에서 한 작업이 영상 편집 환경 프롬프트에 끼어들면 노이즈다. 토큰도 낭비고.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -524,7 +524,7 @@ Ollama를 안 깐 사람도 seam을 쓸 수 있어야 함. 라우팅 품질만 �
 </span></span><span class="line"><span class="cl"><span class="mi">22</span><span class="p">:</span><span class="mi">41</span>  <span class="n">feat</span><span class="p">:</span> <span class="n">wire</span> <span class="n">SharedStore</span> <span class="o">+</span> <span class="n">RouterState</span> <span class="n">into</span> <span class="n">gateway</span> <span class="n">daemon</span> <span class="p">(</span><span class="n">seam</span> <span class="mf">0.6</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>그래서 <strong>저장할 때 어디에 넣을지를 고르게</strong> 함. IPC에 핸들러를 따로 뒀음.</p>
+</div><p>그래서 <strong>저장할 때 어디에 넣을지를 고르게</strong> 한다. IPC에 핸들러를 따로 뒀다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -544,9 +544,9 @@ Ollama를 안 깐 사람도 seam을 쓸 수 있어야 함. 라우팅 품질만 �
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">03-27 01:41  feat: inject에 format_combined_context() 추가 (episodic + shared 결합)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="-키체인-조회-두-번">
-    <a href="#-%ed%82%a4%ec%b2%b4%ec%9d%b8-%ec%a1%b0%ed%9a%8c-%eb%91%90-%eb%b2%88" class="header-anchor">#</a>
-    🔑 키체인 조회 두 번
+</div><h2 id="키체인-조회-두-번">
+    <a href="#%ed%82%a4%ec%b2%b4%ec%9d%b8-%ec%a1%b0%ed%9a%8c-%eb%91%90-%eb%b2%88" class="header-anchor">#</a>
+    키체인 조회 두 번
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -555,18 +555,17 @@ Ollama를 안 깐 사람도 seam을 쓸 수 있어야 함. 라우팅 품질만 �
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">22:44  fix: fetch openai key once and reuse instead of double keychain lookup
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>작은 건데, 요청 하나 처리하면서 <strong>OS 키체인을 두 번 조회</strong>하고 있었음.
-macOS 키체인 접근은 생각보다 안 싸고, 프록시는 요청마다 도는 경로라서 그대로 지연이 됨.</p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p><strong>&ldquo;알아서 해준다&quot;에는 항상 통제 손잡이가 하나 필요한 것 같음.</strong></p>
-<p>모델 선택을 완전히 자동화하면 편한데, 사용자가 통제감을 잃음.
-모델 이름을 다 보여주면 통제는 되는데 <a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>의 문제로 되돌아감.</p>
-<p>슬라이더 하나가 그 사이 절충이었음. <strong>추상화는 유지하되, 사용자가 신경 쓰는 축(비용)만 노출.</strong></p>
-<p>그리고 분류기를 로컬 모델로 돌린 게 좋았음. 판정이 공짜라서 <strong>모든 요청에 다 걸 수 있음.</strong>
+</div><p>작은 건데, 요청 하나 처리하면서 <strong>OS 키체인을 두 번 조회</strong>하고 있었다.
+macOS 키체인 접근은 생각보다 안 싸고, 프록시는 요청마다 도는 경로라서 그대로 지연이 된다.</p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p><strong>&ldquo;알아서 해준다&quot;에는 항상 통제 손잡이가 하나 필요한 것 같다.</strong></p>
+<p>모델 선택을 완전히 자동화하면 편한데, 사용자가 통제감을 잃는다.
+모델 이름을 다 보여주면 통제는 되는데 <a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>의 문제로 되돌아간다.</p>
+<p>슬라이더 하나가 그 사이 절충이었다. <strong>추상화는 유지하되, 사용자가 신경 쓰는 축(비용)만 노출.</strong></p>
+<p>그리고 분류기를 로컬 모델로 돌린 게 좋았다. 판정이 공짜라서 <strong>모든 요청에 다 걸 수 있다.</strong>
 API를 불렀으면 &ldquo;복잡도 판정할 가치가 있는 요청인가&quot;를 또 판단해야 했을 것.</p>
-<p>#seam #라우팅 #Ollama #LLM #비용</p>
 
 </section>
 

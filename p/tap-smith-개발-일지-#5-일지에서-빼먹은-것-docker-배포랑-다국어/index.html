@@ -292,12 +292,12 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-왜-처음부터-docker였나">🐳 왜 처음부터 Docker였나</a></li>
-    <li><a href="#-dockerfile---멀티스테이지--비루트">📦 Dockerfile - 멀티스테이지 + 비루트</a></li>
-    <li><a href="#-db가-준비될-때까지-기다리게-하기">⏳ DB가 준비될 때까지 기다리게 하기</a></li>
-    <li><a href="#-nginx---굳이-왜-끼웠나">🔀 nginx - 굳이 왜 끼웠나</a></li>
-    <li><a href="#-프론트-다국어">🌏 프론트 다국어</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#왜-처음부터-docker였나">왜 처음부터 Docker였나</a></li>
+    <li><a href="#dockerfile---멀티스테이지--비루트">Dockerfile - 멀티스테이지 + 비루트</a></li>
+    <li><a href="#db가-준비될-때까지-기다리게-하기">DB가 준비될 때까지 기다리게 하기</a></li>
+    <li><a href="#nginx---굳이-왜-끼웠나">nginx - 굳이 왜 끼웠나</a></li>
+    <li><a href="#프론트-다국어">프론트 다국어</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -384,14 +384,14 @@
     <h1 id="tap-smith-개발-일지-5---일지에서-빼먹은-것">
     <a href="#tap-smith-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-5---%ec%9d%bc%ec%a7%80%ec%97%90%ec%84%9c-%eb%b9%bc%eb%a8%b9%ec%9d%80-%ea%b2%83" class="header-anchor">#</a>
     Tap Smith 개발 일지 #5 - 일지에서 빼먹은 것
-</h1><p>지난 네 편이 API → 인증 → DB 테스트 → 일일 미션 순서로 갔는데, 정작 <strong>제일 먼저 만들어둔 것들</strong>을 건너뛰었음.
-1월 31일 ~ 2월 1일에 해둔 배포 구성이랑 다국어. 오늘 몰아서 정리함.</p>
-<h2 id="-왜-처음부터-docker였나">
-    <a href="#-%ec%99%9c-%ec%b2%98%ec%9d%8c%eb%b6%80%ed%84%b0-docker%ec%98%80%eb%82%98" class="header-anchor">#</a>
-    🐳 왜 처음부터 Docker였나
-</h2><p>로컬에 MySQL 깔기가 싫었음. 그게 다임.</p>
-<p>Node 버전도 팀마다 다를 거고, MySQL 8.4를 로컬에 깔면 나중에 지우기도 귀찮음. 그래서 처음부터 <code>docker-compose up -d</code> 한 방으로 끝나게 만들어둠.</p>
-<p>컨테이너 3개임.</p>
+</h1><p>지난 네 편이 API → 인증 → DB 테스트 → 일일 미션 순서로 갔는데, 정작 <strong>제일 먼저 만들어둔 것들</strong>을 건너뛰었다.
+1월 31일 ~ 2월 1일에 해둔 배포 구성이랑 다국어. 오늘 몰아서 정리한다.</p>
+<h2 id="왜-처음부터-docker였나">
+    <a href="#%ec%99%9c-%ec%b2%98%ec%9d%8c%eb%b6%80%ed%84%b0-docker%ec%98%80%eb%82%98" class="header-anchor">#</a>
+    왜 처음부터 Docker였나
+</h2><p>로컬에 MySQL 깔기가 싫었다. 그게 다다.</p>
+<p>Node 버전도 팀마다 다를 거고, MySQL 8.4를 로컬에 깔면 나중에 지우기도 귀찮다. 그래서 처음부터 <code>docker-compose up -d</code> 한 방으로 끝나게 만들어뒀다.</p>
+<p>컨테이너 3개다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -400,9 +400,9 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">nginx (80)  ──▶  app (3000, 내부만)  ──▶  db (MySQL 8.4)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="-dockerfile---멀티스테이지--비루트">
-    <a href="#-dockerfile---%eb%a9%80%ed%8b%b0%ec%8a%a4%ed%85%8c%ec%9d%b4%ec%a7%80--%eb%b9%84%eb%a3%a8%ed%8a%b8" class="header-anchor">#</a>
-    📦 Dockerfile - 멀티스테이지 + 비루트
+</div><h2 id="dockerfile---멀티스테이지--비루트">
+    <a href="#dockerfile---%eb%a9%80%ed%8b%b0%ec%8a%a4%ed%85%8c%ec%9d%b4%ec%a7%80--%eb%b9%84%eb%a3%a8%ed%8a%b8" class="header-anchor">#</a>
+    Dockerfile - 멀티스테이지 + 비루트
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -460,16 +460,16 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>신경 쓴 거 세 가지.</p>
-<p><strong>1. <code>dumb-init</code>.</strong> Node를 PID 1로 띄우면 시그널 처리가 제대로 안 됨.
-<code>docker-compose down</code> 할 때 SIGTERM이 안 먹어서 10초 기다렸다가 강제 종료되는 그 현상. <code>dumb-init</code> 을 ENTRYPOINT에 끼우면 깔끔하게 내려감.</p>
-<p><strong>2. 비루트 유저.</strong> 컨테이너 안에서 root로 돌 이유가 없음. <code>nodejs</code> 유저 만들어서 그걸로 실행.</p>
-<p><strong>3. HEALTHCHECK.</strong> 이게 다음 항목이랑 연결됨.</p>
-<h2 id="-db가-준비될-때까지-기다리게-하기">
-    <a href="#-db%ea%b0%80-%ec%a4%80%eb%b9%84%eb%90%a0-%eb%95%8c%ea%b9%8c%ec%a7%80-%ea%b8%b0%eb%8b%a4%eb%a6%ac%ea%b2%8c-%ed%95%98%ea%b8%b0" class="header-anchor">#</a>
-    ⏳ DB가 준비될 때까지 기다리게 하기
-</h2><p>처음에 <code>depends_on: - db</code> 만 걸었더니 API가 계속 죽었음.
-<strong><code>depends_on</code> 은 컨테이너가 &ldquo;시작&quot;되기만 기다리지, MySQL이 실제로 쿼리를 받을 준비가 됐는지는 안 봄.</strong> MySQL은 첫 부팅에 초기화를 하느라 수십 초가 걸림.</p>
-<p>그래서 헬스체크를 걸고 <code>service_healthy</code> 를 조건으로 줌.</p>
+<p><strong>1. <code>dumb-init</code>.</strong> Node를 PID 1로 띄우면 시그널 처리가 제대로 안 된다.
+<code>docker-compose down</code> 할 때 SIGTERM이 안 먹어서 10초 기다렸다가 강제 종료되는 그 현상. <code>dumb-init</code> 을 ENTRYPOINT에 끼우면 깔끔하게 내려간다.</p>
+<p><strong>2. 비루트 유저.</strong> 컨테이너 안에서 root로 돌 이유가 없다. <code>nodejs</code> 유저 만들어서 그걸로 실행.</p>
+<p><strong>3. HEALTHCHECK.</strong> 이게 다음 항목이랑 연결된다.</p>
+<h2 id="db가-준비될-때까지-기다리게-하기">
+    <a href="#db%ea%b0%80-%ec%a4%80%eb%b9%84%eb%90%a0-%eb%95%8c%ea%b9%8c%ec%a7%80-%ea%b8%b0%eb%8b%a4%eb%a6%ac%ea%b2%8c-%ed%95%98%ea%b8%b0" class="header-anchor">#</a>
+    DB가 준비될 때까지 기다리게 하기
+</h2><p>처음에 <code>depends_on: - db</code> 만 걸었더니 API가 계속 죽었다.
+<strong><code>depends_on</code> 은 컨테이너가 &ldquo;시작&quot;되기만 기다리지, MySQL이 실제로 쿼리를 받을 준비가 됐는지는 안 본다.</strong> MySQL은 첫 부팅에 초기화를 하느라 수십 초가 걸린다.</p>
+<p>그래서 헬스체크를 걸고 <code>service_healthy</code> 를 조건으로 준다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -498,11 +498,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>이거 하고 나서 <code>docker-compose up</code> 한 번에 깔끔하게 뜸. <a class="link" href="https://dn5772.github.io/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%233-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%97%B0%EB%8F%99-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%99%84%EB%A3%8C/" >#3편</a>에서 &ldquo;스키마 자동 생성도 깔끔하게 끝남&quot;이라고 썼던 게 사실 이 구성 덕분이었음.</p>
-<h2 id="-nginx---굳이-왜-끼웠나">
-    <a href="#-nginx---%ea%b5%b3%ec%9d%b4-%ec%99%9c-%eb%81%bc%ec%9b%a0%eb%82%98" class="header-anchor">#</a>
-    🔀 nginx - 굳이 왜 끼웠나
-</h2><p>API 하나 띄우는데 리버스 프록시까지 필요한가 싶었는데, 넣어두니까 편한 게 꽤 있었음.</p>
+</div><p>이거 하고 나서 <code>docker-compose up</code> 한 번에 깔끔하게 뜬다. <a class="link" href="https://dn5772.github.io/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%233-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%97%B0%EB%8F%99-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%99%84%EB%A3%8C/" >#3편</a>에서 &ldquo;스키마 자동 생성도 깔끔하게 끝남&quot;이라고 썼던 게 사실 이 구성 덕분이었다.</p>
+<h2 id="nginx---굳이-왜-끼웠나">
+    <a href="#nginx---%ea%b5%b3%ec%9d%b4-%ec%99%9c-%eb%81%bc%ec%9b%a0%eb%82%98" class="header-anchor">#</a>
+    nginx - 굳이 왜 끼웠나
+</h2><p>API 하나 띄우는데 리버스 프록시까지 필요한가 싶었는데, 넣어두니까 편한 게 꽤 있었다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -562,17 +562,17 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li><strong>app을 외부에 노출 안 함.</strong> <code>ports</code> 가 아니라 <code>expose</code> 라서 3000번은 컨테이너 네트워크 안에서만 열림. 밖에서 닿는 건 nginx의 80뿐임.</li>
-<li><strong>보안 헤더를 앱 코드에서 뺄 수 있음.</strong> Fastify에서 매번 붙이는 것보다 여기 한 번 적는 게 나음.</li>
-<li><strong>Gzip이랑 keepalive.</strong> <code>proxy_http_version 1.1</code> + <code>Connection &quot;&quot;</code> 조합으로 업스트림 커넥션을 재사용함.</li>
-<li><strong><code>/health</code> 는 access_log 끔.</strong> 30초마다 찍히는 헬스체크 로그로 access.log가 도배되는 걸 막음.</li>
+<li><strong>app을 외부에 노출 안 한다.</strong> <code>ports</code> 가 아니라 <code>expose</code> 라서 3000번은 컨테이너 네트워크 안에서만 열린다. 밖에서 닿는 건 nginx의 80뿐이다.</li>
+<li><strong>보안 헤더를 앱 코드에서 뺄 수 있다.</strong> Fastify에서 매번 붙이는 것보다 여기 한 번 적는 게 낫다.</li>
+<li><strong>Gzip이랑 keepalive.</strong> <code>proxy_http_version 1.1</code> + <code>Connection &quot;&quot;</code> 조합으로 업스트림 커넥션을 재사용한다.</li>
+<li><strong><code>/health</code> 는 access_log 끈다.</strong> 30초마다 찍히는 헬스체크 로그로 access.log가 도배되는 걸 막는다.</li>
 </ul>
-<p>나중에 HTTPS 붙일 때도 앱은 안 건드리고 nginx만 고치면 됨.</p>
-<h2 id="-프론트-다국어">
-    <a href="#-%ed%94%84%eb%a1%a0%ed%8a%b8-%eb%8b%a4%ea%b5%ad%ec%96%b4" class="header-anchor">#</a>
-    🌏 프론트 다국어
-</h2><p>게임 UI 문자열은 <code>front/locales/ko.json</code>, <code>en.json</code> 로 분리함.
-키는 화면 단위로 네임스페이스를 줬음.</p>
+<p>나중에 HTTPS 붙일 때도 앱은 안 건드리고 nginx만 고치면 된다.</p>
+<h2 id="프론트-다국어">
+    <a href="#%ed%94%84%eb%a1%a0%ed%8a%b8-%eb%8b%a4%ea%b5%ad%ec%96%b4" class="header-anchor">#</a>
+    프론트 다국어
+</h2><p>게다 UI 문자열은 <code>front/locales/ko.json</code>, <code>en.json</code> 로 분리한다.
+키는 화면 단위로 네임스페이스를 줬다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -595,17 +595,16 @@
 </span></span><span class="line"><span class="cl"><span class="s2">&#34;missions.checkinHint&#34;</span><span class="o">:</span> <span class="s2">&#34;Once per day&#34;</span><span class="p">,</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>i18n.js</code> 안에 <strong>fallback 딕셔너리를 통째로 들고 있음.</strong> 로케일 JSON을 못 불러와도 UI가 빈 칸으로 뜨지 않게 하려고.
-Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 수 있어서 이렇게 둠.</p>
-<p>Telegram은 <code>initDataUnsafe.user.language_code</code> 로 유저 언어를 알려주니까, 첫 접속 때 그걸로 기본 언어를 정함.</p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
+</div><p><code>i18n.js</code> 안에 <strong>fallback 딕셔너리를 통째로 들고 있다.</strong> 로케일 JSON을 못 불러와도 UI가 빈 칸으로 뜨지 않게 하려고.
+Telegram Mini App이라 네트워크가 불안정한 상황이 충분히 있을 수 있어서 이렇게 둔다.</p>
+<p>Telegram은 <code>initDataUnsafe.user.language_code</code> 로 유저 언어를 알려주니까, 첫 접속 때 그걸로 기본 언어를 정한다.</p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
 </h2><p>배포 구성은 만들 땐 지루한데 나중에 제일 고마운 부분인 듯.
-<a class="link" href="https://dn5772.github.io/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%233-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%97%B0%EB%8F%99-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%99%84%EB%A3%8C/" >#3편</a>에서 DB 테스트 10개가 655ms만에 다 통과한 것도, 사실 그 전에 <code>docker-compose up</code> 한 방으로 MySQL이 스키마랑 더미 데이터까지 들고 뜨게 해둔 덕분이었음.</p>
-<p><code>depends_on</code> 이 &ldquo;준비됨&quot;을 보장 안 한다는 건 이번에 제대로 알았음. healthcheck랑 <code>service_healthy</code> 세트로 기억해둬야 할 듯.</p>
-<p>다음엔 Telegram Mini App 실제 배포하면서 겪은 것들 써보겠음!</p>
-<p>#TapSmith #Docker #nginx #MySQL #다국어 #배포</p>
+<a class="link" href="https://dn5772.github.io/p/tap-smith-%EA%B0%9C%EB%B0%9C-%EC%9D%BC%EC%A7%80-%233-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%97%B0%EB%8F%99-%ED%85%8C%EC%8A%A4%ED%8A%B8-%EC%99%84%EB%A3%8C/" >#3편</a>에서 DB 테스트 10개가 655ms만에 다 통과한 것도, 사실 그 전에 <code>docker-compose up</code> 한 방으로 MySQL이 스키마랑 더미 데이터까지 들고 뜨게 해둔 덕분이었다.</p>
+<p><code>depends_on</code> 이 &ldquo;준비됨&quot;을 보장 안 한다는 건 이번에 제대로 알았다. healthcheck랑 <code>service_healthy</code> 세트로 기억해둬야 할 듯.</p>
+<p>다음엔 Telegram Mini App 실제 배포하면서 겪은 것들 써보겠다!</p>
 
 </section>
 

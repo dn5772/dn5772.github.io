@@ -292,18 +292,18 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-왜-rust인가">🦀 왜 Rust인가</a></li>
-    <li><a href="#-15121533--뼈대">🧱 15:12~15:33 — 뼈대</a>
+    <li><a href="#왜-rust인가">왜 Rust인가</a></li>
+    <li><a href="#15121533--뼈대">15:12~15:33 — 뼈대</a>
       <ol>
         <li><a href="#api-키는-os-키체인에">API 키는 OS 키체인에</a></li>
         <li><a href="#스토리지는-sql-없이-jsonl">스토리지는 SQL 없이 JSONL</a></li>
       </ol>
     </li>
-    <li><a href="#-15351543--프로세스-관리">⚙️ 15:35~15:43 — 프로세스 관리</a></li>
-    <li><a href="#-15431717--cli-서브커맨드">🖥️ 15:43~17:17 — CLI 서브커맨드</a></li>
-    <li><a href="#-17191728--이미지랑-레지스트리">📦 17:19~17:28 — 이미지랑 레지스트리</a></li>
-    <li><a href="#-17341737--마무리">🔌 17:34~17:37 — 마무리</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#15351543--프로세스-관리">15:35~15:43 — 프로세스 관리</a></li>
+    <li><a href="#15431717--cli-서브커맨드">15:43~17:17 — CLI 서브커맨드</a></li>
+    <li><a href="#17191728--이미지랑-레지스트리">17:19~17:28 — 이미지랑 레지스트리</a></li>
+    <li><a href="#17341737--마무리">17:34~17:37 — 마무리</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -390,8 +390,8 @@
     <h1 id="seam-개발-일지-3---rust-cli를-2시간-25분에-밀어넣었음">
     <a href="#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-3---rust-cli%eb%a5%bc-2%ec%8b%9c%ea%b0%84-25%eb%b6%84%ec%97%90-%eb%b0%80%ec%96%b4%eb%84%a3%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
     seam 개발 일지 #3 - Rust CLI를 2시간 25분에 밀어넣었음
-</h1><p><a class="link" href="https://dn5772.github.io/p/seam-2/" >#2</a>에서 <code>seam.yaml</code> 로 방향을 잡고, 바로 Rust로 짜기 시작했음.</p>
-<p>커밋 시각을 보면 이럼.</p>
+</h1><p><a class="link" href="https://dn5772.github.io/p/seam-2/" >#2</a>에서 <code>seam.yaml</code> 로 방향을 잡고, 바로 Rust로 짜기 시작했다.</p>
+<p>커밋 시각을 보면 이런다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -404,11 +404,11 @@
 </span></span><span class="line"><span class="cl">17:37  fix: propagate proxy body read errors as 502, wire journal writes
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>2시간 25분에 커밋 18개.</strong> 론칭 계획에는 이 범위가 <code>M+0 ~ M+3</code>, 그러니까 3개월로 잡혀 있었음.</p>
-<h2 id="-왜-rust인가">
-    <a href="#-%ec%99%9c-rust%ec%9d%b8%ea%b0%80" class="header-anchor">#</a>
-    🦀 왜 Rust인가
-</h2><p>단일 바이너리로 떨어지는 게 제일 컸음.</p>
+</div><p><strong>2시간 25분에 커밋 18개.</strong> 론칭 계획에는 이 범위가 <code>M+0 ~ M+3</code>, 그러니까 3개월로 잡혀 있었다.</p>
+<h2 id="왜-rust인가">
+    <a href="#%ec%99%9c-rust%ec%9d%b8%ea%b0%80" class="header-anchor">#</a>
+    왜 Rust인가
+</h2><p>단일 바이너리로 떨어지는 게 제일 컸다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -417,12 +417,12 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -fsSL install.seam.dev <span class="p">|</span> sh
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>이 한 줄로 끝나야 하는데, Python이면 런타임이랑 의존성이 따라옴. Node면 더 심함.
-<strong>&ldquo;AI 환경 관리 도구를 쓰려고 환경을 관리해야 하는&rdquo;</strong> 상황이 되면 안 됐음.</p>
-<p>게다가 데몬으로 계속 떠 있어야 하고, 프록시라서 모든 AI 요청이 여길 통과함. 메모리 사용량이랑 지연이 그대로 체감됨.</p>
-<h2 id="-15121533--뼈대">
-    <a href="#-15121533--%eb%bc%88%eb%8c%80" class="header-anchor">#</a>
-    🧱 15:12~15:33 — 뼈대
+</div><p>이 한 줄로 끝나야 하는데, Python이면 런타임이랑 의존성이 따라온다. Node면 더 심한다.
+<strong>&ldquo;AI 환경 관리 도구를 쓰려고 환경을 관리해야 하는&rdquo;</strong> 상황이 되면 안 됐다.</p>
+<p>게다가 데몬으로 계속 떠 있어야 하고, 프록시라서 모든 AI 요청이 여길 통과한다. 메모리 사용량이랑 지연이 그대로 체감된다.</p>
+<h2 id="15121533--뼈대">
+    <a href="#15121533--%eb%bc%88%eb%8c%80" class="header-anchor">#</a>
+    15:12~15:33 — 뼈대
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -443,12 +443,12 @@
 </span></span><span class="line"><span class="cl">15:33  fix: use &amp;Path instead of &amp;PathBuf in journal::append
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>20분 만에 게이트웨이까지 갔음.</strong></p>
+</div><p><strong>20분 만에 게이트웨이까지 갔다.</strong></p>
 <h3 id="api-키는-os-키체인에">
     <a href="#api-%ed%82%a4%eb%8a%94-os-%ed%82%a4%ec%b2%b4%ec%9d%b8%ec%97%90" class="header-anchor">#</a>
     API 키는 OS 키체인에
-</h3><p><code>.env</code> 나 config 파일에 평문으로 두는 걸 처음부터 안 하기로 했음.
-<code>keyring</code> 크레이트를 쓰면 macOS Keychain / Linux Secret Service에 그대로 들어감.</p>
+</h3><p><code>.env</code> 나 config 파일에 평문으로 두는 걸 처음부터 안 하기로 했다.
+<code>keyring</code> 크레이트를 쓰면 macOS Keychain / Linux Secret Service에 그대로 들어간다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -459,15 +459,15 @@
 </span></span><span class="line"><span class="cl">seam key list
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>설정 파일(<code>~/.seam/config.toml</code>)에는 키가 안 들어감. 포트, 기본 모델 같은 것만 들어감.</p>
+</div><p>설정 파일(<code>~/.seam/config.toml</code>)에는 키가 안 들어간다. 포트, 기본 모델 같은 것만 들어간다.</p>
 <h3 id="스토리지는-sql-없이-jsonl">
     <a href="#%ec%8a%a4%ed%86%a0%eb%a6%ac%ec%a7%80%eb%8a%94-sql-%ec%97%86%ec%9d%b4-jsonl" class="header-anchor">#</a>
     스토리지는 SQL 없이 JSONL
-</h3><p>문서 버전 이력에 이렇게 적혀 있음.</p>
+</h3><p>문서 버전 이력에 이렇게 적혀 있다.</p>
 <blockquote>
 <p>v0.6: SQL 제거 → 파일 기반 스토리지 확정</p>
 </blockquote>
-<p>메모리를 처음엔 SQLite로 잡았다가 JSONL(append-only)로 바꿨음.</p>
+<p>메모리를 처음엔 SQLite로 잡았다가 JSONL(append-only)로 바꿨다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -478,11 +478,11 @@
 </span></span><span class="line"><span class="cl">~/.seam/journal/YYYY-MM-DD.jsonl # 날짜별 활동 기록
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>append-only라 쓰기가 단순하고, 사람이 <code>tail -f</code> 로 그냥 볼 수 있음.
-<a class="link" href="https://dn5772.github.io/p/jung-dam-4/" >정담</a> 때랑 비슷한 결론인데, 데이터가 작고 동시 쓰기가 없으면 DB가 필요 없음.</p>
-<h2 id="-15351543--프로세스-관리">
-    <a href="#-15351543--%ed%94%84%eb%a1%9c%ec%84%b8%ec%8a%a4-%ea%b4%80%eb%a6%ac" class="header-anchor">#</a>
-    ⚙️ 15:35~15:43 — 프로세스 관리
+</div><p>append-only라 쓰기가 단순하고, 사람이 <code>tail -f</code> 로 그냥 볼 수 있다.
+<a class="link" href="https://dn5772.github.io/p/jung-dam-4/" >정담</a> 때랑 비슷한 결론인데, 데이터가 작고 동시 쓰기가 없으면 DB가 필요 없다.</p>
+<h2 id="15351543--프로세스-관리">
+    <a href="#15351543--%ed%94%84%eb%a1%9c%ec%84%b8%ec%8a%a4-%ea%b4%80%eb%a6%ac" class="header-anchor">#</a>
+    15:35~15:43 — 프로세스 관리
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -495,7 +495,7 @@
 </span></span><span class="line"><span class="cl"><span class="mi">15</span><span class="p">:</span><span class="mi">43</span>  <span class="n">fix</span><span class="p">:</span> <span class="n">replace</span> <span class="n">phantom</span> <span class="n">re</span><span class="o">-</span><span class="n">spawn</span> <span class="n">with</span> <span class="n">correct</span> <span class="n">Crashed</span> <span class="n">status</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>seam run</code> 이 <code>seam.yaml</code> 의 native 툴들을 서브프로세스로 띄움. 그럼 <strong>누가 살아 있는지</strong> 알아야 함.</p>
+</div><p><code>seam run</code> 이 <code>seam.yaml</code> 의 native 툴들을 서브프로세스로 띄운다. 그럼 <strong>누가 살아 있는지</strong> 알아야 한다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -504,12 +504,12 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~/.seam/run/&lt;name&gt;.pid
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>PID 파일 쓰고, 살아 있는지는 <code>libc::kill(pid, 0)</code> 으로 확인함. 시그널 0은 실제로 안 보내고 <strong>보낼 수 있는지만</strong> 검사함. macOS/Linux 공통으로 됨.</p>
-<p>15:43 커밋이 재밌는데, <code>watch_with_restart</code> 가 크래시를 감지하고 <strong>자기가 다시 띄우려고</strong> 했었음.
-그러면 재시작 책임이 두 군데(감시자 + 코디네이터)로 갈라져서 유령 프로세스가 생김. <code>Crashed</code> 상태로 끊고 나가게 바꿨음.</p>
-<h2 id="-15431717--cli-서브커맨드">
-    <a href="#-15431717--cli-%ec%84%9c%eb%b8%8c%ec%bb%a4%eb%a7%a8%eb%93%9c" class="header-anchor">#</a>
-    🖥️ 15:43~17:17 — CLI 서브커맨드
+</div><p>PID 파일 쓰고, 살아 있는지는 <code>libc::kill(pid, 0)</code> 으로 확인한다. 시그널 0은 실제로 안 보내고 <strong>보낼 수 있는지만</strong> 검사한다. macOS/Linux 공통으로 된다.</p>
+<p>15:43 커밋이 재밌는데, <code>watch_with_restart</code> 가 크래시를 감지하고 <strong>자기가 다시 띄우려고</strong> 했었다.
+그러면 재시작 책임이 두 군데(감시자 + 코디네이터)로 갈라져서 유령 프로세스가 생긴다. <code>Crashed</code> 상태로 끊고 나가게 바꿨다.</p>
+<h2 id="15431717--cli-서브커맨드">
+    <a href="#15431717--cli-%ec%84%9c%eb%b8%8c%ec%bb%a4%eb%a7%a8%eb%93%9c" class="header-anchor">#</a>
+    15:43~17:17 — CLI 서브커맨드
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -522,7 +522,7 @@
 </span></span><span class="line"><span class="cl">              follow warning, status liveness check
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>17:17 커밋이 자잘한 것만 모아놨는데 전부 같은 종류임.</p>
+</div><p>17:17 커밋이 자잘한 것만 모아놨는데 전부 같은 종류다.</p>
 <ul>
 <li><code>kill()</code> 반환값을 안 보고 성공으로 친 것</li>
 <li>경로 변환에서 <code>unwrap()</code> 쓴 것</li>
@@ -530,10 +530,10 @@
 <li><code>--follow</code> 가 미구현인데 아무 말 없이 조용한 것</li>
 <li><code>status</code> 가 PID 파일만 보고 &ldquo;실행 중&quot;이라고 한 것 (프로세스는 죽었는데)</li>
 </ul>
-<p><strong>전부 &ldquo;실패 경로를 안 본 것&quot;임.</strong> 잘 돌아갈 때만 생각하고 짠 코드.</p>
-<h2 id="-17191728--이미지랑-레지스트리">
-    <a href="#-17191728--%ec%9d%b4%eb%af%b8%ec%a7%80%eb%9e%91-%eb%a0%88%ec%a7%80%ec%8a%a4%ed%8a%b8%eb%a6%ac" class="header-anchor">#</a>
-    📦 17:19~17:28 — 이미지랑 레지스트리
+<p><strong>전부 &ldquo;실패 경로를 안 본 것&quot;이다.</strong> 잘 돌아갈 때만 생각하고 짠 코드.</p>
+<h2 id="17191728--이미지랑-레지스트리">
+    <a href="#17191728--%ec%9d%b4%eb%af%b8%ec%a7%80%eb%9e%91-%eb%a0%88%ec%a7%80%ec%8a%a4%ed%8a%b8%eb%a6%ac" class="header-anchor">#</a>
+    17:19~17:28 — 이미지랑 레지스트리
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -547,9 +547,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>seam build</code> 가 <code>seam.yaml</code> 이랑 프롬프트 파일들을 <code>tar.gz</code> 로 묶고 <code>.seam-lock</code> 을 만듦.
-Docker 이미지 흉내인데 레이어는 없음. 그냥 압축 파일 하나임.</p>
-<p>레지스트리는 GitHub Contents API를 씀. 레포가 없으면 만들어줌.</p>
-<p>17:28 커밋이 중요한데, <strong>HTTP 응답 상태를 아무도 안 보고 있었음.</strong></p>
+Docker 이미지 흉내인데 레이어는 없다. 그냥 압축 파일 하나다.</p>
+<p>레지스트리는 GitHub Contents API를 쓴다. 레포가 없으면 만들어준다.</p>
+<p>17:28 커밋이 중요한데, <strong>HTTP 응답 상태를 아무도 안 보고 있었다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -566,11 +566,11 @@ Docker 이미지 흉내인데 레이어는 없음. 그냥 압축 파일 하나�
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="n">resp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">).</span><span class="n">send</span><span class="p">().</span><span class="k">await</span><span class="o">?</span><span class="p">.</span><span class="n">error_for_status</span><span class="p">()</span><span class="o">?</span><span class="p">;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>reqwest</code> 는 4xx/5xx를 에러로 안 봄. 네트워크가 성공했으면 성공임.
-<code>.error_for_status()?</code> 를 안 붙이면 <strong>404 응답을 파싱하려다 이상한 데서 터짐.</strong> 레포 생성 응답도 마찬가지였음.</p>
-<h2 id="-17341737--마무리">
-    <a href="#-17341737--%eb%a7%88%eb%ac%b4%eb%a6%ac" class="header-anchor">#</a>
-    🔌 17:34~17:37 — 마무리
+</div><p><code>reqwest</code> 는 4xx/5xx를 에러로 안 본다. 네트워크가 성공했으면 성공이다.
+<code>.error_for_status()?</code> 를 안 붙이면 <strong>404 응답을 파싱하려다 이상한 데서 터진다.</strong> 레포 생성 응답도 마찬가지였다.</p>
+<h2 id="17341737--마무리">
+    <a href="#17341737--%eb%a7%88%eb%ac%b4%eb%a6%ac" class="header-anchor">#</a>
+    17:34~17:37 — 마무리
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -581,11 +581,11 @@ Docker 이미지 흉내인데 레이어는 없음. 그냥 압축 파일 하나�
 </span></span><span class="line"><span class="cl">17:37  fix: propagate proxy body read errors as 502, wire journal writes on each request
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>프록시가 바디를 읽다가 실패하면 그걸 삼키고 있었음. 502로 올려보내게 바꿈.</p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p><strong>18개 중 7개가 <code>fix:</code> 였고, 전부 직전 <code>feat:</code> 을 고치는 거였음.</strong></p>
+</div><p>프록시가 바디를 읽다가 실패하면 그걸 삼키고 있었다. 502로 올려보내게 바꾼다.</p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p><strong>18개 중 7개가 <code>fix:</code> 였고, 전부 직전 <code>feat:</code> 을 고치는 거였다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -598,10 +598,9 @@ Docker 이미지 흉내인데 레이어는 없음. 그냥 압축 파일 하나�
 </span></span><span class="line"><span class="cl">17:23 feat: GitHub registry         → 17:28 fix: HTTP 에러 체크
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>빠르게 밀고 바로 되돌아와서 고치는 식이었음. 기능 하나 넣고 다시 읽어보면 실패 경로가 비어 있음.
-<strong>&ldquo;돌아가게 만들기&quot;랑 &ldquo;안 터지게 만들기&quot;가 다른 작업</strong>이라는 게 커밋 로그에 그대로 남았음.</p>
-<p>그리고 3개월 계획을 2시간 반에 끝낸 건 기분은 좋은데, 이게 마냥 좋은 일인지는 <a class="link" href="https://dn5772.github.io/p/seam-8/" >마지막 글</a>에서 다시 생각해봄.</p>
-<p>#seam #Rust #CLI #axum #clap</p>
+</div><p>빠르게 밀고 바로 되돌아와서 고치는 식이었다. 기능 하나 넣고 다시 읽어보면 실패 경로가 비어 있다.
+<strong>&ldquo;돌아가게 만들기&quot;랑 &ldquo;안 터지게 만들기&quot;가 다른 작업</strong>이라는 게 커밋 로그에 그대로 남았다.</p>
+<p>그리고 3개월 계획을 2시간 반에 끝낸 건 기분은 좋은데, 이게 마냥 좋은 일인지는 <a class="link" href="https://dn5772.github.io/p/seam-8/" >마지막 글</a>에서 다시 생각해본다.</p>
 
 </section>
 

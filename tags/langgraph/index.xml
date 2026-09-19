@@ -15,14 +15,14 @@
         <description>&lt;h1 id=&#34;abide-개발-일지-8---ai가-생성하는-말은-번역이-안-됨&#34;&gt;
     &lt;a href=&#34;#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-8---ai%ea%b0%80-%ec%83%9d%ec%84%b1%ed%95%98%eb%8a%94-%eb%a7%90%ec%9d%80-%eb%b2%88%ec%97%ad%ec%9d%b4-%ec%95%88-%eb%90%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     ABIDE 개발 일지 #8 - AI가 생성하는 말은 번역이 안 됨
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt; 첫날에 한국어/영어 문자열 맵을 깔아뒀음. 나중에 고생 안 하려고.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;절반만 맞았음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;버튼이랑 라벨은 그걸로 됐는데, 이 앱에서 사용자가 보는 텍스트의 대부분은 &lt;strong&gt;AI가 그 자리에서 만들어내는 것&lt;/strong&gt;임.
-묵상 질문, 딥렌즈 분석, 묵상 노트, 에러 메시지, 무드 문구. 문자열 맵에 있을 리가 없음.&lt;/p&gt;
-&lt;p&gt;4월 10일 하루에 이걸 전부 뚫었음.&lt;/p&gt;
-&lt;h2 id=&#34;-언어가-통과해야-하는-경로&#34;&gt;
-    &lt;a href=&#34;#-%ec%96%b8%ec%96%b4%ea%b0%80-%ed%86%b5%ea%b3%bc%ed%95%b4%ec%95%bc-%ed%95%98%eb%8a%94-%ea%b2%bd%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🧵 언어가 통과해야 하는 경로
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt; 첫날에 한국어/영어 문자열 맵을 깔아뒀다. 나중에 고생 안 하려고.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;절반만 맞았다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;버튼이랑 라벨은 그걸로 됐는데, 이 앱에서 사용자가 보는 텍스트의 대부분은 &lt;strong&gt;AI가 그 자리에서 만들어내는 것&lt;/strong&gt;이다.
+묵상 질문, 딥렌즈 분석, 묵상 노트, 에러 메시지, 무드 문구. 문자열 맵에 있을 리가 없다.&lt;/p&gt;
+&lt;p&gt;4월 10일 하루에 이걸 전부 뚫었다.&lt;/p&gt;
+&lt;h2 id=&#34;언어가-통과해야-하는-경로&#34;&gt;
+    &lt;a href=&#34;#%ec%96%b8%ec%96%b4%ea%b0%80-%ed%86%b5%ea%b3%bc%ed%95%b4%ec%95%bc-%ed%95%98%eb%8a%94-%ea%b2%bd%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    언어가 통과해야 하는 경로
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -43,7 +43,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            → 생성된 텍스트
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;커밋이 이 순서 그대로임.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;커밋이 이 순서 그대로다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -70,13 +70,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;19:21  (core)   fix(core): include verse_text in DeepLens cache hit response
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;서브모듈 네 개를 한 번에 건드림.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;의 세션 스냅샷 때랑 같은 모양인데, 이번엔 더 넓음.&lt;/p&gt;
-&lt;h2 id=&#34;-캐시가-언어를-몰랐음&#34;&gt;
-    &lt;a href=&#34;#-%ec%ba%90%ec%8b%9c%ea%b0%80-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%aa%b0%eb%9e%90%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🗄️ 캐시가 언어를 몰랐음
-&lt;/h2&gt;&lt;p&gt;02:25 커밋이 이 작업에서 제일 아팠음.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 DeepLens 구절 &lt;strong&gt;62,189개를 미리 계산해서&lt;/strong&gt; DB에 박아뒀음.
-그 캐시 키에 &lt;strong&gt;언어가 없었음.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;서브모듈 네 개를 한 번에 건드린다.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;의 세션 스냅샷 때랑 같은 모양인데, 이번엔 더 넓다.&lt;/p&gt;
+&lt;h2 id=&#34;캐시가-언어를-몰랐음&#34;&gt;
+    &lt;a href=&#34;#%ec%ba%90%ec%8b%9c%ea%b0%80-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%aa%b0%eb%9e%90%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    캐시가 언어를 몰랐음
+&lt;/h2&gt;&lt;p&gt;02:25 커밋이 이 작업에서 제일 아팠다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 DeepLens 구절 &lt;strong&gt;62,189개를 미리 계산해서&lt;/strong&gt; DB에 박아뒀다.
+그 캐시 키에 &lt;strong&gt;언어가 없었다.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -87,13 +87,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;후:  verse_ref + language       → 분석 결과
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;영어 사용자가 구절을 열면 &lt;strong&gt;한국어 분석이 그대로 나옴.&lt;/strong&gt; 캐시는 히트하니까 에러도 안 남.&lt;/p&gt;
-&lt;p&gt;인프라에 컬럼을 추가하고(&lt;code&gt;00:02&lt;/code&gt;) 조회 키를 바꿨음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 자랑했던 사전 계산이 &lt;strong&gt;언어 하나 늘자 절반만 쓸모 있게&lt;/strong&gt; 된 셈임.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;캐시 키는 &amp;ldquo;결과가 달라지는 모든 입력&amp;quot;을 담아야&lt;/strong&gt; 하는데, 그때는 언어가 입력인 줄 몰랐음.&lt;/p&gt;
-&lt;h2 id=&#34;-하드코딩된-한국어가-계속-나왔음&#34;&gt;
-    &lt;a href=&#34;#-%ed%95%98%eb%93%9c%ec%bd%94%eb%94%a9%eb%90%9c-%ed%95%9c%ea%b5%ad%ec%96%b4%ea%b0%80-%ea%b3%84%ec%86%8d-%eb%82%98%ec%99%94%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🇰🇷 하드코딩된 한국어가 계속 나왔음
-&lt;/h2&gt;&lt;p&gt;01:50에 에러 메시지·무드 문구·노트 제목을 이중화했는데, 그날 저녁에 이게 또 나옴.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;영어 사용자가 구절을 열면 &lt;strong&gt;한국어 분석이 그대로 나온다.&lt;/strong&gt; 캐시는 히트하니까 에러도 안 난다.&lt;/p&gt;
+&lt;p&gt;인프라에 컬럼을 추가하고(&lt;code&gt;00:02&lt;/code&gt;) 조회 키를 바꿨다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 자랑했던 사전 계산이 &lt;strong&gt;언어 하나 늘자 절반만 쓸모 있게&lt;/strong&gt; 된 셈이다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;캐시 키는 &amp;ldquo;결과가 달라지는 모든 입력&amp;quot;을 담아야&lt;/strong&gt; 하는데, 그때는 언어가 입력인 줄 몰랐다.&lt;/p&gt;
+&lt;h2 id=&#34;하드코딩된-한국어가-계속-나왔음&#34;&gt;
+    &lt;a href=&#34;#%ed%95%98%eb%93%9c%ec%bd%94%eb%94%a9%eb%90%9c-%ed%95%9c%ea%b5%ad%ec%96%b4%ea%b0%80-%ea%b3%84%ec%86%8d-%eb%82%98%ec%99%94%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    하드코딩된 한국어가 계속 나왔음
+&lt;/h2&gt;&lt;p&gt;01:50에 에러 메시지·무드 문구·노트 제목을 이중화했는데, 그날 저녁에 이게 또 나온다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -102,13 +102,13 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;18:57  fix(ai): remove remaining hardcoded Korean strings
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;17시간 뒤에 &lt;strong&gt;남은 게 또 발견됨.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;노드가 일곱 개고(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;) 각각이 폴백 문구, 기본 제목, 예외 메시지를 들고 있음.
-한 군데씩 찾아서 고치는 방식이라 &lt;strong&gt;놓친 게 있는지 알 방법이 없었음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;문자열 맵을 처음부터 서버에도 뒀으면 &amp;ldquo;맵에 없는 리터럴&amp;quot;을 린트로 잡을 수 있었을 텐데, 사후에 하려니까 눈으로 찾는 수밖에 없었음.&lt;/p&gt;
-&lt;h2 id=&#34;-프롬프트도-언어별로&#34;&gt;
-    &lt;a href=&#34;#-%ed%94%84%eb%a1%ac%ed%94%84%ed%8a%b8%eb%8f%84-%ec%96%b8%ec%96%b4%eb%b3%84%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔤 프롬프트도 언어별로
+&lt;/div&gt;&lt;p&gt;17시간 뒤에 &lt;strong&gt;남은 게 또 발견된다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;노드가 일곱 개고(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;) 각각이 폴백 문구, 기본 제목, 예외 메시지를 들고 있다.
+한 군데씩 찾아서 고치는 방식이라 &lt;strong&gt;놓친 게 있는지 알 방법이 없었다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;문자열 맵을 처음부터 서버에도 뒀으면 &amp;ldquo;맵에 없는 리터럴&amp;quot;을 린트로 잡을 수 있었을 텐데, 사후에 하려니까 눈으로 찾는 수밖에 없었다.&lt;/p&gt;
+&lt;h2 id=&#34;프롬프트도-언어별로&#34;&gt;
+    &lt;a href=&#34;#%ed%94%84%eb%a1%ac%ed%94%84%ed%8a%b8%eb%8f%84-%ec%96%b8%ec%96%b4%eb%b3%84%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    프롬프트도 언어별로
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -119,13 +119,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;04-10 01:52  feat(ai): use language-aware prompt helpers for ask and deep-lens
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;영어로 답해줘&amp;quot;를 프롬프트에 한 줄 붙이는 걸로는 안 됐음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;딥렌즈는 원어(히브리어/헬라어) 분석이 들어가는데, 한국어 독자용 설명이랑 영어 독자용 설명이 &lt;strong&gt;내용 자체가 달라야&lt;/strong&gt; 함.
-한국어 성경 번역 관습을 설명하는 부분이 영어 사용자한테는 의미가 없음.&lt;/p&gt;
-&lt;p&gt;그래서 프롬프트를 통째로 따로 만들고, 언어에 따라 고르는 헬퍼를 씀.&lt;/p&gt;
-&lt;h2 id=&#34;-한-달-커밋-181개&#34;&gt;
-    &lt;a href=&#34;#-%ed%95%9c-%eb%8b%ac-%ec%bb%a4%eb%b0%8b-181%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📊 한 달, 커밋 181개
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;영어로 답해줘&amp;quot;를 프롬프트에 한 줄 붙이는 걸로는 안 됐다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;딥렌즈는 원어(히브리어/헬라어) 분석이 들어가는데, 한국어 독자용 설명이랑 영어 독자용 설명이 &lt;strong&gt;내용 자체가 달라야&lt;/strong&gt; 한다.
+한국어 성경 번역 관습을 설명하는 부분이 영어 사용자한테는 의미가 없다.&lt;/p&gt;
+&lt;p&gt;그래서 프롬프트를 통째로 따로 만들고, 언어에 따라 고르는 헬퍼를 쓴다.&lt;/p&gt;
+&lt;h2 id=&#34;한-달-커밋-181개&#34;&gt;
+    &lt;a href=&#34;#%ed%95%9c-%eb%8b%ac-%ec%bb%a4%eb%b0%8b-181%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    한 달, 커밋 181개
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -150,48 +150,47 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                181커밋   3/10 ~ 4/10
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;루트 37커밋 중 &lt;strong&gt;15개가 &amp;ldquo;Sync all submodules&amp;rdquo;&lt;/strong&gt; 임.&lt;/p&gt;
-&lt;h2 id=&#34;-배운-것&#34;&gt;
-    &lt;a href=&#34;#-%eb%b0%b0%ec%9a%b4-%ea%b2%83&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    💭 배운 것
+&lt;/div&gt;&lt;p&gt;루트 37커밋 중 &lt;strong&gt;15개가 &amp;ldquo;Sync all submodules&amp;rdquo;&lt;/strong&gt; 이다.&lt;/p&gt;
+&lt;h2 id=&#34;배운-것&#34;&gt;
+    &lt;a href=&#34;#%eb%b0%b0%ec%9a%b4-%ea%b2%83&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    배운 것
 &lt;/h2&gt;&lt;h3 id=&#34;다국어는-ui-문자열이-아니라-데이터-파이프라인임&#34;&gt;
     &lt;a href=&#34;#%eb%8b%a4%ea%b5%ad%ec%96%b4%eb%8a%94-ui-%eb%ac%b8%ec%9e%90%ec%97%b4%ec%9d%b4-%ec%95%84%eb%8b%88%eb%9d%bc-%eb%8d%b0%ec%9d%b4%ed%84%b0-%ed%8c%8c%ec%9d%b4%ed%94%84%eb%9d%bc%ec%9d%b8%ec%9e%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     다국어는 UI 문자열이 아니라 데이터 파이프라인임
-&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 문자열 맵을 먼저 깐 건 잘한 건데, &lt;strong&gt;그게 다국어의 10%였음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;나머지 90%는 언어 값이 Flutter → Core → AI → 그래프 상태 → 프롬프트 → 캐시 키까지 &lt;strong&gt;끊기지 않고 흘러가게&lt;/strong&gt; 만드는 일이었음.
-중간에 한 군데만 빠져도 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;의 캐시처럼 조용히 틀린 결과가 나옴.&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 문자열 맵을 먼저 깐 건 잘한 건데, &lt;strong&gt;그게 다국어의 10%였다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;나머지 90%는 언어 값이 Flutter → Core → AI → 그래프 상태 → 프롬프트 → 캐시 키까지 &lt;strong&gt;끊기지 않고 흘러가게&lt;/strong&gt; 만드는 일이었다.
+중간에 한 군데만 빠져도 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;의 캐시처럼 조용히 틀린 결과가 나온다.&lt;/p&gt;
 &lt;p&gt;다시 한다면 &lt;strong&gt;요청 스키마에 &lt;code&gt;language&lt;/code&gt; 를 첫날에 넣었을 것.&lt;/strong&gt; 값이 하나뿐이더라도.&lt;/p&gt;
 &lt;h3 id=&#34;llm-판정에는-코드-가드가-붙어야-함&#34;&gt;
     &lt;a href=&#34;#llm-%ed%8c%90%ec%a0%95%ec%97%90%eb%8a%94-%ec%bd%94%eb%93%9c-%ea%b0%80%eb%93%9c%ea%b0%80-%eb%b6%99%ec%96%b4%ec%95%bc-%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     LLM 판정에는 코드 가드가 붙어야 함
 &lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 wrap_up 무한 반복 카운터, &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;의 Observer 상한·델타 캡·단조성·거절 가드.
-전부 같은 얘기임. &lt;strong&gt;흐름은 LLM이 잡아도 &amp;ldquo;그만&amp;quot;과 &amp;ldquo;한계&amp;quot;는 코드가 세야 함.&lt;/strong&gt;&lt;/p&gt;
+전부 같은 얘기다. &lt;strong&gt;흐름은 LLM이 잡아도 &amp;ldquo;그만&amp;quot;과 &amp;ldquo;한계&amp;quot;는 코드가 세야 한다.&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;일단-되게는-반드시-다시-옴&#34;&gt;
     &lt;a href=&#34;#%ec%9d%bc%eb%8b%a8-%eb%90%98%ea%b2%8c%eb%8a%94-%eb%b0%98%eb%93%9c%ec%8b%9c-%eb%8b%a4%ec%8b%9c-%ec%98%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     &amp;ldquo;일단 되게&amp;quot;는 반드시 다시 옴
 &lt;/h3&gt;&lt;p&gt;SharedPreferences → secure storage(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;), &lt;code&gt;.env&lt;/code&gt; 커밋 → gitignore, 릴리즈 빌드 디버그 로그(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;).
-&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;정담&lt;/a&gt; 때랑 완전히 같은 패턴이 다른 프로젝트에서 또 나왔음.&lt;/p&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;정담&lt;/a&gt; 때랑 완전히 같은 패턴이 다른 프로젝트에서 또 나왔다.&lt;/p&gt;
 &lt;h3 id=&#34;옵션-하나가-조합을-곱으로-늘림&#34;&gt;
     &lt;a href=&#34;#%ec%98%b5%ec%85%98-%ed%95%98%eb%82%98%ea%b0%80-%ec%a1%b0%ed%95%a9%ec%9d%84-%ea%b3%b1%ec%9c%bc%eb%a1%9c-%eb%8a%98%eb%a6%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     옵션 하나가 조합을 곱으로 늘림
-&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;의 성경 버전 추가가 UI 버그 11개를, 여기 언어 추가가 캐시 재설계를 불렀음.
-&lt;strong&gt;기능 추가 비용은 그 기능이 아니라 기존 것과의 곱에서 나옴.&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-안-끝낸-것들&#34;&gt;
-    &lt;a href=&#34;#-%ec%95%88-%eb%81%9d%eb%82%b8-%ea%b2%83%eb%93%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🕳️ 안 끝낸 것들
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;의 성경 버전 추가가 UI 버그 11개를, 여기 언어 추가가 캐시 재설계를 불렀다.
+&lt;strong&gt;기능 추가 비용은 그 기능이 아니라 기존 것과의 곱에서 나온다.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;안-끝낸-것들&#34;&gt;
+    &lt;a href=&#34;#%ec%95%88-%eb%81%9d%eb%82%b8-%ea%b2%83%eb%93%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    안 끝낸 것들
 &lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;신학 RAG 시딩 미완료.&lt;/strong&gt; 청크 129개는 만들었는데 &lt;code&gt;seed_theology_vectors.py&lt;/code&gt; 를 안 씀. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 RAG가 반쪽임&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DeepLens 사전 계산이 KRV+NIV 2개 버전&lt;/strong&gt;뿐. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;에서 KJV/ASV를 넣었는데 캐시는 안 따라감&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;신학 RAG 시딩 미완료.&lt;/strong&gt; 청크 129개는 만들었는데 &lt;code&gt;seed_theology_vectors.py&lt;/code&gt; 를 안 쓴다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 RAG가 반쪽이다&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DeepLens 사전 계산이 KRV+NIV 2개 버전&lt;/strong&gt;뿐. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;에서 KJV/ASV를 넣었는데 캐시는 안 따라간다&lt;/li&gt;
 &lt;li&gt;스크린샷이 README에 아직 &amp;ldquo;Coming soon&amp;rdquo;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;-지금&#34;&gt;
-    &lt;a href=&#34;#-%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 지금
-&lt;/h2&gt;&lt;p&gt;4월 10일 이후로 멈춰 있음.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-8/&#34; &gt;seam&lt;/a&gt;이 사흘 몰아치고 멈춘 거였다면, 이건 한 달을 붙들고 &lt;strong&gt;실제로 돌아가는 데까지&lt;/strong&gt; 갔음.
-앱이 있고, 서버 네 개가 뜨고, 62,189개 구절이 DB에 들어 있고, 로그인해서 묵상을 할 수 있음.&lt;/p&gt;
-&lt;p&gt;돌아온다면 신학 RAG 시딩부터 할 것 같음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에서 만들다 만 게 제일 걸림.&lt;/p&gt;
-&lt;p&gt;#ABIDE #다국어 #i18n #회고 #LangGraph&lt;/p&gt;
+&lt;h2 id=&#34;지금&#34;&gt;
+    &lt;a href=&#34;#%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    지금
+&lt;/h2&gt;&lt;p&gt;4월 10일 이후로 멈춰 있다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-8/&#34; &gt;seam&lt;/a&gt;이 사흘 몰아치고 멈춘 거였다면, 이건 한 달을 붙들고 &lt;strong&gt;실제로 돌아가는 데까지&lt;/strong&gt; 갔다.
+앱이 있고, 서버 네 개가 뜨고, 62,189개 구절이 DB에 들어 있고, 로그인해서 묵상을 할 수 있다.&lt;/p&gt;
+&lt;p&gt;돌아온다면 신학 RAG 시딩부터 할 것 같다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에서 만들다 만 게 제일 걸린다.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -203,11 +202,11 @@
         <description>&lt;h1 id=&#34;abide-개발-일지-7---ai가-너무-빨리-깊어졌다고-판단했음&#34;&gt;
     &lt;a href=&#34;#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-7---ai%ea%b0%80-%eb%84%88%eb%ac%b4-%eb%b9%a8%eb%a6%ac-%ea%b9%8a%ec%96%b4%ec%a1%8c%eb%8b%a4%ea%b3%a0-%ed%8c%90%eb%8b%a8%ed%96%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     ABIDE 개발 일지 #7 - AI가 너무 빨리 &amp;lsquo;깊어졌다&amp;rsquo;고 판단했음
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에서 만든 Observer 노드를 이때 제대로 고쳤음.
-이 시리즈에서 제일 오래 붙든 부분임.&lt;/p&gt;
-&lt;h2 id=&#34;-먼저-토큰-단위-스트리밍&#34;&gt;
-    &lt;a href=&#34;#-%eb%a8%bc%ec%a0%80-%ed%86%a0%ed%81%b0-%eb%8b%a8%ec%9c%84-%ec%8a%a4%ed%8a%b8%eb%a6%ac%eb%b0%8d&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🌊 먼저 토큰 단위 스트리밍
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에서 만든 Observer 노드를 이때 제대로 고쳤다.
+이 시리즈에서 제일 오래 붙든 부분이다.&lt;/p&gt;
+&lt;h2 id=&#34;먼저-토큰-단위-스트리밍&#34;&gt;
+    &lt;a href=&#34;#%eb%a8%bc%ec%a0%80-%ed%86%a0%ed%81%b0-%eb%8b%a8%ec%9c%84-%ec%8a%a4%ed%8a%b8%eb%a6%ac%eb%b0%8d&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    먼저 토큰 단위 스트리밍
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -216,10 +215,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-25 22:07  feat: 묵상 응답을 astream_events로 실시간 토큰 스트리밍
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;원래는 &lt;strong&gt;노드가 끝나야&lt;/strong&gt; 응답이 나갔음. LangGraph가 Counselor 노드를 다 돌리고 나서 결과를 한 번에 보냄.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 SSE를 깔아놨는데도 &lt;strong&gt;체감이 로딩 스피너랑 똑같았음.&lt;/strong&gt;
-2~3초 멈춰 있다가 문단이 통째로 툭 나옴.&lt;/p&gt;
-&lt;p&gt;LangGraph의 &lt;code&gt;astream_events&lt;/code&gt; 로 바꿔서 &lt;strong&gt;LLM 토큰이 나오는 대로&lt;/strong&gt; SSE로 흘려보냈음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;원래는 &lt;strong&gt;노드가 끝나야&lt;/strong&gt; 응답이 나갔다. LangGraph가 Counselor 노드를 다 돌리고 나서 결과를 한 번에 보낸다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 SSE를 깔아놨는데도 &lt;strong&gt;체감이 로딩 스피너랑 똑같았다.&lt;/strong&gt;
+2~3초 멈춰 있다가 문단이 통째로 툭 나온다.&lt;/p&gt;
+&lt;p&gt;LangGraph의 &lt;code&gt;astream_events&lt;/code&gt; 로 바꿔서 &lt;strong&gt;LLM 토큰이 나오는 대로&lt;/strong&gt; SSE로 흘려보냈다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -228,15 +227,15 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;LLM 토큰 → astream_events → SSE delta → Flutter SseClient → 화면
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;같은 응답인데 &lt;strong&gt;대화처럼 보이기 시작함.&lt;/strong&gt; 코드는 노드 하나 바꾼 건데 인상이 완전히 달라졌음.&lt;/p&gt;
-&lt;h2 id=&#34;-observer가-너무-후했음&#34;&gt;
-    &lt;a href=&#34;#-observer%ea%b0%80-%eb%84%88%eb%ac%b4-%ed%9b%84%ed%96%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📏 Observer가 너무 후했음
-&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에 적었듯 Observer가 &amp;ldquo;지금 얼마나 깊이 들어왔나&amp;quot;를 점수로 매기고, Supervisor가 그걸 보고 마무리할지 정함.&lt;/p&gt;
-&lt;p&gt;문제는 &lt;strong&gt;두세 마디 만에 점수가 확 올라갔음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;사용자가 좀 성의 있게 답하면 Observer가 &amp;ldquo;오 깊어졌네&amp;rdquo; 하고 높은 점수를 줌.
-그러면 Supervisor가 마무리로 감. &lt;strong&gt;대화가 3턴 만에 끝남.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;묵상인데 3턴이면 묵상이 아님.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;같은 응답인데 &lt;strong&gt;대화처럼 보이기 시작한다.&lt;/strong&gt; 코드는 노드 하나 바꾼 건데 인상이 완전히 달라졌다.&lt;/p&gt;
+&lt;h2 id=&#34;observer가-너무-후했음&#34;&gt;
+    &lt;a href=&#34;#observer%ea%b0%80-%eb%84%88%eb%ac%b4-%ed%9b%84%ed%96%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    Observer가 너무 후했음
+&lt;/h2&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에 적었듯 Observer가 &amp;ldquo;지금 얼마나 깊이 들어왔나&amp;quot;를 점수로 매기고, Supervisor가 그걸 보고 마무리할지 정한다.&lt;/p&gt;
+&lt;p&gt;문제는 &lt;strong&gt;두세 마디 만에 점수가 확 올라갔다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;사용자가 좀 성의 있게 답하면 Observer가 &amp;ldquo;오 깊어졌네&amp;rdquo; 하고 높은 점수를 준다.
+그러면 Supervisor가 마무리로 간다. &lt;strong&gt;대화가 3턴 만에 끝난다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;묵상인데 3턴이면 묵상이 아니다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -249,18 +248,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;03&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;28&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;19&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;35&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;fix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;observer&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;depth&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;non&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;decreasing&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;invariant&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;accurate&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;comment&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;more&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;tests&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;세 커밋에 걸쳐 고쳤음.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1. 턴 수를 알려줌.&lt;/strong&gt; Observer가 자기가 몇 번째 턴인지 모르고 있었음. 지금 대화 내용만 보고 점수를 매김.
-한 마디만 보면 그럴듯한데, &lt;strong&gt;2턴째에 만점이 나올 수는 없음.&lt;/strong&gt; 턴 수에 따라 점수 상한을 걸었음.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2. 한 번에 뛸 수 있는 폭을 제한.&lt;/strong&gt; 상한만으로는 부족했음. 3→8처럼 한 턴에 확 뛰면 상한 안이어도 이상함.
-&lt;strong&gt;델타 캡&lt;/strong&gt;을 걸어서 한 턴에 올라갈 수 있는 폭을 묶었음.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3. 깊이는 줄어들지 않게.&lt;/strong&gt; 이게 마지막에 발견한 건데, 점수가 &lt;strong&gt;내려가는&lt;/strong&gt; 경우가 있었음.
-사용자가 짧게 답하면 Observer가 이전보다 낮게 줌. 그러면 마무리로 가다가 다시 되묻기로 돌아옴.&lt;/p&gt;
-&lt;p&gt;깊이는 &lt;strong&gt;누적 개념&lt;/strong&gt;이라 줄어들면 안 됨. 한 번 8까지 간 대화가 7로 내려갈 수는 없음.
-&lt;code&gt;max(이전, 이번)&lt;/code&gt; 으로 단조 증가를 강제하고 테스트를 붙였음.&lt;/p&gt;
-&lt;h2 id=&#34;-아니요-했는데-또-묻는-버그&#34;&gt;
-    &lt;a href=&#34;#-%ec%95%84%eb%8b%88%ec%9a%94-%ed%96%88%eb%8a%94%eb%8d%b0-%eb%98%90-%eb%ac%bb%eb%8a%94-%eb%b2%84%ea%b7%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🙅 &amp;ldquo;아니요&amp;rdquo; 했는데 또 묻는 버그
+&lt;/div&gt;&lt;p&gt;세 커밋에 걸쳐 고쳤다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 턴 수를 알려준다.&lt;/strong&gt; Observer가 자기가 몇 번째 턴인지 모르고 있었다. 지금 대화 내용만 보고 점수를 매긴다.
+한 마디만 보면 그럴듯한데, &lt;strong&gt;2턴째에 만점이 나올 수는 없다.&lt;/strong&gt; 턴 수에 따라 점수 상한을 걸었다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 한 번에 뛸 수 있는 폭을 제한.&lt;/strong&gt; 상한만으로는 부족했다. 3→8처럼 한 턴에 확 뛰면 상한 안이어도 이상한다.
+&lt;strong&gt;델타 캡&lt;/strong&gt;을 걸어서 한 턴에 올라갈 수 있는 폭을 묶었다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. 깊이는 줄어들지 않게.&lt;/strong&gt; 이게 마지막에 발견한 건데, 점수가 &lt;strong&gt;내려가는&lt;/strong&gt; 경우가 있었다.
+사용자가 짧게 답하면 Observer가 이전보다 낮게 준다. 그러면 마무리로 가다가 다시 되묻기로 돌아온다.&lt;/p&gt;
+&lt;p&gt;깊이는 &lt;strong&gt;누적 개념&lt;/strong&gt;이라 줄어들면 안 된다. 한 번 8까지 간 대화가 7로 내려갈 수는 없다.
+&lt;code&gt;max(이전, 이번)&lt;/code&gt; 으로 단조 증가를 강제하고 테스트를 붙였다.&lt;/p&gt;
+&lt;h2 id=&#34;아니요-했는데-또-묻는-버그&#34;&gt;
+    &lt;a href=&#34;#%ec%95%84%eb%8b%88%ec%9a%94-%ed%96%88%eb%8a%94%eb%8d%b0-%eb%98%90-%eb%ac%bb%eb%8a%94-%eb%b2%84%ea%b7%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    &amp;ldquo;아니요&amp;rdquo; 했는데 또 묻는 버그
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -271,15 +270,15 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-28 19:44  fix: turn_count&amp;gt;=8 confirm_end also respects depth_end_declined guard
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;ConfirmEnd 노드가 &amp;ldquo;이제 마무리할까요?&amp;ldquo;라고 묻는데, 사용자가 &amp;ldquo;아니요&amp;quot;라고 하면 &lt;strong&gt;다음 턴에 또 물었음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;깊이 점수는 이미 높은 상태니까 Supervisor가 계속 ConfirmEnd를 고름. 사용자는 두 턴마다 &amp;ldquo;그만할까요?&amp;ldquo;를 들음.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;depth_end_declined&lt;/code&gt; 플래그를 상태에 넣어서, 한 번 거절하면 &lt;strong&gt;깊이 기반 종료 제안을 더 안 하게&lt;/strong&gt; 막았음.&lt;/p&gt;
-&lt;p&gt;19:44 커밋이 6분 뒤인데, &lt;strong&gt;종료 제안 경로가 두 개&lt;/strong&gt;였음.
-깊이 기반 말고 &lt;code&gt;turn_count &amp;gt;= 8&lt;/code&gt; 로도 들어가는 길이 있었는데 거기는 가드를 안 봄. 같은 가드를 붙였음.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;조건을 막을 땐 그 조건으로 들어오는 경로가 몇 개인지 세야&lt;/strong&gt; 함.&lt;/p&gt;
-&lt;h2 id=&#34;-묵상-노트를-별도-이벤트로&#34;&gt;
-    &lt;a href=&#34;#-%eb%ac%b5%ec%83%81-%eb%85%b8%ed%8a%b8%eb%a5%bc-%eb%b3%84%eb%8f%84-%ec%9d%b4%eb%b2%a4%ed%8a%b8%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📝 묵상 노트를 별도 이벤트로
+&lt;/div&gt;&lt;p&gt;ConfirmEnd 노드가 &amp;ldquo;이제 마무리할까요?&amp;ldquo;라고 묻는데, 사용자가 &amp;ldquo;아니요&amp;quot;라고 하면 &lt;strong&gt;다음 턴에 또 물었다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;깊이 점수는 이미 높은 상태니까 Supervisor가 계속 ConfirmEnd를 고른다. 사용자는 두 턴마다 &amp;ldquo;그만할까요?&amp;ldquo;를 들는다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;depth_end_declined&lt;/code&gt; 플래그를 상태에 넣어서, 한 번 거절하면 &lt;strong&gt;깊이 기반 종료 제안을 더 안 하게&lt;/strong&gt; 막았다.&lt;/p&gt;
+&lt;p&gt;19:44 커밋이 6분 뒤인데, &lt;strong&gt;종료 제안 경로가 두 개&lt;/strong&gt;였다.
+깊이 기반 말고 &lt;code&gt;turn_count &amp;gt;= 8&lt;/code&gt; 로도 들어가는 길이 있었는데 거기는 가드를 안 봄. 같은 가드를 붙였다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;조건을 막을 땐 그 조건으로 들어오는 경로가 몇 개인지 세야&lt;/strong&gt; 한다.&lt;/p&gt;
+&lt;h2 id=&#34;묵상-노트를-별도-이벤트로&#34;&gt;
+    &lt;a href=&#34;#%eb%ac%b5%ec%83%81-%eb%85%b8%ed%8a%b8%eb%a5%bc-%eb%b3%84%eb%8f%84-%ec%9d%b4%eb%b2%a4%ed%8a%b8%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    묵상 노트를 별도 이벤트로
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -296,9 +295,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;03&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;28&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;20&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;38&lt;/span&gt;  &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;flutter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;parse&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;meditation_note&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;SSE&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;event&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fix&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;message&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;handler&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;non&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;streamed&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;content&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;원래 Scribe가 묵상 노트를 &lt;strong&gt;채팅 메시지로&lt;/strong&gt; 보냈음. 대화 말풍선 안에 정리 노트가 통째로 들어감.&lt;/p&gt;
-&lt;p&gt;이게 이상했던 게, 노트는 &lt;strong&gt;대화가 아니라 결과물&lt;/strong&gt;임. 저장하고 나중에 볼 거라 말풍선에 있으면 안 됨.&lt;/p&gt;
-&lt;p&gt;그래서 갈랐음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;원래 Scribe가 묵상 노트를 &lt;strong&gt;채팅 메시지로&lt;/strong&gt; 보냈다. 대화 말풍선 안에 정리 노트가 통째로 들어간다.&lt;/p&gt;
+&lt;p&gt;이게 이상했던 게, 노트는 &lt;strong&gt;대화가 아니라 결과물&lt;/strong&gt;이다. 저장하고 나중에 볼 거라 말풍선에 있으면 안 된다.&lt;/p&gt;
+&lt;p&gt;그래서 갈랐다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -309,13 +308,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        →  묵상 노트 전문          → meditation_note SSE 이벤트
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Flutter 쪽도 같이 고쳤음. 이 이벤트를 받아서 &lt;strong&gt;노트 화면으로&lt;/strong&gt; 넘김.&lt;/p&gt;
-&lt;p&gt;20:33 커밋이 자잘한데 중요함. &lt;code&gt;meditation_start&lt;/code&gt; 의 done 이벤트에만 &lt;code&gt;is_final&lt;/code&gt; 이 없었음.
-&lt;strong&gt;같은 의미의 필드가 엔드포인트마다 다르면&lt;/strong&gt; 클라이언트가 분기를 두 벌 짜야 함.&lt;/p&gt;
-&lt;h2 id=&#34;-deeplens를-미리-계산해둠&#34;&gt;
-    &lt;a href=&#34;#-deeplens%eb%a5%bc-%eb%af%b8%eb%a6%ac-%ea%b3%84%ec%82%b0%ed%95%b4%eb%91%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    ⚡ DeepLens를 미리 계산해둠
-&lt;/h2&gt;&lt;p&gt;같은 기간에 DeepLens 쪽도 크게 바뀌었음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Flutter 쪽도 같이 고쳤다. 이 이벤트를 받아서 &lt;strong&gt;노트 화면으로&lt;/strong&gt; 넘긴다.&lt;/p&gt;
+&lt;p&gt;20:33 커밋이 자잘한데 중요하다. &lt;code&gt;meditation_start&lt;/code&gt; 의 done 이벤트에만 &lt;code&gt;is_final&lt;/code&gt; 이 없었다.
+&lt;strong&gt;같은 의미의 필드가 엔드포인트마다 다르면&lt;/strong&gt; 클라이언트가 분기를 두 벌 짜야 한다.&lt;/p&gt;
+&lt;h2 id=&#34;deeplens를-미리-계산해둠&#34;&gt;
+    &lt;a href=&#34;#deeplens%eb%a5%bc-%eb%af%b8%eb%a6%ac-%ea%b3%84%ec%82%b0%ed%95%b4%eb%91%a0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    DeepLens를 미리 계산해둠
+&lt;/h2&gt;&lt;p&gt;같은 기간에 DeepLens 쪽도 크게 바뀌었다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -328,11 +327,11 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-27 17:01  (core) 딥렌즈 분석 요청 기능 개선: DB 캐시 우선 조회 추가 및 캐시 미스 시 AI 서버로 폴백
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;DeepLens는 구절 하나의 원어·배경·상호참조를 분석하는 기능인데, &lt;strong&gt;매번 LLM을 부르면 느리고 비쌈.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;그런데 성경 구절은 &lt;strong&gt;개수가 정해져 있음.&lt;/strong&gt; 사용자가 뭘 고를지 몰라도 &lt;strong&gt;전부 미리 계산해둘 수 있음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;결국 &lt;strong&gt;62,189개 구절(KRV+NIV)을 사전 계산&lt;/strong&gt;해서 DB에 넣었음.
-시드 스크립트를 병렬 청크 처리로 다시 쓴 게 27일 새벽 커밋임. 순차로 돌리면 며칠 걸림.&lt;/p&gt;
-&lt;p&gt;Core 서버는 이제 &lt;strong&gt;DB를 먼저 보고&lt;/strong&gt;, 없을 때만 AI 서버로 감.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;DeepLens는 구절 하나의 원어·배경·상호참조를 분석하는 기능인데, &lt;strong&gt;매번 LLM을 부르면 느리고 비싼다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;그런데 성경 구절은 &lt;strong&gt;개수가 정해져 있다.&lt;/strong&gt; 사용자가 뭘 고를지 몰라도 &lt;strong&gt;전부 미리 계산해둘 수 있다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;결국 &lt;strong&gt;62,189개 구절(KRV+NIV)을 사전 계산&lt;/strong&gt;해서 DB에 넣었다.
+시드 스크립트를 병렬 청크 처리로 다시 쓴 게 27일 새벽 커밋이다. 순차로 돌리면 며칠 걸린다.&lt;/p&gt;
+&lt;p&gt;Core 서버는 이제 &lt;strong&gt;DB를 먼저 보고&lt;/strong&gt;, 없을 때만 AI 서버로 간다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -343,18 +342,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                                      → 없으면 AI 서버 폴백
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에서 200회로 잡았던 쿼터를 이때 올렸음. 캐시 히트면 비용이 거의 0이라서.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&amp;ldquo;매번 생성&amp;quot;을 &amp;ldquo;미리 다 만들어둠&amp;quot;으로 바꾼 것&lt;/strong&gt;인데, 입력 공간이 유한할 때만 되는 방법임. 여기선 딱 맞았음.&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;LLM한테 숫자를 매기게 하면 캘리브레이션이 안 됨.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Observer가 &amp;ldquo;깊이 점수&amp;quot;를 주는데, LLM은 절대 기준이 없음. 지금 보는 텍스트 안에서만 판단함.
-그래서 턴 수를 알려주고, 상한을 걸고, 델타를 묶고, 단조성을 강제하는 &lt;strong&gt;네 겹의 가드&lt;/strong&gt;가 필요했음.&lt;/p&gt;
-&lt;p&gt;결국 &lt;strong&gt;판정은 LLM이 하고 제약은 코드가 건다&lt;/strong&gt;는 형태로 정리됐음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에서 wrap_up 무한 반복을 카운터로 막은 거랑 같은 결론임.&lt;/p&gt;
-&lt;p&gt;그리고 &lt;code&gt;depth_end_declined&lt;/code&gt; 가드를 두 경로에 따로 붙여야 했던 게 기억에 남음.
-&lt;strong&gt;상태 플래그를 추가할 땐 그걸 읽어야 하는 곳을 전부 찾아야&lt;/strong&gt; 하는데, 그래프 구조에서는 그게 눈에 잘 안 보임.&lt;/p&gt;
-&lt;p&gt;#ABIDE #LangGraph #SSE #스트리밍 #AI에이전트&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에서 200회로 잡았던 쿼터를 이때 올렸다. 캐시 히트면 비용이 거의 0이라서.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;매번 생성&amp;quot;을 &amp;ldquo;미리 다 만들어둠&amp;quot;으로 바꾼 것&lt;/strong&gt;인데, 입력 공간이 유한할 때만 되는 방법이다. 여기선 딱 맞았다.&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;LLM한테 숫자를 매기게 하면 캘리브레이션이 안 된다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Observer가 &amp;ldquo;깊이 점수&amp;quot;를 주는데, LLM은 절대 기준이 없다. 지금 보는 텍스트 안에서만 판단한다.
+그래서 턴 수를 알려주고, 상한을 걸고, 델타를 묶고, 단조성을 강제하는 &lt;strong&gt;네 겹의 가드&lt;/strong&gt;가 필요했다.&lt;/p&gt;
+&lt;p&gt;결국 &lt;strong&gt;판정은 LLM이 하고 제약은 코드가 건다&lt;/strong&gt;는 형태로 정리됐다. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에서 wrap_up 무한 반복을 카운터로 막은 거랑 같은 결론이다.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;code&gt;depth_end_declined&lt;/code&gt; 가드를 두 경로에 따로 붙여야 했던 게 기억에 남는다.
+&lt;strong&gt;상태 플래그를 추가할 땐 그걸 읽어야 하는 곳을 전부 찾아야&lt;/strong&gt; 하는데, 그래프 구조에서는 그게 눈에 잘 안 보다.&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -366,15 +364,15 @@
         <description>&lt;h1 id=&#34;abide-개발-일지-3---답을-주지-않는-ai를-만들기&#34;&gt;
     &lt;a href=&#34;#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-3---%eb%8b%b5%ec%9d%84-%ec%a3%bc%ec%a7%80-%ec%95%8a%eb%8a%94-ai%eb%a5%bc-%eb%a7%8c%eb%93%a4%ea%b8%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     ABIDE 개발 일지 #3 - 답을 주지 않는 AI를 만들기
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;에서 만든 AI 서버의 본체임.&lt;/p&gt;
-&lt;p&gt;이 앱의 어려운 점은 &lt;strong&gt;AI가 답을 잘 해주면 안 된다&lt;/strong&gt;는 거임.&lt;/p&gt;
-&lt;p&gt;&amp;ldquo;이 구절 무슨 뜻이야?&amp;rdquo; 에 바로 해설을 주면 그건 묵상이 아니라 검색임.
-되물어야 하는데, 끝없이 되물으면 사람이 지침. &lt;strong&gt;언제 되묻고 언제 정리할지&lt;/strong&gt;를 판단해야 함.&lt;/p&gt;
-&lt;p&gt;그래서 노드를 여러 개로 쪼갰음.&lt;/p&gt;
-&lt;h2 id=&#34;-노드-일곱-개&#34;&gt;
-    &lt;a href=&#34;#-%eb%85%b8%eb%93%9c-%ec%9d%bc%ea%b3%b1-%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🕸️ 노드 일곱 개
-&lt;/h2&gt;&lt;p&gt;LangGraph로 Supervisor → Worker 패턴을 짰음.&lt;/p&gt;
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;에서 만든 AI 서버의 본체다.&lt;/p&gt;
+&lt;p&gt;이 앱의 어려운 점은 &lt;strong&gt;AI가 답을 잘 해주면 안 된다&lt;/strong&gt;는 거다.&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;이 구절 무슨 뜻이야?&amp;rdquo; 에 바로 해설을 주면 그건 묵상이 아니라 검색이다.
+되물어야 하는데, 끝없이 되물으면 사람이 지친다. &lt;strong&gt;언제 되묻고 언제 정리할지&lt;/strong&gt;를 판단해야 한다.&lt;/p&gt;
+&lt;p&gt;그래서 노드를 여러 개로 쪼갰다.&lt;/p&gt;
+&lt;h2 id=&#34;노드-일곱-개&#34;&gt;
+    &lt;a href=&#34;#%eb%85%b8%eb%93%9c-%ec%9d%bc%ea%b3%b1-%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    노드 일곱 개
+&lt;/h2&gt;&lt;p&gt;LangGraph로 Supervisor → Worker 패턴을 짰다.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -413,14 +411,14 @@
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;핵심은 &lt;strong&gt;Observer랑 Supervisor의 관계&lt;/strong&gt;임.&lt;/p&gt;
-&lt;p&gt;Counselor가 계속 되묻기만 하면 대화가 안 끝남. Observer가 &amp;ldquo;지금 깊이가 어느 정도인지&amp;quot;를 점수로 매기고,
-Supervisor가 그 점수를 보고 &lt;strong&gt;더 파고들지 / 마무리로 갈지&lt;/strong&gt;를 정함.&lt;/p&gt;
-&lt;p&gt;이 판정 로직을 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 한참 고치게 됨. 첫 버전은 너무 빨리 &amp;ldquo;깊어졌다&amp;quot;고 판단했음.&lt;/p&gt;
-&lt;h2 id=&#34;-무한-루프를-막은-카운터&#34;&gt;
-    &lt;a href=&#34;#-%eb%ac%b4%ed%95%9c-%eb%a3%a8%ed%94%84%eb%a5%bc-%eb%a7%89%ec%9d%80-%ec%b9%b4%ec%9a%b4%ed%84%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔁 무한 루프를 막은 카운터
-&lt;/h2&gt;&lt;p&gt;15일 커밋에 이게 있음.&lt;/p&gt;
+&lt;p&gt;핵심은 &lt;strong&gt;Observer랑 Supervisor의 관계&lt;/strong&gt;이다.&lt;/p&gt;
+&lt;p&gt;Counselor가 계속 되묻기만 하면 대화가 안 끝난다. Observer가 &amp;ldquo;지금 깊이가 어느 정도인지&amp;quot;를 점수로 매기고,
+Supervisor가 그 점수를 보고 &lt;strong&gt;더 파고들지 / 마무리로 갈지&lt;/strong&gt;를 정한다.&lt;/p&gt;
+&lt;p&gt;이 판정 로직을 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 한참 고치게 된다. 첫 버전은 너무 빨리 &amp;ldquo;깊어졌다&amp;quot;고 판단했다.&lt;/p&gt;
+&lt;h2 id=&#34;무한-루프를-막은-카운터&#34;&gt;
+    &lt;a href=&#34;#%eb%ac%b4%ed%95%9c-%eb%a3%a8%ed%94%84%eb%a5%bc-%eb%a7%89%ec%9d%80-%ec%b9%b4%ec%9a%b4%ed%84%b0&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    무한 루프를 막은 카운터
+&lt;/h2&gt;&lt;p&gt;15일 커밋에 이게 있다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -429,14 +427,14 @@ Supervisor가 그 점수를 보고 &lt;strong&gt;더 파고들지 / 마무리로
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: 노트 요청 처리 개선 및 wrap_up 반복 방지 카운터 추가; LLM 호출 시 HumanMessage로 변경
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;code&gt;WrapUp&lt;/code&gt; 이 &lt;strong&gt;자기 자신으로 다시 돌아가는&lt;/strong&gt; 경우가 있었음.
-정리를 하고 끝내야 하는데 그래프가 다시 WrapUp을 고름. 사용자 입장에선 같은 마무리 인사를 두 번 세 번 받음.&lt;/p&gt;
-&lt;p&gt;LLM 판단에만 맡기면 이런 게 생김. &lt;strong&gt;반복 횟수를 세는 카운터&lt;/strong&gt;를 상태에 넣어서 끊었음.&lt;/p&gt;
-&lt;p&gt;에이전트 그래프에서 LLM이 라우팅을 하면 편한데, &lt;strong&gt;종료 조건만큼은 코드로 박아야&lt;/strong&gt; 하는 것 같음.&lt;/p&gt;
-&lt;h2 id=&#34;-llm-호출을-빼서-빨라짐&#34;&gt;
-    &lt;a href=&#34;#-llm-%ed%98%b8%ec%b6%9c%ec%9d%84-%eb%b9%bc%ec%84%9c-%eb%b9%a8%eb%9d%bc%ec%a7%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    ⚡ LLM 호출을 빼서 빨라짐
-&lt;/h2&gt;&lt;p&gt;14일 첫 커밋이 이거임.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;WrapUp&lt;/code&gt; 이 &lt;strong&gt;자기 자신으로 다시 돌아가는&lt;/strong&gt; 경우가 있었다.
+정리를 하고 끝내야 하는데 그래프가 다시 WrapUp을 고른다. 사용자 입장에선 같은 마무리 인사를 두 번 세 번 받는다.&lt;/p&gt;
+&lt;p&gt;LLM 판단에만 맡기면 이런 게 생긴다. &lt;strong&gt;반복 횟수를 세는 카운터&lt;/strong&gt;를 상태에 넣어서 끊었다.&lt;/p&gt;
+&lt;p&gt;에이전트 그래프에서 LLM이 라우팅을 하면 편한데, &lt;strong&gt;종료 조건만큼은 코드로 박아야&lt;/strong&gt; 하는 것 같다.&lt;/p&gt;
+&lt;h2 id=&#34;llm-호출을-빼서-빨라짐&#34;&gt;
+    &lt;a href=&#34;#llm-%ed%98%b8%ec%b6%9c%ec%9d%84-%eb%b9%bc%ec%84%9c-%eb%b9%a8%eb%9d%bc%ec%a7%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    LLM 호출을 빼서 빨라짐
+&lt;/h2&gt;&lt;p&gt;14일 첫 커밋이 이거다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -447,14 +445,14 @@ Supervisor가 그 점수를 보고 &lt;strong&gt;더 파고들지 / 마무리로
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;상태 관리 개선 및 API 키 검증 미들웨어 추가
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;LLM을 부르던 자리를 템플릿으로 바꿨음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;전부 LLM에 맡기면 코드는 단순한데 느리고 비쌈. 그런데 실제로 보면 &lt;strong&gt;LLM이 필요 없는 자리가 꽤 있었음.&lt;/strong&gt;
-인사말, 상태 전이 안내, 고정 문구 같은 건 템플릿이면 충분함. 매번 생성할 이유가 없음.&lt;/p&gt;
-&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-6/&#34; &gt;seam&lt;/a&gt;에서 복잡도 분류를 로컬 모델로 돌린 거랑 같은 얘기임.
-&lt;strong&gt;&amp;ldquo;이 자리에 진짜 추론이 필요한가&amp;rdquo;&lt;/strong&gt; 를 매번 따지는 게 비용에서 제일 크게 먹힘.&lt;/p&gt;
-&lt;h2 id=&#34;-rag는-pgvector로&#34;&gt;
-    &lt;a href=&#34;#-rag%eb%8a%94-pgvector%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📚 RAG는 pgvector로
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;LLM을 부르던 자리를 템플릿으로 바꿨다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;전부 LLM에 맡기면 코드는 단순한데 느리고 비싼다. 그런데 실제로 보면 &lt;strong&gt;LLM이 필요 없는 자리가 꽤 있었다.&lt;/strong&gt;
+인사말, 상태 전이 안내, 고정 문구 같은 건 템플릿이면 충분하다. 매번 생성할 이유가 없다.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-6/&#34; &gt;seam&lt;/a&gt;에서 복잡도 분류를 로컬 모델로 돌린 거랑 같은 얘기다.
+&lt;strong&gt;&amp;ldquo;이 자리에 진짜 추론이 필요한가&amp;rdquo;&lt;/strong&gt; 를 매번 따지는 게 비용에서 제일 크게 먹힌다.&lt;/p&gt;
+&lt;h2 id=&#34;rag는-pgvector로&#34;&gt;
+    &lt;a href=&#34;#rag%eb%8a%94-pgvector%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    RAG는 pgvector로
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -463,14 +461,14 @@ Supervisor가 그 점수를 보고 &lt;strong&gt;더 파고들지 / 마무리로
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: Implement Meditation Agent Nodes and RAG Service
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;신학 자료를 청크로 쪼개서 임베딩하고, 묵상 중에 관련 내용을 끌어옴.
-&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;에서 적었듯 별도 벡터 DB 없이 &lt;strong&gt;Postgres + pgvector&lt;/strong&gt; 하나로 감.&lt;/p&gt;
-&lt;p&gt;솔직하게 적으면 이 부분은 &lt;strong&gt;끝까지 완성 못 했음.&lt;/strong&gt;
-신학 RAG 청크 129개는 만들어뒀는데, &lt;code&gt;theology_vectors&lt;/code&gt; DB 시딩 스크립트를 안 썼음. CLAUDE.md에 그대로 &amp;ldquo;미완료&amp;quot;로 남아 있음.&lt;/p&gt;
-&lt;h2 id=&#34;-쿼터를-db에-박았음&#34;&gt;
-    &lt;a href=&#34;#-%ec%bf%bc%ed%84%b0%eb%a5%bc-db%ec%97%90-%eb%b0%95%ec%95%98%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎟️ 쿼터를 DB에 박았음
-&lt;/h2&gt;&lt;p&gt;AI 호출은 돈이 듦. 그래서 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;의 Core 서버가 관문 역할을 하는데, 그 근거 테이블을 infra에 만들었음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;신학 자료를 청크로 쪼개서 임베딩하고, 묵상 중에 관련 내용을 끌어온다.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;에서 적었듯 별도 벡터 DB 없이 &lt;strong&gt;Postgres + pgvector&lt;/strong&gt; 하나로 간다.&lt;/p&gt;
+&lt;p&gt;솔직하게 적으면 이 부분은 &lt;strong&gt;끝까지 완성 못 했다.&lt;/strong&gt;
+신학 RAG 청크 129개는 만들어뒀는데, &lt;code&gt;theology_vectors&lt;/code&gt; DB 시딩 스크립트를 안 썼다. CLAUDE.md에 그대로 &amp;ldquo;미완료&amp;quot;로 남아 있다.&lt;/p&gt;
+&lt;h2 id=&#34;쿼터를-db에-박았음&#34;&gt;
+    &lt;a href=&#34;#%ec%bf%bc%ed%84%b0%eb%a5%bc-db%ec%97%90-%eb%b0%95%ec%95%98%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    쿼터를 DB에 박았음
+&lt;/h2&gt;&lt;p&gt;AI 호출은 돈이 듦. 그래서 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;의 Core 서버가 관문 역할을 하는데, 그 근거 테이블을 infra에 만들었다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -479,12 +477,12 @@ Supervisor가 그 점수를 보고 &lt;strong&gt;더 파고들지 / 마무리로
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Add user quotas system and performance indexes for optimization
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;쿼터를 &lt;strong&gt;Redis가 아니라 Postgres에&lt;/strong&gt; 뒀음. 정확도가 더 중요해서임.
-Redis가 재시작되면 쿼터가 초기화되는데, 그건 &amp;ldquo;무제한 무료&amp;quot;랑 같은 말임.&lt;/p&gt;
-&lt;p&gt;DeepLens 쿼터는 30일에 200회로 잡았음. 나중에 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt; 즈음에 DB 캐시를 붙이면서 &lt;strong&gt;올렸음&lt;/strong&gt; — 사전 계산된 걸 꺼내 쓰는 거면 호출 비용이 거의 안 드니까.&lt;/p&gt;
-&lt;h2 id=&#34;-프롬프트는-커밋-안-함&#34;&gt;
-    &lt;a href=&#34;#-%ed%94%84%eb%a1%ac%ed%94%84%ed%8a%b8%eb%8a%94-%ec%bb%a4%eb%b0%8b-%ec%95%88-%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔐 프롬프트는 커밋 안 함
+&lt;/div&gt;&lt;p&gt;쿼터를 &lt;strong&gt;Redis가 아니라 Postgres에&lt;/strong&gt; 뒀다. 정확도가 더 중요해서다.
+Redis가 재시작되면 쿼터가 초기화되는데, 그건 &amp;ldquo;무제한 무료&amp;quot;랑 같은 말이다.&lt;/p&gt;
+&lt;p&gt;DeepLens 쿼터는 30일에 200회로 잡았다. 나중에 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt; 즈음에 DB 캐시를 붙이면서 &lt;strong&gt;올렸음&lt;/strong&gt;. 사전 계산된 걸 꺼내 쓰는 거면 호출 비용이 거의 안 드니까.&lt;/p&gt;
+&lt;h2 id=&#34;프롬프트는-커밋-안-함&#34;&gt;
+    &lt;a href=&#34;#%ed%94%84%eb%a1%ac%ed%94%84%ed%8a%b8%eb%8a%94-%ec%bb%a4%eb%b0%8b-%ec%95%88-%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    프롬프트는 커밋 안 함
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -495,19 +493,18 @@ Redis가 재시작되면 쿼터가 초기화되는데, 그건 &amp;ldquo;무제�
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;servers/ai/app/private/     ← gitignored
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;프롬프트랑 일부 노드 구현을 저장소에서 뺐음.&lt;/p&gt;
-&lt;p&gt;공개 레포는 아니지만 &lt;strong&gt;프롬프트가 이 앱의 실질적인 자산&lt;/strong&gt;이라서 분리해뒀음.
-코드 구조는 공유해도 되는데 &amp;ldquo;어떻게 되묻는지&amp;quot;는 다름.&lt;/p&gt;
-&lt;p&gt;CLAUDE.md에도 굵게 적어뒀음 — &lt;em&gt;never commit these.&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;AI가 답을 안 하게 만드는 것&amp;quot;이 답하게 만드는 것보다 훨씬 어려웠음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;되묻기만 하면 짜증나고, 답을 주면 묵상이 아님. 그 사이를 판단하는 게 Observer인데, 이게 이 프로젝트에서 제일 오래 붙든 부분이 됨.&lt;/p&gt;
-&lt;p&gt;그리고 &lt;strong&gt;에이전트 그래프에서 종료 조건은 LLM한테 맡기면 안 됨.&lt;/strong&gt;
-wrap_up 무한 반복이 그 증거였음. 흐름은 LLM이 잡아도 &lt;strong&gt;&amp;ldquo;그만&amp;quot;은 코드가 세야&lt;/strong&gt; 함.&lt;/p&gt;
-&lt;p&gt;다음은 로그인이랑 푸시임.&lt;/p&gt;
-&lt;p&gt;#ABIDE #LangGraph #AI에이전트 #RAG #pgvector&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;프롬프트랑 일부 노드 구현을 저장소에서 뺐다.&lt;/p&gt;
+&lt;p&gt;공개 레포는 아니지만 &lt;strong&gt;프롬프트가 이 앱의 실질적인 자산&lt;/strong&gt;이라서 분리해뒀다.
+코드 구조는 공유해도 되는데 &amp;ldquo;어떻게 되묻는지&amp;quot;는 다르다.&lt;/p&gt;
+&lt;p&gt;CLAUDE.md에도 굵게 적어뒀다. &lt;em&gt;never commit these.&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;AI가 답을 안 하게 만드는 것&amp;quot;이 답하게 만드는 것보다 훨씬 어려웠다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;되묻기만 하면 짜증나고, 답을 주면 묵상이 아니다. 그 사이를 판단하는 게 Observer인데, 이게 이 프로젝트에서 제일 오래 붙든 부분이 된다.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;strong&gt;에이전트 그래프에서 종료 조건은 LLM한테 맡기면 안 된다.&lt;/strong&gt;
+wrap_up 무한 반복이 그 증거였다. 흐름은 LLM이 잡아도 &lt;strong&gt;&amp;ldquo;그만&amp;quot;은 코드가 세야&lt;/strong&gt; 한다.&lt;/p&gt;
+&lt;p&gt;다음은 로그인이랑 푸시다.&lt;/p&gt;
 </description>
         </item>
         

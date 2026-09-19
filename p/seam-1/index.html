@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="ko" dir="ltr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Cursor에서 하던 작업을 Claude Desktop이 모름. 그 사이에 뭘 하나 끼워넣고 싶었음">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Cursor에서 하던 작업을 Claude Desktop이 모른다. 그 사이에 뭘 하나 끼워넣고 싶었음">
 <title>seam 개발 일지 #1 - AI 도구들이 각자의 섬이라서</title>
 
 <link rel='canonical' href='https://dn5772.github.io/p/seam-1/'>
 
 <link rel="stylesheet" href="/scss/style.min.760e3dabc1e140d2e6abd27a8ca0aabb60e568829b29f67d2df12024136eff37.css"><meta property='og:title' content="seam 개발 일지 #1 - AI 도구들이 각자의 섬이라서">
-<meta property='og:description' content="Cursor에서 하던 작업을 Claude Desktop이 모름. 그 사이에 뭘 하나 끼워넣고 싶었음">
+<meta property='og:description' content="Cursor에서 하던 작업을 Claude Desktop이 모른다. 그 사이에 뭘 하나 끼워넣고 싶었음">
 <meta property='og:url' content='https://dn5772.github.io/p/seam-1/'>
 <meta property='og:site_name' content='대니짱'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='seam' /><meta property='article:tag' content='AI' /><meta property='article:tag' content='설계' /><meta property='article:tag' content='아키텍처' /><meta property='article:tag' content='Rust' /><meta property='article:tag' content='LLM' /><meta property='article:published_time' content='2026-03-16T20:00:00&#43;09:00'/><meta property='article:modified_time' content='2026-03-16T20:00:00&#43;09:00'/>
 <meta name="twitter:title" content="seam 개발 일지 #1 - AI 도구들이 각자의 섬이라서">
-<meta name="twitter:description" content="Cursor에서 하던 작업을 Claude Desktop이 모름. 그 사이에 뭘 하나 끼워넣고 싶었음">
+<meta name="twitter:description" content="Cursor에서 하던 작업을 Claude Desktop이 모른다. 그 사이에 뭘 하나 끼워넣고 싶었음">
     <link rel="shortcut icon" href="/pokeball_icon.png" />
 
   
@@ -292,9 +292,9 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-문제-목록을-먼저-적었음">🏝️ 문제 목록을 먼저 적었음</a></li>
-    <li><a href="#-이름은-seam">🧵 이름은 seam</a></li>
-    <li><a href="#-핵심-아이디어-5개">💡 핵심 아이디어 5개</a>
+    <li><a href="#문제-목록을-먼저-적었음">문제 목록을 먼저 적었음</a></li>
+    <li><a href="#이름은-seam">이름은 seam</a></li>
+    <li><a href="#핵심-아이디어-5개">핵심 아이디어 5개</a>
       <ol>
         <li><a href="#1-통합-메모리--모든-ai가-나를-기억함">1. 통합 메모리 — 모든 AI가 나를 기억함</a></li>
         <li><a href="#2-llm-추상화--모델을-몰라도-됨">2. LLM 추상화 — 모델을 몰라도 됨</a></li>
@@ -303,11 +303,11 @@
         <li><a href="#5-메모리-자동-업데이트">5. 메모리 자동 업데이트</a></li>
       </ol>
     </li>
-    <li><a href="#-6레이어로-쌓았음">🏗️ 6레이어로 쌓았음</a></li>
-    <li><a href="#-2티어--tier-1은-미끼-tier-2가-본체">🎣 2티어 — Tier 1은 미끼, Tier 2가 본체</a></li>
-    <li><a href="#-seam이-죽어도-앱은-돌아가야-함">🛡️ seam이 죽어도 앱은 돌아가야 함</a></li>
-    <li><a href="#-열린-질문을-같이-적었음">❓ 열린 질문을 같이 적었음</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#6레이어로-쌓았음">6레이어로 쌓았음</a></li>
+    <li><a href="#2티어--tier-1은-미끼-tier-2가-본체">2티어 — Tier 1은 미끼, Tier 2가 본체</a></li>
+    <li><a href="#seam이-죽어도-앱은-돌아가야-함">seam이 죽어도 앱은 돌아가야 함</a></li>
+    <li><a href="#열린-질문을-같이-적었음">열린 질문을 같이 적었음</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -340,7 +340,7 @@
     
         
         <h3 class="article-subtitle">
-            Cursor에서 하던 작업을 Claude Desktop이 모름. 그 사이에 뭘 하나 끼워넣고 싶었음
+            Cursor에서 하던 작업을 Claude Desktop이 모른다. 그 사이에 뭘 하나 끼워넣고 싶었음
         </h3>
         
     </div>
@@ -394,14 +394,14 @@
     <h1 id="seam-개발-일지-1---ai-도구들이-각자의-섬이라서">
     <a href="#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-1---ai-%eb%8f%84%ea%b5%ac%eb%93%a4%ec%9d%b4-%ea%b0%81%ec%9e%90%ec%9d%98-%ec%84%ac%ec%9d%b4%eb%9d%bc%ec%84%9c" class="header-anchor">#</a>
     seam 개발 일지 #1 - AI 도구들이 각자의 섬이라서
-</h1><p>AI 도구를 여러 개 쓰다 보면 계속 걸리는 게 있음.</p>
-<p>Cursor에서 인증 API를 만들다가 Claude Desktop을 열면, <strong>맥락을 처음부터 다시 설명해야 함.</strong>
-어제 AI랑 한 작업을 오늘 AI는 모름. 같은 컴퓨터, 같은 사람인데.</p>
-<p>이걸 해결하는 걸 만들어보기로 했음. 오늘은 코드 한 줄도 안 쓰고 설계 문서만 10개 썼음.</p>
-<h2 id="-문제-목록을-먼저-적었음">
-    <a href="#-%eb%ac%b8%ec%a0%9c-%eb%aa%a9%eb%a1%9d%ec%9d%84-%eb%a8%bc%ec%a0%80-%ec%a0%81%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
-    🏝️ 문제 목록을 먼저 적었음
-</h2><p>불편한 걸 표로 쭉 적어봤음.</p>
+</h1><p>AI 도구를 여러 개 쓰다 보면 계속 걸리는 게 있다.</p>
+<p>Cursor에서 인증 API를 만들다가 Claude Desktop을 열면, <strong>맥락을 처음부터 다시 설명해야 한다.</strong>
+어제 AI랑 한 작업을 오늘 AI는 모른다. 같은 컴퓨터, 같은 사람인데.</p>
+<p>이걸 해결하는 걸 만들어보기로 했다. 오늘은 코드 한 줄도 안 쓰고 설계 문서만 10개 썼다.</p>
+<h2 id="문제-목록을-먼저-적었음">
+    <a href="#%eb%ac%b8%ec%a0%9c-%eb%aa%a9%eb%a1%9d%ec%9d%84-%eb%a8%bc%ec%a0%80-%ec%a0%81%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
+    문제 목록을 먼저 적었음
+</h2><p>불편한 걸 표로 쭉 적어봤다.</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -440,15 +440,15 @@
 </tr>
 </tbody>
 </table></div>
-<p>적어놓고 보니 <strong>근원이 하나였음.</strong></p>
+<p>적어놓고 보니 <strong>근원이 하나였다.</strong></p>
 <blockquote>
 <p>AI 도구들이 각자의 섬이다.
 같은 사용자, 같은 하드웨어인데 — 서로 모르고, 맥락을 공유하지 않고, 자원을 나누지 않는다.</p>
 </blockquote>
-<h2 id="-이름은-seam">
-    <a href="#-%ec%9d%b4%eb%a6%84%ec%9d%80-seam" class="header-anchor">#</a>
-    🧵 이름은 seam
-</h2><p><strong>seam</strong> — 이음새, 솔기.
+<h2 id="이름은-seam">
+    <a href="#%ec%9d%b4%eb%a6%84%ec%9d%80-seam" class="header-anchor">#</a>
+    이름은 seam
+</h2><p><strong>seam</strong>. 이음새, 솔기.
 천을 꿰매는 실처럼 AI 앱들 사이에 투명하게 존재하면서 연결한다는 뜻.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -462,12 +462,12 @@
 </span></span><span class="line"><span class="cl">   ollama | claude api | openai api | gemini | ...
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>seamless</strong> 에서 따온 것도 있음. 사용자가 이음새의 존재를 못 느끼는 게 목표라서.</p>
-<p>처음엔 &ldquo;AI OS&quot;라는 이름으로 기획했었는데(v0.1~v0.3), OS라고 하니까 너무 거창하고 실제로 하는 일이랑도 안 맞았음.
-커널이나 스케줄러를 만드는 게 아니라 <strong>그냥 중간에 끼는 레이어</strong>임.</p>
-<h2 id="-핵심-아이디어-5개">
-    <a href="#-%ed%95%b5%ec%8b%ac-%ec%95%84%ec%9d%b4%eb%94%94%ec%96%b4-5%ea%b0%9c" class="header-anchor">#</a>
-    💡 핵심 아이디어 5개
+</div><p><strong>seamless</strong> 에서 따온 것도 있다. 사용자가 이음새의 존재를 못 느끼는 게 목표라서.</p>
+<p>처음엔 &ldquo;AI OS&quot;라는 이름으로 기획했었는데(v0.1~v0.3), OS라고 하니까 너무 거창하고 실제로 하는 일이랑도 안 맞았다.
+커널이나 스케줄러를 만드는 게 아니라 <strong>그냥 중간에 끼는 레이어</strong>이다.</p>
+<h2 id="핵심-아이디어-5개">
+    <a href="#%ed%95%b5%ec%8b%ac-%ec%95%84%ec%9d%b4%eb%94%94%ec%96%b4-5%ea%b0%9c" class="header-anchor">#</a>
+    핵심 아이디어 5개
 </h2><h3 id="1-통합-메모리--모든-ai가-나를-기억함">
     <a href="#1-%ed%86%b5%ed%95%a9-%eb%a9%94%eb%aa%a8%eb%a6%ac--%eb%aa%a8%eb%93%a0-ai%ea%b0%80-%eb%82%98%eb%a5%bc-%ea%b8%b0%ec%96%b5%ed%95%a8" class="header-anchor">#</a>
     1. 통합 메모리 — 모든 AI가 나를 기억함
@@ -489,7 +489,7 @@
 </div><h3 id="2-llm-추상화--모델을-몰라도-됨">
     <a href="#2-llm-%ec%b6%94%ec%83%81%ed%99%94--%eb%aa%a8%eb%8d%b8%ec%9d%84-%eb%aa%b0%eb%9d%bc%eb%8f%84-%eb%90%a8" class="header-anchor">#</a>
     2. LLM 추상화 — 모델을 몰라도 됨
-</h3><p>요청의 복잡도랑 도메인 보고 seam이 고름.</p>
+</h3><p>요청의 복잡도랑 도메인 보고 seam이 고른다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -505,7 +505,7 @@
 </div><h3 id="3-스킬-지연-로딩--필요할-때만-적재">
     <a href="#3-%ec%8a%a4%ed%82%ac-%ec%a7%80%ec%97%b0-%eb%a1%9c%eb%94%a9--%ed%95%84%ec%9a%94%ed%95%a0-%eb%95%8c%eb%a7%8c-%ec%a0%81%ec%9e%ac" class="header-anchor">#</a>
     3. 스킬 지연 로딩 — 필요할 때만 적재
-</h3><p>40개 깔아도 대화 시작할 때 토큰을 안 씀. 요청 보고 필요한 것만 그 순간에 로드.</p>
+</h3><p>40개 깔아도 대화 시작할 때 토큰을 안 쓴다. 요청 보고 필요한 것만 그 순간에 로드.</p>
 <h3 id="4-에이전트-통신--ai들끼리-협업">
     <a href="#4-%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8-%ed%86%b5%ec%8b%a0--ai%eb%93%a4%eb%81%bc%eb%a6%ac-%ed%98%91%ec%97%85" class="header-anchor">#</a>
     4. 에이전트 통신 — AI들끼리 협업
@@ -519,14 +519,14 @@
 </span></span><span class="line"><span class="cl">                                 →→→  deploy agent
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>내가 중계자가 될 필요가 없어짐.</p>
+</div><p>내가 중계자가 될 필요가 없어진다.</p>
 <h3 id="5-메모리-자동-업데이트">
     <a href="#5-%eb%a9%94%eb%aa%a8%eb%a6%ac-%ec%9e%90%eb%8f%99-%ec%97%85%eb%8d%b0%ec%9d%b4%ed%8a%b8" class="header-anchor">#</a>
     5. 메모리 자동 업데이트
 </h3><p>대화 끝날 때 &ldquo;이 대화에서 기억해야 할 게 뭔지&rdquo; seam이 판단해서 저장.</p>
-<h2 id="-6레이어로-쌓았음">
-    <a href="#-6%eb%a0%88%ec%9d%b4%ec%96%b4%eb%a1%9c-%ec%8c%93%ec%95%98%ec%9d%8c" class="header-anchor">#</a>
-    🏗️ 6레이어로 쌓았음
+<h2 id="6레이어로-쌓았음">
+    <a href="#6%eb%a0%88%ec%9d%b4%ec%96%b4%eb%a1%9c-%ec%8c%93%ec%95%98%ec%9d%8c" class="header-anchor">#</a>
+    6레이어로 쌓았음
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -545,7 +545,7 @@
 </span></span><span class="line"><span class="cl">Layer 0 · Gateway        OpenAI/Anthropic/Ollama 호환 프록시
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>Layer 0이 제일 중요함.</strong> 기존 앱들이 seam을 거치게 만드는 게 여기서 결정됨.</p>
+</div><p><strong>Layer 0이 제일 중요하다.</strong> 기존 앱들이 seam을 거치게 만드는 게 여기서 결정된다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -558,14 +558,14 @@
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">OLLAMA_HOST</span><span class="o">=</span>http://localhost:11400/ollama
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>환경변수만 바꾸면 <strong>앱은 자기가 프록시를 거치는지도 모름.</strong></p>
-<h2 id="-2티어--tier-1은-미끼-tier-2가-본체">
-    <a href="#-2%ed%8b%b0%ec%96%b4--tier-1%ec%9d%80-%eb%af%b8%eb%81%bc-tier-2%ea%b0%80-%eb%b3%b8%ec%b2%b4" class="header-anchor">#</a>
-    🎣 2티어 — Tier 1은 미끼, Tier 2가 본체
-</h2><p>이게 채택 전략의 핵심임.</p>
-<p><strong>Tier 1 (프록시)</strong>: 쓰던 앱 그대로 씀. seam이 사이에 껴서 메모리 주입하고 기록함.
-가입 저항이 0임. 설치하고 환경변수만 바뀌면 끝.</p>
-<p><strong>Tier 2 (네이티브)</strong>: <code>seam &quot;요청&quot;</code> 으로 직접 씀. 전체 파이프라인을 다 씀.</p>
+</div><p>환경변수만 바꾸면 <strong>앱은 자기가 프록시를 거치는지도 모른다.</strong></p>
+<h2 id="2티어--tier-1은-미끼-tier-2가-본체">
+    <a href="#2%ed%8b%b0%ec%96%b4--tier-1%ec%9d%80-%eb%af%b8%eb%81%bc-tier-2%ea%b0%80-%eb%b3%b8%ec%b2%b4" class="header-anchor">#</a>
+    2티어 — Tier 1은 미끼, Tier 2가 본체
+</h2><p>이게 채택 전략의 핵심이다.</p>
+<p><strong>Tier 1 (프록시)</strong>: 쓰던 앱 그대로 쓴다. seam이 사이에 껴서 메모리 주입하고 기록한다.
+가입 저항이 0이다. 설치하고 환경변수만 바뀌면 끝.</p>
+<p><strong>Tier 2 (네이티브)</strong>: <code>seam &quot;요청&quot;</code> 으로 직접 쓴다. 전체 파이프라인을 다 쓴다.</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -616,13 +616,13 @@
 </span></span><span class="line"><span class="cl">Phase 4: 신뢰 + 자동화        → 정착
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="-seam이-죽어도-앱은-돌아가야-함">
-    <a href="#-seam%ec%9d%b4-%ec%a3%bd%ec%96%b4%eb%8f%84-%ec%95%b1%ec%9d%80-%eb%8f%8c%ec%95%84%ea%b0%80%ec%95%bc-%ed%95%a8" class="header-anchor">#</a>
-    🛡️ seam이 죽어도 앱은 돌아가야 함
-</h2><p>설계하면서 제일 신경 쓴 부분임.</p>
-<p>모든 AI 요청이 seam을 거치게 만들면, <strong>seam이 단일 장애점</strong>이 됨.
-게이트웨이가 죽으면 Cursor도 못 쓰고 Claude Code도 못 씀. 그건 최악임.</p>
-<p>그래서 passthrough 폴백을 설계에 박아뒀음.</p>
+</div><h2 id="seam이-죽어도-앱은-돌아가야-함">
+    <a href="#seam%ec%9d%b4-%ec%a3%bd%ec%96%b4%eb%8f%84-%ec%95%b1%ec%9d%80-%eb%8f%8c%ec%95%84%ea%b0%80%ec%95%bc-%ed%95%a8" class="header-anchor">#</a>
+    seam이 죽어도 앱은 돌아가야 함
+</h2><p>설계하면서 제일 신경 쓴 부분이다.</p>
+<p>모든 AI 요청이 seam을 거치게 만들면, <strong>seam이 단일 장애점</strong>이 된다.
+게이트웨이가 죽으면 Cursor도 못 쓰고 Claude Code도 못 쓴다. 그건 최악이다.</p>
+<p>그래서 passthrough 폴백을 설계에 박아뒀다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -637,26 +637,25 @@
 </span></span><span class="line"><span class="cl">              seam 재시작 시 자동 복귀
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>사용자한테 보장하는 건 한 줄임. <strong>&ldquo;seam이 죽어도 AI 앱은 동작한다.&rdquo;</strong></p>
-<h2 id="-열린-질문을-같이-적었음">
-    <a href="#-%ec%97%b4%eb%a6%b0-%ec%a7%88%eb%ac%b8%ec%9d%84-%ea%b0%99%ec%9d%b4-%ec%a0%81%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
-    ❓ 열린 질문을 같이 적었음
-</h2><p>모르는 걸 모른다고 적어두는 게 나중에 도움이 될 것 같았음.</p>
+</div><p>사용자한테 보장하는 건 한 줄이다. <strong>&ldquo;seam이 죽어도 AI 앱은 동작한다.&rdquo;</strong></p>
+<h2 id="열린-질문을-같이-적었음">
+    <a href="#%ec%97%b4%eb%a6%b0-%ec%a7%88%eb%ac%b8%ec%9d%84-%ea%b0%99%ec%9d%b4-%ec%a0%81%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
+    열린 질문을 같이 적었음
+</h2><p>모르는 걸 모른다고 적어두는 게 나중에 도움이 될 것 같았다.</p>
 <ul>
 <li>Gateway 장애 시 passthrough 폴백을 <strong>구체적으로 어떻게</strong> 구현하나 (iptables? 로컬 캐시?)</li>
 <li>복잡도 분류: 규칙 기반 vs 경량 분류 모델 vs 하이브리드</li>
-<li>메모리 주입 threshold 0.75 — 낮으면 노이즈, 높으면 누락</li>
+<li>메모리 주입 threshold 0.75. 낮으면 노이즈, 높으면 누락</li>
 <li>에이전트 버스 프로토콜: 자체 설계 vs 기존 메시지 브로커</li>
 <li>오픈소스 전략: 코어 OSS + 클라우드 메모리 동기화 유료?</li>
 </ul>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p>하루 종일 문서만 10개 썼는데 코드보다 이게 더 힘들었음.</p>
-<p>제일 오래 붙든 건 <strong>&ldquo;이걸 왜 쓰지?&rdquo;</strong> 였음.
-기능을 나열하는 건 쉬운데, 사용자가 설치할 이유 하나를 만드는 게 어려웠음. Tier 1을 미끼로 두는 구조가 그 답이었음.</p>
-<p>근데 이 설계가 일주일 뒤에 <strong>통째로 갈아엎힘.</strong> 다음 글에서.</p>
-<p>#seam #AI #설계 #아키텍처 #LLM</p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p>하루 종일 문서만 10개 썼는데 코드보다 이게 더 힘들었다.</p>
+<p>제일 오래 붙든 건 <strong>&ldquo;이걸 왜 쓰지?&rdquo;</strong> 였다.
+기능을 나열하는 건 쉬운데, 사용자가 설치할 이유 하나를 만드는 게 어려웠다. Tier 1을 미끼로 두는 구조가 그 답이었다.</p>
+<p>근데 이 설계가 일주일 뒤에 <strong>통째로 갈아엎힌다.</strong> 다음 글에서.</p>
 
 </section>
 

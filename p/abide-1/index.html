@@ -292,13 +292,13 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-3레이어로-갈랐음">🧱 3레이어로 갈랐음</a></li>
-    <li><a href="#-디자인-시스템부터-깔았음">🎨 디자인 시스템부터 깔았음</a></li>
-    <li><a href="#-화면-14개">📱 화면 14개</a></li>
-    <li><a href="#-sse-클라이언트를-처음부터-넣었음">🌊 SSE 클라이언트를 처음부터 넣었음</a></li>
-    <li><a href="#-로컬라이제이션도-첫날에">🌏 로컬라이제이션도 첫날에</a></li>
-    <li><a href="#-전역-에러-바운더리">🛡️ 전역 에러 바운더리</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#3레이어로-갈랐음">3레이어로 갈랐음</a></li>
+    <li><a href="#디자인-시스템부터-깔았음">디자인 시스템부터 깔았음</a></li>
+    <li><a href="#화면-14개">화면 14개</a></li>
+    <li><a href="#sse-클라이언트를-처음부터-넣었음">SSE 클라이언트를 처음부터 넣었음</a></li>
+    <li><a href="#로컬라이제이션도-첫날에">로컬라이제이션도 첫날에</a></li>
+    <li><a href="#전역-에러-바운더리">전역 에러 바운더리</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -385,14 +385,14 @@
     <h1 id="abide-개발-일지-1---flutter-앱-뼈대를-한-번에-올렸음">
     <a href="#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-1---flutter-%ec%95%b1-%eb%bc%88%eb%8c%80%eb%a5%bc-%ed%95%9c-%eb%b2%88%ec%97%90-%ec%98%ac%eb%a0%b8%ec%9d%8c" class="header-anchor">#</a>
     ABIDE 개발 일지 #1 - Flutter 앱 뼈대를 한 번에 올렸음
-</h1><p><strong>ABIDE(말씀 안에 거하다)</strong> — AI랑 같이 성경을 묵상하는 앱을 만들기 시작했음.</p>
-<p>요약을 던져주는 게 아니라 <strong>소크라테스식으로 되물으면서</strong> 스스로 생각하게 만드는 게 목표임.
-&ldquo;이 구절이 무슨 뜻이냐&quot;를 알려주는 앱은 이미 많은데, &ldquo;당신한테 이게 왜 걸리냐&quot;를 묻는 건 없었음.</p>
-<p>첫날에 Flutter 앱 뼈대를 통째로 올렸음. 커밋 48개가 전부 <code>22:09~22:10</code> 에 찍혀 있음.</p>
-<h2 id="-3레이어로-갈랐음">
-    <a href="#-3%eb%a0%88%ec%9d%b4%ec%96%b4%eb%a1%9c-%ea%b0%88%eb%9e%90%ec%9d%8c" class="header-anchor">#</a>
-    🧱 3레이어로 갈랐음
-</h2><p>Clean Architecture 그대로 감.</p>
+</h1><p><strong>ABIDE(말씀 안에 거하다)</strong>. AI랑 같이 성경을 묵상하는 앱을 만들기 시작했다.</p>
+<p>요약을 던져주는 게 아니라 <strong>소크라테스식으로 되물으면서</strong> 스스로 생각하게 만드는 게 목표다.
+&ldquo;이 구절이 무슨 뜻이냐&quot;를 알려주는 앱은 이미 많은데, &ldquo;당신한테 이게 왜 걸리냐&quot;를 묻는 건 없었다.</p>
+<p>첫날에 Flutter 앱 뼈대를 통째로 올렸다. 커밋 48개가 전부 <code>22:09~22:10</code> 에 찍혀 있다.</p>
+<h2 id="3레이어로-갈랐음">
+    <a href="#3%eb%a0%88%ec%9d%b4%ec%96%b4%eb%a1%9c-%ea%b0%88%eb%9e%90%ec%9d%8c" class="header-anchor">#</a>
+    3레이어로 갈랐음
+</h2><p>Clean Architecture 그대로 간다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -409,10 +409,10 @@
 </span></span><span class="line"><span class="cl">└── presentation/   Riverpod 프로바이더 + 화면
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>의존 방향이 한쪽임.</strong> <code>presentation → domain ← data</code>.
-<code>domain</code> 은 Flutter도 모르고 HTTP도 모름. 순수 다트 객체랑 인터페이스만 있음.</p>
-<p>이렇게 한 이유가 있음. 이 앱은 성경 본문을 <strong>로컬 에셋에서</strong> 읽고, 묵상 대화는 <strong>서버 SSE에서</strong> 받음.
-두 데이터소스의 성격이 완전히 다른데, 화면이 그걸 다 알고 있으면 나중에 못 바꿈.</p>
+</div><p><strong>의존 방향이 한쪽이다.</strong> <code>presentation → domain ← data</code>.
+<code>domain</code> 은 Flutter도 모르고 HTTP도 모른다. 순수 다트 객체랑 인터페이스만 있다.</p>
+<p>이렇게 한 이유가 있다. 이 앱은 성경 본문을 <strong>로컬 에셋에서</strong> 읽고, 묵상 대화는 <strong>서버 SSE에서</strong> 받는다.
+두 데이터소스의 성격이 완전히 다른데, 화면이 그걸 다 알고 있으면 나중에 못 바꾼다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -425,11 +425,11 @@
 </span></span><span class="line"><span class="cl">data/datasources/local/bible_parser.dart       ← JSON 파싱 + 인덱싱
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>화면은 <code>BibleRepository</code> 만 알면 됨. 나중에 본문을 서버에서 받기로 해도 화면은 안 바뀜.</p>
-<h2 id="-디자인-시스템부터-깔았음">
-    <a href="#-%eb%94%94%ec%9e%90%ec%9d%b8-%ec%8b%9c%ec%8a%a4%ed%85%9c%eb%b6%80%ed%84%b0-%ea%b9%94%ec%95%98%ec%9d%8c" class="header-anchor">#</a>
-    🎨 디자인 시스템부터 깔았음
-</h2><p>화면보다 테마를 먼저 만들었음. 커밋 순서가 그럼.</p>
+</div><p>화면은 <code>BibleRepository</code> 만 알면 된다. 나중에 본문을 서버에서 받기로 해도 화면은 안 바뀐다.</p>
+<h2 id="디자인-시스템부터-깔았음">
+    <a href="#%eb%94%94%ec%9e%90%ec%9d%b8-%ec%8b%9c%ec%8a%a4%ed%85%9c%eb%b6%80%ed%84%b0-%ea%b9%94%ec%95%98%ec%9d%8c" class="header-anchor">#</a>
+    디자인 시스템부터 깔았음
+</h2><p>화면보다 테마를 먼저 만들었다. 커밋 순서가 그런다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -444,13 +444,13 @@
 </span></span><span class="line"><span class="cl">feat(core/widgets): add shared UI components (glassmorphism cards, tactile buttons, logo)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>Deep Forest + 글래스모피즘</strong>으로 잡음. 묵상 앱이라 차분해야 하는데, 그렇다고 밋밋하면 안 씀.
-짙은 녹색 계열에 반투명 카드를 얹는 식으로 갔음.</p>
-<p>색 → 타이포 → ThemeData → 공용 위젯 순서로 쌓은 게 나중에 편했음.
-<strong>화면마다 색을 직접 쓰는 일이 없어서</strong> <a class="link" href="https://dn5772.github.io/p/abide-6/" >#6</a>에서 설정 시트 같은 걸 추가할 때 토큰만 가져다 쓰면 됐음.</p>
-<h2 id="-화면-14개">
-    <a href="#-%ed%99%94%eb%a9%b4-14%ea%b0%9c" class="header-anchor">#</a>
-    📱 화면 14개
+</div><p><strong>Deep Forest + 글래스모피즘</strong>으로 잡는다. 묵상 앱이라 차분해야 하는데, 그렇다고 밋밋하면 안 쓴다.
+짙은 녹색 계열에 반투명 카드를 얹는 식으로 갔다.</p>
+<p>색 → 타이포 → ThemeData → 공용 위젯 순서로 쌓은 게 나중에 편했다.
+<strong>화면마다 색을 직접 쓰는 일이 없어서</strong> <a class="link" href="https://dn5772.github.io/p/abide-6/" >#6</a>에서 설정 시트 같은 걸 추가할 때 토큰만 가져다 쓰면 됐다.</p>
+<h2 id="화면-14개">
+    <a href="#%ed%99%94%eb%a9%b4-14%ea%b0%9c" class="header-anchor">#</a>
+    화면 14개
 </h2><div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -494,9 +494,9 @@
 </tbody>
 </table></div>
 <p>여기에 스플래시 · 온보딩 · 로그인 · 프로필 설정 · 하단 탭 셸까지.</p>
-<h2 id="-sse-클라이언트를-처음부터-넣었음">
-    <a href="#-sse-%ed%81%b4%eb%9d%bc%ec%9d%b4%ec%96%b8%ed%8a%b8%eb%a5%bc-%ec%b2%98%ec%9d%8c%eb%b6%80%ed%84%b0-%eb%84%a3%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
-    🌊 SSE 클라이언트를 처음부터 넣었음
+<h2 id="sse-클라이언트를-처음부터-넣었음">
+    <a href="#sse-%ed%81%b4%eb%9d%bc%ec%9d%b4%ec%96%b8%ed%8a%b8%eb%a5%bc-%ec%b2%98%ec%9d%8c%eb%b6%80%ed%84%b0-%eb%84%a3%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
+    SSE 클라이언트를 처음부터 넣었음
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -507,13 +507,13 @@
 </span></span><span class="line"><span class="cl">feat(presentation): add meditation session provider (SSE stream lifecycle management)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>묵상 대화가 이 앱의 핵심인데, <strong>한 번에 답이 다 나오면 안 됨.</strong>
-AI가 생각하는 동안 화면이 멈춰 있으면 대화가 아니라 로딩임.</p>
-<p>그래서 처음부터 Server-Sent Events로 잡았음. Dio 기반으로 직접 만들었고, 스트림 생명주기(구독·취소·에러·재연결)는 Riverpod 프로바이더가 들고 있게 함.</p>
-<p>이게 나중에 <a class="link" href="https://dn5772.github.io/p/abide-7/" >#7</a>에서 크게 확장됨.</p>
-<h2 id="-로컬라이제이션도-첫날에">
-    <a href="#-%eb%a1%9c%ec%bb%ac%eb%9d%bc%ec%9d%b4%ec%a0%9c%ec%9d%b4%ec%85%98%eb%8f%84-%ec%b2%ab%eb%82%a0%ec%97%90" class="header-anchor">#</a>
-    🌏 로컬라이제이션도 첫날에
+</div><p>묵상 대화가 이 앱의 핵심인데, <strong>한 번에 답이 다 나오면 안 된다.</strong>
+AI가 생각하는 동안 화면이 멈춰 있으면 대화가 아니라 로딩이다.</p>
+<p>그래서 처음부터 Server-Sent Events로 잡았다. Dio 기반으로 직접 만들었고, 스트림 생명주기(구독·취소·에러·재연결)는 Riverpod 프로바이더가 들고 있게 한다.</p>
+<p>이게 나중에 <a class="link" href="https://dn5772.github.io/p/abide-7/" >#7</a>에서 크게 확장된다.</p>
+<h2 id="로컬라이제이션도-첫날에">
+    <a href="#%eb%a1%9c%ec%bb%ac%eb%9d%bc%ec%9d%b4%ec%a0%9c%ec%9d%b4%ec%85%98%eb%8f%84-%ec%b2%ab%eb%82%a0%ec%97%90" class="header-anchor">#</a>
+    로컬라이제이션도 첫날에
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -522,13 +522,13 @@ AI가 생각하는 동안 화면이 멈춰 있으면 대화가 아니라 로딩�
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">feat(core): add Korean/English localisation string maps and locale provider
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>한국어가 1차인데 영어 문자열 맵을 같이 깔아뒀음.
-나중에 붙이려면 화면 14개를 다 뒤져야 하니까, 비어 있더라도 구조는 먼저 만들어두는 게 나음.</p>
-<p>…라고 생각했는데 <strong>이게 절반만 맞았음.</strong> 앱 UI는 이걸로 됐는데, <strong>AI가 생성하는 텍스트</strong>는 전혀 대비가 안 돼 있었음.
-그 대가를 <a class="link" href="https://dn5772.github.io/p/abide-8/" >#8</a>에서 치름.</p>
-<h2 id="-전역-에러-바운더리">
-    <a href="#-%ec%a0%84%ec%97%ad-%ec%97%90%eb%9f%ac-%eb%b0%94%ec%9a%b4%eb%8d%94%eb%a6%ac" class="header-anchor">#</a>
-    🛡️ 전역 에러 바운더리
+</div><p>한국어가 1차인데 영어 문자열 맵을 같이 깔아뒀다.
+나중에 붙이려면 화면 14개를 다 뒤져야 하니까, 비어 있더라도 구조는 먼저 만들어두는 게 낫다.</p>
+<p>…라고 생각했는데 <strong>이게 절반만 맞았다.</strong> 앱 UI는 이걸로 됐는데, <strong>AI가 생성하는 텍스트</strong>는 전혀 대비가 안 돼 있었다.
+그 대가를 <a class="link" href="https://dn5772.github.io/p/abide-8/" >#8</a>에서 치른다.</p>
+<h2 id="전역-에러-바운더리">
+    <a href="#%ec%a0%84%ec%97%ad-%ec%97%90%eb%9f%ac-%eb%b0%94%ec%9a%b4%eb%8d%94%eb%a6%ac" class="header-anchor">#</a>
+    전역 에러 바운더리
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -540,16 +540,15 @@ AI가 생각하는 동안 화면이 멈춰 있으면 대화가 아니라 로딩�
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>main.dart</code> 에서 에러를 한 군데로 모음. 네트워크 실패든 파싱 실패든 사용자한테 보이는 건 한 형식.</p>
-<p>묵상 중에 빨간 Flutter 에러 화면이 뜨면 그날 묵상은 끝임. 이건 기능이 아니라 <strong>분위기 문제</strong>라서 처음부터 넣었음.</p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p>48커밋을 한 번에 올린 건데, <strong>커밋을 잘게 쪼갠 게 나중에 읽기 좋았음.</strong>
-<code>feat(core/theme)</code>, <code>feat(domain)</code>, <code>feat(data)</code>, <code>feat(ui)</code> 로 레이어를 접두사에 박아두니까 나중에 &ldquo;이때 뭘 깔았지&quot;가 로그만 봐도 보임.</p>
-<p>그리고 <strong>화면보다 테마랑 라우터를 먼저 만든 순서</strong>가 맞았음.
+<p>묵상 중에 빨간 Flutter 에러 화면이 뜨면 그날 묵상은 끝이다. 이건 기능이 아니라 <strong>분위기 문제</strong>라서 처음부터 넣었다.</p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p>48커밋을 한 번에 올린 건데, <strong>커밋을 잘게 쪼갠 게 나중에 읽기 좋았다.</strong>
+<code>feat(core/theme)</code>, <code>feat(domain)</code>, <code>feat(data)</code>, <code>feat(ui)</code> 로 레이어를 접두사에 박아두니까 나중에 &ldquo;이때 뭘 깔았지&quot;가 로그만 봐도 보다.</p>
+<p>그리고 <strong>화면보다 테마랑 라우터를 먼저 만든 순서</strong>가 맞았다.
 반대로 갔으면 화면 14개에 색이랑 네비게이션이 제각각 박혔을 것.</p>
-<p>다음은 서버임. 앱은 있는데 부를 데가 없음.</p>
-<p>#ABIDE #Flutter #CleanArchitecture #Riverpod #앱개발</p>
+<p>다음은 서버다. 앱은 있는데 부를 데가 없다.</p>
 
 </section>
 

@@ -292,13 +292,13 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-hitl-게이트">🚦 HITL 게이트</a></li>
-    <li><a href="#-claudemd를-알아서-찾음">📄 CLAUDE.md를 알아서 찾음</a></li>
-    <li><a href="#-세션이-남음">💾 세션이 남음</a></li>
-    <li><a href="#-조용한-폴백을-없앰">🔇 조용한 폴백을 없앰</a></li>
-    <li><a href="#-ipc-클라이언트-확장">🔗 IPC 클라이언트 확장</a></li>
-    <li><a href="#-마무리-두-개">🧹 마무리 두 개</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#hitl-게이트">HITL 게이트</a></li>
+    <li><a href="#claudemd를-알아서-찾음">CLAUDE.md를 알아서 찾음</a></li>
+    <li><a href="#세션이-남음">세션이 남음</a></li>
+    <li><a href="#조용한-폴백을-없앰">조용한 폴백을 없앰</a></li>
+    <li><a href="#ipc-클라이언트-확장">IPC 클라이언트 확장</a></li>
+    <li><a href="#마무리-두-개">마무리 두 개</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -385,14 +385,14 @@
     <h1 id="seam-개발-일지-7---에이전트한테-허락받게-만들었음">
     <a href="#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-7---%ec%97%90%ec%9d%b4%ec%a0%84%ed%8a%b8%ed%95%9c%ed%85%8c-%ed%97%88%eb%9d%bd%eb%b0%9b%ea%b2%8c-%eb%a7%8c%eb%93%a4%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
     seam 개발 일지 #7 - 에이전트한테 허락받게 만들었음
-</h1><p><a class="link" href="https://dn5772.github.io/p/seam-4/" >#4</a>에서 만든 seam-code는 <strong>툴을 그냥 실행했음.</strong></p>
-<p><code>execute</code> 툴이 있고 에이전트가 셸 명령을 만들면, 그게 바로 돌아감.
-<code>write_file</code> 도 마찬가지. 에이전트가 판단하면 파일이 덮어써짐.</p>
-<p>테스트할 땐 편한데, 실제로 쓰려니까 못 쓰겠음.</p>
-<h2 id="-hitl-게이트">
-    <a href="#-hitl-%ea%b2%8c%ec%9d%b4%ed%8a%b8" class="header-anchor">#</a>
-    🚦 HITL 게이트
-</h2><p>Human-in-the-loop. 툴이 실행되기 <strong>전에</strong> 사람한테 물어봄.</p>
+</h1><p><a class="link" href="https://dn5772.github.io/p/seam-4/" >#4</a>에서 만든 seam-code는 <strong>툴을 그냥 실행했다.</strong></p>
+<p><code>execute</code> 툴이 있고 에이전트가 셸 명령을 만들면, 그게 바로 돌아간다.
+<code>write_file</code> 도 마찬가지. 에이전트가 판단하면 파일이 덮어써진다.</p>
+<p>테스트할 땐 편한데, 실제로 쓰려니까 못 쓰겠다.</p>
+<h2 id="hitl-게이트">
+    <a href="#hitl-%ea%b2%8c%ec%9d%b4%ed%8a%b8" class="header-anchor">#</a>
+    HITL 게이트
+</h2><p>Human-in-the-loop. 툴이 실행되기 <strong>전에</strong> 사람한테 물어본다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -409,19 +409,19 @@
 </span></span><span class="line"><span class="cl"><span class="mi">00</span><span class="p">:</span><span class="mi">08</span>  <span class="n">feat</span><span class="p">:</span> <span class="n">add</span> <span class="n">tool_panel</span> <span class="p">(</span><span class="n">diff</span><span class="o">/</span><span class="n">shell</span> <span class="n">output</span><span class="p">)</span> <span class="ow">and</span> <span class="n">approval</span> <span class="n">UI</span> <span class="n">widgets</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>핵심은 <strong>무엇을 보여주느냐</strong>임. &ldquo;execute 툴을 실행할까요?&rdquo; 라고만 물으면 아무 의미가 없음.
-그래서 <code>tool_panel</code> 위젯을 만들어서 실제 내용을 띄움.</p>
+</div><p>핵심은 <strong>무엇을 보여주느냐</strong>이다. &ldquo;execute 툴을 실행할까요?&rdquo; 라고만 물으면 아무 의미가 없다.
+그래서 <code>tool_panel</code> 위젯을 만들어서 실제 내용을 띄운다.</p>
 <ul>
 <li>파일 수정 → <strong>diff</strong></li>
 <li>셸 명령 → 실행할 <strong>명령어 전문</strong></li>
 </ul>
-<p>diff를 보여주는 게 결정적이었음. &ldquo;이 파일을 고칠까요?&ldquo;랑 &ldquo;이 세 줄을 이렇게 바꿀까요?&ldquo;는 완전히 다른 질문임.
-전자는 대충 예스를 누르게 되고, 후자는 실제로 읽게 됨.</p>
-<h2 id="-claudemd를-알아서-찾음">
-    <a href="#-claudemd%eb%a5%bc-%ec%95%8c%ec%95%84%ec%84%9c-%ec%b0%be%ec%9d%8c" class="header-anchor">#</a>
-    📄 CLAUDE.md를 알아서 찾음
-</h2><p>같은 시각 커밋인데 이게 체감이 제일 컸음.</p>
-<p>프로젝트에 이미 <code>CLAUDE.md</code> 나 <code>AGENTS.md</code> 가 있으면 <strong>그걸 자동으로 찾아서 컨텍스트에 넣음.</strong></p>
+<p>diff를 보여주는 게 결정적이었다. &ldquo;이 파일을 고칠까요?&ldquo;랑 &ldquo;이 세 줄을 이렇게 바꿀까요?&ldquo;는 완전히 다른 질문이다.
+전자는 대충 예스를 누르게 되고, 후자는 실제로 읽게 된다.</p>
+<h2 id="claudemd를-알아서-찾음">
+    <a href="#claudemd%eb%a5%bc-%ec%95%8c%ec%95%84%ec%84%9c-%ec%b0%be%ec%9d%8c" class="header-anchor">#</a>
+    CLAUDE.md를 알아서 찾음
+</h2><p>같은 시각 커밋인데 이게 체감이 제일 컸다.</p>
+<p>프로젝트에 이미 <code>CLAUDE.md</code> 나 <code>AGENTS.md</code> 가 있으면 <strong>그걸 자동으로 찾아서 컨텍스트에 넣는다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -432,13 +432,13 @@
 </span></span><span class="line"><span class="cl">  → 찾은 것들을 컨텍스트 섹션으로 주입
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>새 도구를 쓸 때 제일 귀찮은 게 <strong>프로젝트 규칙을 다시 설명하는 것</strong>인데, 이미 파일로 적어둔 사람이 많음.
-그걸 그냥 읽으면 됨.</p>
-<p>22:39 커밋이 이걸 고침. 여러 개를 찾았을 때 섹션 헤더가 전부 <code>CLAUDE.md</code> 라서 <strong>어느 디렉토리 건지 구분이 안 됐음.</strong>
-전체 경로를 헤더에 넣게 바꿈. 모노레포에서 루트랑 패키지에 각각 있으면 구분이 필요함.</p>
-<h2 id="-세션이-남음">
-    <a href="#-%ec%84%b8%ec%85%98%ec%9d%b4-%eb%82%a8%ec%9d%8c" class="header-anchor">#</a>
-    💾 세션이 남음
+</div><p>새 도구를 쓸 때 제일 귀찮은 게 <strong>프로젝트 규칙을 다시 설명하는 것</strong>인데, 이미 파일로 적어둔 사람이 많다.
+그걸 그냥 읽으면 된다.</p>
+<p>22:39 커밋이 이걸 고친다. 여러 개를 찾았을 때 섹션 헤더가 전부 <code>CLAUDE.md</code> 라서 <strong>어느 디렉토리 건지 구분이 안 됐다.</strong>
+전체 경로를 헤더에 넣게 바꾼다. 모노레포에서 루트랑 패키지에 각각 있으면 구분이 필요하다.</p>
+<h2 id="세션이-남음">
+    <a href="#%ec%84%b8%ec%85%98%ec%9d%b4-%eb%82%a8%ec%9d%8c" class="header-anchor">#</a>
+    세션이 남음
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -449,8 +449,8 @@
 </span></span><span class="line"><span class="cl"><span class="mi">00</span><span class="p">:</span><span class="mi">09</span>  <span class="n">feat</span><span class="p">:</span> <span class="n">seam</span><span class="o">-</span><span class="n">code</span> <span class="mf">0.6</span> <span class="err">—</span> <span class="n">session</span> <span class="n">persistence</span><span class="p">,</span> <span class="n">HITL</span><span class="p">,</span> <span class="n">context</span> <span class="n">injection</span><span class="p">,</span> <span class="n">command</span> <span class="n">registry</span><span class="p">,</span> <span class="k">tool</span> <span class="n">panels</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>/sessions</code> 로 이전 대화를 불러옴. <code>/compact</code> 로 긴 히스토리를 압축함. <code>/new</code> 로 새로 시작.</p>
-<p>커맨드 레지스트리도 같이 넣었음.</p>
+</div><p><code>/sessions</code> 로 이전 대화를 불러온다. <code>/compact</code> 로 긴 히스토리를 압축한다. <code>/new</code> 로 새로 시작.</p>
+<p>커맨드 레지스트리도 같이 넣었다.</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -481,10 +481,10 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="-조용한-폴백을-없앰">
-    <a href="#-%ec%a1%b0%ec%9a%a9%ed%95%9c-%ed%8f%b4%eb%b0%b1%ec%9d%84-%ec%97%86%ec%95%b0" class="header-anchor">#</a>
-    🔇 조용한 폴백을 없앰
-</h2><p>이날 커밋 중에 제일 마음에 드는 거임.</p>
+<h2 id="조용한-폴백을-없앰">
+    <a href="#%ec%a1%b0%ec%9a%a9%ed%95%9c-%ed%8f%b4%eb%b0%b1%ec%9d%84-%ec%97%86%ec%95%b0" class="header-anchor">#</a>
+    조용한 폴백을 없앰
+</h2><p>이날 커밋 중에 제일 마음에 드는 거다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -493,15 +493,15 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">00:01  fix: raise on missing provider/model in route() response instead of silent fallback
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><a class="link" href="https://dn5772.github.io/p/seam-6/" >#6</a>에서 만든 <code>route()</code> 가 프로바이더랑 모델을 돌려줌.
-근데 응답에 그게 없으면 seam-code가 <strong>기본값으로 조용히 넘어가고 있었음.</strong></p>
-<p>이게 왜 나쁘냐면 — 라우터가 고장 나도 <strong>아무 일도 안 일어난 것처럼 보임.</strong>
-슬라이더를 0으로 맞춰놨는데 계속 비싼 모델이 불리고 있어도 모름. 청구서를 봐야 앎.</p>
-<p>에러를 내게 바꿨음. <strong>틀린 채로 돌아가는 것보다 멈추는 게 나음.</strong></p>
-<p><a class="link" href="https://dn5772.github.io/p/jung-dam-7/" >정담</a> 때 &ldquo;조용히 실패하는 버그가 제일 오래 산다&quot;고 썼는데, 여기서도 같은 얘기임.</p>
-<h2 id="-ipc-클라이언트-확장">
-    <a href="#-ipc-%ed%81%b4%eb%9d%bc%ec%9d%b4%ec%96%b8%ed%8a%b8-%ed%99%95%ec%9e%a5" class="header-anchor">#</a>
-    🔗 IPC 클라이언트 확장
+</div><p><a class="link" href="https://dn5772.github.io/p/seam-6/" >#6</a>에서 만든 <code>route()</code> 가 프로바이더랑 모델을 돌려준다.
+근데 응답에 그게 없으면 seam-code가 <strong>기본값으로 조용히 넘어가고 있었다.</strong></p>
+<p>이게 왜 나쁘냐면. 라우터가 고장 나도 <strong>아무 일도 안 일어난 것처럼 보다.</strong>
+슬라이더를 0으로 맞춰놨는데 계속 비싼 모델이 불리고 있어도 모른다. 청구서를 봐야 앎.</p>
+<p>에러를 내게 바꿨다. <strong>틀린 채로 돌아가는 것보다 멈추는 게 낫다.</strong></p>
+<p><a class="link" href="https://dn5772.github.io/p/jung-dam-7/" >정담</a> 때 &ldquo;조용히 실패하는 버그가 제일 오래 산다&quot;고 썼는데, 여기서도 같은 얘기다.</p>
+<h2 id="ipc-클라이언트-확장">
+    <a href="#ipc-%ed%81%b4%eb%9d%bc%ec%9d%b4%ec%96%b8%ed%8a%b8-%ed%99%95%ec%9e%a5" class="header-anchor">#</a>
+    IPC 클라이언트 확장
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -510,8 +510,8 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">00:00  feat: add shared_memory_save, private_memory_save, route to IPC client
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><a class="link" href="https://dn5772.github.io/p/seam-6/" >#6</a>에서 Rust 쪽에 만든 핸들러들을 파이썬에서 부를 수 있게 붙임.
-이걸로 <strong>두 프로젝트의 0.6이 맞물림.</strong></p>
+</div><p><a class="link" href="https://dn5772.github.io/p/seam-6/" >#6</a>에서 Rust 쪽에 만든 핸들러들을 파이썬에서 부를 수 있게 붙이다.
+이걸로 <strong>두 프로젝트의 0.6이 맞물린다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -522,9 +522,9 @@
 </span></span><span class="line"><span class="cl">seam-code 0.6  IPC 클라이언트 + HITL + 세션 + 컨텍스트
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="-마무리-두-개">
-    <a href="#-%eb%a7%88%eb%ac%b4%eb%a6%ac-%eb%91%90-%ea%b0%9c" class="header-anchor">#</a>
-    🧹 마무리 두 개
+</div><h2 id="마무리-두-개">
+    <a href="#%eb%a7%88%eb%ac%b4%eb%a6%ac-%eb%91%90-%ea%b0%9c" class="header-anchor">#</a>
+    마무리 두 개
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -535,15 +535,14 @@
 </span></span><span class="line"><span class="cl">00:19  fix: address final code review findings
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p><strong>에이전트한테 권한을 주는 것보다 뺏는 게 어려웠음.</strong></p>
-<p>툴을 그냥 실행하게 두는 게 코드는 훨씬 단순함. 승인 게이트를 넣으면 TUI랑 에이전트 루프가 엮이고, 비동기 흐름이 복잡해짐.
-근데 그걸 안 하면 <strong>무서워서 못 씀.</strong> 실제로 쓸 수 있는 물건이 되려면 필요한 비용이었음.</p>
-<p><code>CLAUDE.md</code> 자동 발견은 코드 몇 줄인데 효과가 제일 컸음.
-<strong>새 도구가 기존 관습을 존중하면 진입 비용이 확 내려감.</strong> 내 형식을 새로 만들지 않은 게 잘한 것 같음.</p>
-<p>#seam #에이전트 #HITL #Python #TUI</p>
+</div><h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p><strong>에이전트한테 권한을 주는 것보다 뺏는 게 어려웠다.</strong></p>
+<p>툴을 그냥 실행하게 두는 게 코드는 훨씬 단순하다. 승인 게이트를 넣으면 TUI랑 에이전트 루프가 엮이고, 비동기 흐름이 복잡해진다.
+근데 그걸 안 하면 <strong>무서워서 못 쓴다.</strong> 실제로 쓸 수 있는 물건이 되려면 필요한 비용이었다.</p>
+<p><code>CLAUDE.md</code> 자동 발견은 코드 몇 줄인데 효과가 제일 컸다.
+<strong>새 도구가 기존 관습을 존중하면 진입 비용이 확 내려간다.</strong> 내 형식을 새로 만들지 않은 게 잘한 것 같다.</p>
 
 </section>
 

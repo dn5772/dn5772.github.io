@@ -292,11 +292,11 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-로그인은-비밀번호-하나로">🔑 로그인은 비밀번호 하나로</a></li>
-    <li><a href="#-메뉴-crud-api">📝 메뉴 CRUD API</a></li>
-    <li><a href="#-이미지-업로드">🖼️ 이미지 업로드</a></li>
-    <li><a href="#-드래그로-메뉴-순서-바꾸기">🖱️ 드래그로 메뉴 순서 바꾸기</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#로그인은-비밀번호-하나로">로그인은 비밀번호 하나로</a></li>
+    <li><a href="#메뉴-crud-api">메뉴 CRUD API</a></li>
+    <li><a href="#이미지-업로드">이미지 업로드</a></li>
+    <li><a href="#드래그로-메뉴-순서-바꾸기">드래그로 메뉴 순서 바꾸기</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -383,9 +383,9 @@
     <h1 id="정담-개발-일지-3---관리자-페이지를-하루에-다-만들었음">
     <a href="#%ec%a0%95%eb%8b%b4-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-3---%ea%b4%80%eb%a6%ac%ec%9e%90-%ed%8e%98%ec%9d%b4%ec%a7%80%eb%a5%bc-%ed%95%98%eb%a3%a8%ec%97%90-%eb%8b%a4-%eb%a7%8c%eb%93%a4%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
     정담 개발 일지 #3 - 관리자 페이지를 하루에 다 만들었음
-</h1><p>메뉴가 바뀔 때마다 내가 JSON 고치고 배포하는 건 말이 안 됨.
-<strong>사장님이 직접 고칠 수 있어야 함.</strong> 그래서 관리자 페이지를 만들었음.</p>
-<p>커밋 하나에 1045줄이 들어갔음.</p>
+</h1><p>메뉴가 바뀔 때마다 내가 JSON 고치고 배포하는 건 말이 안 된다.
+<strong>사장님이 직접 고칠 수 있어야 한다.</strong> 그래서 관리자 페이지를 만들었다.</p>
+<p>커밋 하나에 1045줄이 들어갔다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -404,11 +404,11 @@
 </span></span><span class="line"><span class="cl"><span class="mi">5</span> <span class="n">files</span> <span class="n">changed</span><span class="p">,</span> <span class="mi">1045</span> <span class="n">insertions</span><span class="p">(</span><span class="o">+</span><span class="p">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="-로그인은-비밀번호-하나로">
-    <a href="#-%eb%a1%9c%ea%b7%b8%ec%9d%b8%ec%9d%80-%eb%b9%84%eb%b0%80%eb%b2%88%ed%98%b8-%ed%95%98%eb%82%98%eb%a1%9c" class="header-anchor">#</a>
-    🔑 로그인은 비밀번호 하나로
-</h2><p>쓰는 사람이 사장님 한 명임. 회원가입도 없고 권한 구분도 없음.
-그래서 <strong>유저 테이블도 안 만들었음.</strong></p>
+</div><h2 id="로그인은-비밀번호-하나로">
+    <a href="#%eb%a1%9c%ea%b7%b8%ec%9d%b8%ec%9d%80-%eb%b9%84%eb%b0%80%eb%b2%88%ed%98%b8-%ed%95%98%eb%82%98%eb%a1%9c" class="header-anchor">#</a>
+    로그인은 비밀번호 하나로
+</h2><p>쓰는 사람이 사장님 한 명이다. 회원가입도 없고 권한 구분도 없다.
+그래서 <strong>유저 테이블도 안 만들었다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -421,15 +421,15 @@
 <li>비밀번호는 <strong>bcrypt 해시</strong>로 환경변수에 둠 (<code>ADMIN_PASSWORD_HASH</code>)</li>
 <li>맞으면 JWT 발급, 이후 요청은 <code>Authorization: Bearer &lt;token&gt;</code></li>
 </ul>
-<p>유저가 한 명일 때 DB를 안 만드는 건 게으른 게 아니라 맞는 선택인 것 같음. 테이블 하나 만들면 마이그레이션이 따라오고 백업이 따라옴.</p>
+<p>유저가 한 명일 때 DB를 안 만드는 건 게으른 게 아니라 맞는 선택인 것 같다. 테이블 하나 만들면 마이그레이션이 따라오고 백업이 따라온다.</p>
 <blockquote>
 <p>다만 이때 짠 로그인 라우트에 <strong>꽤 심각한 문제 두 개</strong>가 있었음.
 두 달 뒤에 발견해서 <a class="link" href="https://dn5772.github.io/p/jung-dam-7/" >#7</a>에서 갈아엎음.</p>
 </blockquote>
-<h2 id="-메뉴-crud-api">
-    <a href="#-%eb%a9%94%eb%89%b4-crud-api" class="header-anchor">#</a>
-    📝 메뉴 CRUD API
-</h2><p>라우트 하나에 다 몰아넣었음.</p>
+<h2 id="메뉴-crud-api">
+    <a href="#%eb%a9%94%eb%89%b4-crud-api" class="header-anchor">#</a>
+    메뉴 CRUD API
+</h2><p>라우트 하나에 다 몰아넣었다.</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -452,7 +452,7 @@
 </tr>
 </tbody>
 </table></div>
-<p><code>PATCH</code> 는 <code>action</code> 으로 분기함.</p>
+<p><code>PATCH</code> 는 <code>action</code> 으로 분기한다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -465,11 +465,11 @@
 </span></span><span class="line"><span class="cl"><span class="p">{</span> <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="nx">categoryId</span><span class="p">,</span> <span class="nx">itemIndex</span> <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>전체 저장(<code>POST</code>)이랑 항목 저장(<code>PATCH</code>)을 <strong>둘 다</strong> 만들어둔 게 나중에 문제가 됨.
-관리자 화면에 저장 버튼이 두 개 생기는데, 사장님 입장에선 뭘 눌러야 하는지 알 수가 없음. 이건 <a class="link" href="https://dn5772.github.io/p/jung-dam-8/" >#8</a>에서 정리함.</p>
-<h2 id="-이미지-업로드">
-    <a href="#-%ec%9d%b4%eb%af%b8%ec%a7%80-%ec%97%85%eb%a1%9c%eb%93%9c" class="header-anchor">#</a>
-    🖼️ 이미지 업로드
+</div><p>전체 저장(<code>POST</code>)이랑 항목 저장(<code>PATCH</code>)을 <strong>둘 다</strong> 만들어둔 게 나중에 문제가 된다.
+관리자 화면에 저장 버튼이 두 개 생기는데, 사장님 입장에선 뭘 눌러야 하는지 알 수가 없다. 이건 <a class="link" href="https://dn5772.github.io/p/jung-dam-8/" >#8</a>에서 정리한다.</p>
+<h2 id="이미지-업로드">
+    <a href="#%ec%9d%b4%eb%af%b8%ec%a7%80-%ec%97%85%eb%a1%9c%eb%93%9c" class="header-anchor">#</a>
+    이미지 업로드
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -478,8 +478,8 @@
 <pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">upload</span>  <span class="err">→</span>  <span class="err">파일</span>  <span class="err">→</span>  <span class="p">{</span> <span class="n">url</span> <span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>받아서 저장하고 URL을 돌려줌. 메뉴 항목엔 그 URL만 들어감.</p>
-<p>항목을 <strong>삭제할 때 이미지도 같이 지우게</strong> 해놨음. 안 그러면 안 쓰는 이미지가 계속 쌓임.</p>
+</div><p>받아서 저장하고 URL을 돌려준다. 메뉴 항목엔 그 URL만 들어간다.</p>
+<p>항목을 <strong>삭제할 때 이미지도 같이 지우게</strong> 해놨다. 안 그러면 안 쓰는 이미지가 계속 쌓이다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -495,21 +495,20 @@
 </div><blockquote>
 <p>이 업로드 엔드포인트에도 구멍이 있었는데, 역시 <a class="link" href="https://dn5772.github.io/p/jung-dam-7/" >#7</a>에서 다룸.</p>
 </blockquote>
-<h2 id="-드래그로-메뉴-순서-바꾸기">
-    <a href="#-%eb%93%9c%eb%9e%98%ea%b7%b8%eb%a1%9c-%eb%a9%94%eb%89%b4-%ec%88%9c%ec%84%9c-%eb%b0%94%ea%be%b8%ea%b8%b0" class="header-anchor">#</a>
-    🖱️ 드래그로 메뉴 순서 바꾸기
-</h2><p>메뉴판은 순서가 중요함. 대표 메뉴가 맨 위에 있어야 함.</p>
-<p><code>@dnd-kit</code> 을 씀. react-beautiful-dnd가 더 유명한데 유지보수가 멈췄고, DnD Kit은 <strong>터치를 기본으로 지원</strong>함.
-사장님이 폰으로 쓸 걸 생각하면 이게 결정적이었음.</p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p>하루에 1045줄은 좀 무리였음. 돌아가긴 하는데 <strong>급하게 짠 흔적이 그대로 남음.</strong>
+<h2 id="드래그로-메뉴-순서-바꾸기">
+    <a href="#%eb%93%9c%eb%9e%98%ea%b7%b8%eb%a1%9c-%eb%a9%94%eb%89%b4-%ec%88%9c%ec%84%9c-%eb%b0%94%ea%be%b8%ea%b8%b0" class="header-anchor">#</a>
+    드래그로 메뉴 순서 바꾸기
+</h2><p>메뉴판은 순서가 중요하다. 대표 메뉴가 맨 위에 있어야 한다.</p>
+<p><code>@dnd-kit</code> 을 쓴다. react-beautiful-dnd가 더 유명한데 유지보수가 멈췄고, DnD Kit은 <strong>터치를 기본으로 지원</strong>한다.
+사장님이 폰으로 쓸 걸 생각하면 이게 결정적이었다.</p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p>하루에 1045줄은 좀 무리였다. 돌아가긴 하는데 <strong>급하게 짠 흔적이 그대로 남는다.</strong>
 디버깅한다고 넣은 <code>console.log</code>, &ldquo;일단 되게&rdquo; 하려고 건너뛴 검증, 저장 버튼 두 개 같은 것들.</p>
-<p>두 달 뒤에 그걸 전부 되갚게 됨..</p>
-<p>그리고 아직 제일 큰 문제가 안 드러났음. <strong>이 메뉴 데이터를 어디에 저장할 거냐</strong> 하는 것.
-로컬에선 완벽하게 잘 돌아갔는데, 오늘 저녁에 배포하고 나서 알게 됨.</p>
-<p>#정담 #관리자 #JWT #bcrypt #DndKit</p>
+<p>두 달 뒤에 그걸 전부 되갚게 된다..</p>
+<p>그리고 아직 제일 큰 문제가 안 드러났다. <strong>이 메뉴 데이터를 어디에 저장할 거냐</strong> 하는 것.
+로컬에선 완벽하게 잘 돌아갔는데, 오늘 저녁에 배포하고 나서 알게 된다.</p>
 
 </section>
 

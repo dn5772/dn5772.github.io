@@ -292,16 +292,16 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-뭐가-바뀌었나">🔄 뭐가 바뀌었나</a></li>
-    <li><a href="#-왜-바꿨나">🤔 왜 바꿨나</a></li>
-    <li><a href="#-seamyaml">📄 seam.yaml</a>
+    <li><a href="#뭐가-바뀌었나">뭐가 바뀌었나</a></li>
+    <li><a href="#왜-바꿨나">왜 바꿨나</a></li>
+    <li><a href="#seamyaml">seam.yaml</a>
       <ol>
         <li><a href="#native-vs-external">native vs external</a></li>
       </ol>
     </li>
-    <li><a href="#-이미지랑-레지스트리">📦 이미지랑 레지스트리</a></li>
-    <li><a href="#-버린-것들">🗑️ 버린 것들</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#이미지랑-레지스트리">이미지랑 레지스트리</a></li>
+    <li><a href="#버린-것들">버린 것들</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -388,16 +388,16 @@
     <h1 id="seam-개발-일지-2---설계를-일주일-만에-갈아엎었음">
     <a href="#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-2---%ec%84%a4%ea%b3%84%eb%a5%bc-%ec%9d%bc%ec%a3%bc%ec%9d%bc-%eb%a7%8c%ec%97%90-%ea%b0%88%ec%95%84%ec%97%8e%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
     seam 개발 일지 #2 - 설계를 일주일 만에 갈아엎었음
-</h1><p><a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>에서 6레이어 아키텍처랑 2티어 전략을 짜고, 다음 날 Phase 1 MVP 구현 계획(Sprint 1~7)까지 세웠음.</p>
-<p>그리고 일주일 뒤에 그걸 전부 버렸음.</p>
-<p>피벗 문서 맨 위에 이렇게 적었음.</p>
+</h1><p><a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>에서 6레이어 아키텍처랑 2티어 전략을 짜고, 다음 날 Phase 1 MVP 구현 계획(Sprint 1~7)까지 세웠다.</p>
+<p>그리고 일주일 뒤에 그걸 전부 버렸다.</p>
+<p>피벗 문서 맨 위에 이렇게 적었다.</p>
 <blockquote>
 <p><strong>기존 구현 계획</strong>: <code>2026-03-17-seam-mvp-launch-design.md</code> — 본 문서로 <strong>전면 대체</strong>됨.
 기존 Sprint 1–7은 취소되고 아래 로드맵으로 재수립.</p>
 </blockquote>
-<h2 id="-뭐가-바뀌었나">
-    <a href="#-%eb%ad%90%ea%b0%80-%eb%b0%94%eb%80%8c%ec%97%88%eb%82%98" class="header-anchor">#</a>
-    🔄 뭐가 바뀌었나
+<h2 id="뭐가-바뀌었나">
+    <a href="#%eb%ad%90%ea%b0%80-%eb%b0%94%eb%80%8c%ec%97%88%eb%82%98" class="header-anchor">#</a>
+    뭐가 바뀌었나
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -409,15 +409,15 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><strong>seam = AI 실행 환경의 Docker.</strong></p>
-<p>투명하게 끼어드는 레이어가 아니라, <strong>환경을 정의하고 패키징해서 공유하는 런타임</strong>으로 바꿨음.</p>
-<h2 id="-왜-바꿨나">
-    <a href="#-%ec%99%9c-%eb%b0%94%ea%bf%a8%eb%82%98" class="header-anchor">#</a>
-    🤔 왜 바꿨나
-</h2><p>v0.4의 핵심 가치는 &ldquo;설치만 하면 AI가 나를 기억함&quot;이었음.
-좋은데, <strong>사용자가 그걸 말로 설명하기가 어려움.</strong></p>
-<p>&ldquo;백그라운드에서 돌면서 메모리를 주입해주는 프록시&quot;를 누구한테 설명해보면, 듣는 사람 표정이 애매해짐.
-안 보이는 게 핵심인 제품은 자랑하기가 어려움.</p>
-<p>반면 이런 문제들은 말하자마자 통함.</p>
+<p>투명하게 끼어드는 레이어가 아니라, <strong>환경을 정의하고 패키징해서 공유하는 런타임</strong>으로 바꿨다.</p>
+<h2 id="왜-바꿨나">
+    <a href="#%ec%99%9c-%eb%b0%94%ea%bf%a8%eb%82%98" class="header-anchor">#</a>
+    왜 바꿨나
+</h2><p>v0.4의 핵심 가치는 &ldquo;설치만 하면 AI가 나를 기억함&quot;이었다.
+좋은데, <strong>사용자가 그걸 말로 설명하기가 어렵다.</strong></p>
+<p>&ldquo;백그라운드에서 돌면서 메모리를 주입해주는 프록시&quot;를 누구한테 설명해보면, 듣는 사람 표정이 애매해진다.
+안 보이는 게 핵심인 제품은 자랑하기가 어렵다.</p>
+<p>반면 이런 문제들은 말하자마자 통한다.</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -444,11 +444,11 @@
 </tr>
 </tbody>
 </table></div>
-<p><strong>&ldquo;Docker처럼 AI 환경을 통째로 공유한다&rdquo;</strong> 는 한 문장으로 끝남.</p>
-<h2 id="-seamyaml">
-    <a href="#-seamyaml" class="header-anchor">#</a>
-    📄 seam.yaml
-</h2><p>Docker Compose의 <code>docker-compose.yaml</code> 에 해당하는 파일임. AI 환경 전체를 선언함.</p>
+<p><strong>&ldquo;Docker처럼 AI 환경을 통째로 공유한다&rdquo;</strong> 는 한 문장으로 끝난다.</p>
+<h2 id="seamyaml">
+    <a href="#seamyaml" class="header-anchor">#</a>
+    seam.yaml
+</h2><p>Docker Compose의 <code>docker-compose.yaml</code> 에 해당하는 파일이다. AI 환경 전체를 선언한다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -514,17 +514,17 @@
 </div><h3 id="native-vs-external">
     <a href="#native-vs-external" class="header-anchor">#</a>
     native vs external
-</h3><p>이 구분이 <a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>의 2티어를 <strong>yaml 안으로 끌고 들어온 것</strong>임.</p>
+</h3><p>이 구분이 <a class="link" href="https://dn5772.github.io/p/seam-1/" >#1</a>의 2티어를 <strong>yaml 안으로 끌고 들어온 것</strong>이다.</p>
 <ul>
-<li><strong>native</strong>: seam 바이너리가 서브프로세스로 직접 실행함. 스킬·라우팅 전부 적용됨</li>
-<li><strong>external</strong>: Cursor 같은 기존 앱. seam이 실행하진 않고, 환경변수 오버라이드로 Gateway에 연결만 함. 메모리 주입만 받음</li>
+<li><strong>native</strong>: seam 바이너리가 서브프로세스로 직접 실행한다. 스킬·라우팅 전부 적용된다</li>
+<li><strong>external</strong>: Cursor 같은 기존 앱. seam이 실행하진 않고, 환경변수 오버라이드로 Gateway에 연결만 한다. 메모리 주입만 받는다</li>
 </ul>
-<p>Tier 1/Tier 2가 &ldquo;사용자가 어느 단계에 있나&quot;였는데, 이제는 <strong>&ldquo;한 환경 안에서 툴마다 다름&rdquo;</strong> 이 됐음.
-Cursor랑 native 에이전트를 같은 <code>seam.yaml</code> 에 적고 같이 띄울 수 있음.</p>
-<h2 id="-이미지랑-레지스트리">
-    <a href="#-%ec%9d%b4%eb%af%b8%ec%a7%80%eb%9e%91-%eb%a0%88%ec%a7%80%ec%8a%a4%ed%8a%b8%eb%a6%ac" class="header-anchor">#</a>
-    📦 이미지랑 레지스트리
-</h2><p>Docker 비유를 끝까지 밀었음.</p>
+<p>Tier 1/Tier 2가 &ldquo;사용자가 어느 단계에 있나&quot;였는데, 이제는 <strong>&ldquo;한 환경 안에서 툴마다 다름&rdquo;</strong> 이 됐다.
+Cursor랑 native 에이전트를 같은 <code>seam.yaml</code> 에 적고 같이 띄울 수 있다.</p>
+<h2 id="이미지랑-레지스트리">
+    <a href="#%ec%9d%b4%eb%af%b8%ec%a7%80%eb%9e%91-%eb%a0%88%ec%a7%80%ec%8a%a4%ed%8a%b8%eb%a6%ac" class="header-anchor">#</a>
+    이미지랑 레지스트리
+</h2><p>Docker 비유를 끝까지 밀었다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -539,30 +539,29 @@ Cursor랑 native 에이전트를 같은 <code>seam.yaml</code> 에 적고 같이
 </span></span><span class="line"><span class="cl">seam run                <span class="c1"># 실행</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>레지스트리는 <strong>GitHub 레포를 그대로 씀.</strong> <code>seam-envs</code> 라는 레포에 Contents API로 파일을 올리고 내림.
-자체 서버를 안 만든 이유는 단순함 — 지금 단계에서 서버 운영은 과함. 인증도 GitHub 토큰 하나면 끝남.</p>
-<h2 id="-버린-것들">
-    <a href="#-%eb%b2%84%eb%a6%b0-%ea%b2%83%eb%93%a4" class="header-anchor">#</a>
-    🗑️ 버린 것들
-</h2><p>피벗하면서 v0.4 설계의 상당 부분이 뒤로 밀렸음.</p>
+</div><p>레지스트리는 <strong>GitHub 레포를 그대로 쓴다.</strong> <code>seam-envs</code> 라는 레포에 Contents API로 파일을 올리고 내린다.
+자체 서버를 안 만든 이유는 단순하다. 지금 단계에서 서버 운영은 과한다. 인증도 GitHub 토큰 하나면 끝난다.</p>
+<h2 id="버린-것들">
+    <a href="#%eb%b2%84%eb%a6%b0-%ea%b2%83%eb%93%a4" class="header-anchor">#</a>
+    버린 것들
+</h2><p>피벗하면서 v0.4 설계의 상당 부분이 뒤로 밀렸다.</p>
 <ul>
-<li><strong>Trust Sandbox</strong> (Layer 2) — eBPF로 시스템 콜 감시하겠다는 계획. Phase 4로</li>
-<li><strong>에이전트 통신 버스</strong> — 에이전트끼리 메시지 주고받기. 뒤로</li>
-<li><strong>Lazy Skill Router</strong> — 스킬 지연 로딩. <code>seam.yaml</code> 에 필드만 남기고 구현은 뒤로</li>
-<li><strong>Semantic Memory</strong> — 3레이어 메모리 중 하나. Episodic만 먼저</li>
+<li><strong>Trust Sandbox</strong> (Layer 2). eBPF로 시스템 콜 감시하겠다는 계획. Phase 4로</li>
+<li><strong>에이전트 통신 버스</strong>. 에이전트끼리 메시지 주고받기. 뒤로</li>
+<li><strong>Lazy Skill Router</strong>. 스킬 지연 로딩. <code>seam.yaml</code> 에 필드만 남기고 구현은 뒤로</li>
+<li><strong>Semantic Memory</strong>. 3레이어 메모리 중 하나. Episodic만 먼저</li>
 </ul>
-<p>설계 문서는 안 지웠음. <code>docs/archive/</code> 에 <code>ai-os-v0_3.md</code>, <code>seam-v0_4.md</code> 로 넣어뒀음.
-<strong>나중에 돌아올 수도 있고, 왜 이렇게 됐는지 알려면 이전 버전이 있어야 함.</strong></p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p>일주일 만에 갈아엎는 게 좀 허탈하긴 했는데, <strong>코드를 한 줄도 안 쓴 상태에서 갈아엎은 게 다행</strong>이었음.
+<p>설계 문서는 안 지웠다. <code>docs/archive/</code> 에 <code>ai-os-v0_3.md</code>, <code>seam-v0_4.md</code> 로 넣어뒀다.
+<strong>나중에 돌아올 수도 있고, 왜 이렇게 됐는지 알려면 이전 버전이 있어야 한다.</strong></p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p>일주일 만에 갈아엎는 게 좀 허탈하긴 했는데, <strong>코드를 한 줄도 안 쓴 상태에서 갈아엎은 게 다행</strong>이었다.
 Sprint 1~7을 반쯤 구현하고 나서 알았으면 훨씬 아팠을 것.</p>
-<p>설계 문서를 먼저 쓰는 게 느려 보이는데, <strong>버릴 때 싸게 버릴 수 있음.</strong></p>
-<p>그리고 &ldquo;안 보이는 게 핵심인 제품&quot;은 만들기도 어렵고 설명하기도 어렵다는 걸 배웠음.
-같은 기능이라도 <code>seam.yaml</code> 이라는 <strong>눈에 보이는 파일 하나</strong>를 중심에 두니까 설명이 통함.</p>
-<p>이제 진짜 코드 칠 차례임.</p>
-<p>#seam #설계 #피벗 #Docker #YAML</p>
+<p>설계 문서를 먼저 쓰는 게 느려 보이는데, <strong>버릴 때 싸게 버릴 수 있다.</strong></p>
+<p>그리고 &ldquo;안 보이는 게 핵심인 제품&quot;은 만들기도 어렵고 설명하기도 어렵다는 걸 배웠다.
+같은 기능이라도 <code>seam.yaml</code> 이라는 <strong>눈에 보이는 파일 하나</strong>를 중심에 두니까 설명이 통한다.</p>
+<p>이제 진짜 코드 칠 차례다.</p>
 
 </section>
 

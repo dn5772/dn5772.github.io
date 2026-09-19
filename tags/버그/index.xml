@@ -15,12 +15,12 @@
         <description>&lt;h1 id=&#34;abide-개발-일지-6---성경-버전을-늘리니-ui가-줄줄이-깨졌음&#34;&gt;
     &lt;a href=&#34;#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-6---%ec%84%b1%ea%b2%bd-%eb%b2%84%ec%a0%84%ec%9d%84-%eb%8a%98%eb%a6%ac%eb%8b%88-ui%ea%b0%80-%ec%a4%84%ec%a4%84%ec%9d%b4-%ea%b9%a8%ec%a1%8c%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
     ABIDE 개발 일지 #6 - 성경 버전을 늘리니 UI가 줄줄이 깨졌음
-&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 성경 본문을 &lt;strong&gt;로컬 에셋&lt;/strong&gt;으로 넣었음. 개역한글 하나만.
-영어 사용자를 생각하면 버전이 여러 개여야 함.&lt;/p&gt;
-&lt;p&gt;3월 23일 새벽에 이걸 붙였는데, &lt;strong&gt;한 시간 동안 커밋 15개&lt;/strong&gt;가 나왔음. 대부분 버그 수정임.&lt;/p&gt;
-&lt;h2 id=&#34;-에셋을-권-단위로-쪼갬&#34;&gt;
-    &lt;a href=&#34;#-%ec%97%90%ec%85%8b%ec%9d%84-%ea%b6%8c-%eb%8b%a8%ec%9c%84%eb%a1%9c-%ec%aa%bc%ea%b0%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    📖 에셋을 권 단위로 쪼갬
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 성경 본문을 &lt;strong&gt;로컬 에셋&lt;/strong&gt;으로 넣었다. 개역한글 하나만.
+영어 사용자를 생각하면 버전이 여러 개여야 한다.&lt;/p&gt;
+&lt;p&gt;3월 23일 새벽에 이걸 붙였는데, &lt;strong&gt;한 시간 동안 커밋 15개&lt;/strong&gt;가 나왔다. 대부분 버그 수정이다.&lt;/p&gt;
+&lt;h2 id=&#34;에셋을-권-단위로-쪼갬&#34;&gt;
+    &lt;a href=&#34;#%ec%97%90%ec%85%8b%ec%9d%84-%ea%b6%8c-%eb%8b%a8%ec%9c%84%eb%a1%9c-%ec%aa%bc%ea%b0%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    에셋을 권 단위로 쪼갬
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -31,8 +31,8 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:20  feat: reorganize bible assets into version folders (NKRV)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;원래 성경 전체가 파일 하나였음. 버전이 셋이 되면 그게 셋이 됨.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;권 단위로 쪼갰음.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;원래 성경 전체가 파일 하나였다. 버전이 셋이 되면 그게 셋이 된다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;권 단위로 쪼갰다.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -45,9 +45,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;assets/bible/ASV/genesis.json
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;창세기를 읽는데 요한계시록까지 메모리에 올릴 이유가 없음.
-&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 만든 로컬 파서가 권 단위 인덱싱을 하고 있어서 쪼개는 건 어렵지 않았음.&lt;/p&gt;
-&lt;p&gt;루트 레포에도 스크립트를 넣었음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;창세기를 읽는데 요한계시록까지 메모리에 올릴 이유가 없다.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 만든 로컬 파서가 권 단위 인덱싱을 하고 있어서 쪼개는 건 어렵지 않았다.&lt;/p&gt;
+&lt;p&gt;루트 레포에도 스크립트를 넣었다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -56,10 +56,10 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: add Bible split script and KJV/KRV/ASV per-book assets
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id=&#34;-버전-하나-추가에-파일-여섯-개&#34;&gt;
-    &lt;a href=&#34;#-%eb%b2%84%ec%a0%84-%ed%95%98%eb%82%98-%ec%b6%94%ea%b0%80%ec%97%90-%ed%8c%8c%ec%9d%bc-%ec%97%ac%ec%84%af-%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🔗 버전 하나 추가에 파일 여섯 개
-&lt;/h2&gt;&lt;p&gt;여기서부터가 진짜임. &lt;code&gt;BibleVersion&lt;/code&gt; 이라는 값 하나가 생기니까 &lt;strong&gt;계층을 전부 통과해야 했음.&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;&lt;h2 id=&#34;버전-하나-추가에-파일-여섯-개&#34;&gt;
+    &lt;a href=&#34;#%eb%b2%84%ec%a0%84-%ed%95%98%eb%82%98-%ec%b6%94%ea%b0%80%ec%97%90-%ed%8c%8c%ec%9d%bc-%ec%97%ac%ec%84%af-%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    버전 하나 추가에 파일 여섯 개
+&lt;/h2&gt;&lt;p&gt;여기서부터가 진짜다. &lt;code&gt;BibleVersion&lt;/code&gt; 이라는 값 하나가 생기니까 &lt;strong&gt;계층을 전부 통과해야 했다.&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -88,12 +88,12 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      (presentation)            (data)              (data)
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 3레이어로 가른 대가임. &lt;strong&gt;파라미터 하나가 레이어를 다 뚫고 내려가야 함.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;커밋 두 개(&lt;code&gt;01:37&lt;/code&gt;, &lt;code&gt;01:41&lt;/code&gt;)가 연달아 &amp;ldquo;인자 안 넘김&amp;quot;을 고치는 건데, 컴파일은 되는데 기본값으로 동작해서 화면에서만 티가 났음.&lt;/p&gt;
-&lt;p&gt;솔직히 이 부분은 레이어를 나눈 게 손해였음. 근데 &lt;strong&gt;책 이름 영문 필드&lt;/strong&gt;(&lt;code&gt;01:26&lt;/code&gt;)처럼 도메인 엔티티만 고치면 되는 건 또 깔끔했음. 반반임.&lt;/p&gt;
-&lt;h2 id=&#34;-설정-시트&#34;&gt;
-    &lt;a href=&#34;#-%ec%84%a4%ec%a0%95-%ec%8b%9c%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    ⚙️ 설정 시트
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 3레이어로 가른 대가다. &lt;strong&gt;파라미터 하나가 레이어를 다 뚫고 내려가야 한다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;커밋 두 개(&lt;code&gt;01:37&lt;/code&gt;, &lt;code&gt;01:41&lt;/code&gt;)가 연달아 &amp;ldquo;인자 안 넘김&amp;quot;을 고치는 건데, 컴파일은 되는데 기본값으로 동작해서 화면에서만 티가 났다.&lt;/p&gt;
+&lt;p&gt;솔직히 이 부분은 레이어를 나눈 게 손해였다. 근데 &lt;strong&gt;책 이름 영문 필드&lt;/strong&gt;(&lt;code&gt;01:26&lt;/code&gt;)처럼 도메인 엔티티만 고치면 되는 건 또 깔끔했다. 반반이다.&lt;/p&gt;
+&lt;h2 id=&#34;설정-시트&#34;&gt;
+    &lt;a href=&#34;#%ec%84%a4%ec%a0%95-%ec%8b%9c%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    설정 시트
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -106,13 +106,13 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:47  feat: add settings button and sequential listing to BibleIndexScreen
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;버전·글꼴 크기·본문 스타일을 바꾸는 바텀시트임.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;01:44&lt;/code&gt; 커밋이 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 디자인 시스템을 먼저 깐 값어치임.
-처음엔 색을 직접 박았다가 &lt;strong&gt;토큰으로 바꿈.&lt;/strong&gt; 다크 모드에서 안 맞았음.&lt;/p&gt;
-&lt;h2 id=&#34;-그리고-버그가-줄줄이&#34;&gt;
-    &lt;a href=&#34;#-%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%b2%84%ea%b7%b8%ea%b0%80-%ec%a4%84%ec%a4%84%ec%9d%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🐛 그리고 버그가 줄줄이
-&lt;/h2&gt;&lt;p&gt;여기서부터 나흘 동안 UI 버그만 잡았음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;버전·글꼴 크기·본문 스타일을 바꾸는 바텀시트다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;01:44&lt;/code&gt; 커밋이 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 디자인 시스템을 먼저 깐 값어치다.
+처음엔 색을 직접 박았다가 &lt;strong&gt;토큰으로 바꾼다.&lt;/strong&gt; 다크 모드에서 안 맞았다.&lt;/p&gt;
+&lt;h2 id=&#34;그리고-버그가-줄줄이&#34;&gt;
+    &lt;a href=&#34;#%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%b2%84%ea%b7%b8%ea%b0%80-%ec%a4%84%ec%a4%84%ec%9d%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    그리고 버그가 줄줄이
+&lt;/h2&gt;&lt;p&gt;여기서부터 나흘 동안 UI 버그만 잡았다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
@@ -141,20 +141,20 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-27 17:47  fix: 성경 설정 시트 폰트 크기 확대 시 bottom overflow 수정
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;11개 중 7개가 설정 시트 하나에서 나왔음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;패턴이 보임.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;1. 오버레이 겹침.&lt;/strong&gt; 묵상 화면에서 구절 미리보기를 띄우면 &lt;strong&gt;키보드가 올라올 때 입력창을 가림.&lt;/strong&gt;
-모바일에서 오버레이 + 키보드는 거의 항상 문제가 됨. 화면 높이가 실시간으로 바뀌는데 오버레이는 그걸 모름.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;2. 터치 차단.&lt;/strong&gt; 투명한 오버레이가 &lt;strong&gt;보이지도 않으면서 터치를 먹고 있었음.&lt;/strong&gt;
-화면은 정상인데 버튼이 안 눌림. 제일 찾기 어려운 종류임.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;3. 글자 크기가 반영이 안 됨.&lt;/strong&gt; 설정에서 키우면 값은 바뀌는데 &lt;strong&gt;본문에 안 닿음.&lt;/strong&gt;
-프로바이더까지는 갔는데 위젯이 그 값을 구독하지 않고 있었음.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;4. 크기를 키우면 오버플로우.&lt;/strong&gt; 반영되게 고쳤더니 이번엔 시트가 터짐.
-&lt;code&gt;01:44&lt;/code&gt; 에서 고정 높이로 잡아둔 게 원인. 스크롤 가능하게 바꿈.&lt;/p&gt;
-&lt;h2 id=&#34;-이모지를-아이콘으로-바꿈&#34;&gt;
-    &lt;a href=&#34;#-%ec%9d%b4%eb%aa%a8%ec%a7%80%eb%a5%bc-%ec%95%84%ec%9d%b4%ec%bd%98%ec%9c%bc%eb%a1%9c-%eb%b0%94%ea%bf%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎨 이모지를 아이콘으로 바꿈
-&lt;/h2&gt;&lt;p&gt;25일에 이걸 했음.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;11개 중 7개가 설정 시트 하나에서 나왔다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;패턴이 보다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 오버레이 겹친다.&lt;/strong&gt; 묵상 화면에서 구절 미리보기를 띄우면 &lt;strong&gt;키보드가 올라올 때 입력창을 가린다.&lt;/strong&gt;
+모바일에서 오버레이 + 키보드는 거의 항상 문제가 된다. 화면 높이가 실시간으로 바뀌는데 오버레이는 그걸 모른다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 터치 차단.&lt;/strong&gt; 투명한 오버레이가 &lt;strong&gt;보이지도 않으면서 터치를 먹고 있었다.&lt;/strong&gt;
+화면은 정상인데 버튼이 안 눌린다. 제일 찾기 어려운 종류다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. 글자 크기가 반영이 안 된다.&lt;/strong&gt; 설정에서 키우면 값은 바뀌는데 &lt;strong&gt;본문에 안 닿는다.&lt;/strong&gt;
+프로바이더까지는 갔는데 위젯이 그 값을 구독하지 않고 있었다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. 크기를 키우면 오버플로우.&lt;/strong&gt; 반영되게 고쳤더니 이번엔 시트가 터진다.
+&lt;code&gt;01:44&lt;/code&gt; 에서 고정 높이로 잡아둔 게 원인. 스크롤 가능하게 바꾼다.&lt;/p&gt;
+&lt;h2 id=&#34;이모지를-아이콘으로-바꿈&#34;&gt;
+    &lt;a href=&#34;#%ec%9d%b4%eb%aa%a8%ec%a7%80%eb%a5%bc-%ec%95%84%ec%9d%b4%ec%bd%98%ec%9c%bc%eb%a1%9c-%eb%b0%94%ea%bf%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    이모지를 아이콘으로 바꿈
+&lt;/h2&gt;&lt;p&gt;25일에 이걸 했다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -163,11 +163,11 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;refactor: replace emoji with Material Design icons throughout UI
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;무드 선택이나 빠른 진입 버튼에 이모지를 쓰고 있었음.&lt;/p&gt;
-&lt;p&gt;이모지는 &lt;strong&gt;기기·OS 버전마다 그림이 다름.&lt;/strong&gt; 같은 유니코드인데 안드로이드랑 iOS가 완전히 다르게 그림.
-디자인을 맞출 수가 없고, 폰트가 없으면 두부(□)가 나옴.&lt;/p&gt;
-&lt;p&gt;실제로 &lt;code&gt;03-26 13:40&lt;/code&gt; 에 &amp;ldquo;감사 무드 이모지 누락&amp;quot;이 있음. 아이콘으로 바꾼 뒤에도 한 군데가 남아 있었던 것.&lt;/p&gt;
-&lt;p&gt;같은 날 이것도 같이 고침.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;무드 선택이나 빠른 진입 버튼에 이모지를 쓰고 있었다.&lt;/p&gt;
+&lt;p&gt;이모지는 &lt;strong&gt;기기·OS 버전마다 그림이 다르다.&lt;/strong&gt; 같은 유니코드인데 안드로이드랑 iOS가 완전히 다르게 그림.
+디자인을 맞출 수가 없고, 폰트가 없으면 두부(□)가 나온다.&lt;/p&gt;
+&lt;p&gt;실제로 &lt;code&gt;03-26 13:40&lt;/code&gt; 에 &amp;ldquo;감사 무드 이모지 누락&amp;quot;이 있다. 아이콘으로 바꾼 뒤에도 한 군데가 남아 있었던 것.&lt;/p&gt;
+&lt;p&gt;같은 날 이것도 같이 고친다.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -176,17 +176,16 @@
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: restrict debug logging to debug builds, fix quota API and notification settings parsing
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;strong&gt;디버그 로그가 릴리즈 빌드에도 찍히고 있었음.&lt;/strong&gt; 토큰이나 응답 본문이 로그에 남음.
-&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;에서 민감 정보 마스킹한 거랑 같은 줄기인데, 이번엔 클라이언트 쪽이었음.&lt;/p&gt;
-&lt;h2 id=&#34;-느낀-점&#34;&gt;
-    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
-    🎯 느낀 점
-&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;버전 하나 추가&amp;quot;가 UI 버그 11개를 불렀음.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;기능 자체는 반나절이면 되는데, 그게 건드리는 화면이 성경 인덱스·본문·설정 시트·묵상 화면·홈 카드까지 퍼져 있었음.
-&lt;strong&gt;옵션이 하나 늘면 조합이 곱으로 늘어난다&lt;/strong&gt;는 걸 몸으로 배웠음.&lt;/p&gt;
-&lt;p&gt;그리고 모바일에서 &lt;strong&gt;오버레이랑 키보드는 항상 의심&lt;/strong&gt;해야 함. 11개 중 3개가 그거였음.&lt;/p&gt;
-&lt;p&gt;다음은 스트리밍이랑 Observer 깊이 판정임. 이 시리즈에서 제일 오래 붙든 부분.&lt;/p&gt;
-&lt;p&gt;#ABIDE #Flutter #UI #버그 #모바일&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;디버그 로그가 릴리즈 빌드에도 찍히고 있었다.&lt;/strong&gt; 토큰이나 응답 본문이 로그에 남는다.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;에서 민감 정보 마스킹한 거랑 같은 줄기인데, 이번엔 클라이언트 쪽이었다.&lt;/p&gt;
+&lt;h2 id=&#34;느낀-점&#34;&gt;
+    &lt;a href=&#34;#%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;버전 하나 추가&amp;quot;가 UI 버그 11개를 불렀다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;기능 자체는 반나절이면 되는데, 그게 건드리는 화면이 성경 인덱스·본문·설정 시트·묵상 화면·홈 카드까지 퍼져 있었다.
+&lt;strong&gt;옵션이 하나 늘면 조합이 곱으로 늘어난다&lt;/strong&gt;는 걸 몸으로 배웠다.&lt;/p&gt;
+&lt;p&gt;그리고 모바일에서 &lt;strong&gt;오버레이랑 키보드는 항상 의심&lt;/strong&gt;해야 한다. 11개 중 3개가 그거였다.&lt;/p&gt;
+&lt;p&gt;다음은 스트리밍이랑 Observer 깊이 판정이다. 이 시리즈에서 제일 오래 붙든 부분.&lt;/p&gt;
 </description>
         </item>
         

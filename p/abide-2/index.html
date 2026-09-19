@@ -292,12 +292,12 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-왜-언어를-갈랐나">🤔 왜 언어를 갈랐나</a></li>
-    <li><a href="#-core가-ai를-프록시함">🔑 Core가 AI를 프록시함</a></li>
-    <li><a href="#-서브모듈-모노레포">🧩 서브모듈 모노레포</a></li>
-    <li><a href="#-db는-postgresql--pgvector">🗄️ DB는 PostgreSQL + pgvector</a></li>
-    <li><a href="#-배포-설정에서-헤맸음">🚢 배포 설정에서 헤맸음</a></li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#왜-언어를-갈랐나">왜 언어를 갈랐나</a></li>
+    <li><a href="#core가-ai를-프록시함">Core가 AI를 프록시함</a></li>
+    <li><a href="#서브모듈-모노레포">서브모듈 모노레포</a></li>
+    <li><a href="#db는-postgresql--pgvector">DB는 PostgreSQL + pgvector</a></li>
+    <li><a href="#배포-설정에서-헤맸음">배포 설정에서 헤맸음</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -384,9 +384,9 @@
     <h1 id="abide-개발-일지-2---서버를-네-개로-쪼갰음">
     <a href="#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-2---%ec%84%9c%eb%b2%84%eb%a5%bc-%eb%84%a4-%ea%b0%9c%eb%a1%9c-%ec%aa%bc%ea%b0%b0%ec%9d%8c" class="header-anchor">#</a>
     ABIDE 개발 일지 #2 - 서버를 네 개로 쪼갰음
-</h1><p><a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 앱은 만들었는데 부를 서버가 없었음.
-3월 13일 저녁에 백엔드를 통째로 올렸음.</p>
-<p><strong>서버를 하나로 안 만들고 네 개로 쪼갰음.</strong></p>
+</h1><p><a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 앱은 만들었는데 부를 서버가 없었다.
+3월 13일 저녁에 백엔드를 통째로 올렸다.</p>
+<p><strong>서버를 하나로 안 만들고 네 개로 쪼갰다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -401,22 +401,22 @@
 </span></span><span class="line"><span class="cl">          PostgreSQL 16 + pgvector          Redis (세션/캐시)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="-왜-언어를-갈랐나">
-    <a href="#-%ec%99%9c-%ec%96%b8%ec%96%b4%eb%a5%bc-%ea%b0%88%eb%9e%90%eb%82%98" class="header-anchor">#</a>
-    🤔 왜 언어를 갈랐나
-</h2><p>한 언어로 통일하면 편한데 일부러 안 했음. <strong>요구사항이 정반대</strong>라서임.</p>
-<p><strong>Core (Rust/Axum)</strong> — 인증, 성경 데이터, 유저 관리, 쿼터.
-모든 요청이 여길 통과함. 지연이 그대로 체감되고, 24시간 떠 있어야 함. 로직은 단순한데 양이 많음.</p>
-<p><strong>AI (Python/FastAPI)</strong> — LangGraph 멀티 에이전트, Gemini 호출, pgvector RAG.
-여긴 <strong>생태계가 전부 Python</strong>임. LangGraph를 Rust로 다시 짤 이유가 없음.</p>
-<p><a class="link" href="https://dn5772.github.io/p/seam-4/" >seam</a> 때랑 똑같은 결론임. 런타임은 빠른 언어로, AI는 생태계 언어로.</p>
-<p><strong>Admin API (Python/FastAPI)</strong> — 어드민 전용. 사용자 서비스랑 <strong>완전히 분리</strong>함.
-어드민 코드에 버그가 나도 앱은 멀쩡해야 하고, 권한 모델이 아예 다름.</p>
-<p><strong>Admin Web (Next.js 16)</strong> — 대시보드. <a class="link" href="https://dn5772.github.io/p/abide-5/" >#5</a>에서 크게 갈아엎음.</p>
-<h2 id="-core가-ai를-프록시함">
-    <a href="#-core%ea%b0%80-ai%eb%a5%bc-%ed%94%84%eb%a1%9d%ec%8b%9c%ed%95%a8" class="header-anchor">#</a>
-    🔑 Core가 AI를 프록시함
-</h2><p>Flutter가 AI 서버를 <strong>직접 안 부름.</strong> 항상 Core를 거침.</p>
+</div><h2 id="왜-언어를-갈랐나">
+    <a href="#%ec%99%9c-%ec%96%b8%ec%96%b4%eb%a5%bc-%ea%b0%88%eb%9e%90%eb%82%98" class="header-anchor">#</a>
+    왜 언어를 갈랐나
+</h2><p>한 언어로 통일하면 편한데 일부러 안 했다. <strong>요구사항이 정반대</strong>라서다.</p>
+<p><strong>Core (Rust/Axum)</strong>. 인증, 성경 데이터, 유저 관리, 쿼터.
+모든 요청이 여길 통과한다. 지연이 그대로 체감되고, 24시간 떠 있어야 한다. 로직은 단순한데 양이 많다.</p>
+<p><strong>AI (Python/FastAPI)</strong>. LangGraph 멀티 에이전트, Gemini 호출, pgvector RAG.
+여긴 <strong>생태계가 전부 Python</strong>이다. LangGraph를 Rust로 다시 짤 이유가 없다.</p>
+<p><a class="link" href="https://dn5772.github.io/p/seam-4/" >seam</a> 때랑 똑같은 결론이다. 런타임은 빠른 언어로, AI는 생태계 언어로.</p>
+<p><strong>Admin API (Python/FastAPI)</strong>. 어드민 전용. 사용자 서비스랑 <strong>완전히 분리</strong>한다.
+어드민 코드에 버그가 나도 앱은 멀쩡해야 하고, 권한 모델이 아예 다르다.</p>
+<p><strong>Admin Web (Next.js 16)</strong>. 대시보드. <a class="link" href="https://dn5772.github.io/p/abide-5/" >#5</a>에서 크게 갈아엎었다.</p>
+<h2 id="core가-ai를-프록시함">
+    <a href="#core%ea%b0%80-ai%eb%a5%bc-%ed%94%84%eb%a1%9d%ec%8b%9c%ed%95%a8" class="header-anchor">#</a>
+    Core가 AI를 프록시함
+</h2><p>Flutter가 AI 서버를 <strong>직접 안 부른다.</strong> 항상 Core를 거친다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -425,13 +425,13 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Flutter → Core (JWT 검증 + 쿼터 차감) → AI 서버
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>이렇게 한 이유가 세 개임.</p>
+</div><p>이렇게 한 이유가 세 개다.</p>
 <ol>
-<li><strong>인증을 한 군데서만.</strong> AI 서버가 JWT를 몰라도 됨</li>
-<li><strong>쿼터를 여기서 깎음.</strong> AI 호출은 돈이 드니까 Core가 관문이 돼야 함</li>
-<li><strong>AI 서버를 외부에 안 엶.</strong> 내부 네트워크에만 둠</li>
+<li><strong>인증을 한 군데서만.</strong> AI 서버가 JWT를 몰라도 된다</li>
+<li><strong>쿼터를 여기서 깎는다.</strong> AI 호출은 돈이 드니까 Core가 관문이 돼야 한다</li>
+<li><strong>AI 서버를 외부에 안 엶.</strong> 내부 네트워크에만 둔다</li>
 </ol>
-<p>그래서 서버 간 통신에 <strong>내부 API 키</strong>를 붙였음.</p>
+<p>그래서 서버 간 통신에 <strong>내부 API 키</strong>를 붙였다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -442,11 +442,11 @@
 </span></span><span class="line"><span class="cl">feat: 예외 처리 및 로깅 개선: 내부 API 키 미들웨어와 전역 예외 처리기 추가
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>미들웨어로 걸되 헬스체크 같은 <strong>공개 경로는 예외</strong>로 빼야 함. 안 그러면 로드밸런서가 서버를 죽은 걸로 봄.</p>
-<h2 id="-서브모듈-모노레포">
-    <a href="#-%ec%84%9c%eb%b8%8c%eb%aa%a8%eb%93%88-%eb%aa%a8%eb%85%b8%eb%a0%88%ed%8f%ac" class="header-anchor">#</a>
-    🧩 서브모듈 모노레포
-</h2><p>레포를 하나로 할지 여러 개로 할지 고민하다가 <strong>중간을 골랐음.</strong></p>
+</div><p>미들웨어로 걸되 헬스체크 같은 <strong>공개 경로는 예외</strong>로 빼야 한다. 안 그러면 로드밸런서가 서버를 죽은 걸로 본다.</p>
+<h2 id="서브모듈-모노레포">
+    <a href="#%ec%84%9c%eb%b8%8c%eb%aa%a8%eb%93%88-%eb%aa%a8%eb%85%b8%eb%a0%88%ed%8f%ac" class="header-anchor">#</a>
+    서브모듈 모노레포
+</h2><p>레포를 하나로 할지 여러 개로 할지 고민하다가 <strong>중간을 골랐다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -467,10 +467,10 @@
 </span></span><span class="line"><span class="cl">└── infra/               ← 서브모듈
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>각 컴포넌트가 자기 git 레포고, 루트가 포인터만 들고 있음.</p>
-<p><strong>장점</strong>: 컴포넌트별로 배포·버전이 독립적임. Flutter 앱 고치는데 Rust 서버 히스토리가 안 섞임.
-<strong>단점</strong>: 서브모듈 포인터 관리가 귀찮음.</p>
-<p>그 귀찮음이 커밋 로그에 그대로 드러남.</p>
+</div><p>각 컴포넌트가 자기 git 레포고, 루트가 포인터만 들고 있다.</p>
+<p><strong>장점</strong>: 컴포넌트별로 배포·버전이 독립적이다. Flutter 앱 고치는데 Rust 서버 히스토리가 안 섞이다.
+<strong>단점</strong>: 서브모듈 포인터 관리가 귀찮다.</p>
+<p>그 귀찮음이 커밋 로그에 그대로 드러난다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -485,7 +485,7 @@
 </span></span><span class="line"><span class="cl">chore: Sync all submodules to remote repositories
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>루트 37커밋 중 <strong>15개가 이 문장</strong>임. 그래서 스크립트를 만들었음.</p>
+</div><p>루트 37커밋 중 <strong>15개가 이 문장</strong>이다. 그래서 스크립트를 만들었다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -496,7 +496,7 @@
 </span></span><span class="line"><span class="cl">./pull_submodules.sh    <span class="c1"># EC2에서 전부 받아오기</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>14일에 <code>push_submodules.sh</code> 를 한 번 고쳤는데, 원래는 <strong>자동으로 커밋까지</strong> 했었음.</p>
+</div><p>14일에 <code>push_submodules.sh</code> 를 한 번 고쳤는데, 원래는 <strong>자동으로 커밋까지</strong> 했었다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -505,12 +505,12 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">chore: Simplify push script to only push existing commits without auto-committing
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>의도치 않은 게 딸려 올라가서 <strong>푸시만 하게</strong> 바꿨음. 편의 스크립트가 커밋 메시지를 대신 써주면 나중에 히스토리를 못 읽음.</p>
-<h2 id="-db는-postgresql--pgvector">
-    <a href="#-db%eb%8a%94-postgresql--pgvector" class="header-anchor">#</a>
-    🗄️ DB는 PostgreSQL + pgvector
-</h2><p>RAG 때문에 벡터 DB가 필요한데, <strong>별도 벡터 DB를 안 붙였음.</strong>
-<code>pgvector</code> 확장이면 같은 Postgres에서 됨. 운영할 인프라가 하나 줄어듦.</p>
+</div><p>의도치 않은 게 딸려 올라가서 <strong>푸시만 하게</strong> 바꿨다. 편의 스크립트가 커밋 메시지를 대신 써주면 나중에 히스토리를 못 읽는다.</p>
+<h2 id="db는-postgresql--pgvector">
+    <a href="#db%eb%8a%94-postgresql--pgvector" class="header-anchor">#</a>
+    DB는 PostgreSQL + pgvector
+</h2><p>RAG 때문에 벡터 DB가 필요한데, <strong>별도 벡터 DB를 안 붙였다.</strong>
+<code>pgvector</code> 확장이면 같은 Postgres에서 된다. 운영할 인프라가 하나 줄어듦.</p>
 <p>Redis는 세션이랑 캐시용.</p>
 <p>마이그레이션은 번호 붙인 SQL 파일을 순서대로.</p>
 <div class="highlight"><div class="chroma">
@@ -525,8 +525,8 @@
 </span></span><span class="line"><span class="cl">infra/migrations/009_*.sql
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>여기서 한 번 데였음. Docker의 <code>docker-entrypoint-initdb.d</code> 는 <strong>DB가 처음 만들어질 때만</strong> 돌아감.
-이미 떠 있는 DB에 새 마이그레이션을 넣으려면 수동으로 돌려야 함. 모르고 <code>docker compose up</code> 만 다시 하면 아무 일도 안 일어남.</p>
+</div><p>여기서 한 번 데였다. Docker의 <code>docker-entrypoint-initdb.d</code> 는 <strong>DB가 처음 만들어질 때만</strong> 돌아간다.
+이미 떠 있는 DB에 새 마이그레이션을 넣으려면 수동으로 돌려야 한다. 모르고 <code>docker compose up</code> 만 다시 하면 아무 일도 안 일어난다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -537,11 +537,11 @@
 </span></span><span class="line"><span class="cl">./deploy.sh migrate <span class="m">009</span>    <span class="c1"># 특정 번호만</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>CLAUDE.md에 굵게 적어뒀음.</p>
-<h2 id="-배포-설정에서-헤맸음">
-    <a href="#-%eb%b0%b0%ed%8f%ac-%ec%84%a4%ec%a0%95%ec%97%90%ec%84%9c-%ed%97%a4%eb%a7%b8%ec%9d%8c" class="header-anchor">#</a>
-    🚢 배포 설정에서 헤맸음
-</h2><p>13일 저녁 커밋을 보면 이게 보임.</p>
+</div><p>CLAUDE.md에 굵게 적어뒀다.</p>
+<h2 id="배포-설정에서-헤맸음">
+    <a href="#%eb%b0%b0%ed%8f%ac-%ec%84%a4%ec%a0%95%ec%97%90%ec%84%9c-%ed%97%a4%eb%a7%b8%ec%9d%8c" class="header-anchor">#</a>
+    배포 설정에서 헤맸음
+</h2><p>13일 저녁 커밋을 보면 이게 보다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -552,18 +552,17 @@
 </span></span><span class="line"><span class="cl">22:38  docs: Change internal server communication URLs to public HTTPS domains
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>3분 만에 반대로 뒤집음.</strong></p>
-<p>내부 서비스끼리 <code>localhost</code> 로 부를지 공개 도메인으로 부를지인데, Docker Compose 안에서는 서비스명으로 붙고 EC2에서는 또 다름.
-&ldquo;로컬 개발&quot;이랑 &ldquo;컨테이너 안&quot;이랑 &ldquo;서버 배포&quot;가 각각 다른 주소를 원하는데, 그걸 문서 한 장에 적으려니까 계속 꼬였음.</p>
-<p>결국 환경변수로 빼고 <code>.env.example</code> 을 정리하는 걸로 갔음.</p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p><strong>서버를 네 개로 쪼갠 건 맞았고, 서브모듈은 반쯤 맞았음.</strong></p>
-<p>언어를 나눈 건 확실히 이득이었음. Rust로 AI를 짰으면 LangGraph 생태계를 통째로 포기했을 것이고, Python으로 Core를 짰으면 상시 떠 있는 API 서버 비용이 올라갔을 것.</p>
-<p>서브모듈은 <strong>독립 배포는 얻었는데 포인터 관리 비용을 냄.</strong> 루트 커밋의 40%가 동기화 커밋인 걸 보면, 혼자 하는 프로젝트엔 과했을 수도 있음.</p>
-<p>다음은 이 앱의 본체임. AI 묵상 에이전트.</p>
-<p>#ABIDE #Rust #Axum #FastAPI #모노레포 #PostgreSQL</p>
+</div><p><strong>3분 만에 반대로 뒤집었다.</strong></p>
+<p>내부 서비스끼리 <code>localhost</code> 로 부를지 공개 도메인으로 부를지인데, Docker Compose 안에서는 서비스명으로 붙고 EC2에서는 또 다르다.
+&ldquo;로컬 개발&quot;이랑 &ldquo;컨테이너 안&quot;이랑 &ldquo;서버 배포&quot;가 각각 다른 주소를 원하는데, 그걸 문서 한 장에 적으려니까 계속 꼬였다.</p>
+<p>결국 환경변수로 빼고 <code>.env.example</code> 을 정리하는 걸로 갔다.</p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p><strong>서버를 네 개로 쪼갠 건 맞았고, 서브모듈은 반쯤 맞았다.</strong></p>
+<p>언어를 나눈 건 확실히 이득이었다. Rust로 AI를 짰으면 LangGraph 생태계를 통째로 포기했을 것이고, Python으로 Core를 짰으면 상시 떠 있는 API 서버 비용이 올라갔을 것.</p>
+<p>서브모듈은 <strong>독립 배포는 얻었는데 포인터 관리 비용을 낸다.</strong> 루트 커밋의 40%가 동기화 커밋인 걸 보면, 혼자 하는 프로젝트엔 과했을 수도 있다.</p>
+<p>다음은 이 앱의 본체다. AI 묵상 에이전트.</p>
 
 </section>
 

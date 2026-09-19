@@ -292,16 +292,16 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#-왜-http가-아니라-유닉스-소켓인가">🔌 왜 HTTP가 아니라 유닉스 소켓인가</a></li>
-    <li><a href="#-json-lines">📝 JSON Lines</a></li>
-    <li><a href="#-10281059--rust-쪽-서버">🦀 10:28~10:59 — Rust 쪽 서버</a></li>
-    <li><a href="#-파이썬-쪽-클라이언트">🐍 파이썬 쪽 클라이언트</a></li>
-    <li><a href="#-15481634--두-개를-cli로-묶기">🔗 15:48~16:34 — 두 개를 CLI로 묶기</a>
+    <li><a href="#왜-http가-아니라-유닉스-소켓인가">왜 HTTP가 아니라 유닉스 소켓인가</a></li>
+    <li><a href="#json-lines">JSON Lines</a></li>
+    <li><a href="#10281059--rust-쪽-서버">10:28~10:59 — Rust 쪽 서버</a></li>
+    <li><a href="#파이썬-쪽-클라이언트">파이썬 쪽 클라이언트</a></li>
+    <li><a href="#15481634--두-개를-cli로-묶기">15:48~16:34 — 두 개를 CLI로 묶기</a>
       <ol>
         <li><a href="#pip에----를-붙인-이유">pip에 <code>--</code> 를 붙인 이유</a></li>
       </ol>
     </li>
-    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+    <li><a href="#느낀-점">느낀 점</a></li>
   </ol>
 </nav>
         </div>
@@ -388,25 +388,25 @@
     <h1 id="seam-개발-일지-5---rust랑-python을-유닉스-소켓으로-이었음">
     <a href="#seam-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-5---rust%eb%9e%91-python%ec%9d%84-%ec%9c%a0%eb%8b%89%ec%8a%a4-%ec%86%8c%ec%bc%93%ec%9c%bc%eb%a1%9c-%ec%9d%b4%ec%97%88%ec%9d%8c" class="header-anchor">#</a>
     seam 개발 일지 #5 - Rust랑 Python을 유닉스 소켓으로 이었음
-</h1><p><a class="link" href="https://dn5772.github.io/p/seam-4/" >#4</a>에서 Python 에이전트를 만들었는데, 얘가 Rust 데몬한테 말을 걸어야 함.</p>
+</h1><p><a class="link" href="https://dn5772.github.io/p/seam-4/" >#4</a>에서 Python 에이전트를 만들었는데, 얘가 Rust 데몬한테 말을 걸어야 한다.</p>
 <ul>
 <li>메모리 저장해줘</li>
 <li>이 요청 어느 모델로 보낼지 정해줘</li>
 <li>이 대화 처리해줘</li>
 </ul>
-<p>게이트웨이가 이미 HTTP로 <code>:11400</code> 에 떠 있으니까 거기다 붙이면 되는데, <strong>일부러 안 했음.</strong></p>
-<h2 id="-왜-http가-아니라-유닉스-소켓인가">
-    <a href="#-%ec%99%9c-http%ea%b0%80-%ec%95%84%eb%8b%88%eb%9d%bc-%ec%9c%a0%eb%8b%89%ec%8a%a4-%ec%86%8c%ec%bc%93%ec%9d%b8%ea%b0%80" class="header-anchor">#</a>
-    🔌 왜 HTTP가 아니라 유닉스 소켓인가
-</h2><p>게이트웨이 포트는 <strong>Tier 1용</strong>임. Cursor 같은 외부 앱이 환경변수 오버라이드로 들어오는 입구.
-여기는 OpenAI/Anthropic 호환 형식을 지켜야 하고, 네트워크에 열려 있음.</p>
-<p>근데 seam-code가 쓰는 건 성격이 다름.</p>
+<p>게이트웨이가 이미 HTTP로 <code>:11400</code> 에 떠 있으니까 거기다 붙이면 되는데, <strong>일부러 안 했다.</strong></p>
+<h2 id="왜-http가-아니라-유닉스-소켓인가">
+    <a href="#%ec%99%9c-http%ea%b0%80-%ec%95%84%eb%8b%88%eb%9d%bc-%ec%9c%a0%eb%8b%89%ec%8a%a4-%ec%86%8c%ec%bc%93%ec%9d%b8%ea%b0%80" class="header-anchor">#</a>
+    왜 HTTP가 아니라 유닉스 소켓인가
+</h2><p>게이트웨이 포트는 <strong>Tier 1용</strong>이다. Cursor 같은 외부 앱이 환경변수 오버라이드로 들어오는 입구.
+여기는 OpenAI/Anthropic 호환 형식을 지켜야 하고, 네트워크에 열려 있다.</p>
+<p>근데 seam-code가 쓰는 건 성격이 다르다.</p>
 <ul>
-<li>같은 기계 안에서만 씀</li>
-<li>형식을 남의 API에 맞출 이유가 없음</li>
+<li>같은 기계 안에서만 쓴다</li>
+<li>형식을 남의 API에 맞출 이유가 없다</li>
 <li><strong>다른 사용자가 접근하면 안 됨</strong></li>
 </ul>
-<p>포트로 열면 그 기계의 누구나 붙을 수 있음. 유닉스 소켓은 파일이라 <strong>파일 퍼미션으로 막을 수 있음.</strong></p>
+<p>포트로 열면 그 기계의 누구나 붙을 수 있다. 유닉스 소켓은 파일이라 <strong>파일 퍼미션으로 막을 수 있다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -415,11 +415,11 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">~/.seam/daemon.sock   (0o600 — 소유자만)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>0o600</code> 을 CLAUDE.md 주의사항에 따로 적어뒀음. 이게 빠지면 메모리랑 API 키를 쓰는 경로가 통째로 열림.</p>
-<h2 id="-json-lines">
-    <a href="#-json-lines" class="header-anchor">#</a>
-    📝 JSON Lines
-</h2><p>프로토콜은 제일 단순한 걸로 했음. <strong>한 줄에 JSON 하나.</strong></p>
+</div><p><code>0o600</code> 을 CLAUDE.md 주의사항에 따로 적어뒀다. 이게 빠지면 메모리랑 API 키를 쓰는 경로가 통째로 열린다.</p>
+<h2 id="json-lines">
+    <a href="#json-lines" class="header-anchor">#</a>
+    JSON Lines
+</h2><p>프로토콜은 제일 단순한 걸로 했다. <strong>한 줄에 JSON 하나.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -432,13 +432,13 @@
 </span></span><span class="line"><span class="cl">{&#34;type&#34;:&#34;chat&#34;,&#34;messages&#34;:[...]}\n
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>gRPC나 MessagePack도 생각했는데 안 갔음.</p>
+</div><p>gRPC나 MessagePack도 생각했는데 안 갔다.</p>
 <ul>
-<li><strong>스키마 정의 파일이 없음.</strong> 양쪽(Rust/Python)에 코드 생성기를 붙일 필요가 없음</li>
-<li><strong><code>nc -U ~/.seam/daemon.sock</code> 으로 손으로 찔러볼 수 있음.</strong> 디버깅할 때 이게 큼</li>
-<li>줄바꿈이 메시지 경계라 파싱이 그냥 <code>read_line()</code> 임</li>
+<li><strong>스키마 정의 파일이 없다.</strong> 양쪽(Rust/Python)에 코드 생성기를 붙일 필요가 없다</li>
+<li><strong><code>nc -U ~/.seam/daemon.sock</code> 으로 손으로 찔러볼 수 있다.</strong> 디버깅할 때 이게 크다</li>
+<li>줄바꿈이 메시지 경계라 파싱이 그냥 <code>read_line()</code> 이다</li>
 </ul>
-<p>핸들러는 네 종류임.</p>
+<p>핸들러는 네 종류다.</p>
 <div class="table-wrapper"><table>
 <thead>
 <tr>
@@ -465,9 +465,9 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="-10281059--rust-쪽-서버">
-    <a href="#-10281059--rust-%ec%aa%bd-%ec%84%9c%eb%b2%84" class="header-anchor">#</a>
-    🦀 10:28~10:59 — Rust 쪽 서버
+<h2 id="10281059--rust-쪽-서버">
+    <a href="#10281059--rust-%ec%aa%bd-%ec%84%9c%eb%b2%84" class="header-anchor">#</a>
+    10:28~10:59 — Rust 쪽 서버
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -486,17 +486,17 @@
 </span></span><span class="line"><span class="cl">10:59  fix: socket permissions, accept loop resilience, shared http client, configurable model
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>31분인데 마지막 커밋 하나가 23분 걸렸음. 거기 들어간 게 전부 <strong>&ldquo;이게 오래 떠 있을 때&rdquo;</strong> 문제임.</p>
-<p><strong>1. 소켓 퍼미션.</strong> 만들 때 퍼미션을 안 정하면 umask를 따라감. 명시적으로 <code>0o600</code> 으로 박음.</p>
-<p><strong>2. accept 루프 복원력.</strong> 연결 하나 받다가 에러 나면 <strong>루프가 통째로 죽고 있었음.</strong>
-클라이언트 하나가 이상하게 끊었을 뿐인데 데몬의 IPC가 영영 멈춤. 에러를 로그만 찍고 루프는 계속 돌게 바꿈.</p>
-<p><strong>3. HTTP 클라이언트 공유.</strong> 요청마다 <code>reqwest::Client</code> 를 새로 만들고 있었음.
-커넥션 풀이랑 TLS 세션이 매번 버려짐. 하나 만들어서 돌려쓰게 함.</p>
-<p><strong>4. 모델 하드코딩.</strong> 설정에서 읽게 바꿈.</p>
-<h2 id="-파이썬-쪽-클라이언트">
-    <a href="#-%ed%8c%8c%ec%9d%b4%ec%8d%ac-%ec%aa%bd-%ed%81%b4%eb%9d%bc%ec%9d%b4%ec%96%b8%ed%8a%b8" class="header-anchor">#</a>
-    🐍 파이썬 쪽 클라이언트
-</h2><p><code>seam_code/ipc.py</code> 가 소켓에 붙어서 한 줄 쓰고 한 줄 읽음. 데몬이 안 떠 있으면 먼저 알려줌.</p>
+</div><p>31분인데 마지막 커밋 하나가 23분 걸렸다. 거기 들어간 게 전부 <strong>&ldquo;이게 오래 떠 있을 때&rdquo;</strong> 문제다.</p>
+<p><strong>1. 소켓 퍼미션.</strong> 만들 때 퍼미션을 안 정하면 umask를 따라간다. 명시적으로 <code>0o600</code> 으로 박는다.</p>
+<p><strong>2. accept 루프 복원력.</strong> 연결 하나 받다가 에러 나면 <strong>루프가 통째로 죽고 있었다.</strong>
+클라이언트 하나가 이상하게 끊었을 뿐인데 데몬의 IPC가 영영 멈춘다. 에러를 로그만 찍고 루프는 계속 돌게 바꾼다.</p>
+<p><strong>3. HTTP 클라이언트 공유.</strong> 요청마다 <code>reqwest::Client</code> 를 새로 만들고 있었다.
+커넥션 풀이랑 TLS 세션이 매번 버려진다. 하나 만들어서 돌려쓰게 한다.</p>
+<p><strong>4. 모델 하드코딩.</strong> 설정에서 읽게 바꾼다.</p>
+<h2 id="파이썬-쪽-클라이언트">
+    <a href="#%ed%8c%8c%ec%9d%b4%ec%8d%ac-%ec%aa%bd-%ed%81%b4%eb%9d%bc%ec%9d%b4%ec%96%b8%ed%8a%b8" class="header-anchor">#</a>
+    파이썬 쪽 클라이언트
+</h2><p><code>seam_code/ipc.py</code> 가 소켓에 붙어서 한 줄 쓰고 한 줄 읽는다. 데몬이 안 떠 있으면 먼저 알려준다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -505,10 +505,10 @@
 <pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="mi">09</span><span class="p">:</span><span class="mi">53</span>  <span class="n">feat</span><span class="p">:</span> <span class="n">add</span> <span class="n">config</span> <span class="n">loader</span> <span class="ow">and</span> <span class="n">daemon</span> <span class="n">startup</span> <span class="n">check</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><strong>에이전트를 띄우기 전에 데몬 체크를 먼저 함.</strong> 안 그러면 사용자가 요청을 다 친 다음에 &ldquo;연결 실패&quot;를 봄.</p>
-<h2 id="-15481634--두-개를-cli로-묶기">
-    <a href="#-15481634--%eb%91%90-%ea%b0%9c%eb%a5%bc-cli%eb%a1%9c-%eb%ac%b6%ea%b8%b0" class="header-anchor">#</a>
-    🔗 15:48~16:34 — 두 개를 CLI로 묶기
+</div><p><strong>에이전트를 띄우기 전에 데몬 체크를 먼저 한다.</strong> 안 그러면 사용자가 요청을 다 친 다음에 &ldquo;연결 실패&quot;를 본다.</p>
+<h2 id="15481634--두-개를-cli로-묶기">
+    <a href="#15481634--%eb%91%90-%ea%b0%9c%eb%a5%bc-cli%eb%a1%9c-%eb%ac%b6%ea%b8%b0" class="header-anchor">#</a>
+    15:48~16:34 — 두 개를 CLI로 묶기
 </h2><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -537,12 +537,12 @@
 </span></span><span class="line"><span class="cl">seam code <span class="s2">&#34;요청&#34;</span>          <span class="c1"># 실행</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>seam code</code> 는 <strong>얇은 래퍼</strong>임. 데몬 살아 있는지 보고 seam-code를 띄우는 게 전부.
-Rust에서 에이전트 로직을 다시 만들지 않았음.</p>
+</div><p><code>seam code</code> 는 <strong>얇은 래퍼</strong>이다. 데몬 살아 있는지 보고 seam-code를 띄우는 게 전부.
+Rust에서 에이전트 로직을 다시 만들지 않았다.</p>
 <h3 id="pip에----를-붙인-이유">
     <a href="#pip%ec%97%90----%eb%a5%bc-%eb%b6%99%ec%9d%b8-%ec%9d%b4%ec%9c%a0" class="header-anchor">#</a>
     pip에 <code>--</code> 를 붙인 이유
-</h3><p>16:16 커밋이 짧은데 중요함.</p>
+</h3><p>16:16 커밋이 짧은데 중요하다.</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -559,13 +559,13 @@ Rust에서 에이전트 로직을 다시 만들지 않았음.</p>
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">Command</span>::<span class="n">new</span><span class="p">(</span><span class="s">&#34;pip3&#34;</span><span class="p">).</span><span class="n">args</span><span class="p">([</span><span class="s">&#34;install&#34;</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;--&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">app_name</span><span class="p">])</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p><code>seam install &lt;app&gt;</code> 의 <code>&lt;app&gt;</code> 이 사용자 입력임. 여기에 <code>--upgrade</code> 나 <code>--index-url ...</code> 같은 걸 넣으면 <strong>pip 옵션으로 해석됨.</strong>
-<code>--</code> 는 &ldquo;여기부터는 옵션이 아니라 인자&quot;라는 표시라서 그 경로가 막힘.</p>
-<p>임의 명령 실행까지는 아닌데(셸을 안 거침), 설치 소스를 바꿔치기하는 정도는 됨.</p>
-<h2 id="-느낀-점">
-    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
-    🎯 느낀 점
-</h2><p><strong>입구를 두 개로 나눈 게 맞았음.</strong></p>
+</div><p><code>seam install &lt;app&gt;</code> 의 <code>&lt;app&gt;</code> 이 사용자 입력이다. 여기에 <code>--upgrade</code> 나 <code>--index-url ...</code> 같은 걸 넣으면 <strong>pip 옵션으로 해석된다.</strong>
+<code>--</code> 는 &ldquo;여기부터는 옵션이 아니라 인자&quot;라는 표시라서 그 경로가 막힌다.</p>
+<p>임의 명령 실행까지는 아닌데(셸을 안 거친다), 설치 소스를 바꿔치기하는 정도는 된다.</p>
+<h2 id="느낀-점">
+    <a href="#%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    느낀 점
+</h2><p><strong>입구를 두 개로 나눈 게 맞았다.</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -577,9 +577,8 @@ Rust에서 에이전트 로직을 다시 만들지 않았음.</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>하나로 합쳤으면 seam-code용 엔드포인트가 네트워크에 노출됐을 것. 퍼미션으로 막을 수 있는 걸 인증 로직으로 막게 됐을 거고.</p>
-<p>그리고 10:59 커밋에 몰린 네 가지가 전부 <strong>&ldquo;짧게 돌 땐 안 보이는 문제&rdquo;</strong> 였음.
-데몬처럼 오래 떠 있는 프로그램은 accept 루프 하나 죽는 게 치명적인데, 테스트는 보통 한 번 붙었다 끊는 걸로 끝나서 안 잡힘.</p>
-<p>#seam #IPC #UnixSocket #Rust #Python</p>
+<p>그리고 10:59 커밋에 몰린 네 가지가 전부 <strong>&ldquo;짧게 돌 땐 안 보이는 문제&rdquo;</strong> 였다.
+데몬처럼 오래 떠 있는 프로그램은 accept 루프 하나 죽는 게 치명적인데, 테스트는 보통 한 번 붙었다 끊는 걸로 끝나서 안 잡힌다.</p>
 
 </section>
 
