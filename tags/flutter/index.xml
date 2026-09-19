@@ -1,0 +1,704 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Flutter on 대니짱</title>
+        <link>https://dn5772.github.io/tags/flutter/</link>
+        <description>Recent content in Flutter on 대니짱</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>ko</language>
+        <lastBuildDate>Fri, 10 Apr 2026 19:21:00 +0900</lastBuildDate><atom:link href="https://dn5772.github.io/tags/flutter/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>ABIDE 개발 일지 #8 - AI가 생성하는 말은 번역이 안 됨</title>
+        <link>https://dn5772.github.io/p/abide-8/</link>
+        <pubDate>Fri, 10 Apr 2026 19:21:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/abide-8/</guid>
+        <description>&lt;h1 id=&#34;abide-개발-일지-8---ai가-생성하는-말은-번역이-안-됨&#34;&gt;
+    &lt;a href=&#34;#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-8---ai%ea%b0%80-%ec%83%9d%ec%84%b1%ed%95%98%eb%8a%94-%eb%a7%90%ec%9d%80-%eb%b2%88%ec%97%ad%ec%9d%b4-%ec%95%88-%eb%90%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ABIDE 개발 일지 #8 - AI가 생성하는 말은 번역이 안 됨
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt; 첫날에 한국어/영어 문자열 맵을 깔아뒀음. 나중에 고생 안 하려고.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;절반만 맞았음.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;버튼이랑 라벨은 그걸로 됐는데, 이 앱에서 사용자가 보는 텍스트의 대부분은 &lt;strong&gt;AI가 그 자리에서 만들어내는 것&lt;/strong&gt;임.
+묵상 질문, 딥렌즈 분석, 묵상 노트, 에러 메시지, 무드 문구. 문자열 맵에 있을 리가 없음.&lt;/p&gt;
+&lt;p&gt;4월 10일 하루에 이걸 전부 뚫었음.&lt;/p&gt;
+&lt;h2 id=&#34;-언어가-통과해야-하는-경로&#34;&gt;
+    &lt;a href=&#34;#-%ec%96%b8%ec%96%b4%ea%b0%80-%ed%86%b5%ea%b3%bc%ed%95%b4%ec%95%bc-%ed%95%98%eb%8a%94-%ea%b2%bd%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🧵 언어가 통과해야 하는 경로
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Flutter 설정
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  → Core API (preferred_language)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    → AI 서버 요청 스키마
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      → MeditationState
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        → LangGraph 노드들
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;          → 프롬프트 선택
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;            → 생성된 텍스트
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;커밋이 이 순서 그대로임.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;00:02  (infra)  feat: add language column to deep_lens_cache for i18n support
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;00:42  (ai)     feat(ai): add language field to schemas and MeditationState
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:19  (ai)     feat(ai): propagate language parameter through meditation graph
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:50  (ai)     feat(ai): bilingual error messages, mood messages, and note title
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:52  (ai)     feat(ai): use language-aware prompt helpers for ask and deep-lens
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:58  (core)   feat(core): inject preferred_language into AI server requests
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:59  (flutter)feat(flutter): sync language change to user profile and bible version
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;02:25  (ai)     fix(ai): make DeepLens cache language-aware
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;18:57  (ai)     fix(ai): remove remaining hardcoded Korean strings
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;19:21  (core)   fix(core): include verse_text in DeepLens cache hit response
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;서브모듈 네 개를 한 번에 건드림.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;의 세션 스냅샷 때랑 같은 모양인데, 이번엔 더 넓음.&lt;/p&gt;
+&lt;h2 id=&#34;-캐시가-언어를-몰랐음&#34;&gt;
+    &lt;a href=&#34;#-%ec%ba%90%ec%8b%9c%ea%b0%80-%ec%96%b8%ec%96%b4%eb%a5%bc-%eb%aa%b0%eb%9e%90%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🗄️ 캐시가 언어를 몰랐음
+&lt;/h2&gt;&lt;p&gt;02:25 커밋이 이 작업에서 제일 아팠음.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 DeepLens 구절 &lt;strong&gt;62,189개를 미리 계산해서&lt;/strong&gt; DB에 박아뒀음.
+그 캐시 키에 &lt;strong&gt;언어가 없었음.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;전:  verse_ref                  → 분석 결과
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;후:  verse_ref + language       → 분석 결과
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;영어 사용자가 구절을 열면 &lt;strong&gt;한국어 분석이 그대로 나옴.&lt;/strong&gt; 캐시는 히트하니까 에러도 안 남.&lt;/p&gt;
+&lt;p&gt;인프라에 컬럼을 추가하고(&lt;code&gt;00:02&lt;/code&gt;) 조회 키를 바꿨음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 자랑했던 사전 계산이 &lt;strong&gt;언어 하나 늘자 절반만 쓸모 있게&lt;/strong&gt; 된 셈임.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;캐시 키는 &amp;ldquo;결과가 달라지는 모든 입력&amp;quot;을 담아야&lt;/strong&gt; 하는데, 그때는 언어가 입력인 줄 몰랐음.&lt;/p&gt;
+&lt;h2 id=&#34;-하드코딩된-한국어가-계속-나왔음&#34;&gt;
+    &lt;a href=&#34;#-%ed%95%98%eb%93%9c%ec%bd%94%eb%94%a9%eb%90%9c-%ed%95%9c%ea%b5%ad%ec%96%b4%ea%b0%80-%ea%b3%84%ec%86%8d-%eb%82%98%ec%99%94%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🇰🇷 하드코딩된 한국어가 계속 나왔음
+&lt;/h2&gt;&lt;p&gt;01:50에 에러 메시지·무드 문구·노트 제목을 이중화했는데, 그날 저녁에 이게 또 나옴.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;18:57  fix(ai): remove remaining hardcoded Korean strings
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;17시간 뒤에 &lt;strong&gt;남은 게 또 발견됨.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;노드가 일곱 개고(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;) 각각이 폴백 문구, 기본 제목, 예외 메시지를 들고 있음.
+한 군데씩 찾아서 고치는 방식이라 &lt;strong&gt;놓친 게 있는지 알 방법이 없었음.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;문자열 맵을 처음부터 서버에도 뒀으면 &amp;ldquo;맵에 없는 리터럴&amp;quot;을 린트로 잡을 수 있었을 텐데, 사후에 하려니까 눈으로 찾는 수밖에 없었음.&lt;/p&gt;
+&lt;h2 id=&#34;-프롬프트도-언어별로&#34;&gt;
+    &lt;a href=&#34;#-%ed%94%84%eb%a1%ac%ed%94%84%ed%8a%b8%eb%8f%84-%ec%96%b8%ec%96%b4%eb%b3%84%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔤 프롬프트도 언어별로
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-27 16:41  feat: DEEP_LENS_PROMPT_EN 추가 및 성경 구절 분석 가이드라인 정의
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;04-10 01:52  feat(ai): use language-aware prompt helpers for ask and deep-lens
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;영어로 답해줘&amp;quot;를 프롬프트에 한 줄 붙이는 걸로는 안 됐음.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;딥렌즈는 원어(히브리어/헬라어) 분석이 들어가는데, 한국어 독자용 설명이랑 영어 독자용 설명이 &lt;strong&gt;내용 자체가 달라야&lt;/strong&gt; 함.
+한국어 성경 번역 관습을 설명하는 부분이 영어 사용자한테는 의미가 없음.&lt;/p&gt;
+&lt;p&gt;그래서 프롬프트를 통째로 따로 만들고, 언어에 따라 고르는 헬퍼를 씀.&lt;/p&gt;
+&lt;h2 id=&#34;-한-달-커밋-181개&#34;&gt;
+    &lt;a href=&#34;#-%ed%95%9c-%eb%8b%ac-%ec%bb%a4%eb%b0%8b-181%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📊 한 달, 커밋 181개
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apps/abide       84커밋  (Flutter)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;servers/ai       29커밋  (Python/FastAPI)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;servers/core     11커밋  (Rust/Axum)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apps/admin-web   10커밋  (Next.js)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;servers/admin     5커밋
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;infra             5커밋
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;the_seeker       37커밋  (오케스트레이션)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                ─────
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;                181커밋   3/10 ~ 4/10
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;루트 37커밋 중 &lt;strong&gt;15개가 &amp;ldquo;Sync all submodules&amp;rdquo;&lt;/strong&gt; 임.&lt;/p&gt;
+&lt;h2 id=&#34;-배운-것&#34;&gt;
+    &lt;a href=&#34;#-%eb%b0%b0%ec%9a%b4-%ea%b2%83&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    💭 배운 것
+&lt;/h2&gt;&lt;h3 id=&#34;다국어는-ui-문자열이-아니라-데이터-파이프라인임&#34;&gt;
+    &lt;a href=&#34;#%eb%8b%a4%ea%b5%ad%ec%96%b4%eb%8a%94-ui-%eb%ac%b8%ec%9e%90%ec%97%b4%ec%9d%b4-%ec%95%84%eb%8b%88%eb%9d%bc-%eb%8d%b0%ec%9d%b4%ed%84%b0-%ed%8c%8c%ec%9d%b4%ed%94%84%eb%9d%bc%ec%9d%b8%ec%9e%84&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    다국어는 UI 문자열이 아니라 데이터 파이프라인임
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 문자열 맵을 먼저 깐 건 잘한 건데, &lt;strong&gt;그게 다국어의 10%였음.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;나머지 90%는 언어 값이 Flutter → Core → AI → 그래프 상태 → 프롬프트 → 캐시 키까지 &lt;strong&gt;끊기지 않고 흘러가게&lt;/strong&gt; 만드는 일이었음.
+중간에 한 군데만 빠져도 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;의 캐시처럼 조용히 틀린 결과가 나옴.&lt;/p&gt;
+&lt;p&gt;다시 한다면 &lt;strong&gt;요청 스키마에 &lt;code&gt;language&lt;/code&gt; 를 첫날에 넣었을 것.&lt;/strong&gt; 값이 하나뿐이더라도.&lt;/p&gt;
+&lt;h3 id=&#34;llm-판정에는-코드-가드가-붙어야-함&#34;&gt;
+    &lt;a href=&#34;#llm-%ed%8c%90%ec%a0%95%ec%97%90%eb%8a%94-%ec%bd%94%eb%93%9c-%ea%b0%80%eb%93%9c%ea%b0%80-%eb%b6%99%ec%96%b4%ec%95%bc-%ed%95%a8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    LLM 판정에는 코드 가드가 붙어야 함
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 wrap_up 무한 반복 카운터, &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;의 Observer 상한·델타 캡·단조성·거절 가드.
+전부 같은 얘기임. &lt;strong&gt;흐름은 LLM이 잡아도 &amp;ldquo;그만&amp;quot;과 &amp;ldquo;한계&amp;quot;는 코드가 세야 함.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;일단-되게는-반드시-다시-옴&#34;&gt;
+    &lt;a href=&#34;#%ec%9d%bc%eb%8b%a8-%eb%90%98%ea%b2%8c%eb%8a%94-%eb%b0%98%eb%93%9c%ec%8b%9c-%eb%8b%a4%ec%8b%9c-%ec%98%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    &amp;ldquo;일단 되게&amp;quot;는 반드시 다시 옴
+&lt;/h3&gt;&lt;p&gt;SharedPreferences → secure storage(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;), &lt;code&gt;.env&lt;/code&gt; 커밋 → gitignore, 릴리즈 빌드 디버그 로그(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;).
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;정담&lt;/a&gt; 때랑 완전히 같은 패턴이 다른 프로젝트에서 또 나왔음.&lt;/p&gt;
+&lt;h3 id=&#34;옵션-하나가-조합을-곱으로-늘림&#34;&gt;
+    &lt;a href=&#34;#%ec%98%b5%ec%85%98-%ed%95%98%eb%82%98%ea%b0%80-%ec%a1%b0%ed%95%a9%ec%9d%84-%ea%b3%b1%ec%9c%bc%eb%a1%9c-%eb%8a%98%eb%a6%bc&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    옵션 하나가 조합을 곱으로 늘림
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;의 성경 버전 추가가 UI 버그 11개를, 여기 언어 추가가 캐시 재설계를 불렀음.
+&lt;strong&gt;기능 추가 비용은 그 기능이 아니라 기존 것과의 곱에서 나옴.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&#34;-안-끝낸-것들&#34;&gt;
+    &lt;a href=&#34;#-%ec%95%88-%eb%81%9d%eb%82%b8-%ea%b2%83%eb%93%a4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🕳️ 안 끝낸 것들
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;신학 RAG 시딩 미완료.&lt;/strong&gt; 청크 129개는 만들었는데 &lt;code&gt;seed_theology_vectors.py&lt;/code&gt; 를 안 씀. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 RAG가 반쪽임&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;DeepLens 사전 계산이 KRV+NIV 2개 버전&lt;/strong&gt;뿐. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;에서 KJV/ASV를 넣었는데 캐시는 안 따라감&lt;/li&gt;
+&lt;li&gt;스크린샷이 README에 아직 &amp;ldquo;Coming soon&amp;rdquo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;-지금&#34;&gt;
+    &lt;a href=&#34;#-%ec%a7%80%ea%b8%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 지금
+&lt;/h2&gt;&lt;p&gt;4월 10일 이후로 멈춰 있음.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-8/&#34; &gt;seam&lt;/a&gt;이 사흘 몰아치고 멈춘 거였다면, 이건 한 달을 붙들고 &lt;strong&gt;실제로 돌아가는 데까지&lt;/strong&gt; 갔음.
+앱이 있고, 서버 네 개가 뜨고, 62,189개 구절이 DB에 들어 있고, 로그인해서 묵상을 할 수 있음.&lt;/p&gt;
+&lt;p&gt;돌아온다면 신학 RAG 시딩부터 할 것 같음. &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;에서 만들다 만 게 제일 걸림.&lt;/p&gt;
+&lt;p&gt;#ABIDE #다국어 #i18n #회고 #LangGraph&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>ABIDE 개발 일지 #6 - 성경 버전을 늘리니 UI가 줄줄이 깨졌음</title>
+        <link>https://dn5772.github.io/p/abide-6/</link>
+        <pubDate>Fri, 27 Mar 2026 17:47:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/abide-6/</guid>
+        <description>&lt;h1 id=&#34;abide-개발-일지-6---성경-버전을-늘리니-ui가-줄줄이-깨졌음&#34;&gt;
+    &lt;a href=&#34;#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-6---%ec%84%b1%ea%b2%bd-%eb%b2%84%ec%a0%84%ec%9d%84-%eb%8a%98%eb%a6%ac%eb%8b%88-ui%ea%b0%80-%ec%a4%84%ec%a4%84%ec%9d%b4-%ea%b9%a8%ec%a1%8c%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ABIDE 개발 일지 #6 - 성경 버전을 늘리니 UI가 줄줄이 깨졌음
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 성경 본문을 &lt;strong&gt;로컬 에셋&lt;/strong&gt;으로 넣었음. 개역한글 하나만.
+영어 사용자를 생각하면 버전이 여러 개여야 함.&lt;/p&gt;
+&lt;p&gt;3월 23일 새벽에 이걸 붙였는데, &lt;strong&gt;한 시간 동안 커밋 15개&lt;/strong&gt;가 나왔음. 대부분 버그 수정임.&lt;/p&gt;
+&lt;h2 id=&#34;-에셋을-권-단위로-쪼갬&#34;&gt;
+    &lt;a href=&#34;#-%ec%97%90%ec%85%8b%ec%9d%84-%ea%b6%8c-%eb%8b%a8%ec%9c%84%eb%a1%9c-%ec%aa%bc%ea%b0%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📖 에셋을 권 단위로 쪼갬
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:13  feat: add KJV/KRV/ASV per-book Bible asset files
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:20  feat: reorganize bible assets into version folders (NKRV)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;원래 성경 전체가 파일 하나였음. 버전이 셋이 되면 그게 셋이 됨.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;권 단위로 쪼갰음.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;assets/bible/KRV/genesis.json
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;assets/bible/KJV/genesis.json
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;assets/bible/ASV/genesis.json
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;창세기를 읽는데 요한계시록까지 메모리에 올릴 이유가 없음.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 만든 로컬 파서가 권 단위 인덱싱을 하고 있어서 쪼개는 건 어렵지 않았음.&lt;/p&gt;
+&lt;p&gt;루트 레포에도 스크립트를 넣었음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: add Bible split script and KJV/KRV/ASV per-book assets
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-버전-하나-추가에-파일-여섯-개&#34;&gt;
+    &lt;a href=&#34;#-%eb%b2%84%ec%a0%84-%ed%95%98%eb%82%98-%ec%b6%94%ea%b0%80%ec%97%90-%ed%8c%8c%ec%9d%bc-%ec%97%ac%ec%84%af-%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔗 버전 하나 추가에 파일 여섯 개
+&lt;/h2&gt;&lt;p&gt;여기서부터가 진짜임. &lt;code&gt;BibleVersion&lt;/code&gt; 이라는 값 하나가 생기니까 &lt;strong&gt;계층을 전부 통과해야 했음.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;01&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;26&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;English&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fields&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BibleBookMeta&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;multi&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;version&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;support&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;01&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;30&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BibleSettingsProvider&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;style&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fontSize&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;01&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;37&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;version&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;parameter&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BibleService&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;methods&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;01&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;37&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;fix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;correct&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;path&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bible_service&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;dart&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;01&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;41&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;fix&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;pass&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BibleVersion&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BibleService&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BibleRepositoryImpl&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;mi&#34;&gt;01&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;59&lt;/span&gt;  &lt;span class=&#34;n&#34;&gt;feat&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;pass&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BibleVersion&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;loadBook&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;calls&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;BibleChapterScreen&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;BibleSettingsProvider  →  BibleRepositoryImpl  →  BibleService  →  asset 경로
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;      (presentation)            (data)              (data)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 3레이어로 가른 대가임. &lt;strong&gt;파라미터 하나가 레이어를 다 뚫고 내려가야 함.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;커밋 두 개(&lt;code&gt;01:37&lt;/code&gt;, &lt;code&gt;01:41&lt;/code&gt;)가 연달아 &amp;ldquo;인자 안 넘김&amp;quot;을 고치는 건데, 컴파일은 되는데 기본값으로 동작해서 화면에서만 티가 났음.&lt;/p&gt;
+&lt;p&gt;솔직히 이 부분은 레이어를 나눈 게 손해였음. 근데 &lt;strong&gt;책 이름 영문 필드&lt;/strong&gt;(&lt;code&gt;01:26&lt;/code&gt;)처럼 도메인 엔티티만 고치면 되는 건 또 깔끔했음. 반반임.&lt;/p&gt;
+&lt;h2 id=&#34;-설정-시트&#34;&gt;
+    &lt;a href=&#34;#-%ec%84%a4%ec%a0%95-%ec%8b%9c%ed%8a%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ⚙️ 설정 시트
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:42  feat: add BibleSettingsSheet bottom sheet
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:44  fix: use design system tokens in BibleSettingsSheet
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;01:47  feat: add settings button and sequential listing to BibleIndexScreen
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;버전·글꼴 크기·본문 스타일을 바꾸는 바텀시트임.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;01:44&lt;/code&gt; 커밋이 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;에서 디자인 시스템을 먼저 깐 값어치임.
+처음엔 색을 직접 박았다가 &lt;strong&gt;토큰으로 바꿈.&lt;/strong&gt; 다크 모드에서 안 맞았음.&lt;/p&gt;
+&lt;h2 id=&#34;-그리고-버그가-줄줄이&#34;&gt;
+    &lt;a href=&#34;#-%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%b2%84%ea%b7%b8%ea%b0%80-%ec%a4%84%ec%a4%84%ec%9d%b4&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🐛 그리고 버그가 줄줄이
+&lt;/h2&gt;&lt;p&gt;여기서부터 나흘 동안 UI 버그만 잡았음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-23 01:49  fix: show English book name in continue-reading card when English version active
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-23 01:54  fix: meditation page verse state, overlay close button, keyboard overlap, remove resume banner
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-23 10:13  fix: 5가지 UI 버그 수정
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-23 20:46  fix: 묵상 스크린 오버레이가 터치 이벤트를 차단하는 버그 수정
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-26 13:28  fix: 선택 모드 + 권 셀렉터 동시 오픈 시 오버플로우 수정
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-26 13:40  fix: 홈 화면 감사 무드 이모지 누락 수정
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-26 13:57  fix: 성경 설정 SegmentedButton 선택 상태 글씨색 흰색으로 수정
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-26 14:04  fix: 성경 설정 시트 배경색 명시해 텍스트 가독성 개선
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-26 14:22  fix: 성경 미리보기 overlay가 키보드 오픈 시 입력창 가리는 버그 수정
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-27 12:14  fix: 성경 글자 크기 설정이 본문/미리보기에 실제로 반영되도록 수정
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;03-27 17:47  fix: 성경 설정 시트 폰트 크기 확대 시 bottom overflow 수정
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;11개 중 7개가 설정 시트 하나에서 나왔음.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;패턴이 보임.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. 오버레이 겹침.&lt;/strong&gt; 묵상 화면에서 구절 미리보기를 띄우면 &lt;strong&gt;키보드가 올라올 때 입력창을 가림.&lt;/strong&gt;
+모바일에서 오버레이 + 키보드는 거의 항상 문제가 됨. 화면 높이가 실시간으로 바뀌는데 오버레이는 그걸 모름.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. 터치 차단.&lt;/strong&gt; 투명한 오버레이가 &lt;strong&gt;보이지도 않으면서 터치를 먹고 있었음.&lt;/strong&gt;
+화면은 정상인데 버튼이 안 눌림. 제일 찾기 어려운 종류임.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. 글자 크기가 반영이 안 됨.&lt;/strong&gt; 설정에서 키우면 값은 바뀌는데 &lt;strong&gt;본문에 안 닿음.&lt;/strong&gt;
+프로바이더까지는 갔는데 위젯이 그 값을 구독하지 않고 있었음.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. 크기를 키우면 오버플로우.&lt;/strong&gt; 반영되게 고쳤더니 이번엔 시트가 터짐.
+&lt;code&gt;01:44&lt;/code&gt; 에서 고정 높이로 잡아둔 게 원인. 스크롤 가능하게 바꿈.&lt;/p&gt;
+&lt;h2 id=&#34;-이모지를-아이콘으로-바꿈&#34;&gt;
+    &lt;a href=&#34;#-%ec%9d%b4%eb%aa%a8%ec%a7%80%eb%a5%bc-%ec%95%84%ec%9d%b4%ec%bd%98%ec%9c%bc%eb%a1%9c-%eb%b0%94%ea%bf%88&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎨 이모지를 아이콘으로 바꿈
+&lt;/h2&gt;&lt;p&gt;25일에 이걸 했음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;refactor: replace emoji with Material Design icons throughout UI
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;무드 선택이나 빠른 진입 버튼에 이모지를 쓰고 있었음.&lt;/p&gt;
+&lt;p&gt;이모지는 &lt;strong&gt;기기·OS 버전마다 그림이 다름.&lt;/strong&gt; 같은 유니코드인데 안드로이드랑 iOS가 완전히 다르게 그림.
+디자인을 맞출 수가 없고, 폰트가 없으면 두부(□)가 나옴.&lt;/p&gt;
+&lt;p&gt;실제로 &lt;code&gt;03-26 13:40&lt;/code&gt; 에 &amp;ldquo;감사 무드 이모지 누락&amp;quot;이 있음. 아이콘으로 바꾼 뒤에도 한 군데가 남아 있었던 것.&lt;/p&gt;
+&lt;p&gt;같은 날 이것도 같이 고침.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: restrict debug logging to debug builds, fix quota API and notification settings parsing
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;디버그 로그가 릴리즈 빌드에도 찍히고 있었음.&lt;/strong&gt; 토큰이나 응답 본문이 로그에 남음.
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;에서 민감 정보 마스킹한 거랑 같은 줄기인데, 이번엔 클라이언트 쪽이었음.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;버전 하나 추가&amp;quot;가 UI 버그 11개를 불렀음.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;기능 자체는 반나절이면 되는데, 그게 건드리는 화면이 성경 인덱스·본문·설정 시트·묵상 화면·홈 카드까지 퍼져 있었음.
+&lt;strong&gt;옵션이 하나 늘면 조합이 곱으로 늘어난다&lt;/strong&gt;는 걸 몸으로 배웠음.&lt;/p&gt;
+&lt;p&gt;그리고 모바일에서 &lt;strong&gt;오버레이랑 키보드는 항상 의심&lt;/strong&gt;해야 함. 11개 중 3개가 그거였음.&lt;/p&gt;
+&lt;p&gt;다음은 스트리밍이랑 Observer 깊이 판정임. 이 시리즈에서 제일 오래 붙든 부분.&lt;/p&gt;
+&lt;p&gt;#ABIDE #Flutter #UI #버그 #모바일&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>ABIDE 개발 일지 #4 - 토큰을 SharedPreferences에서 꺼냈음</title>
+        <link>https://dn5772.github.io/p/abide-4/</link>
+        <pubDate>Sat, 21 Mar 2026 18:16:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/abide-4/</guid>
+        <description>&lt;h1 id=&#34;abide-개발-일지-4---토큰을-sharedpreferences에서-꺼냈음&#34;&gt;
+    &lt;a href=&#34;#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-4---%ed%86%a0%ed%81%b0%ec%9d%84-sharedpreferences%ec%97%90%ec%84%9c-%ea%ba%bc%eb%83%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ABIDE 개발 일지 #4 - 토큰을 SharedPreferences에서 꺼냈음
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;까지 오면 대화는 되는데, &lt;strong&gt;누가 쓰는지를 모름.&lt;/strong&gt;
+3월 15일~21일은 인증이랑 세션을 붙인 기간임.&lt;/p&gt;
+&lt;h2 id=&#34;-google--apple-로그인&#34;&gt;
+    &lt;a href=&#34;#-google--apple-%eb%a1%9c%ea%b7%b8%ec%9d%b8&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔑 Google / Apple 로그인
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: integrate Google Sign-In with serverClientId and handle new user flow
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;serverClientId&lt;/code&gt; 가 핵심임. 이걸 안 넘기면 클라이언트용 토큰만 나와서 &lt;strong&gt;서버가 검증을 못 함.&lt;/strong&gt;
+서버에서 구글에 물어보려면 서버 클라이언트 ID로 발급된 ID 토큰이 필요함.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;의 Core 서버에 플래그 하나를 추가했음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Add is_new_user flag to AuthTokenResponse and include oauth_provider in UserProfileResponse
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;처음 가입한 사람이면 &lt;strong&gt;프로필 설정 화면으로&lt;/strong&gt; 보내고, 기존 유저면 바로 홈으로 보내야 함.
+앱이 그걸 알 방법이 없어서 로그인 응답에 &lt;code&gt;is_new_user&lt;/code&gt; 를 얹었음.&lt;/p&gt;
+&lt;p&gt;클라이언트가 &amp;ldquo;유저 정보를 한 번 더 조회해서 프로필이 비었는지 보는&amp;rdquo; 식으로 짜면 왕복이 한 번 더 생기고, 그 사이에 화면이 깜빡임.&lt;/p&gt;
+&lt;h2 id=&#34;-토큰을-secure-storage로-옮김&#34;&gt;
+    &lt;a href=&#34;#-%ed%86%a0%ed%81%b0%ec%9d%84-secure-storage%eb%a1%9c-%ec%98%ae%ea%b9%80&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔒 토큰을 secure storage로 옮김
+&lt;/h2&gt;&lt;p&gt;15일 마지막 커밋이 이거임.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: Phase 4-A migrate authentication tokens to secure storage and refactor related logic
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;처음엔 JWT를 &lt;code&gt;SharedPreferences&lt;/code&gt; 에 넣었음. 쉽고 빠르니까.&lt;/p&gt;
+&lt;p&gt;근데 &lt;code&gt;SharedPreferences&lt;/code&gt; 는 &lt;strong&gt;그냥 평문 파일&lt;/strong&gt;임. 안드로이드는 XML, iOS는 plist.
+루팅/탈옥된 기기나 백업 파일에서 그대로 읽힘.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;flutter_secure_storage&lt;/code&gt; 로 옮겼음. 안드로이드는 Keystore, iOS는 Keychain에 들어감.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;wallet&lt;/a&gt; 때도 그랬는데 — &lt;strong&gt;&amp;ldquo;일단 되게&amp;rdquo; 하려고 고른 저장소는 거의 항상 나중에 옮기게 됨.&lt;/strong&gt;
+처음부터 secure storage를 썼어도 코드량 차이는 거의 없었음.&lt;/p&gt;
+&lt;h2 id=&#34;-fcm-푸시&#34;&gt;
+    &lt;a href=&#34;#-fcm-%ed%91%b8%ec%8b%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📬 FCM 푸시
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: Phase 3-E implement FCM service for push notifications and enhance notification settings
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;묵상 앱은 &lt;strong&gt;안 열면 안 쓰게 됨.&lt;/strong&gt; 매일 알림이 리텐션의 거의 전부임.&lt;/p&gt;
+&lt;p&gt;Core 서버에도 FCM 클라이언트를 붙였음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;환경 변수 및 미들웨어 개선: FCM 클라이언트 추가, Rate Limiter 구현,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;AppConfig의 민감 정보 마스킹, .env 파일 수정 및 .gitignore 업데이트
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;이 커밋에 세 가지가 같이 들어갔는데 전부 운영 준비임.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Rate Limiter&lt;/strong&gt; — 인증 엔드포인트가 무방비였음&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;민감 정보 마스킹&lt;/strong&gt; — 설정을 로그에 찍을 때 키가 그대로 나오고 있었음&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;.gitignore&lt;/code&gt;&lt;/strong&gt; — &lt;code&gt;.env&lt;/code&gt; 랑 firebase 서비스 계정 키&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;마지막 게 제일 급했음. 26일에 한 번 더 손봄.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chore: ignore .env and firebase service account key
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-7/&#34; &gt;정담&lt;/a&gt;에서 배운 걸 또 반복했음.&lt;/strong&gt; 개발 초반에 &amp;ldquo;일단 돌아가게&amp;rdquo; 넣은 파일들이 저장소에 들어가 있었음.&lt;/p&gt;
+&lt;h2 id=&#34;-세션을-db에-스냅샷으로&#34;&gt;
+    &lt;a href=&#34;#-%ec%84%b8%ec%85%98%ec%9d%84-db%ec%97%90-%ec%8a%a4%eb%83%85%ec%83%b7%ec%9c%bc%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    💾 세션을 DB에 스냅샷으로
+&lt;/h2&gt;&lt;p&gt;21일 커밋이 이 시리즈에서 제일 중요한 것 중 하나임.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;(ai)    feat: VerseFinder 노드 추가 및 구절 탐색 기능 구현; 세션 상태 DB 저장 및 복원 로직 개선
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;(core)  세션 생성 요청에 session_type 및 initial_query 필드 추가
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;(infra) ai_sessions 테이블에 세션 상태 스냅샷 컬럼 및 인덱스 추가
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;서브모듈 셋이 &lt;strong&gt;같은 시각에 같이 움직임.&lt;/strong&gt; 하나의 기능이 세 레포에 걸쳐 있음.&lt;/p&gt;
+&lt;h3 id=&#34;왜-스냅샷이-필요했나&#34;&gt;
+    &lt;a href=&#34;#%ec%99%9c-%ec%8a%a4%eb%83%85%ec%83%b7%ec%9d%b4-%ed%95%84%ec%9a%94%ed%96%88%eb%82%98&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    왜 스냅샷이 필요했나
+&lt;/h3&gt;&lt;p&gt;묵상 대화는 &lt;strong&gt;길고, 중간에 끊김.&lt;/strong&gt; 지하철에서 하다가 내리고, 저녁에 다시 열음.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-3/&#34; &gt;#3&lt;/a&gt;의 LangGraph 상태(지금 어느 노드인지, 깊이 점수가 얼만지, 어떤 구절을 보고 있는지)가 메모리에만 있으면 &lt;strong&gt;서버가 재시작되는 순간 날아감.&lt;/strong&gt;
+사용자는 처음부터 다시 해야 함.&lt;/p&gt;
+&lt;p&gt;그래서 상태를 통째로 DB 컬럼에 넣고, 이어서 열면 복원하게 했음.&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/seam-7/&#34; &gt;seam&lt;/a&gt;의 세션 영속이랑 같은 문제인데, 여기는 &lt;strong&gt;모바일이라 훨씬 자주 끊김.&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;versefinder&#34;&gt;
+    &lt;a href=&#34;#versefinder&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    VerseFinder
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;session_type&lt;/code&gt; 이랑 &lt;code&gt;initial_query&lt;/code&gt; 가 같이 들어간 이유임.&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;요즘 불안한데 읽을 구절 있을까&amp;rdquo; 같은 요청은 묵상 대화가 아니라 &lt;strong&gt;구절 찾기&lt;/strong&gt;임.
+같은 그래프인데 진입점이 다름. 세션 타입으로 갈래를 나눴음.&lt;/p&gt;
+&lt;p&gt;다음 날 이걸 한 번 더 손봄.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;세션 생성 시 verse_finder 타입을 meditation으로 변환하여 DB에 저장
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;타입이 두 개인 건 진입 시점뿐&lt;/strong&gt;이고, 구절을 찾고 나면 그냥 묵상으로 이어짐.
+DB에는 &lt;code&gt;meditation&lt;/code&gt; 으로 통일해서 저장하게 바꿨음. 안 그러면 Journey 통계에서 같은 활동이 둘로 갈라짐.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;&amp;ldquo;일단 되게&amp;rdquo; 저장소는 반드시 다시 옮기게 됨.&lt;/strong&gt; SharedPreferences → secure storage, &lt;code&gt;.env&lt;/code&gt; 커밋 → gitignore.
+둘 다 처음부터 제대로 했어도 드는 시간이 비슷했음.&lt;/p&gt;
+&lt;p&gt;그리고 21일의 3-레포 동시 커밋이 서브모레포의 실제 모습이었음.
+기능 하나가 Flutter·Core·AI·infra를 다 건드리는데, &lt;strong&gt;커밋은 네 군데에 따로 남음.&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;에서 적은 포인터 관리 비용이 여기서 체감됨.&lt;/p&gt;
+&lt;p&gt;다음은 어드민임.&lt;/p&gt;
+&lt;p&gt;#ABIDE #Flutter #인증 #OAuth #FCM #보안&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>ABIDE 개발 일지 #1 - Flutter 앱 뼈대를 한 번에 올렸음</title>
+        <link>https://dn5772.github.io/p/abide-1/</link>
+        <pubDate>Tue, 10 Mar 2026 22:10:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/abide-1/</guid>
+        <description>&lt;h1 id=&#34;abide-개발-일지-1---flutter-앱-뼈대를-한-번에-올렸음&#34;&gt;
+    &lt;a href=&#34;#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-1---flutter-%ec%95%b1-%eb%bc%88%eb%8c%80%eb%a5%bc-%ed%95%9c-%eb%b2%88%ec%97%90-%ec%98%ac%eb%a0%b8%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ABIDE 개발 일지 #1 - Flutter 앱 뼈대를 한 번에 올렸음
+&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;ABIDE(말씀 안에 거하다)&lt;/strong&gt; — AI랑 같이 성경을 묵상하는 앱을 만들기 시작했음.&lt;/p&gt;
+&lt;p&gt;요약을 던져주는 게 아니라 &lt;strong&gt;소크라테스식으로 되물으면서&lt;/strong&gt; 스스로 생각하게 만드는 게 목표임.
+&amp;ldquo;이 구절이 무슨 뜻이냐&amp;quot;를 알려주는 앱은 이미 많은데, &amp;ldquo;당신한테 이게 왜 걸리냐&amp;quot;를 묻는 건 없었음.&lt;/p&gt;
+&lt;p&gt;첫날에 Flutter 앱 뼈대를 통째로 올렸음. 커밋 48개가 전부 &lt;code&gt;22:09~22:10&lt;/code&gt; 에 찍혀 있음.&lt;/p&gt;
+&lt;h2 id=&#34;-3레이어로-갈랐음&#34;&gt;
+    &lt;a href=&#34;#-3%eb%a0%88%ec%9d%b4%ec%96%b4%eb%a1%9c-%ea%b0%88%eb%9e%90%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🧱 3레이어로 갈랐음
+&lt;/h2&gt;&lt;p&gt;Clean Architecture 그대로 감.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lib/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── core/           테마 · 라우터 · API 클라이언트 · 로컬라이제이션 · 공용 위젯
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── domain/         엔티티 + 리포지토리 인터페이스 (추상)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├── data/           데이터소스(local/remote) + 리포지토리 구현
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└── presentation/   Riverpod 프로바이더 + 화면
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;의존 방향이 한쪽임.&lt;/strong&gt; &lt;code&gt;presentation → domain ← data&lt;/code&gt;.
+&lt;code&gt;domain&lt;/code&gt; 은 Flutter도 모르고 HTTP도 모름. 순수 다트 객체랑 인터페이스만 있음.&lt;/p&gt;
+&lt;p&gt;이렇게 한 이유가 있음. 이 앱은 성경 본문을 &lt;strong&gt;로컬 에셋에서&lt;/strong&gt; 읽고, 묵상 대화는 &lt;strong&gt;서버 SSE에서&lt;/strong&gt; 받음.
+두 데이터소스의 성격이 완전히 다른데, 화면이 그걸 다 알고 있으면 나중에 못 바꿈.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;domain/repositories/bible_repository.dart      ← 인터페이스
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;data/repositories/bible_repository_impl.dart   ← 로컬 에셋에서 읽음
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;data/datasources/local/bible_parser.dart       ← JSON 파싱 + 인덱싱
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;화면은 &lt;code&gt;BibleRepository&lt;/code&gt; 만 알면 됨. 나중에 본문을 서버에서 받기로 해도 화면은 안 바뀜.&lt;/p&gt;
+&lt;h2 id=&#34;-디자인-시스템부터-깔았음&#34;&gt;
+    &lt;a href=&#34;#-%eb%94%94%ec%9e%90%ec%9d%b8-%ec%8b%9c%ec%8a%a4%ed%85%9c%eb%b6%80%ed%84%b0-%ea%b9%94%ec%95%98%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎨 디자인 시스템부터 깔았음
+&lt;/h2&gt;&lt;p&gt;화면보다 테마를 먼저 만들었음. 커밋 순서가 그럼.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat(core/theme): add Deep Forest colour palette
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat(core/theme): add typography scale and text style definitions
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat(core/theme): compose full ThemeData (light/dark) from colours and typography
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat(core/widgets): add shared UI components (glassmorphism cards, tactile buttons, logo)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Deep Forest + 글래스모피즘&lt;/strong&gt;으로 잡음. 묵상 앱이라 차분해야 하는데, 그렇다고 밋밋하면 안 씀.
+짙은 녹색 계열에 반투명 카드를 얹는 식으로 갔음.&lt;/p&gt;
+&lt;p&gt;색 → 타이포 → ThemeData → 공용 위젯 순서로 쌓은 게 나중에 편했음.
+&lt;strong&gt;화면마다 색을 직접 쓰는 일이 없어서&lt;/strong&gt; &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-6/&#34; &gt;#6&lt;/a&gt;에서 설정 시트 같은 걸 추가할 때 토큰만 가져다 쓰면 됐음.&lt;/p&gt;
+&lt;h2 id=&#34;-화면-14개&#34;&gt;
+    &lt;a href=&#34;#-%ed%99%94%eb%a9%b4-14%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📱 화면 14개
+&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;화면&lt;/th&gt;
+&lt;th&gt;하는 일&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Compass&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;홈. 오늘의 기분 기반 구절 추천 + 빠른 진입&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Bible Reader&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;성경 본문. 장 이동, 구절 선택&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Mate (묵상)&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;SSE 스트리밍 AI 대화. 소크라테스식 질문&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;DeepLens&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;원어 분석, 역사적 배경, 상호참조&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Ask&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;자유 질문. 성경 근거를 붙인 답&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Echo&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;익명 커뮤니티 피드. 묵상 나눔&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Journey&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;묵상 캘린더 + 월별 통계&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Profile&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;연속 기록, 설정, 테마, 언어&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;여기에 스플래시 · 온보딩 · 로그인 · 프로필 설정 · 하단 탭 셸까지.&lt;/p&gt;
+&lt;h2 id=&#34;-sse-클라이언트를-처음부터-넣었음&#34;&gt;
+    &lt;a href=&#34;#-sse-%ed%81%b4%eb%9d%bc%ec%9d%b4%ec%96%b8%ed%8a%b8%eb%a5%bc-%ec%b2%98%ec%9d%8c%eb%b6%80%ed%84%b0-%eb%84%a3%ec%97%88%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🌊 SSE 클라이언트를 처음부터 넣었음
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat(data): add SSE client for real-time AI response streaming
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat(presentation): add meditation session provider (SSE stream lifecycle management)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;묵상 대화가 이 앱의 핵심인데, &lt;strong&gt;한 번에 답이 다 나오면 안 됨.&lt;/strong&gt;
+AI가 생각하는 동안 화면이 멈춰 있으면 대화가 아니라 로딩임.&lt;/p&gt;
+&lt;p&gt;그래서 처음부터 Server-Sent Events로 잡았음. Dio 기반으로 직접 만들었고, 스트림 생명주기(구독·취소·에러·재연결)는 Riverpod 프로바이더가 들고 있게 함.&lt;/p&gt;
+&lt;p&gt;이게 나중에 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-7/&#34; &gt;#7&lt;/a&gt;에서 크게 확장됨.&lt;/p&gt;
+&lt;h2 id=&#34;-로컬라이제이션도-첫날에&#34;&gt;
+    &lt;a href=&#34;#-%eb%a1%9c%ec%bb%ac%eb%9d%bc%ec%9d%b4%ec%a0%9c%ec%9d%b4%ec%85%98%eb%8f%84-%ec%b2%ab%eb%82%a0%ec%97%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🌏 로컬라이제이션도 첫날에
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat(core): add Korean/English localisation string maps and locale provider
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;한국어가 1차인데 영어 문자열 맵을 같이 깔아뒀음.
+나중에 붙이려면 화면 14개를 다 뒤져야 하니까, 비어 있더라도 구조는 먼저 만들어두는 게 나음.&lt;/p&gt;
+&lt;p&gt;…라고 생각했는데 &lt;strong&gt;이게 절반만 맞았음.&lt;/strong&gt; 앱 UI는 이걸로 됐는데, &lt;strong&gt;AI가 생성하는 텍스트&lt;/strong&gt;는 전혀 대비가 안 돼 있었음.
+그 대가를 &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-8/&#34; &gt;#8&lt;/a&gt;에서 치름.&lt;/p&gt;
+&lt;h2 id=&#34;-전역-에러-바운더리&#34;&gt;
+    &lt;a href=&#34;#-%ec%a0%84%ec%97%ad-%ec%97%90%eb%9f%ac-%eb%b0%94%ec%9a%b4%eb%8d%94%eb%a6%ac&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🛡️ 전역 에러 바운더리
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: add main.dart entrypoint with global error boundary and app bootstrap
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat(core): add centralised error handler and user feedback utilities
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;main.dart&lt;/code&gt; 에서 에러를 한 군데로 모음. 네트워크 실패든 파싱 실패든 사용자한테 보이는 건 한 형식.&lt;/p&gt;
+&lt;p&gt;묵상 중에 빨간 Flutter 에러 화면이 뜨면 그날 묵상은 끝임. 이건 기능이 아니라 &lt;strong&gt;분위기 문제&lt;/strong&gt;라서 처음부터 넣었음.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;48커밋을 한 번에 올린 건데, &lt;strong&gt;커밋을 잘게 쪼갠 게 나중에 읽기 좋았음.&lt;/strong&gt;
+&lt;code&gt;feat(core/theme)&lt;/code&gt;, &lt;code&gt;feat(domain)&lt;/code&gt;, &lt;code&gt;feat(data)&lt;/code&gt;, &lt;code&gt;feat(ui)&lt;/code&gt; 로 레이어를 접두사에 박아두니까 나중에 &amp;ldquo;이때 뭘 깔았지&amp;quot;가 로그만 봐도 보임.&lt;/p&gt;
+&lt;p&gt;그리고 &lt;strong&gt;화면보다 테마랑 라우터를 먼저 만든 순서&lt;/strong&gt;가 맞았음.
+반대로 갔으면 화면 14개에 색이랑 네비게이션이 제각각 박혔을 것.&lt;/p&gt;
+&lt;p&gt;다음은 서버임. 앱은 있는데 부를 데가 없음.&lt;/p&gt;
+&lt;p&gt;#ABIDE #Flutter #CleanArchitecture #Riverpod #앱개발&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

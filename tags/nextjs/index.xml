@@ -187,6 +187,135 @@
 </description>
         </item>
         <item>
+        <title>ABIDE 개발 일지 #5 - 어드민 대시보드를 한 시간 반에 갈아엎음</title>
+        <link>https://dn5772.github.io/p/abide-5/</link>
+        <pubDate>Sat, 21 Mar 2026 19:48:00 +0900</pubDate>
+        
+        <guid>https://dn5772.github.io/p/abide-5/</guid>
+        <description>&lt;h1 id=&#34;abide-개발-일지-5---어드민-대시보드를-한-시간-반에-갈아엎음&#34;&gt;
+    &lt;a href=&#34;#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-5---%ec%96%b4%eb%93%9c%eb%af%bc-%eb%8c%80%ec%8b%9c%eb%b3%b4%eb%93%9c%eb%a5%bc-%ed%95%9c-%ec%8b%9c%ea%b0%84-%eb%b0%98%ec%97%90-%ea%b0%88%ec%95%84%ec%97%8e%ec%9d%8c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    ABIDE 개발 일지 #5 - 어드민 대시보드를 한 시간 반에 갈아엎음
+&lt;/h1&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-4/&#34; &gt;#4&lt;/a&gt;에서 유저가 생겼으니 &lt;strong&gt;운영할 화면&lt;/strong&gt;이 필요해졌음.&lt;/p&gt;
+&lt;p&gt;3월 21일 18:54~19:46, &lt;strong&gt;1시간 52분에 커밋 8개.&lt;/strong&gt; 루트 레포 커밋 메시지가 이럼.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;chore: update submodule pointers — admin panel full overhaul
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;-스택&#34;&gt;
+    &lt;a href=&#34;#-%ec%8a%a4%ed%83%9d&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🧱 스택
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Next.js 16 (App Router) + React 19
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;TanStack Query · Tailwind v4 · recharts · jwt-decode
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-1/&#34; &gt;정담&lt;/a&gt;도 Next.js였는데, 여긴 &lt;strong&gt;데이터 조회가 전부&lt;/strong&gt;라 TanStack Query를 얹었음.
+어드민은 화면 열 때마다 최신 값을 봐야 하는데, 직접 &lt;code&gt;useEffect&lt;/code&gt; + &lt;code&gt;fetch&lt;/code&gt; 로 짜면 캐시·재검증·로딩 상태를 매 화면마다 다시 씀.&lt;/p&gt;
+&lt;h2 id=&#34;-권한을-두-겹으로&#34;&gt;
+    &lt;a href=&#34;#-%ea%b6%8c%ed%95%9c%ec%9d%84-%eb%91%90-%ea%b2%b9%ec%9c%bc%eb%a1%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🔐 권한을 두 겹으로
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;18:54  feat: add AuthContext and install jwt-decode, recharts
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;18:55  feat: add auth guard to layout, update sidebar (remove feeds, add role-gated admin accounts)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;19:37  feat: add admin account management page (super_admin only)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;의 Admin API가 JWT를 주는데, 거기에 &lt;strong&gt;역할&lt;/strong&gt;이 들어 있음.&lt;/p&gt;
+&lt;p&gt;같은 날 Admin 서버에도 이게 들어갔음.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;feat: add name claim to JWT, add admin user management endpoints (super_admin only)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;프론트에서는 &lt;code&gt;jwt-decode&lt;/code&gt; 로 역할을 읽어서 &lt;strong&gt;사이드바 메뉴 자체를 감춤.&lt;/strong&gt;
+&lt;code&gt;super_admin&lt;/code&gt; 이 아니면 어드민 계정 관리 메뉴가 안 보임.&lt;/p&gt;
+&lt;p&gt;근데 메뉴를 감추는 건 &lt;strong&gt;UX일 뿐 보안이 아님.&lt;/strong&gt; URL을 직접 치면 들어감.
+그래서 실제 차단은 서버에서 함. 프론트는 &amp;ldquo;보여줄지&amp;quot;만 정하고, 서버가 &amp;ldquo;줄지&amp;quot;를 정함.&lt;/p&gt;
+&lt;p&gt;레이아웃에 auth guard를 걸어서 토큰이 없으면 아예 진입을 막았음.&lt;/p&gt;
+&lt;h2 id=&#34;-1900--한-커밋에-버그-네-개&#34;&gt;
+    &lt;a href=&#34;#-1900--%ed%95%9c-%ec%bb%a4%eb%b0%8b%ec%97%90-%eb%b2%84%ea%b7%b8-%eb%84%a4-%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🐛 19:00 — 한 커밋에 버그 네 개
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: delete feeds page, fix dashboard field names + add mood chart,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;     fix display_name, add admin_note modal to reports
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;어드민 페이지를 실제로 열어보니 &lt;strong&gt;API 응답 필드명이랑 화면이 안 맞았음.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;대시보드가 없는 필드를 읽어서 전부 &lt;code&gt;undefined&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;display_name&lt;/code&gt; 을 다른 이름으로 찾고 있었음&lt;/li&gt;
+&lt;li&gt;피드 페이지는 사이드바에서는 뺐는데 &lt;strong&gt;파일이 남아 있었음&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;신고 처리에 관리자 메모를 남길 데가 없었음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;백엔드랑 프론트를 따로 만들면 필드명이 거의 항상 어긋남.&lt;/strong&gt; 타입을 공유 안 하니까 실행해봐야 앎.&lt;/p&gt;
+&lt;h2 id=&#34;-19061935--운영-화면-세-개&#34;&gt;
+    &lt;a href=&#34;#-19061935--%ec%9a%b4%ec%98%81-%ed%99%94%eb%a9%b4-%ec%84%b8-%ea%b0%9c&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📅 19:06~19:35 — 운영 화면 세 개
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;19:06  feat: add mood verses management page
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;19:12  feat: add schedules management page (daily + weekly tabs)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;19:35  feat: add campaigns management page
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;무드 구절&lt;/strong&gt; — &lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-1/&#34; &gt;#1&lt;/a&gt;의 Compass 화면이 &amp;ldquo;오늘 기분&amp;quot;으로 구절을 추천함.
+그 매핑을 코드에 박아두면 바꿀 때마다 앱을 새로 내야 함. &lt;strong&gt;어드민에서 고칠 수 있어야 함.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;스케줄&lt;/strong&gt; — 일별/주별 탭. 매일 보낼 묵상 주제를 미리 꽂아둠.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;캠페인&lt;/strong&gt; — 특정 기간 이벤트.&lt;/p&gt;
+&lt;p&gt;셋 다 공통점이 있음. &lt;strong&gt;콘텐츠를 코드에서 빼서 DB로 옮긴 것.&lt;/strong&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/jung-dam-3/&#34; &gt;정담&lt;/a&gt;에서 메뉴판을 관리자 페이지로 뺀 거랑 정확히 같은 이유임 — 내가 매번 배포하면 안 됨.&lt;/p&gt;
+&lt;h2 id=&#34;-1946--마지막-커밋&#34;&gt;
+    &lt;a href=&#34;#-1946--%eb%a7%88%ec%a7%80%eb%a7%89-%ec%bb%a4%eb%b0%8b&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    📉 19:46 — 마지막 커밋
+&lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;fix: remove explicit type annotation on recharts Tooltip formatter
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;recharts 타입이 라이브러리 내부 제네릭이랑 안 맞아서 &lt;strong&gt;명시적 타입 주석을 뺐더니&lt;/strong&gt; 추론이 오히려 맞음.&lt;/p&gt;
+&lt;p&gt;TypeScript에서 가끔 있는 일인데, 타입을 직접 적는 게 항상 나은 게 아님. &lt;strong&gt;라이브러리가 이미 잘 추론하는 자리는 안 건드리는 게&lt;/strong&gt; 나음.&lt;/p&gt;
+&lt;h2 id=&#34;-느낀-점&#34;&gt;
+    &lt;a href=&#34;#-%eb%8a%90%eb%82%80-%ec%a0%90&#34; class=&#34;header-anchor&#34;&gt;#&lt;/a&gt;
+    🎯 느낀 점
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;어드민은 빨리 만들수록 이득임.&lt;/strong&gt; 여기 쓴 두 시간이 나중에 &amp;ldquo;구절 하나 바꾸려고 앱 배포&amp;quot;하는 걸 통째로 없앰.&lt;/p&gt;
+&lt;p&gt;그리고 어드민을 사용자 서비스랑 &lt;strong&gt;완전히 분리한 게&lt;/strong&gt; 맞았음(&lt;a class=&#34;link&#34; href=&#34;https://dn5772.github.io/p/abide-2/&#34; &gt;#2&lt;/a&gt;).
+1시간 52분에 8커밋을 밀어넣을 수 있었던 건, 여기가 깨져도 앱은 안 죽는다는 걸 알고 있어서임.&lt;/p&gt;
+&lt;p&gt;그다음 이틀은 성경 본문 쪽을 손봄.&lt;/p&gt;
+&lt;p&gt;#ABIDE #NextJS #React #어드민 #JWT&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>정담 개발 일지 #2 - 메뉴 붙이고 잔손질</title>
         <link>https://dn5772.github.io/p/jung-dam-2/</link>
         <pubDate>Sat, 17 Jan 2026 10:09:00 +0900</pubDate>

@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="KJV/KRV/ASV 다버전 지원. 그리고 키보드가 입력창을 가리는 버그들">
+<title>ABIDE 개발 일지 #6 - 성경 버전을 늘리니 UI가 줄줄이 깨졌음</title>
+
+<link rel='canonical' href='https://dn5772.github.io/p/abide-6/'>
+
+<link rel="stylesheet" href="/scss/style.min.760e3dabc1e140d2e6abd27a8ca0aabb60e568829b29f67d2df12024136eff37.css"><meta property='og:title' content="ABIDE 개발 일지 #6 - 성경 버전을 늘리니 UI가 줄줄이 깨졌음">
+<meta property='og:description' content="KJV/KRV/ASV 다버전 지원. 그리고 키보드가 입력창을 가리는 버그들">
+<meta property='og:url' content='https://dn5772.github.io/p/abide-6/'>
+<meta property='og:site_name' content='대니짱'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='ABIDE' /><meta property='article:tag' content='Flutter' /><meta property='article:tag' content='UI' /><meta property='article:tag' content='버그' /><meta property='article:tag' content='다국어' /><meta property='article:tag' content='모바일' /><meta property='article:published_time' content='2026-03-27T17:47:00&#43;09:00'/><meta property='article:modified_time' content='2026-03-27T17:47:00&#43;09:00'/>
+<meta name="twitter:title" content="ABIDE 개발 일지 #6 - 성경 버전을 늘리니 UI가 줄줄이 깨졌음">
+<meta name="twitter:description" content="KJV/KRV/ASV 다버전 지원. 그리고 키보드가 입력창을 가리는 버그들">
+    <link rel="shortcut icon" href="/pokeball_icon.png" />
+
+  
+
+<meta name="google-adsense-account" content="ca-pub-2130075151823864">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2130075151823864"
+     crossorigin="anonymous"></script>
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="메뉴 여닫기">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/ditto_2_hud2704b3b9534528c44bbff8ffb4fb3e3_5178_300x0_resize_q75_box.jpg" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏷️</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">대니짱</a></h1>
+            <h2 class="site-description">Danny ZZang의 블로그</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/dn5772'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://www.instagram.com/sum._.melon/'
+                        target="_blank"
+                        title="Instagram"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/categories' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                
+                <span>Categories</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://dn5772.github.io/" selected>한국어</option>
+                                
+                                    <option value="https://dn5772.github.io/en/" >English</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>다크 모드</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">목차</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#-에셋을-권-단위로-쪼갬">📖 에셋을 권 단위로 쪼갬</a></li>
+    <li><a href="#-버전-하나-추가에-파일-여섯-개">🔗 버전 하나 추가에 파일 여섯 개</a></li>
+    <li><a href="#-설정-시트">⚙️ 설정 시트</a></li>
+    <li><a href="#-그리고-버그가-줄줄이">🐛 그리고 버그가 줄줄이</a></li>
+    <li><a href="#-이모지를-아이콘으로-바꿈">🎨 이모지를 아이콘으로 바꿈</a></li>
+    <li><a href="#-느낀-점">🎯 느낀 점</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/app/abide/" style="background-color: #1e6f3f; color: #fff;">
+                ABIDE
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/abide-6/">ABIDE 개발 일지 #6 - 성경 버전을 늘리니 UI가 줄줄이 깨졌음</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            KJV/KRV/ASV 다버전 지원. 그리고 키보드가 입력창을 가리는 버그들
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 27, 2026</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="abide-개발-일지-6---성경-버전을-늘리니-ui가-줄줄이-깨졌음">
+    <a href="#abide-%ea%b0%9c%eb%b0%9c-%ec%9d%bc%ec%a7%80-6---%ec%84%b1%ea%b2%bd-%eb%b2%84%ec%a0%84%ec%9d%84-%eb%8a%98%eb%a6%ac%eb%8b%88-ui%ea%b0%80-%ec%a4%84%ec%a4%84%ec%9d%b4-%ea%b9%a8%ec%a1%8c%ec%9d%8c" class="header-anchor">#</a>
+    ABIDE 개발 일지 #6 - 성경 버전을 늘리니 UI가 줄줄이 깨졌음
+</h1><p><a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 성경 본문을 <strong>로컬 에셋</strong>으로 넣었음. 개역한글 하나만.
+영어 사용자를 생각하면 버전이 여러 개여야 함.</p>
+<p>3월 23일 새벽에 이걸 붙였는데, <strong>한 시간 동안 커밋 15개</strong>가 나왔음. 대부분 버그 수정임.</p>
+<h2 id="-에셋을-권-단위로-쪼갬">
+    <a href="#-%ec%97%90%ec%85%8b%ec%9d%84-%ea%b6%8c-%eb%8b%a8%ec%9c%84%eb%a1%9c-%ec%aa%bc%ea%b0%ac" class="header-anchor">#</a>
+    📖 에셋을 권 단위로 쪼갬
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01:13  feat: add KJV/KRV/ASV per-book Bible asset files
+</span></span><span class="line"><span class="cl">01:20  feat: reorganize bible assets into version folders (NKRV)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>원래 성경 전체가 파일 하나였음. 버전이 셋이 되면 그게 셋이 됨.</p>
+<p><strong>권 단위로 쪼갰음.</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">assets/bible/KRV/genesis.json
+</span></span><span class="line"><span class="cl">assets/bible/KJV/genesis.json
+</span></span><span class="line"><span class="cl">assets/bible/ASV/genesis.json
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>창세기를 읽는데 요한계시록까지 메모리에 올릴 이유가 없음.
+<a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 만든 로컬 파서가 권 단위 인덱싱을 하고 있어서 쪼개는 건 어렵지 않았음.</p>
+<p>루트 레포에도 스크립트를 넣었음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">feat: add Bible split script and KJV/KRV/ASV per-book assets
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="-버전-하나-추가에-파일-여섯-개">
+    <a href="#-%eb%b2%84%ec%a0%84-%ed%95%98%eb%82%98-%ec%b6%94%ea%b0%80%ec%97%90-%ed%8c%8c%ec%9d%bc-%ec%97%ac%ec%84%af-%ea%b0%9c" class="header-anchor">#</a>
+    🔗 버전 하나 추가에 파일 여섯 개
+</h2><p>여기서부터가 진짜임. <code>BibleVersion</code> 이라는 값 하나가 생기니까 <strong>계층을 전부 통과해야 했음.</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="mi">01</span><span class="p">:</span><span class="mi">26</span>  <span class="n">feat</span><span class="p">:</span> <span class="n">add</span> <span class="n">English</span> <span class="n">fields</span> <span class="n">to</span> <span class="n">BibleBookMeta</span> <span class="k">for</span> <span class="n">multi</span><span class="o">-</span><span class="n">version</span> <span class="n">support</span>
+</span></span><span class="line"><span class="cl"><span class="mi">01</span><span class="p">:</span><span class="mi">30</span>  <span class="n">feat</span><span class="p">:</span> <span class="n">add</span> <span class="n">BibleSettingsProvider</span> <span class="n">with</span> <span class="n">version</span><span class="o">/</span><span class="n">style</span><span class="o">/</span><span class="n">fontSize</span>
+</span></span><span class="line"><span class="cl"><span class="mi">01</span><span class="p">:</span><span class="mi">37</span>  <span class="n">feat</span><span class="p">:</span> <span class="n">add</span> <span class="n">version</span> <span class="n">parameter</span> <span class="n">to</span> <span class="n">BibleService</span> <span class="n">methods</span>
+</span></span><span class="line"><span class="cl"><span class="mi">01</span><span class="p">:</span><span class="mi">37</span>  <span class="n">fix</span><span class="p">:</span> <span class="n">correct</span> <span class="n">import</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">bible_service</span><span class="o">.</span><span class="n">dart</span>
+</span></span><span class="line"><span class="cl"><span class="mi">01</span><span class="p">:</span><span class="mi">41</span>  <span class="n">fix</span><span class="p">:</span> <span class="k">pass</span> <span class="n">BibleVersion</span> <span class="n">to</span> <span class="n">BibleService</span> <span class="ow">in</span> <span class="n">BibleRepositoryImpl</span>
+</span></span><span class="line"><span class="cl"><span class="mi">01</span><span class="p">:</span><span class="mi">59</span>  <span class="n">feat</span><span class="p">:</span> <span class="k">pass</span> <span class="n">BibleVersion</span> <span class="n">to</span> <span class="n">loadBook</span> <span class="n">calls</span> <span class="ow">in</span> <span class="n">BibleChapterScreen</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">BibleSettingsProvider  →  BibleRepositoryImpl  →  BibleService  →  asset 경로
+</span></span><span class="line"><span class="cl">      (presentation)            (data)              (data)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 3레이어로 가른 대가임. <strong>파라미터 하나가 레이어를 다 뚫고 내려가야 함.</strong></p>
+<p>커밋 두 개(<code>01:37</code>, <code>01:41</code>)가 연달아 &ldquo;인자 안 넘김&quot;을 고치는 건데, 컴파일은 되는데 기본값으로 동작해서 화면에서만 티가 났음.</p>
+<p>솔직히 이 부분은 레이어를 나눈 게 손해였음. 근데 <strong>책 이름 영문 필드</strong>(<code>01:26</code>)처럼 도메인 엔티티만 고치면 되는 건 또 깔끔했음. 반반임.</p>
+<h2 id="-설정-시트">
+    <a href="#-%ec%84%a4%ec%a0%95-%ec%8b%9c%ed%8a%b8" class="header-anchor">#</a>
+    ⚙️ 설정 시트
+</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">01:42  feat: add BibleSettingsSheet bottom sheet
+</span></span><span class="line"><span class="cl">01:44  fix: use design system tokens in BibleSettingsSheet
+</span></span><span class="line"><span class="cl">01:47  feat: add settings button and sequential listing to BibleIndexScreen
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>버전·글꼴 크기·본문 스타일을 바꾸는 바텀시트임.</p>
+<p><code>01:44</code> 커밋이 <a class="link" href="https://dn5772.github.io/p/abide-1/" >#1</a>에서 디자인 시스템을 먼저 깐 값어치임.
+처음엔 색을 직접 박았다가 <strong>토큰으로 바꿈.</strong> 다크 모드에서 안 맞았음.</p>
+<h2 id="-그리고-버그가-줄줄이">
+    <a href="#-%ea%b7%b8%eb%a6%ac%ea%b3%a0-%eb%b2%84%ea%b7%b8%ea%b0%80-%ec%a4%84%ec%a4%84%ec%9d%b4" class="header-anchor">#</a>
+    🐛 그리고 버그가 줄줄이
+</h2><p>여기서부터 나흘 동안 UI 버그만 잡았음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">03-23 01:49  fix: show English book name in continue-reading card when English version active
+</span></span><span class="line"><span class="cl">03-23 01:54  fix: meditation page verse state, overlay close button, keyboard overlap, remove resume banner
+</span></span><span class="line"><span class="cl">03-23 10:13  fix: 5가지 UI 버그 수정
+</span></span><span class="line"><span class="cl">03-23 20:46  fix: 묵상 스크린 오버레이가 터치 이벤트를 차단하는 버그 수정
+</span></span><span class="line"><span class="cl">03-26 13:28  fix: 선택 모드 + 권 셀렉터 동시 오픈 시 오버플로우 수정
+</span></span><span class="line"><span class="cl">03-26 13:40  fix: 홈 화면 감사 무드 이모지 누락 수정
+</span></span><span class="line"><span class="cl">03-26 13:57  fix: 성경 설정 SegmentedButton 선택 상태 글씨색 흰색으로 수정
+</span></span><span class="line"><span class="cl">03-26 14:04  fix: 성경 설정 시트 배경색 명시해 텍스트 가독성 개선
+</span></span><span class="line"><span class="cl">03-26 14:22  fix: 성경 미리보기 overlay가 키보드 오픈 시 입력창 가리는 버그 수정
+</span></span><span class="line"><span class="cl">03-27 12:14  fix: 성경 글자 크기 설정이 본문/미리보기에 실제로 반영되도록 수정
+</span></span><span class="line"><span class="cl">03-27 17:47  fix: 성경 설정 시트 폰트 크기 확대 시 bottom overflow 수정
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>11개 중 7개가 설정 시트 하나에서 나왔음.</strong></p>
+<p>패턴이 보임.</p>
+<p><strong>1. 오버레이 겹침.</strong> 묵상 화면에서 구절 미리보기를 띄우면 <strong>키보드가 올라올 때 입력창을 가림.</strong>
+모바일에서 오버레이 + 키보드는 거의 항상 문제가 됨. 화면 높이가 실시간으로 바뀌는데 오버레이는 그걸 모름.</p>
+<p><strong>2. 터치 차단.</strong> 투명한 오버레이가 <strong>보이지도 않으면서 터치를 먹고 있었음.</strong>
+화면은 정상인데 버튼이 안 눌림. 제일 찾기 어려운 종류임.</p>
+<p><strong>3. 글자 크기가 반영이 안 됨.</strong> 설정에서 키우면 값은 바뀌는데 <strong>본문에 안 닿음.</strong>
+프로바이더까지는 갔는데 위젯이 그 값을 구독하지 않고 있었음.</p>
+<p><strong>4. 크기를 키우면 오버플로우.</strong> 반영되게 고쳤더니 이번엔 시트가 터짐.
+<code>01:44</code> 에서 고정 높이로 잡아둔 게 원인. 스크롤 가능하게 바꿈.</p>
+<h2 id="-이모지를-아이콘으로-바꿈">
+    <a href="#-%ec%9d%b4%eb%aa%a8%ec%a7%80%eb%a5%bc-%ec%95%84%ec%9d%b4%ec%bd%98%ec%9c%bc%eb%a1%9c-%eb%b0%94%ea%bf%88" class="header-anchor">#</a>
+    🎨 이모지를 아이콘으로 바꿈
+</h2><p>25일에 이걸 했음.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">refactor: replace emoji with Material Design icons throughout UI
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>무드 선택이나 빠른 진입 버튼에 이모지를 쓰고 있었음.</p>
+<p>이모지는 <strong>기기·OS 버전마다 그림이 다름.</strong> 같은 유니코드인데 안드로이드랑 iOS가 완전히 다르게 그림.
+디자인을 맞출 수가 없고, 폰트가 없으면 두부(□)가 나옴.</p>
+<p>실제로 <code>03-26 13:40</code> 에 &ldquo;감사 무드 이모지 누락&quot;이 있음. 아이콘으로 바꾼 뒤에도 한 군데가 남아 있었던 것.</p>
+<p>같은 날 이것도 같이 고침.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">fix: restrict debug logging to debug builds, fix quota API and notification settings parsing
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>디버그 로그가 릴리즈 빌드에도 찍히고 있었음.</strong> 토큰이나 응답 본문이 로그에 남음.
+<a class="link" href="https://dn5772.github.io/p/abide-4/" >#4</a>에서 민감 정보 마스킹한 거랑 같은 줄기인데, 이번엔 클라이언트 쪽이었음.</p>
+<h2 id="-느낀-점">
+    <a href="#-%eb%8a%90%eb%82%80-%ec%a0%90" class="header-anchor">#</a>
+    🎯 느낀 점
+</h2><p><strong>&ldquo;버전 하나 추가&quot;가 UI 버그 11개를 불렀음.</strong></p>
+<p>기능 자체는 반나절이면 되는데, 그게 건드리는 화면이 성경 인덱스·본문·설정 시트·묵상 화면·홈 카드까지 퍼져 있었음.
+<strong>옵션이 하나 늘면 조합이 곱으로 늘어난다</strong>는 걸 몸으로 배웠음.</p>
+<p>그리고 모바일에서 <strong>오버레이랑 키보드는 항상 의심</strong>해야 함. 11개 중 3개가 그거였음.</p>
+<p>다음은 스트리밍이랑 Observer 깊이 판정임. 이 시리즈에서 제일 오래 붙든 부분.</p>
+<p>#ABIDE #Flutter #UI #버그 #모바일</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/abide/">ABIDE</a>
+        
+            <a href="/tags/flutter/">Flutter</a>
+        
+            <a href="/tags/ui/">UI</a>
+        
+            <a href="/tags/%EB%B2%84%EA%B7%B8/">버그</a>
+        
+            <a href="/tags/%EB%8B%A4%EA%B5%AD%EC%96%B4/">다국어</a>
+        
+            <a href="/tags/%EB%AA%A8%EB%B0%94%EC%9D%BC/">모바일</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">관련 글</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/abide-8/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ABIDE 개발 일지 #8 - AI가 생성하는 말은 번역이 안 됨</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/abide-4/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ABIDE 개발 일지 #4 - 토큰을 SharedPreferences에서 꺼냈음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/abide-1/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ABIDE 개발 일지 #1 - Flutter 앱 뼈대를 한 번에 올렸음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/abide-7/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ABIDE 개발 일지 #7 - AI가 너무 빨리 &#39;깊어졌다&#39;고 판단했음</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/abide-5/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">ABIDE 개발 일지 #5 - 어드민 대시보드를 한 시간 반에 갈아엎음</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2026 대니짱
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.25.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
